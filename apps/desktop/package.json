@@ -4,6 +4,7 @@
   "private": true,
   "author": "帽子(Hat)",
   "description": "帽子的废墟图书馆编辑器",
+  "homepage": "https://github.com/ScienceMagic-Unification/HatLibraryOfRuinaEditor",
   "main": "./out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
