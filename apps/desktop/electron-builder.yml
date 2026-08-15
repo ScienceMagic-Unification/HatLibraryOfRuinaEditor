@@ -21,6 +21,7 @@ linux:
   icon: build/icon.png
   category: Utility
   maintainer: 帽子(Hat) <hat@users.noreply.github.com>
+  artifactName: ${productName}-${version}.${ext}
   target:
     - AppImage
     - deb
