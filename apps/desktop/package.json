@@ -1,6 +1,6 @@
 {
   "name": "@ruina/desktop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "author": "帽子(Hat)",
   "description": "帽子的废墟图书馆编辑器",
@@ -9,6 +9,7 @@
     "dev": "electron-vite dev",
     "build": "electron-vite build",
     "dist:win": "electron-vite build && electron-builder --win",
+    "dist:linux": "electron-vite build && electron-builder --linux",
     "start": "electron-vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json"
   },

@@ -1,6 +1,7 @@
 import { execFile } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
+import { homedir } from 'node:os'
 
 export interface ModInfo {
   name: string
@@ -29,6 +30,11 @@ function regQuery(args: string[]): Promise<string | null> {
 }
 
 export async function findSteamPath(): Promise<string | null> {
+  if (process.platform === 'linux') {
+    const home = homedir()
+    const candidates = [join(home, '.steam', 'steam'), join(home, '.local', 'share', 'Steam'), join(home, '.var', 'app', 'com.valvesoftware.Steam', '.local', 'share', 'Steam')]
+    return candidates.find((p) => existsSync(join(p, 'steamapps'))) ?? null
+  }
   const fromReg =
     (await regQuery(['HKLM\\SOFTWARE\\WOW6432Node\\Valve\\Steam', '/v', 'InstallPath'])) ??
     (await regQuery(['HKCU\\Software\\Valve\\Steam', '/v', 'SteamPath']))

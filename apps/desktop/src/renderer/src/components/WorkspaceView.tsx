@@ -43,6 +43,22 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
   )
   const dataDoc = primaryLang === '__none__' ? undefined : primaryDocs.find((d) => d.lang === primaryLang) ?? primaryDocs[0]
 
+  const nameLang = useAppStore((s) => s.primaryLang['cardname'])
+  const localizedNames = useMemo(() => {
+    if (module.id !== 'cardinfo') return undefined
+    if (nameLang === '__none__') return {}
+    const schema = { root: 'BattleCardDescRoot', containerPath: ['cardDescList'], entity: 'BattleCardDesc', idAttr: 'ID', fields: [] }
+    const nameDocs = Object.values(docs).filter((d) => d.bindings['cardname']?.kind === 'primary')
+    const doc = nameDocs.find((d) => d.lang === nameLang) ?? nameDocs.find((d) => d.lang === 'cn') ?? nameDocs[0]
+    if (!doc) return {}
+    const map: Record<string, string> = {}
+    for (const r of listEntities(doc.doc, schema)) {
+      const n = getTextField(r.node, 'LocalizedName')
+      if (n) map[r.id] = n
+    }
+    return map
+  }, [module.id, docs, nameLang])
+
   const accentLookup = useMemo(() => {
     const sourceId = module.entity.accentFromModuleId
     if (!sourceId) return undefined
@@ -233,7 +249,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
           gridTemplateColumns: `${module.entity.idOnlyList ? `max(300px, ${Math.min(480, Math.max(...refs.map((r) => r.id.length), 1) * 8 + 48)}px)` : '280px'} minmax(420px, 1fr) ${rightCol}`
         }}
       >
-        <DataPanel doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} />
+        <DataPanel doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} />
         <div className="flex h-full min-h-0 min-w-0 flex-col">
           <div className="min-h-0 flex-1 overflow-hidden">
             {viewMode === 'brief' ? (

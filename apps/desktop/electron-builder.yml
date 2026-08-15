@@ -17,4 +17,10 @@ win:
       arch:
         - x64
   artifactName: ${productName}-${version}-portable.${ext}
+linux:
+  icon: build/icon.png
+  category: Utility
+  target:
+    - AppImage
+    - deb
 compression: normal

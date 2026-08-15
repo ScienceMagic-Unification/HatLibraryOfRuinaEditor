@@ -8,6 +8,7 @@ import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import { rangeIconKey, rangeIconUrls } from '../lib/rangeIcons'
 import { diceIconUrl } from '../lib/diceIcons'
+import { joinPath } from '../lib/path'
 import { cardAccent } from '../lib/cardAccent'
 import { AbilityText } from './AbilityText'
 

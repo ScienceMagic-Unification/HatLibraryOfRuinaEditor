@@ -12,16 +12,19 @@ export function DataPanel({
   schema,
   selectedId,
   onSelect,
-  accentLookup
+  accentLookup,
+  localizedNames
 }: {
   doc: OrderedDoc
   schema: EntitySchema
   selectedId: string | null
   onSelect: (id: string) => void
   accentLookup?: (id: string) => string | undefined
+  localizedNames?: Record<string, string>
 }): JSX.Element {
   const { t } = useI18n()
   const [search, setSearch] = useState('')
+  const [useLocalized, setUseLocalized] = useState(false)
   const parentRef = useRef<HTMLDivElement>(null)
   const displayField = schema.displayField ?? 'Name'
   const idOnly = schema.idOnlyList === true
@@ -59,7 +62,23 @@ export function DataPanel({
       <div className="space-y-2 border-b border-border p-3">
         <div className="relative">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={idOnly ? t('search.idDesc') : t('search.idName')} className="pl-8" />
+          <div className="flex items-center gap-1.5">
+            <div className="relative min-w-0 flex-1">
+              <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={idOnly ? t('search.idDesc') : t('search.idName')} className="pl-8" />
+            </div>
+            {localizedNames ? (
+              <button
+                type="button"
+                onClick={() => setUseLocalized((v) => !v)}
+                className={`shrink-0 rounded-md border px-2 py-1 text-[11px] transition-colors ${
+                  useLocalized ? 'border-primary/60 bg-primary/15 text-primary' : 'border-border text-muted-foreground hover:bg-accent'
+                }`}
+              >
+                {t('list.localize')}
+              </button>
+            ) : null}
+          </div>
         </div>
         <div className="flex items-center justify-between text-[11px] text-muted-foreground">
           <span>
@@ -72,7 +91,7 @@ export function DataPanel({
         <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
           {virtualizer.getVirtualItems().map((v) => {
             const ref = filtered[v.index]
-            const name = displayText(ref.node)
+            const name = useLocalized && localizedNames?.[ref.id] ? localizedNames[ref.id] : displayText(ref.node)
             const rarityColor = accentLookup ? (accentLookup(ref.id) ?? '#ffffff') : cardAccent(ref.node)
             const active = ref.id === selectedId
             return (

@@ -24,6 +24,7 @@ import {
 import { modules as registryModules } from '@ruina/schemas'
 import { api, type DiscoveryResult, type FileInfo, type ModInfo } from './api'
 import { detectLang } from './lib/lang'
+import { joinPath } from './lib/path'
 
 export interface DiscoveredDataFile {
   path: string
@@ -560,7 +561,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     if (module.dataFiles?.length) {
       dataPaths.push(...module.dataFiles)
     } else if (module.dataFile) {
-      dataPaths.push(module.dataFile.includes('/') || module.dataFile.includes('\\') ? module.dataFile : `${modPath}\\Data\\${module.dataFile}`)
+      dataPaths.push(/^[a-zA-Z]:[\\/]/.test(module.dataFile) || module.dataFile.startsWith('/') ? module.dataFile : joinPath(modPath, 'Data', module.dataFile))
     } else if (module.dataRoot) {
       dataPaths.push(...get().dataFiles.filter((d) => d.root === module.dataRoot).map((d) => d.path))
     }
