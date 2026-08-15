@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@ruina/editor-core": ["../../packages/editor-core/src/index.ts"],
+      "@ruina/schemas": ["../../packages/schemas/src/index.ts"],
+      "@ruina/ui": ["../../packages/ui/src/index.ts"]
+    }
+  },
+  "include": [
+    "src/renderer/src/**/*",
+    "src/preload/index.d.ts",
+    "../../packages/editor-core/src/**/*",
+    "../../packages/schemas/src/**/*",
+    "../../packages/ui/src/**/*"
+  ]
+}

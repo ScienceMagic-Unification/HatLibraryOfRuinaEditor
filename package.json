@@ -1,0 +1,17 @@
+{
+  "name": "ruina-xml-editor",
+  "private": true,
+  "version": "0.1.0",
+  "description": "废墟图书馆 Mod XML 可视化编辑器",
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "dev": "pnpm --filter @ruina/desktop dev",
+    "build": "pnpm --filter @ruina/desktop build",
+    "start": "pnpm --filter @ruina/desktop start",
+    "test": "pnpm --filter @ruina/editor-core test",
+    "typecheck": "pnpm -r --if-present typecheck"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["electron", "esbuild"]
+  }
+}

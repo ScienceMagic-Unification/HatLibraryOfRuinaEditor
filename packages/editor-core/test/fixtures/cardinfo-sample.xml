@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiceCardXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version>1.1</Version>
+  <!-- 特殊/子弹 -->
+  <Card ID="1">
+    <Name>常规弹</Name>
+    <TextId>-1</TextId>
+    <Artwork>DreamUniverse_Ammo_Normal</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Far" Cost="0" Affection="One" EmotionLimit="0" />
+    <BehaviourList>
+      <Behaviour Min="1" Dice="1" Type="Atk" Detail="Penetrate" Motion="F" EffectRes="" Script="DreamUniverse_Ammo_Normal_Dice" ActionScript="" />
+    </BehaviourList>
+    <Chapter>-100514</Chapter>
+    <Priority>1</Priority>
+    <Option>NoInventory</Option>
+    <Keyword>onlypage_Test</Keyword>
+    <SpecialEffect />
+  </Card>
+  <Card ID="2">
+    <Name>狙击弹</Name>
+    <TextId>-1</TextId>
+    <Artwork>DreamUniverse_Ammo_Sniper</Artwork>
+    <Rarity>Rare</Rarity>
+    <Spec Range="Far" Cost="0" Affection="One" EmotionLimit="6" />
+    <BehaviourList>
+      <Behaviour Min="1" Dice="4" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" />
+    </BehaviourList>
+    <Chapter>-100514</Chapter>
+    <Priority>1</Priority>
+    <Option>NoInventory</Option>
+    <Option>OnlyPage</Option>
+  </Card>
+</DiceCardXmlRoot>

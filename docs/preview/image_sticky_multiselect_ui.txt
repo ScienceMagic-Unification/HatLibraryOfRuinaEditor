@@ -1,0 +1,138 @@
+废墟图书馆 XML 编辑器
+LoR Mod XML Editor · 原型 v0.1
+梦幻宇宙
+浏览…
+中文
+开启帽子奇点
+全部保存
+工作区
+书页
+战斗书页
+书页名称
+书页能力
+图片
+书页图片
+buff图标
+其他图片
+书页图片
+D:\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Mods\梦幻宇宙\Resource\CombatPageArtwork
+手动重定向
+批量删除 (1)
+共 131 张
+拖拽图片到此处导入
+PNG / JPG / WEBP / GIF
+导入
+1
+283.6 KB
+✓
+Burning Flash
+281.9 KB
+DreamUniverse_FullStopOffice_Card01
+138.6 KB
+DreamUniverse_FullStopOffice_Card02
+146.2 KB
+DreamUniverse_FullStopOffice_Card03
+136.3 KB
+DreamUniverse_FullStopOffice_Card04
+180.1 KB
+DreamUniverse_FullStopOffice_Card05
+164.8 KB
+DreamUniverse_FullStopOffice_Card06
+204.5 KB
+DreamUniverse_FullStopOffice_Card07
+180.8 KB
+DreamUniverse_FullStopOffice_Card08
+140.6 KB
+DreamUniverse_FullStopOffice_Card09
+145.0 KB
+DreamUniverse_FullStopOffice_Liwei_Card01
+181.6 KB
+DreamUniverse_FullStopOffice_Stephan_Card01
+230.9 KB
+DreamUniverse_FullStopOffice_Tamaki_Card01
+131.1 KB
+DreamUniverse_Index_Card01
+123.8 KB
+DreamUniverse_Index_Card02
+108.8 KB
+DreamUniverse_Index_Card03
+95.7 KB
+DreamUniverse_Index_Card04
+115.2 KB
+DreamUniverse_Index_Card05
+107.8 KB
+DreamUniverse_Index_Card06
+247.1 KB
+DreamUniverse_Index_Card07
+300.6 KB
+DreamUniverse_Index_Card08
+138.0 KB
+DreamUniverse_Index_Card09
+262.4 KB
+DreamUniverse_Index_Card10
+90.1 KB
+DreamUniverse_Index_Card11
+316.4 KB
+DreamUniverse_Index_Esther_Card01
+320.7 KB
+DreamUniverse_Index_Gloria_Card01
+299.5 KB
+DreamUniverse_Index_Hubert_Card01
+282.5 KB
+DreamUniverse_InkPinion_Armguard_Form
+164.8 KB
+DreamUniverse_InkPinion_Armguard
+164.8 KB
+DreamUniverse_InkPinion_Axe_Form
+154.4 KB
+DreamUniverse_InkPinion_Axe
+154.4 KB
+DreamUniverse_InkPinion_Bow_Form
+546.3 KB
+DreamUniverse_InkPinion_Bow
+546.3 KB
+DreamUniverse_InkPinion_Crossbow_Form
+153.1 KB
+DreamUniverse_InkPinion_Crossbow
+153.1 KB
+DreamUniverse_InkPinion_Crow
+304.3 KB
+DreamUniverse_InkPinion_Hammer_Form
+157.8 KB
+DreamUniverse_InkPinion_Hammer
+157.8 KB
+DreamUniverse_InkPinion_Return
+127.8 KB
+DreamUniverse_InkPinion_Shield_Form
+152.6 KB
+DreamUniverse_InkPinion_Shield
+152.6 KB
+DreamUniverse_InkPinion_Spear_Form
+141.6 KB
+DreamUniverse_InkPinion_Spear
+141.6 KB
+DreamUniverse_InkPinion_Sword_Form
+145.4 KB
+DreamUniverse_InkPinion_Sword
+145.4 KB
+DreamUniverse_InkPinion_TwinSwords_Form
+544.2 KB
+DreamUniverse_InkPinion_TwinSwords
+544.2 KB
+DreamUniverse_InkPinion_Weapon
+420.8 KB
+DreamUniverse_LCorpEGO_MagicBullet_Card01
+186.6 KB
+DreamUniverse_LCorpEGO_MagicBullet_Card02
+198.2 KB
+DreamUniverse_LCorpEGO_MagicBullet_Card03
+222.4 KB
+DreamUniverse_LCorpEGO_MagicBullet_Card04
+230.2 KB
+DreamUniverse_LCorpEGO_MagicBullet_Card05
+1014.2 KB
+DreamUniverse_SevenAssociation_South_Card01
+1.6 MB
+DreamUniverse_SevenAssociation_South_Card02
+158.8 KB
+STICKY_TEST cards=56 batchBtn= 批量删除 (1) nameClass=whitespace-normal break-words text-xs font-medium leading-snug nameHasTruncate=false

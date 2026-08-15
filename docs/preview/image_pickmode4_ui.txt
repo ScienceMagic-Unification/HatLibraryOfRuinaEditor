@@ -1,0 +1,136 @@
+废墟图书馆 XML 编辑器
+LoR Mod XML Editor · 原型 v0.1
+TianShi
+浏览…
+中文
+开启帽子奇点
+全部保存
+工作区
+书页
+战斗书页
+书页名称
+书页能力
+图片
+书页图片
+buff图标
+其他图片
+书页图片
+D:\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Mods\TianShi\Resource\CombatPageArtwork
+手动重定向
+请选择一张图片回填到「Artwork」
+返回
+共 55 张
+拖拽图片到此处导入
+PNG / JPG / WEBP / GIF
+导入
+BinahSpecialCard
+256.1 KB
+EgoHuangCard1
+679.9 KB
+EgoHuangCard2
+653.8 KB
+EgoHuangCard3
+666.6 KB
+EgoHuangCard4
+722.8 KB
+hei01
+199.6 KB
+hei02
+139.8 KB
+hei03
+194.5 KB
+hei04
+163.4 KB
+hei05
+206.5 KB
+hei06
+145.9 KB
+hei07
+207.8 KB
+Huang01
+277.2 KB
+Huang02
+194.7 KB
+Huang03
+794.2 KB
+Huang04
+745.6 KB
+Huang05
+722.7 KB
+Huang06
+594.2 KB
+Huang07
+618.4 KB
+Huang08
+666.6 KB
+Huang09
+597.6 KB
+Huang10
+574.9 KB
+messenger01
+178.5 KB
+messenger02
+188.8 KB
+messenger03
+166.8 KB
+messenger04
+180.4 KB
+messenger05
+159.3 KB
+messenger06
+175.6 KB
+messenger07
+261.4 KB
+PieceAttack1
+852.1 KB
+PieceAttack2
+814.3 KB
+PieceAttack3
+799.1 KB
+Sai01
+215.5 KB
+Sai02
+234.9 KB
+Sai03
+245.6 KB
+Sai04
+231.4 KB
+Sai05
+224.8 KB
+Sai06
+298.7 KB
+T
+79.0 KB
+TwistHuang01
+548.0 KB
+TwistHuang02
+635.0 KB
+TwistHuang03
+822.6 KB
+TwistHuang04
+639.8 KB
+TwistHuang05
+638.8 KB
+TwistHuang06
+626.3 KB
+TwistHuang07
+607.8 KB
+TwistHuang08
+532.3 KB
+TwistHuang09
+868.7 KB
+TwistHuang10
+475.9 KB
+TwistHuang11
+674.3 KB
+TwistHuang12
+582.9 KB
+TwistHuang13
+590.6 KB
+WhiteQueen1
+647.0 KB
+WhiteQueen2
+978.2 KB
+Zhen
+208.4 KB
+PICK4 burningFound=false selected=0 total=55 burningCls=NONE
