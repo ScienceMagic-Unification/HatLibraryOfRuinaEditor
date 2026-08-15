@@ -1,3 +1,5 @@
+纯AI仓库
+
 # 废墟图书馆 XML 编辑器（原型 v0.1）
 
 为《废墟图书馆》(Library of Ruina) Mod 开发打造的可视化 XML 编辑器。
