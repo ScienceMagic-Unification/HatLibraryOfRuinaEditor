@@ -152,22 +152,51 @@ async function scanMod(modPath: string): Promise<{
     }
   }
 
-  const locPaths = await api.listFilesByGlobs(modPath, ['Assemblies/Localize/**/*.xml', 'Assemblies/Localize/**/*.txt'])
+    const locCandidates = await api.listFilesByGlobs(modPath, ['**/*.xml', '**/*.txt'])
   const localizeFiles: DiscoveredLocalizeFile[] = []
   const inferredLoc = new Map<string, EntitySchema>()
-  for (const path of locPaths) {
+  const LANG_SEG = /(^|[\\/])(cn|zh|chs|cht|en|jp|ja|ko|kr|ru|de|fr|es|pt|trcn)([\\/]|$)/i
+  for (const path of locCandidates) {
+    const rel = path.slice(modPath.length).replace(/\\/g, '/').replace(/^\/+/, '').toLowerCase()
+    const hasLocalizeSeg = /(^|[\\/])localize([\\/]|$)/i.test(rel)
+    const langSeg = LANG_SEG.test(rel)
+    const excluded = !hasLocalizeSeg && /^(data|resource|artwork|char|bufficon|assemblies)[\\/]/.test(rel)
+    if (excluded) continue
+    if (!hasLocalizeSeg && !langSeg) continue
     try {
       const text = await api.readTextFile(path)
       const doc = parseXml(text)
       const root = findRootName(doc)
+      if (!root || KNOWN_DATA_ROOTS.has(root)) continue
       const lang = detectLang(path, text)
       localizeFiles.push({ path, root, lang: lang.lang, label: lang.label })
-      if (root && !KNOWN_LOC_ROOTS.has(root) && !inferredLoc.has(root)) {
+      if (!KNOWN_LOC_ROOTS.has(root) && !inferredLoc.has(root)) {
         const schema = inferEntitySchema(doc, root)
         if (schema) inferredLoc.set(root, schema)
       }
     } catch {
-      localizeFiles.push({ path, root: null, lang: 'unknown', label: '未知语言' })
+      // 无法解析的文件跳过，不阻塞整体扫描
+    }
+  }
+
+  // 第三层兜底：目录名没有 Localize / 语言段时，按根节点识别
+  for (const path of locCandidates) {
+    if (localizeFiles.some((f) => f.path === path)) continue
+    const rel = path.slice(modPath.length).replace(/\\/g, '/').replace(/^\/+/, '').toLowerCase()
+    if (/^(data|resource|artwork|char|bufficon|assemblies)[\\/]/.test(rel)) continue
+    try {
+      const text = await api.readTextFile(path)
+      const doc = parseXml(text)
+      const root = findRootName(doc)
+      if (!root || !KNOWN_LOC_ROOTS.has(root)) continue
+      const lang = detectLang(path, text)
+      localizeFiles.push({ path, root, lang: lang.lang, label: lang.label })
+      if (!inferredLoc.has(root)) {
+        const schema = inferEntitySchema(doc, root)
+        if (schema) inferredLoc.set(root, schema)
+      }
+    } catch {
+      // 跳过无法解析的文件
     }
   }
 
