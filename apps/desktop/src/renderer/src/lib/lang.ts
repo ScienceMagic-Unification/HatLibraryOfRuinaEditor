@@ -1,3 +1,9 @@
+export function editorLangToDocLang(editorLang: string): string {
+  if (editorLang === 'en') return 'en'
+  if (editorLang === 'jp') return 'jp'
+  return 'cn'
+}
+
 export interface LangInfo {
   lang: string
   label: string
@@ -11,12 +17,15 @@ export function detectLang(path: string, text: string): LangInfo {
   const p = path.toLowerCase()
   const named: Array<[RegExp, string, string]> = [
     [/(?:\\|\/)cn(?:\\|\/|_|-|\.)/, 'cn', '简体中文'],
+    [/(?:[._-])(cn|zh|chs)(?:\.[^\\/]*$|$)/i, 'cn', '简体中文'],
     [/(?:\\|\/)zh(?:\\|\/|_|-|\.)/, 'cn', '简体中文'],
     [/\.(cn|zh|chs)\./, 'cn', '简体中文'],
     [/(?:\\|\/)en(?:\\|\/|_|-|\.)/, 'en', 'English'],
+    [/(?:[._-])(en)(?:\.[^\\/]*$|$)/i, 'en', 'English'],
     [/\.en\./, 'en', 'English'],
-    [/(?:\\|\/)jp(?:\\|\/|_|-|\.)/, 'ja', '日本語'],
-    [/(?:\\|\/)ja(?:\\|\/|_|-|\.)/, 'ja', '日本語'],
+    [/(?:\\|\/)jp(?:\\|\/|_|-|\.)/, 'jp', '日本語'],
+    [/(?:\\|\/)ja(?:\\|\/|_|-|\.)/, 'jp', '日本語'],
+    [/(?:[._-])(jp|ja)(?:\.[^\\/]*$|$)/i, 'ja', '日本語'],
     [/(?:\\|\/)ko(?:\\|\/|_|-|\.)/, 'ko', '한국어'],
     [/(?:\\|\/)kr(?:\\|\/|_|-|\.)/, 'ko', '한국어'],
     [/(?:\\|\/)ru(?:\\|\/|_|-|\.)/, 'ru', 'Русский'],

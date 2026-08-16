@@ -7,6 +7,7 @@ import {
   importImageFile,
   listFilesByGlobs,
   listImages,
+  listImagesRecursive,
   listXmlFiles,
   readAssetAsDataUrl,
   readTextFile,
@@ -50,10 +51,10 @@ export function registerIpc(): void {
   })
 
   ipcMain.handle('dialog:pick-directory', async (_e, modPath: unknown) => {
-    const root = resolve(requireString(modPath, 'modPath'), 'Resource')
+    const root = resolve(requireString(modPath, 'modPath'))
     const r = await dialog.showOpenDialog({
       title: '选择 Mod 资源目录',
-      defaultPath: root,
+      defaultPath: resolve(requireString(modPath, 'modPath')),
       properties: ['openDirectory']
     })
     if (r.canceled || r.filePaths.length === 0) return null
@@ -100,6 +101,10 @@ export function registerIpc(): void {
 
   ipcMain.handle('fs:list-images', async (_e, dir: unknown) => {
     return listImages(requireString(dir, 'dir'))
+  })
+
+  ipcMain.handle('fs:list-images-recursive', async (_e, dir: unknown) => {
+    return listImagesRecursive(requireString(dir, 'dir'))
   })
 
   ipcMain.handle('fs:import-image', async (_e, dir: unknown, srcPath: unknown) => {

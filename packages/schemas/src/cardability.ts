@@ -15,7 +15,7 @@ export const cardAbilityModule: ModuleDefinition = {
     idAttr: 'ID',
     idOnlyList: true,
     quickFields: ['Desc'],
-    fields: [{ kind: 'multiline', name: 'Desc', label: '能力描述', required: true, multiLineElements: true }]
+    fields: [{ kind: 'multiline', name: 'Desc', label: '能力描述', multiLineElements: true }]
   },
   localizeRoots: [
     {

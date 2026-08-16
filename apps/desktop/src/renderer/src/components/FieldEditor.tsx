@@ -7,6 +7,7 @@ import { resolveIconUrl } from '../lib/rangeIcons'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import { AutocompleteInput } from './AutocompleteInput'
+import { AutoTextarea } from './AutoTextarea'
 
 function FieldLabel({ label, required, help }: { label: string; required?: boolean; help?: string }): JSX.Element {
   return (
@@ -106,7 +107,7 @@ function ScalarEditor({
     )
   }
   if (field.kind === 'multiline') {
-    return <Textarea value={value} onChange={(e) => onChange(e.target.value)} rows={4} />
+    return <AutoTextarea value={value} onChange={onChange} rows={4} />
   }
   if (field.kind === 'text' && field.autocomplete) {
     return (
@@ -154,7 +155,7 @@ export function FieldEditor({
       const record = (value ?? {}) as Record<string, string>
       return (
         <div className="space-y-2 rounded-md border border-border/70 bg-secondary/20 p-3">
-          <div className="text-xs font-medium text-muted-foreground">{field.label ?? field.name}</div>
+          <div className="text-xs font-medium text-muted-foreground">{showIds ? field.name : tl(field.label ?? field.name)}</div>
           <div className="grid grid-cols-2 gap-x-3 gap-y-2">
             {field.attrs.map((a) => (
               <div key={a.name} className="space-y-1">
@@ -202,10 +203,24 @@ export function FieldEditor({
           </div>
         )
       }
-      return <MultiTextInput values={values} onChange={onChange} placeholder={field.label ?? field.name} />
+      return <MultiTextInput values={values} onChange={onChange} placeholder={tl(field.label ?? field.name)} />
     }
 
-    case 'marker':
+    case 'bool':
+      return (
+        <button
+          type="button"
+          onClick={() => onChange(!Boolean(value))}
+          className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
+            value ? 'bg-accent/60 text-foreground' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'
+          }`}
+          style={value && accentColor ? { borderColor: accentColor, color: accentColor, backgroundColor: accentColor + '26' } : undefined}
+        >
+          {showIds ? field.name : tl(field.label ?? field.name)}
+        </button>
+      )
+
+        case 'marker':
       return (
         <label className="flex cursor-pointer items-center gap-2 rounded-md border border-border/70 bg-secondary/20 px-3 py-2">
           <input
@@ -214,7 +229,7 @@ export function FieldEditor({
             onChange={(e) => onChange(e.target.checked)}
             className="size-4 accent-[hsl(var(--primary))]"
           />
-          <span className="text-sm">{field.label ?? field.name}</span>
+          <span className="text-sm">{tl(field.label ?? field.name)}</span>
         </label>
       )
 
@@ -348,6 +363,7 @@ function MultiTextInput({
   onChange: (v: string[]) => void
   placeholder?: string
 }): JSX.Element {
+  const { t } = useI18n()
   const [draft, setDraft] = useState('')
   const add = () => {
     const v = draft.trim()
@@ -370,7 +386,7 @@ function MultiTextInput({
           placeholder={placeholder}
         />
         <Button size="sm" variant="secondary" onClick={add}>
-          <Plus /> 添加
+          <Plus /> {t('addItem')}
         </Button>
       </div>
       <div className="flex flex-wrap gap-1.5">

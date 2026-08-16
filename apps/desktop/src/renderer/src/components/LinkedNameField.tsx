@@ -26,7 +26,8 @@ export function LinkedNameField({
 }): JSX.Element {
   const { t } = useI18n()
   const docs = useAppStore((s) => s.docs)
-  const nameLang = useAppStore((s) => s.primaryLang['cardname'])
+  const locWorkspaceId = module.id === 'cardinfo' ? 'cardname' : module.id === 'passive' ? 'passiveability' : module.id
+  const nameLang = useAppStore((s) => s.primaryLang[locWorkspaceId])
   const editDoc = useAppStore((s) => s.editDoc)
 
   const locDef = useMemo(
@@ -34,6 +35,7 @@ export function LinkedNameField({
     [module]
   )
   const locFieldName = locDef?.fields.find((f) => f.name === 'LocalizedName' || f.name === 'Name')?.name
+  const linked = Boolean(module.dataRoot && locDef)
 
   const nameDoc = useMemo(() => {
     if (!locDef) return undefined
@@ -58,6 +60,15 @@ export function LinkedNameField({
       const hit = refs.find((r) => r.id === entity.id)
       if (hit) setTextField(hit.node, locFieldName, v)
     })
+  }
+
+  if (!linked) {
+    return (
+      <div className="space-y-1">
+        <div className="text-xs font-medium leading-none text-muted-foreground">{t('name')}</div>
+        <Input value={value} onChange={(e) => onValueChange(e.target.value)} />
+      </div>
+    )
   }
 
   return (

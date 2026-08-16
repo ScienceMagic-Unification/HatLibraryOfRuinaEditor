@@ -15,6 +15,7 @@ export function ImageCard({
   picking,
   usageCount,
   showUsage,
+  square,
   onSelect,
   onDelete,
   onRename
@@ -24,6 +25,7 @@ export function ImageCard({
   picking: boolean
   usageCount: number
   showUsage: boolean
+  square?: boolean
   onSelect: (asset: ImageAssetInfo, e: React.MouseEvent) => void
   onDelete: (asset: ImageAssetInfo) => void
   onRename: (asset: ImageAssetInfo) => void
@@ -41,6 +43,24 @@ export function ImageCard({
       alive = false
     }
   }, [asset.path])
+
+  if (square) {
+    return (
+      <div
+        className={`group relative flex cursor-pointer flex-col items-center rounded-md border bg-card transition-colors ${
+          selected ? 'border-primary/70 bg-primary/10' : 'border-border hover:border-primary/40 hover:bg-accent/40'
+        }`}
+        onClick={(e) => onSelect(asset, e)}
+      >
+        <div className="flex size-16 items-center justify-center overflow-hidden">
+          {thumb ? <img src={thumb} alt={asset.name} className="size-full object-contain p-1" draggable={false} /> : <ImageOff className="size-6 opacity-40" />}
+        </div>
+        <div className="w-full whitespace-normal break-words px-1 pb-1 text-center text-[9px] leading-tight text-muted-foreground" title={asset.name}>
+          {asset.name}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div

@@ -4,12 +4,13 @@ import { listEntities, getFieldValue } from './document'
 
 function validateScalar(
   value: string | undefined,
-  field: Extract<FieldDef, { kind: 'text' | 'int' | 'enum' | 'multiline' }>,
+  field: Extract<FieldDef, { kind: 'text' | 'int' | 'enum' | 'multiline' | 'bool' }>,
   issues: ValidationIssue[],
   ctx: { entityId: string; entityIndex: number; prefix?: string }
 ): void {
   const v = value ?? ''
   const label = field.label ?? field.name
+  if (field.kind === 'bool') return
   if (field.kind === 'int') {
     if (v !== '' && !/^-?\d+$/.test(v)) {
       issues.push({ ...ctx, field: ctx.prefix ? `${ctx.prefix}.${field.name}` : field.name, message: `字段「${label}」必须是整数，当前值为「${v}」`, severity: 'error' })

@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BattleEffectTextRootExtra xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <extraTextList>
+
+<!-- 增益 ===============================-->
+	<BattleEffectTextExtra ID="Strength">
+	  <RecognizeName>强壮</RecognizeName>
+      <KeywordIconId>Strength</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Strength_Keyword">
+      <KeywordIconId>Strength</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Endurance">
+	  <RecognizeName>忍耐</RecognizeName>
+      <KeywordIconId>Endurance</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Endurance_Keyword">
+      <KeywordIconId>Endurance</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>	
+	
+	<BattleEffectTextExtra ID="Quickness">
+	  <RecognizeName>迅捷</RecognizeName>
+      <KeywordIconId>Quickness</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Quickness_Keyword">
+      <KeywordIconId>Quickness</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Protection">
+	  <RecognizeName>守护</RecognizeName>
+      <KeywordIconId>Protection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Protection_Keyword">
+      <KeywordIconId>Protection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="BreakProtection">
+	  <RecognizeName>振奋</RecognizeName>
+      <KeywordIconId>BreakProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="BreakProtection_Keyword">
+      <KeywordIconId>BreakProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="DmgUp">
+	  <RecognizeName>伤害强化</RecognizeName>
+      <KeywordIconId>DmgUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="SlashPowerUp">
+	  <RecognizeName>斩击威力提升</RecognizeName>
+      <KeywordIconId>SlashPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="PenetratePowerUp">
+	  <RecognizeName>突刺威力提升</RecognizeName>
+      <KeywordIconId>PenetratePowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>	  	  
+    </BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="HitPowerUp">
+	  <RecognizeName>打击威力提升</RecognizeName>
+      <KeywordIconId>HitPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+	
+<!-- 伪增益 ==== -->
+	
+	<BattleEffectTextExtra ID="SweepersSkill">
+	  <RecognizeName>坚韧</RecognizeName>
+      <KeywordIconId>SweepersSkill</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	
+	<BattleEffectTextExtra ID="WarpCharge">
+	  <RecognizeName>充能</RecognizeName>
+      <KeywordIconId>WarpCharge</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Resistance_simple">
+	  <RecognizeName>抵御</RecognizeName>
+      <KeywordIconId></KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Vibrate_Re">
+	  <!-- <RecognizeName>震颤</RecognizeName> （与可能存在的震颤mod冲突）--> 
+      <KeywordIconId>Vibrate</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="OnlyOne_Keyword">
+	  <RecognizeName>独一</RecognizeName>
+      <KeywordIconId>OnlyOne</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="IndexRelease">
+	  <RecognizeName>剑刃解放</RecognizeName>
+      <KeywordIconId>IndexRelease</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+	
+
+<!-- 负面 ===============================-->	
+
+	<BattleEffectTextExtra ID="Weak">
+	  <RecognizeName>虚弱</RecognizeName>
+      <KeywordIconId>Weak</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Weak_Keyword">
+      <KeywordIconId>Weak</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Disarm">
+	  <RecognizeName>破绽</RecognizeName>
+      <KeywordIconId>Disarm</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Disarm_Keyword">
+      <KeywordIconId>Disarm</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Vulnerable">
+	  <RecognizeName>易损</RecognizeName>
+      <KeywordIconId>Vulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Vulnerable_Keyword">
+      <KeywordIconId>Vulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Binding">
+	  <RecognizeName>束缚</RecognizeName>
+      <KeywordIconId>Binding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Binding_Keyword">
+      <KeywordIconId>Binding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Burn">
+	  <RecognizeName>烧伤</RecognizeName>
+      <KeywordIconId>Burn</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Burn_Keyword">
+      <KeywordIconId>Burn</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Paralysis">
+	  <RecognizeName>麻痹</RecognizeName>
+      <KeywordIconId>Paralysis</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Paralysis_Keyword">
+      <KeywordIconId>Paralysis</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Bleeding">
+	  <RecognizeName>流血</RecognizeName>
+      <KeywordIconId>Bleeding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Bleeding_Keyword">
+      <KeywordIconId>Bleeding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="BinahFairy">
+	  <RecognizeName>妖灵</RecognizeName>
+      <KeywordIconId>BinahFairy</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Fairy_Keyword">
+      <KeywordIconId>BinahFairy</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Decay">
+	  <RecognizeName>腐蚀</RecognizeName>
+      <KeywordIconId>Decay</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+
+	<BattleEffectTextExtra ID="Butterfly_Seal">
+      <KeywordIconId>Butterfly_Seal</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+	
+<!-- 伪负面 ==== -->
+
+	<BattleEffectTextExtra ID="Stun">
+	  <RecognizeName>眩晕</RecognizeName>
+	  <KeywordIconId>Stun</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="ForbidRecovery">
+	  <RecognizeName>禁疗</RecognizeName>
+	  <KeywordIconId>ForbidRecovery</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="NullifyPower">
+	  <RecognizeName>威力无效</RecognizeName>
+	  <KeywordIconId>NullifyPower</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+	
+<!-- 中性 ===============================-->	
+
+	<BattleEffectTextExtra ID="Smoke">
+	  <RecognizeName>烟气</RecognizeName>
+	  <KeywordIconId>Smoke</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+	<BattleEffectTextExtra ID="Smoke_Keyword">
+	  <KeywordIconId>Smoke</KeywordIconId>
+      <Color>yellow</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>	
+	
+	<BattleEffectTextExtra ID="NicolaiTarget">
+	  <RecognizeName>集火</RecognizeName>
+	  <KeywordIconId>NicolaiTarget</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+<!-- 特殊 ===============================-->	
+	
+	<BattleEffectTextExtra ID="RedMist">
+	  <RecognizeName>血雾</RecognizeName>
+	  <KeywordIconId>RedMist</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_RedMist">
+	  <RecognizeName>殷红迷雾E.G.O</RecognizeName>
+	  <KeywordIconId>RedMistEgo</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Origin_PositiveEmotion">
+	  <Name>正面情感</Name>
+	  <RecognizeName>正面情感</RecognizeName>
+	  <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_NegativeEmotion">
+	  <Name>负面情感</Name>
+	  <RecognizeName>负面情感</RecognizeName>
+	  <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_EmotionLevel">
+	  <Name>情感等级</Name>
+	  <RecognizeName>情感等级</RecognizeName>
+	  <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Ego">
+	  <Name>E.G.O</Name>
+	  <RecognizeName>E.G.O</RecognizeName>
+	  <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Card">
+      <Name>书页</Name>
+	  <KeywordIconId>Card</KeywordIconId>
+	  <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Dice">
+      <Name>骰子</Name>
+	  <KeywordIconId>Dice</KeywordIconId>
+	  <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Origin_PlayPoint">
+      <Name>光芒</Name>
+	  <KeywordIconId>PlayPoint</KeywordIconId>
+	  <Color>#FFF6BB</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Origin_HP">
+      <Name>体力</Name>
+	  <KeywordIconId>HP</KeywordIconId>
+	  <Color>#E46034</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Origin_BP">
+      <Name>混乱抗性</Name>
+	  <KeywordIconId>BP</KeywordIconId>
+	  <Color>#F0F464</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Origin_Speed">
+	  <Name>速度</Name>
+	  <KeywordIconId>Speed</KeywordIconId>
+	  <Color>#D7BE8B</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Origin_Range_Near">
+	  <Name>近战</Name>
+	  <KeywordIconId>Range_Near</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+	
+	<BattleEffectTextExtra ID="Origin_Range_Far">
+	  <Name>远程</Name>
+	  <KeywordIconId>Range_Far</KeywordIconId>
+	  <Color>#FFC67C</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsUnderline>true</IsUnderline>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Range_Special">
+	  <Name>先制近战</Name>
+	  <KeywordIconId>Range_Special</KeywordIconId>
+	  <Color>#FFC67C</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsUnderline>true</IsUnderline>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Range_Instance">
+	  <Name>装备</Name>
+	  <KeywordIconId>Range_Instance</KeywordIconId>
+	  <Color>#FFC67C</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsUnderline>true</IsUnderline>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Range_FarArea">
+	  <Name>群体攻击</Name>
+	  <KeywordIconId>Range_FarArea</KeywordIconId>
+	  <Color>#FFC67C</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsUnderline>true</IsUnderline>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Dice_SlashAtk">
+	  <KeywordIconId>Dice_SlashAtk</KeywordIconId>
+	  <Color>#FF430A</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>		
+	<BattleEffectTextExtra ID="Origin_Dice_PenetrateAtk">
+	  <KeywordIconId>Dice_PenetrateAtk</KeywordIconId>
+	  <Color>#FF430A</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="Origin_Dice_HitAtk">
+	  <KeywordIconId>Dice_HitAtk</KeywordIconId>
+	  <Color>#FF430A</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="Origin_Dice_GuardDef">
+	  <KeywordIconId>Dice_GuardDef</KeywordIconId>
+	  <Color>#03BBFF</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="Origin_Dice_EvasionDef">
+	  <KeywordIconId>Dice_EvasionDef</KeywordIconId>
+	  <Color>#03BBFF</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+
+	<BattleEffectTextExtra ID="Origin_Dice_SlashStandby">
+	  <KeywordIconId>Dice_SlashStandby</KeywordIconId>
+	  <Color>#FFBF06</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="Origin_Dice_PenetrateStandby">
+	  <KeywordIconId>Dice_PenetrateStandby</KeywordIconId>
+	  <Color>#FFBF06</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="Origin_Dice_HitStandby">
+	  <KeywordIconId>Dice_HitStandby</KeywordIconId>
+	  <Color>#FFBF06</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="Origin_Dice_GuardStandby">
+	  <KeywordIconId>Dice_GuardStandby</KeywordIconId>
+	  <Color>#FFBF06</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="Origin_Dice_EvasionStandby">
+	  <KeywordIconId>Dice_EvasionStandby</KeywordIconId>
+	  <Color>#FFBF06</Color>
+	  <HasBracket>true</HasBracket>
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+
+
+	
+	<!-- Extra ===============================-->
+
+	<BattleEffectTextExtra ID="Exhaust_Keyword">
+	  <KeywordIconId>Exhaust</KeywordIconId>
+	  <Color>#FFC67C</Color>
+	  <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="ExhaustOnUse_Keyword">
+	  <RecognizeName>佚亡</RecognizeName>
+	  <KeywordIconId>Exhaust</KeywordIconId>
+	  <Color>#FFC67C</Color>
+	  <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+	  <IsChangeAbility>true</IsChangeAbility>
+	  <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+	</BattleEffectTextExtra>
+	  
+	<BattleEffectTextExtra ID="Recover_Keyword">
+	  <KeywordIconId>Recover</KeywordIconId>
+	  <IsChangeSelf>true</IsChangeSelf>
+	</BattleEffectTextExtra>
+	<BattleEffectTextExtra ID="RecoverBreak_Keyword">
+	  <KeywordIconId>RecoverBreak</KeywordIconId>
+	  <IsChangeSelf>true</IsChangeSelf>
+	</BattleEffectTextExtra>
+
+	
+  </extraTextList>
+</BattleEffectTextRootExtra>

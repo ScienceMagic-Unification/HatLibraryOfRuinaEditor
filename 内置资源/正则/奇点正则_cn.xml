@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BattleEffectTextRootExtra xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <extraTextList>
+
+    <BattleEffectTextExtra ID="Hat_HpShield">
+      <Name>护盾</Name>
+      <RecognizeName>Hat护盾</RecognizeName>
+      <Desc>可抵御等量伤害
+至多拥有(~HatKeyword id="Origin_HP"/~)上限点</Desc>
+      <KeywordIconId>Hat_HpShield</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_BpShield">
+      <Name>精神屏障</Name>
+      <RecognizeName>Hat精神屏障</RecognizeName>
+      <Desc>可抵御等量混乱伤害
+至多拥有(~HatKeyword id="Origin_BP"/~)上限点</Desc>
+      <KeywordIconId>Hat_BpShield</KeywordIconId>
+      <Color>#F715E6</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>  
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>
+      
+    <BattleEffectTextExtra ID="Hat_HpDebt">
+      <Name>重伤</Name>
+      <RecognizeName>Hat重伤</RecognizeName>
+      <Desc>可抵消等量体力恢复效果
+至多拥有(~HatKeyword id="Origin_HP"/~)上限点</Desc>
+      <KeywordIconId>Hat_HpDebt</KeywordIconId>
+      <Color>#319350</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_BpDebt">
+      <Name>崩溃</Name>
+      <RecognizeName>Hat崩溃</RecognizeName>
+      <Desc>可抵消等量混乱抗性恢复效果
+至多拥有(~HatKeyword id="Origin_BP"/~)上限点</Desc>
+      <KeywordIconId>Hat_BpDebt</KeywordIconId>
+      <Color>#1A8F95</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>  
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	 
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+        
+    
+    <BattleEffectTextExtra ID="DmgDown">
+      <Name>伤害弱化</Name>
+      <RecognizeName>Hat伤害弱化</RecognizeName>
+      <Desc>这一幕中“进攻型”骰子伤害-{0}</Desc>
+      <KeywordIconId>DmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>		
+    <BattleEffectTextExtra ID="DmgDown_Keyword">
+      <Name>伤害弱化 X</Name>
+      <Desc>这一幕中“进攻型”骰子伤害-X</Desc>
+      <KeywordIconId>DmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+ 
+    <BattleEffectTextExtra ID="BreakDmgUp">
+      <Name>混乱伤害强化</Name>
+      <RecognizeName>Hat混乱伤害强化</RecognizeName>
+      <Desc>这一幕中“进攻型”骰子混乱伤害+{0}</Desc>
+      <KeywordIconId>BreakDmgUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>		
+    <BattleEffectTextExtra ID="BreakDmgUp_Keyword">
+      <Name>混乱伤害强化 X</Name>
+      <Desc>这一幕中“进攻型”骰子混乱伤害+X</Desc>
+      <KeywordIconId>BreakDmgUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra> 
+    <BattleEffectTextExtra ID="BreakDmgDown">
+      <Name>混乱伤害弱化</Name>
+      <RecognizeName>Hat混乱伤害弱化</RecognizeName>
+      <Desc>这一幕中“进攻型”骰子混乱伤害-{0}</Desc>
+      <KeywordIconId>BreakDmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>		
+    <BattleEffectTextExtra ID="BreakDmgDown_Keyword">
+      <Name>混乱伤害弱化 X</Name>
+      <Desc>这一幕中“进攻型”骰子混乱伤害-X</Desc>
+      <KeywordIconId>BreakDmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable">
+      <Name>流血易损</Name>
+      <RecognizeName>Hat流血易损</RecognizeName>
+      <Desc>这一幕中所受[流血]伤害+{0}</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	 
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable_Keyword">
+      <Name>流血易损 X</Name>
+      <Desc>这一幕中所受[流血]伤害+X</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingProtection">
+      <Name>流血守护</Name>
+      <RecognizeName>Hat流血守护</RecognizeName>
+      <Desc>这一幕中所受[流血]伤害-{0}</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_BleedingProtection_Keyword">
+      <Name>流血守护 X</Name>
+      <Desc>这一幕中所受[流血]伤害-X</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable">
+      <Name>烧伤易损</Name>
+      <RecognizeName>Hat烧伤易损</RecognizeName>
+      <Desc>这一幕中所受[烧伤]伤害+{0}</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable_Keyword">
+      <Name>烧伤易损 X</Name>
+      <Desc>这一幕中所受[烧伤]伤害+X</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnProtection">
+      <Name>烧伤守护</Name>
+      <RecognizeName>Hat烧伤守护</RecognizeName>
+      <Desc>这一幕中所受[烧伤]伤害-{0}</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_BurnProtection_Keyword">
+      <Name>烧伤守护 X</Name>
+      <Desc>这一幕中所受[烧伤]伤害-X</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable">
+      <Name>破裂易损</Name>
+      <RecognizeName>Hat破裂易损</RecognizeName>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Rupture"/~)伤害+{0}</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable_Keyword">
+      <Name>破裂易损 X</Name>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Rupture"/~)伤害+X</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureProtection">
+      <Name>破裂守护</Name>
+      <RecognizeName>Hat破裂守护</RecognizeName>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Rupture"/~)伤害-{0}</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_RuptureProtection_Keyword">
+      <Name>破裂守护 X</Name>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Rupture"/~)伤害-X</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable">
+      <Name>沉沦易损</Name>
+      <RecognizeName>Hat沉沦易损</RecognizeName>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Sinking"/~)伤害+{0}</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable_Keyword">
+      <Name>沉沦易损 X</Name>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Sinking"/~)伤害+X</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingProtection">
+      <Name>沉沦守护</Name>
+      <RecognizeName>Hat沉沦守护</RecognizeName>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Sinking"/~)伤害-{0}</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_SinkingProtection_Keyword">
+      <Name>沉沦守护 X</Name>
+      <Desc>这一幕中所受(~HatKeyword id="Hat_Sinking"/~)伤害-X</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+    
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable">
+      <Name>震颤易损</Name>
+      <RecognizeName>Hat震颤易损</RecognizeName>
+      <Desc>这一幕中被(~HatKeyword id="Hat_TremorBurst"/~)时(~HatKeyword id="Hat_BreakStateLine"/~)前移量+{0}</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable_Keyword">
+      <Name>震颤易损 X</Name>
+      <Desc>这一幕中被(~HatKeyword id="Hat_TremorBurst"/~)时(~HatKeyword id="Hat_BreakStateLine"/~)前移量+X</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection">
+      <Name>震颤守护</Name>
+      <RecognizeName>Hat震颤守护</RecognizeName>
+      <Desc>这一幕中被(~HatKeyword id="Hat_TremorBurst"/~)时(~HatKeyword id="Hat_BreakStateLine"/~)前移量-{0}</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection_Keyword">
+      <Name>震颤守护 X</Name>
+      <Desc>这一幕中被(~HatKeyword id="Hat_TremorBurst"/~)时(~HatKeyword id="Hat_BreakStateLine"/~)前移量-X</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+      
+    
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp">
+      <Name>光芒恢复量提升</Name>
+      <RecognizeName>Hat光芒恢复量提升</RecognizeName>
+      <Desc>这一幕中恢复光芒时额外恢复{0}点光芒</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp_Keyword">
+      <Name>光芒恢复量提升 X</Name>
+      <Desc>这一幕中恢复光芒时额外恢复X点光芒</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+
+    <BattleEffectTextExtra ID="GuardPowerUp">
+      <Name>招架威力提升</Name>
+      <RecognizeName>Hat招架威力提升</RecognizeName>
+      <Desc>这一幕中招架骰子威力+{0}</Desc>
+      <KeywordIconId>GuardPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerUp">
+      <Name>闪避威力提升</Name>
+      <RecognizeName>Hat闪避威力提升</RecognizeName>
+      <Desc>这一幕中闪避骰子威力+{0}</Desc>
+      <KeywordIconId>EvasionPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+    <BattleEffectTextExtra ID="SlashPowerDown">
+      <Name>斩击威力降低</Name>
+      <RecognizeName>Hat斩击威力降低</RecognizeName>
+      <Desc>这一幕中斩击骰子威力-{0}</Desc>
+      <KeywordIconId>SlashPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="PenetratePowerDown">
+      <Name>突刺威力降低</Name>
+      <RecognizeName>Hat突刺威力降低</RecognizeName>
+      <Desc>这一幕中突刺骰子威力-{0}</Desc>
+      <KeywordIconId>PenetratePowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="HitPowerDown">
+      <Name>打击威力降低</Name>
+      <RecognizeName>Hat打击威力降低</RecognizeName>
+      <Desc>这一幕中打击骰子威力-{0}</Desc>
+      <KeywordIconId>HitPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="GuardPowerDown">
+      <Name>招架威力降低</Name>
+      <RecognizeName>Hat招架威力降低</RecognizeName>
+      <Desc>这一幕中招架骰子威力-{0}</Desc>
+      <KeywordIconId>GuardPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerDown">
+      <Name>闪避威力降低</Name>
+      <RecognizeName>Hat闪避威力降低</RecognizeName>
+      <Desc>这一幕中闪避骰子威力-{0}</Desc>
+      <KeywordIconId>EvasionPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+      
+
+    <BattleEffectTextExtra ID="Hat_TempSpeedDice">
+      <Name>临时速度骰子</Name>
+      <RecognizeName>Hat临时速度骰子</RecognizeName>
+      <Desc>这一幕中额外获得{0}颗速度骰子</Desc>
+      <KeywordIconId>Hat_TempSpeedDice</KeywordIconId>
+      <Color>#FFCC00</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeSelf>true</IsChangeSelf>  
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	 
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+      
+    
+    <BattleEffectTextExtra ID="Hat_Rupture">
+      <Name>破裂</Name>
+      <RecognizeName>Hat破裂</RecognizeName>
+      <Desc>被击中时额外受到 (~color=#1BECC0~)(~u~){0}(~/u~)(~/color~) 点伤害，随后将该层数减至1/2(向下取整)</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>	  
+    </BattleEffectTextExtra>		
+    <BattleEffectTextExtra ID="Hat_Rupture_Keyword">
+      <Name>破裂 X</Name>
+      <Desc>被击中时额外受到 (~color=#1BECC0~)(~u~)X(~/u~)(~/color~) 点伤害，随后将该层数减至1/2(向下取整)</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+        
+    <BattleEffectTextExtra ID="Hat_Sinking">
+      <Name>沉沦</Name>
+      <RecognizeName>Hat沉沦</RecognizeName>
+      <Desc>被击中时额外受到 (~color=#1B80EC~)(~u~){0}(~/u~)(~/color~) 点混乱伤害，随后将该层数减至1/2(向下取整)</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>		
+    <BattleEffectTextExtra ID="Hat_Sinking_Keyword">
+      <Name>沉沦 X</Name>
+      <Desc>被击中时额外受到 (~color=#1B80EC~)(~u~)X(~/u~)(~/color~) 点混乱伤害，随后将该层数减至1/2(向下取整)</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>
+    
+    <BattleEffectTextExtra ID="Hat_SinkingDeluge">
+      <Name>沉沦泛滥</Name>
+      <RecognizeName>Hat沉沦泛滥</RecognizeName>
+        <Desc>清空目标的(~HatKeyword id="Hat_Sinking"/~)并对其造成等同于其层数3倍的混乱伤害
+若使目标的混乱抗性降至0，则溢出部分转为伤害</Desc>
+      <KeywordIconId>Hat_SinkingDeluge</KeywordIconId>
+      <Color>#1B80EC</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    
+    <BattleEffectTextExtra ID="Hat_Tremor">
+      <Name>震颤</Name>
+      <RecognizeName>Hat震颤</RecognizeName>
+      <Desc>受到反震伤害时(~HatKeyword id="Hat_BreakStateLine"/~)前移双方点数之差/2(至多{0}点，向下取整)
+受到(~HatKeyword id="Hat_TremorBurst"/~)时，(~HatKeyword id="Hat_BreakStateLine"/~)前移{0}
+每一幕结束时层数减半(向下取整)</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Tremor_Keyword">
+      <Name>震颤 X</Name>
+      <Desc>受到反震伤害时(~HatKeyword id="Hat_BreakStateLine"/~)前移双方点数之差/2(至多X点，向下取整)
+受到(~HatKeyword id="Hat_TremorBurst"/~)时，(~HatKeyword id="Hat_BreakStateLine"/~)前移X
+每一幕结束时层数减半(向下取整)</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+      
+    <BattleEffectTextExtra ID="Hat_TremorFusion">
+      <Name>震颤-叠加</Name>
+      <RecognizeName>Hat震颤-叠加</RecognizeName>
+      <Desc>受到反震伤害时(~HatKeyword id="Hat_BreakStateLine"/~)前移双方点数之差/2(至多{0}点，向下取整)
+受到(~HatKeyword id="Hat_TremorBurst"/~)时，(~HatKeyword id="Hat_BreakStateLine"/~)前移{0}
+每一幕结束时转换为(~HatKeyword id="Hat_Tremor"/~)，随后层数减半(向下取整)
+具有所有叠加的(~HatKeyword id="Hat_Tremor"/~)效果</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorFusion_Keyword">
+      <Name>震颤-叠加</Name>
+      <Desc>可叠加多种(~HatKeyword id="Hat_Tremor"/~)效果
+每一幕结束时转换为(~HatKeyword id="Hat_Tremor"/~)，随后层数减半(向下取整)</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+
+    <BattleEffectTextExtra ID="Hat_TremorBurst">
+      <Name>震颤引爆</Name>
+      <RecognizeName>Hat震颤引爆</RecognizeName>
+      <Desc>使目标的(~HatKeyword id="Hat_BreakStateLine"/~)前移等同于(~HatKeyword id="Hat_Tremor"/~)层数的值</Desc>
+      <KeywordIconId>Hat_TremorBurst</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    
+    <BattleEffectTextExtra ID="Hat_BreakStateLine">
+      <Name>混乱阈值</Name>
+      <RecognizeName>Hat混乱阈值</RecognizeName>
+      <Desc>陷入混乱状态所需的混乱抗性+{0}
+从混乱状态中恢复时解除</Desc>
+      <KeywordIconId>Hat_BreakStateLine</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+    <BattleEffectTextExtra ID="Hat_Preassembled_Keyword">
+      <Name>预装</Name>
+      <RecognizeName>Hat预装</RecognizeName>
+      <Desc>此书页在开启舞台时额外抽取</Desc>
+      <KeywordIconId>Hat_Preassembled</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+
+    <BattleEffectTextExtra ID="Discard_Keyword">
+      <Name>丢弃</Name>
+      <RecognizeName>Hat丢弃</RecognizeName>
+      <Desc>从手中移出书页，若抽取书页时没有书页可供抽取则将被丢弃的书页洗入剩余的卡组中</Desc>
+      <KeywordIconId>Discard</KeywordIconId>
+      <Color>#C72828</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    
+    <BattleEffectTextExtra ID="Hat_Poise">
+      <Name>呼吸</Name>
+      <RecognizeName>Hat呼吸</RecognizeName>
+      <Desc>投掷可以(~HatKeyword id="Hat_Crit_Keyword"/~)的骰子时基于原始点数区间提升其最大值，至多为{0}
+(~HatKeyword id="Hat_OnCrit_Keyword"/~)减少等同的层数，(~HatKeyword id="Hat_FailCrit_Keyword"/~)仅减少1层</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Poise_Keyword">
+      <Name>呼吸 X</Name>
+      <Desc>投掷可以(~HatKeyword id="Hat_Crit_Keyword"/~)的骰子时基于原始点数区间提升其最大值，至多为X/2(向上取整)
+(~HatKeyword id="Hat_OnCrit_Keyword"/~)减少等同的层数，(~HatKeyword id="Hat_FailCrit_Keyword"/~)仅减少1层</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    
+    <BattleEffectTextExtra ID="Hat_Crit_Keyword">
+      <Name>暴击</Name>
+      <RecognizeName>Hat暴击</RecognizeName>
+      <Desc>若该骰子可以(~HatKeyword id="Hat_Crit_Keyword"/~)且其基础值高于原始最大值，则此次掷骰视为(~HatKeyword id="Hat_Crit_Keyword"/~)
+(进攻型骰子可以(~HatKeyword id="Hat_Crit_Keyword"/~))</Desc>
+      <KeywordIconId>Hat_Crit</KeywordIconId>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_OnCrit_Keyword">
+      <Name>暴击时</Name>
+      <RecognizeName>Hat暴击时</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_FailCrit_Keyword">
+      <Name>未暴击时</Name>
+      <RecognizeName>Hat未暴击时</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+	  
+    <BattleEffectTextExtra ID="Hat_ClashPower">
+      <Name>拼点威力</Name>
+      <Desc>仅影响骰子的拼点结果，不计入点数或威力加成</Desc>
+	  <KeywordIconId>Hat_ClashPowerUp</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+	  <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp">
+      <Name>拼点威力强化</Name>
+      <Desc>这一幕中(~HatKeyword id="Hat_ClashPower"/~)+{0}</Desc>
+      <KeywordIconId>Hat_ClashPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>		
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp_Keyword">
+      <Name>拼点威力强化 X</Name>
+      <Desc>这一幕中(~HatKeyword id="Hat_ClashPower"/~)+X</Desc>
+      <KeywordIconId>Hat_ClashPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>	
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown">
+      <Name>拼点威力弱化</Name>
+      <Desc>这一幕中(~HatKeyword id="Hat_ClashPower"/~)-{0}</Desc>
+      <KeywordIconId>Hat_ClashPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline> 
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>	
+	  <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>		
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown_Keyword">
+      <Name>拼点威力弱化 X</Name>
+      <Desc>这一幕中(~HatKeyword id="Hat_ClashPower"/~)-X</Desc>
+      <KeywordIconId>Hat_ClashPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>  
+    </BattleEffectTextExtra>	
+	
+    <BattleEffectTextExtra ID="Test_CardPreview">
+      <Name>Ammunition</Name>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangePassive>true</IsChangePassive>
+	  <IsCardPreview>true</IsCardPreview>
+	  <CardPreview>602020</CardPreview>
+	  <CardPreview>602021</CardPreview>
+	  <CardPreview>602022</CardPreview>
+    </BattleEffectTextExtra>
+    
+  </extraTextList>
+</BattleEffectTextRootExtra>

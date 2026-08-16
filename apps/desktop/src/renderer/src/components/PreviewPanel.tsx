@@ -10,7 +10,8 @@ import { rangeIconKey, rangeIconUrls } from '../lib/rangeIcons'
 import { diceIconUrl } from '../lib/diceIcons'
 import { joinPath } from '../lib/path'
 import { cardAccent } from '../lib/cardAccent'
-import { AbilityText } from './AbilityText'
+import { RegexText } from './RegexText'
+import { useRegexRules } from '../lib/useRegexRules'
 
 const NAME_SCHEMA: EntitySchema = {
   root: 'BattleCardDescRoot',
@@ -40,6 +41,7 @@ export function PreviewPanel({
   entity: EntityRef | null
 }): JSX.Element {
   const { t, tl } = useI18n()
+  const rules = useRegexRules()
   const loadArtwork = useAppStore((s) => s.loadArtwork)
   const docs = useAppStore((s) => s.docs)
   const openWorkspaceAndSelect = useAppStore((s) => s.openWorkspaceAndSelect)
@@ -181,10 +183,10 @@ export function PreviewPanel({
             <div className="whitespace-pre-wrap text-xs leading-relaxed text-foreground/90">
               {prefix.map((line, i) => (
                 <div key={`prefix-${i}`}>
-                  <AbilityText text={line} />
+                  <RegexText text={line} rules={rules} />
                 </div>
               ))}
-              {cardAbilityDesc ? <AbilityText text={cardAbilityDesc} /> : null}
+              {cardAbilityDesc ? <RegexText text={cardAbilityDesc} rules={rules} /> : null}
             </div>
           )
         })()}
@@ -218,11 +220,11 @@ export function PreviewPanel({
                   {get('Min')} ~ {get('Dice')}
                 </span>
                 {desc ? (
-                  <span className="min-w-0 flex-1 whitespace-pre-wrap text-[11px] leading-snug text-muted-foreground">
-                    <AbilityText text={desc} />
+                  <span className="mt-0.5 min-w-0 flex-1 whitespace-pre-wrap text-[11px] leading-5 text-foreground">
+                    <RegexText text={desc} rules={rules} />
                   </span>
                 ) : (
-                  <span className="min-w-0 flex-1 text-[11px] leading-snug text-muted-foreground/60">{script}</span>
+                  <span className="mt-0.5 min-w-0 flex-1 text-[11px] leading-snug text-muted-foreground/60">{script}</span>
                 )}
 
               </div>

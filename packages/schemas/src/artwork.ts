@@ -39,12 +39,21 @@ export const pageArtworkModule = resourceModule(
 )
 
 /** buff 图标工作区：后续复用 ImageWorkspace，只改 resourceDir 与标题 */
-export const buffIconsModule = resourceModule(
-  'buff-icons',
-  'buff图标',
-  'Resource/BuffIcon',
-  '状态图标资源'
-)
+export const buffIconsModule: ModuleDefinition = {
+  ...resourceModule(
+    'buff-icons',
+    'Buff图标',
+    'Resource/BuffIcon',
+    '状态图标资源'
+  ),
+  resource: {
+    dir: 'Resource/BuffIcon',
+    type: 'image',
+    recursive: true,
+    defaultEmpty: true,
+    square: true
+  }
+}
 
 /** 其他图片工作区：后续复用 ImageWorkspace */
 export const otherImagesModule = resourceModule(

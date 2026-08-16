@@ -71,13 +71,25 @@ export function getContainerChildren(doc: OrderedDoc, schema: EntitySchema): unk
 }
 
 export function listEntities(doc: OrderedDoc, schema: EntitySchema): EntityRef[] {
-  const list = getContainerChildren(doc, schema)
+  const sources: { entity: string; containerPath?: string[]; entityNames: string[] }[] = schema.entitySources?.length
+    ? schema.entitySources.map((s) => ({ entity: s.entity, containerPath: s.containerPath, entityNames: [s.entity] }))
+    : [{ entity: schema.entity, containerPath: schema.containerPath, entityNames: schema.entities ?? [schema.entity] }]
   const refs: EntityRef[] = []
-  for (let i = 0; i < list.length; i++) {
-    const node = list[i]
-    if (!isRecord(node)) continue
-    if (Object.keys(node)[0] === schema.entity) {
-      refs.push({ index: i, id: getAttr(node as OrderedNode, schema.idAttr) ?? '', node: node as OrderedNode })
+  for (const source of sources) {
+    const sourceSchema: EntitySchema = {
+      root: schema.root,
+      entity: source.entity,
+      idAttr: schema.idAttr,
+      containerPath: source.containerPath,
+      fields: []
+    }
+    const list = getContainerChildren(doc, sourceSchema)
+    for (let i = 0; i < list.length; i++) {
+      const node = list[i]
+      if (!isRecord(node)) continue
+      if (source.entityNames.includes(Object.keys(node)[0])) {
+        refs.push({ index: i, id: getAttr(node as OrderedNode, schema.idAttr) ?? '', node: node as OrderedNode })
+      }
     }
   }
   return refs
@@ -226,6 +238,8 @@ export function getFieldValue(node: OrderedNode, field: FieldDef): unknown {
       return getMulti(node, field.name)
     case 'marker':
       return hasMarker(node, field.name)
+    case 'bool':
+      return getTextField(node, field.name)?.trim().toLowerCase() === 'true'
     case 'list':
       return getListRows(node, field)
     case 'multiline':
@@ -262,6 +276,9 @@ export function setFieldValue(node: OrderedNode, field: FieldDef, value: unknown
       return
     case 'marker':
       setMarker(node, field.name, Boolean(value))
+      return
+    case 'bool':
+      setTextField(node, field.name, value ? 'true' : 'false')
       return
     case 'list':
       setListRows(node, field, Array.isArray(value) ? (value as OrderedNode[]) : [])
@@ -306,6 +323,9 @@ export function createEntity(schema: EntitySchema, id: string): OrderedNode {
         break
       case 'enum':
         setTextField(node, f.name, f.values[0] ?? '')
+        break
+      case 'bool':
+        setTextField(node, f.name, 'false')
         break
       case 'attrs':
         nodeChildren(node).push(makeElement(f.name))

@@ -12,6 +12,7 @@ const api = {
   resolveAsset: (dir: string, name: string) => ipcRenderer.invoke('fs:resolve-asset', dir, name),
   readAssetAsDataUrl: (path: string) => ipcRenderer.invoke('fs:asset-data-url', path),
   listImages: (dir: string) => ipcRenderer.invoke('fs:list-images', dir),
+  listImagesRecursive: (dir: string) => ipcRenderer.invoke('fs:list-images-recursive', dir),
   importImage: (dir: string, srcPath: string) => ipcRenderer.invoke('fs:import-image', dir, srcPath),
   importImageData: (dir: string, fileName: string, base64: string) => ipcRenderer.invoke('fs:import-image-data', dir, fileName, base64),
   deleteImage: (path: string) => ipcRenderer.invoke('fs:delete-image', path),

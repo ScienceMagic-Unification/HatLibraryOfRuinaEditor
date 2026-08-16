@@ -71,9 +71,9 @@ export function CardBriefPanel({
 
   return (
     <div className="h-full min-h-0 overflow-y-auto overscroll-contain p-4">
-      <div className="mb-4 flex items-end gap-4 border-b border-border pb-3">
+      <div className="mb-4 flex flex-wrap items-end gap-4 rounded-md border border-border/60 bg-secondary/20 p-3">
         <div className={idOnly ? 'min-w-0 flex-1 space-y-1' : 'w-40 shrink-0 space-y-1'}>
-          <Label>{t('id.label')}</Label>
+          <Label>{t('id.label')}<span className="ml-0.5 text-red-400">*</span></Label>
           <input
             className="h-9 w-full rounded-md border border-input bg-background px-3 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-ring"
             value={entity.id}

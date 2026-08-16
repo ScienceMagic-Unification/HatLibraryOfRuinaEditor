@@ -1,13 +1,16 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import type { EntityRef, FieldDef, ModuleDefinition, ValidationIssue } from '@ruina/editor-core'
-import { getFieldValue, getMulti } from '@ruina/editor-core'
-import { AlertTriangle } from 'lucide-react'
+import { getFieldValue, getMulti, removeField, setFieldValue } from '@ruina/editor-core'
+import { AlertTriangle, Hash } from 'lucide-react'
 import { Input, Label } from '@ruina/ui'
 import { FieldEditor } from './FieldEditor'
 import { LinkedNameField } from './LinkedNameField'
 import { FieldTitle } from './FieldTitle'
 import { AbilityDescPreview } from './AbilityDescPreview'
+import { EffectTextPreviewPanel } from './EffectTextPreviewPanel'
+import { PassiveAbilityPreviewPanel } from './PassiveAbilityPreviewPanel'
 import { cardAccent } from '../lib/cardAccent'
 
 export function FormPanel({
@@ -24,8 +27,25 @@ export function FormPanel({
   onIdChange: (id: string) => void
 }): JSX.Element {
   const { t, tl } = useI18n()
+  const proofOn = useAppStore((s) => Boolean(s.proofMode[module.id]))
+  const editData = useAppStore((s) => s.editData)
   const entityIssues = useMemo(() => issues.filter((i) => i.entityId === entity.id), [issues, entity.id])
   const [showIds, setShowIds] = useState<Record<string, boolean>>({})
+  const [showBoolIds, setShowBoolIds] = useState(false)
+  type InnerKind = 'custom' | 'copy'
+  type InnerMode = 'current' | 'vanilla' | 'other'
+  const deriveInnerState = (): { kind: InnerKind; mode: InnerMode } => {
+    const customValue = ((getFieldValue(entity.node, { kind: 'text', name: 'CustomInnerType' }) as string) ?? '').trim()
+    const copyText = ((getFieldValue(entity.node, { kind: 'text', name: 'CopyInnerTypeFrom' }) as string) ?? '').trim()
+    const copyPid = ((getFieldValue(entity.node, { kind: 'attr', name: 'CopyInnerTypePid', element: 'CopyInnerTypeFrom', attr: 'Pid', field: { kind: 'text', name: 'Pid' } }) as string) ?? '').trim()
+    if (copyText !== '' || copyPid !== '') return { kind: 'copy', mode: copyPid === '@origin' ? 'vanilla' : copyPid !== '' ? 'other' : 'current' }
+    return { kind: 'custom', mode: 'current' }
+  }
+  const [innerState, setInnerState] = useState<{ kind: InnerKind; mode: InnerMode }>(deriveInnerState)
+  useEffect(() => {
+    setInnerState(deriveInnerState())
+  }, [entity.id, module.id])
+  const isEffectText = module.id === 'effecttext'
   const accent = cardAccent(entity.node)
   const hasEgo = useMemo(() => getMulti(entity.node, 'Option').some((t) => /ego/i.test(t)), [entity])
   const headerFields = (module.entity.headerFields ?? [])
@@ -35,14 +55,18 @@ export function FormPanel({
   const maxCoolField = module.entity.fields.find((f) => f.name === 'MaxCooltimeForEgo')
   const skinTypeField = module.entity.fields.find((f) => f.name === 'SkinChangeType')
   const skinHeightField = module.entity.fields.find((f) => f.name === 'SkinHeight')
-  const bodyFields = module.entity.fields.filter(
-    (f) =>
-      !(module.entity.headerFields ?? []).includes(f.name) &&
-      f.name !== 'PriorityScript' &&
-      f.name !== 'SkinChangeType' &&
-      f.name !== 'SkinHeight' &&
-      !(f.name === 'MaxCooltimeForEgo' && !hasEgo)
-  )
+  const boolFields = module.entity.fields.filter((f) => f.kind === 'bool')
+  const bodyFields = module.entity.fields
+    .filter(
+      (f) =>
+        !(module.entity.headerFields ?? []).includes(f.name) &&
+        f.name !== 'PriorityScript' &&
+        f.name !== 'SkinChangeType' &&
+        f.name !== 'SkinHeight' &&
+        !(f.name === 'MaxCooltimeForEgo' && !hasEgo)
+    )
+    .sort((a, b) => (module.id === 'passive' ? (a.name === 'Rarity' ? -1 : b.name === 'Rarity' ? 1 : 0) : 0))
+    .filter((f) => f.kind !== 'bool')
 
   const handleFieldChange = (field: FieldDef, value: unknown) => {
     onFieldChange(field, value)
@@ -87,8 +111,8 @@ export function FormPanel({
               value={entity.id}
               onChange={(e) => onIdChange(module.entity.idNumeric ? e.target.value.replace(/\D/g, '') : e.target.value)}
               inputMode={module.entity.idNumeric ? 'numeric' : undefined}
-              className={module.entity.idOnlyList ? 'font-mono min-w-[16rem] max-w-full' : 'font-mono'}
-              style={module.entity.idOnlyList ? { width: `${Math.max(16, entity.id.length + 2)}ch` } : undefined}
+              className={module.entity.idOnlyList ? 'font-mono w-full' : 'font-mono'}
+              
               placeholder={module.entity.idAttr}
             />
           </div>
@@ -99,6 +123,27 @@ export function FormPanel({
             </div>
           ))}
         </div>
+        {boolFields.length > 0 ? (
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <Label>{t('attributes')}</Label>
+              <button
+                type="button"
+                onClick={() => setShowBoolIds((v) => !v)}
+                title={showBoolIds ? t('showName') : t('showId')}
+                className="inline-flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-[10px] font-medium transition-all hover:opacity-80 active:scale-95"
+                style={showBoolIds ? { color: 'hsl(var(--primary))', borderColor: 'hsl(var(--primary))', backgroundColor: 'hsl(var(--primary) / 0.12)' } : { color: 'hsl(var(--muted-foreground))', borderColor: 'hsl(var(--border))', backgroundColor: 'hsl(var(--secondary))' }}
+              >
+                <Hash className="size-3" /> ID
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {boolFields.map((f) => (
+                <FieldEditor key={f.name} field={f} value={getFieldValue(entity.node, f)} onChange={(v) => handleFieldChange(f, v)} showIds={showBoolIds} accentColor={accent} />
+              ))}
+            </div>
+          </div>
+        ) : null}
         {bodyFields.map((field) => {
           if (field.name === 'SkinChange') {
             const skinOn = Boolean(getFieldValue(entity.node, field))
@@ -186,6 +231,140 @@ export function FormPanel({
               </div>
             )
           }
+          if (field.name === 'InnerType') {
+            const raw = ((getFieldValue(entity.node, field) as string) ?? '').trim()
+            const display = raw === '-1' ? '' : raw
+            const innerField: FieldDef = { kind: 'int', name: 'InnerType', label: '互斥类型', digitsOnly: true, placeholder: '-1', widthClass: 'w-24' }
+            return (
+              <div key={field.name} className="space-y-1.5">
+                <Label>{tl('互斥类型')}</Label>
+                <FieldEditor field={innerField} value={display} onChange={(v) => onFieldChange(field, v === '' ? '-1' : v)} accentColor={accent} />
+              </div>
+            )
+          }
+          if (field.name === 'UseCustomInnerType') {
+            const on = Boolean(getFieldValue(entity.node, field))
+            const customField: FieldDef = { kind: 'text', name: 'CustomInnerType', label: '自定义互斥类型', omitWhenEmpty: true }
+            const copyTextField: FieldDef = { kind: 'int', name: 'CopyInnerTypeFrom', label: '与指定被动互斥', digitsOnly: true }
+            const copyPidField: FieldDef = { kind: 'attr', name: 'CopyInnerTypePid', element: 'CopyInnerTypeFrom', attr: 'Pid', field: { kind: 'text', name: 'Pid' } }
+            const customValue = ((getFieldValue(entity.node, customField) as string) ?? '').trim()
+            const copyText = ((getFieldValue(entity.node, copyTextField) as string) ?? '').trim()
+            const copyPid = ((getFieldValue(entity.node, copyPidField) as string) ?? '').trim()
+            const writeInner = (mutate: (node: any) => void) => {
+              editData(module.id, (_doc, refs) => {
+                const cur = refs.find((r) => r.id === entity.id)
+                if (cur) mutate(cur.node)
+              })
+            }
+            const writeCustom = (v: string) => {
+              writeInner((node) => {
+                removeField(node, 'CopyInnerTypeFrom')
+                if (v === '') removeField(node, 'CustomInnerType')
+                else setFieldValue(node, customField, v)
+              })
+            }
+            const writeCopy = (mode: InnerMode, v: string) => {
+              writeInner((node) => {
+                removeField(node, 'CustomInnerType')
+                if (v === '') removeField(node, 'CopyInnerTypeFrom')
+                else if (mode === 'current') {
+                  setFieldValue(node, copyTextField, v)
+                  setFieldValue(node, copyPidField, '')
+                } else {
+                  setFieldValue(node, copyTextField, '')
+                  setFieldValue(node, copyPidField, v)
+                }
+              })
+            }
+            const setKind = (k: InnerKind) => {
+              setInnerState((s) => ({ ...s, kind: k }))
+              if (k === 'custom') writeCustom(customValue)
+              else writeInner((node) => removeField(node, 'CustomInnerType'))
+            }
+            const setMode = (m: InnerMode) => {
+              setInnerState((s) => ({ ...s, mode: m }))
+              if (m === 'vanilla') writeCopy('vanilla', '@origin')
+              else if (m === 'current') writeCopy('current', copyText)
+              else writeCopy('other', copyPid === '@origin' ? '' : copyPid)
+            }
+            return (
+              <div key={field.name} className="space-y-2">
+                <label className="flex cursor-pointer items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={on}
+                    onChange={(e) => {
+                      if (e.target.checked) handleFieldChange(field, true)
+                      else {
+                        writeInner((node) => {
+                          removeField(node, 'CustomInnerType')
+                          removeField(node, 'CopyInnerTypeFrom')
+                          setFieldValue(node, field, false)
+                        })
+                      }
+                    }}
+                    className="size-4 accent-[hsl(var(--primary))]"
+                  />
+                  <span className="text-sm">{tl(field.label ?? field.name)}</span>
+                  <span className="text-[10px] text-amber-400/80">{t('extraBridgeHint')}</span>
+                </label>
+                {on ? (
+                  <div className="ml-1 space-y-2 rounded-md border border-border/70 bg-secondary/20 p-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => setKind('custom')}
+                        className={`rounded-full border px-2.5 py-1 text-xs ${innerState.kind === 'custom' ? 'bg-accent/60' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'}`}
+                      >
+                        {t('innerType.custom')}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setKind('copy')}
+                        className={`rounded-full border px-2.5 py-1 text-xs ${innerState.kind === 'copy' ? 'bg-accent/60' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'}`}
+                      >
+                        {t('innerType.copyFrom')}
+                      </button>
+                    </div>
+                    {innerState.kind === 'custom' ? (
+                      <div className="space-y-1">
+                        <Label>{tl('自定义互斥类型')}</Label>
+                        <FieldEditor field={customField} value={customValue} onChange={(v) => writeCustom((v as string) ?? '')} />
+                      </div>
+                    ) : (
+                      <>
+                        <div className="flex flex-wrap gap-1.5">
+                          {(['current', 'vanilla', 'other'] as const).map((m) => (
+                            <button
+                              key={m}
+                              type="button"
+                              onClick={() => setMode(m)}
+                              className={`rounded-full border px-2.5 py-1 text-xs ${innerState.mode === m ? 'bg-accent/60' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'}`}
+                            >
+                              {m === 'current' ? t('innerType.currentMod') : m === 'vanilla' ? t('innerType.vanilla') : t('innerType.otherMod')}
+                            </button>
+                          ))}
+                        </div>
+                        {innerState.mode === 'current' ? (
+                          <div className="space-y-1">
+                            <Label>{tl('与指定被动互斥')}</Label>
+                            <FieldEditor field={copyTextField} value={copyText} onChange={(v) => writeCopy('current', (v as string) ?? '')} />
+                          </div>
+                        ) : innerState.mode === 'vanilla' ? (
+                          <div className="text-xs text-muted-foreground">Pid = @origin</div>
+                        ) : (
+                          <div className="space-y-1">
+                            <Label>{t('innerType.otherMod')}</Label>
+                            <FieldEditor field={{ kind: 'text', name: 'Pid', label: 'Pid' }} value={copyPid} onChange={(v) => writeCopy('other', (v as string) ?? '')} />
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                ) : null}
+              </div>
+            )
+          }
           const toggleable = isToggleable(field)
           return (
             <div key={field.name} className="space-y-1.5">
@@ -224,9 +403,9 @@ export function FormPanel({
             </div>
           )
         })}
-        {module.id === 'cardability' ? <AbilityDescPreview module={module} entity={entity} /> : null}
+        {module.id === 'cardability' ? <AbilityDescPreview module={module} entity={entity} /> : module.id === 'effecttext' ? <EffectTextPreviewPanel entity={entity} /> : module.id === 'passiveability' ? <PassiveAbilityPreviewPanel entity={entity} /> : null}
       </div>
-      {entityIssues.length > 0 ? (
+      {proofOn ? null : entityIssues.length > 0 ? (
         <div className="max-h-36 overflow-y-auto border-t border-border bg-red-500/5 p-3">
           <div className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-red-400">
             <AlertTriangle className="size-3.5" /> {t('issueCount', { n: entityIssues.length })}

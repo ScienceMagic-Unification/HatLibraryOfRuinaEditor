@@ -17,7 +17,7 @@ export const cardNameModule: ModuleDefinition = {
     displayField: 'LocalizedName',
     accentFromModuleId: 'cardinfo',
     quickFields: ['LocalizedName'],
-    fields: [{ kind: 'text', name: 'LocalizedName', label: '卡牌名称', required: true }]
+    fields: [{ kind: 'text', name: 'LocalizedName', label: '书页名称' }]
   },
   localizeRoots: [
     {
@@ -25,7 +25,7 @@ export const cardNameModule: ModuleDefinition = {
       containerPath: ['cardDescList'],
       entity: 'BattleCardDesc',
       idAttr: 'ID',
-      fields: [{ name: 'LocalizedName', label: '卡牌名称' }]
+      fields: [{ name: 'LocalizedName', label: '书页名称' }]
     }
   ]
 }

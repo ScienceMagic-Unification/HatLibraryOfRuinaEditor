@@ -28,6 +28,7 @@ export function DataPanel({
   const parentRef = useRef<HTMLDivElement>(null)
   const displayField = schema.displayField ?? 'Name'
   const idOnly = schema.idOnlyList === true
+  const hasDesc = schema.fields.some((f) => f.name === 'Desc')
 
   const displayText = (node: any): string => {
     const v = (getFieldValue(node, { kind: 'text', name: displayField }) as string | undefined) ?? ''
@@ -46,7 +47,8 @@ export function DataPanel({
         return r.id.toLowerCase().includes(q) || desc.includes(q)
       }
       const name = displayText(r.node).toLowerCase()
-      return r.id.toLowerCase().includes(q) || name.includes(q)
+      const desc = hasDesc ? (getAllText(r.node, 'Desc') ?? '').toLowerCase() : ''
+      return r.id.toLowerCase().includes(q) || name.includes(q) || desc.includes(q)
     })
   }, [refs, search])
 
@@ -65,7 +67,7 @@ export function DataPanel({
           <div className="flex items-center gap-1.5">
             <div className="relative min-w-0 flex-1">
               <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-              <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={idOnly ? t('search.idDesc') : t('search.idName')} className="pl-8" />
+              <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={idOnly ? t('search.idDesc') : hasDesc ? t('search.idNameDesc') : t('search.idName')} className="pl-8" />
             </div>
             {localizedNames ? (
               <button

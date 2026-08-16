@@ -21,9 +21,9 @@ import {
   type OrderedDoc,
   type ValidationIssue
 } from '@ruina/editor-core'
-import { modules as registryModules } from '@ruina/schemas'
+import { modules as registryModules, singularityModules } from '@ruina/schemas'
 import { api, type DiscoveryResult, type FileInfo, type ModInfo } from './api'
-import { detectLang } from './lib/lang'
+import { detectLang, editorLangToDocLang } from './lib/lang'
 import { joinPath } from './lib/path'
 
 export interface DiscoveredDataFile {
@@ -79,9 +79,12 @@ interface AppState {
   status: string
   statusKind: 'info' | 'success' | 'error'
   artCache: Record<string, string | null>
+  buffIcons: Record<string, string>
+  modEpoch: number
   assetPick: { fromModuleId: string; field: string; initialAssetName?: string } | null
   hatEnabled: boolean
   proofMode: Record<string, boolean>
+  proofPreview: Record<string, boolean>
   boot: () => Promise<void>
   openMod: (path: string) => Promise<void>
   pickMod: () => Promise<void>
@@ -98,12 +101,14 @@ interface AppState {
   saveAll: () => Promise<boolean>
   fixWorkspace: (moduleId: string) => Promise<void>
   loadArtwork: (folder: string, name: string) => Promise<string | null>
+  loadBuffIcons: () => Promise<void>
   requestAssetPick: (fromModuleId: string, field: string, initialAssetName?: string) => Promise<void>
   completeAssetPick: (assetName: string) => Promise<void>
   cancelAssetPick: () => void
   setStatus: (status: string, kind?: 'info' | 'success' | 'error') => void
   setHatEnabled: (enabled: boolean) => void
   setProofMode: (moduleId: string, on: boolean) => void
+  setProofPreview: (moduleId: string, on: boolean) => void
 }
 
 const KNOWN_DATA_ROOTS = new Set(registryModules.filter((m) => m.dataRoot).map((m) => m.dataRoot as string))
@@ -122,8 +127,9 @@ function hintForDataFile(name: string): string | null {
 function hintForLocalizeFile(name: string): string | null {
   const n = name.toLowerCase()
   if (n.includes('battlecardabilit') || n.includes('cardabilit')) return 'cardability'
-  if (n.includes('battlcards') || n.includes('battlecarddesc') || n.includes('cardname')) return 'cardname'
-  if (n.includes('passivedesc')) return 'passive'
+  if (n.includes('battlecards') || n.includes('battlecarddesc') || n.includes('cardname')) return 'cardname'
+  if (n.includes('passivedesc')) return 'passiveability'
+  if (n.includes('effecttext')) return 'effecttext'
   return null
 }
 
@@ -320,6 +326,13 @@ async function scanMod(modPath: string): Promise<{
 
   for (const tmpl of registryModules.filter((m) => m.resource)) modules.push({ ...tmpl })
 
+  
+
+  // 奇点大工作区：仅在选择 Mod 后追加（未选 Mod 不可进入）
+  if (modPath) {
+    for (const tmpl of singularityModules) modules.push({ ...tmpl })
+  }
+
   return { dataFiles, localizeFiles, modules }
 }
 
@@ -413,13 +426,18 @@ export const useAppStore = create<AppState>((set, get) => ({
   status: '正在启动…',
   statusKind: 'info',
   artCache: {},
+  buffIcons: {},
+  modEpoch: 0,
   assetPick: null,
   hatEnabled: hatInitial,
   proofMode: {},
+  proofPreview: {},
 
   setStatus: (status, kind = 'info') => set({ status, statusKind: kind }),
 
   setProofMode: (moduleId, on) => set((s) => ({ proofMode: { ...s.proofMode, [moduleId]: on } })),
+
+  setProofPreview: (moduleId, on) => set((s) => ({ proofPreview: { ...s.proofPreview, [moduleId]: on } })),
 
   setHatEnabled: (enabled) => {
     try {
@@ -466,18 +484,26 @@ export const useAppStore = create<AppState>((set, get) => ({
         docs: {},
         selectedId: {},
         primaryLang: {},
-        artCache: {}
+        artCache: {},
+        modEpoch: get().modEpoch + 1,
+        activeModuleId: modules[0]?.id ?? ''
       })
       const active = modules[0]?.id ?? ''
       if (active) {
         set({ activeModuleId: active })
         await get().setActiveModule(active)
       }
+      // 打开 Mod 时直接读取全部 XML 工作区的文档并填充，避免首次点击才加载导致空/红标
+      for (const m of modules) {
+        if (m.resource || m.builtin) continue
+        await get().ensureModuleDocs(m.id)
+      }
       set({
         ready: true,
         status: `扫描完成：${dataFiles.length} 个数据 XML、${localizeFiles.length} 个本地化 XML → ${modules.length} 个工作区`,
         statusKind: 'success'
       })
+      void get().loadBuffIcons()
     } catch (e) {
       set({ ready: true, status: `扫描失败：${e instanceof Error ? e.message : String(e)}`, statusKind: 'error' })
     }
@@ -497,19 +523,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const module = get().modules.find((m) => m.id === moduleId)
     const modPath = get().modPath
     if (!module || !modPath) return
-    const existing = Object.values(get().docs).filter((d) => d.bindings[moduleId])
-    if (existing.length > 0) {
-      const primaries = primaryDocsOf(get().docs, moduleId)
-      const first = primaries[0]
-      if (first) {
-        const selected = get().selectedId[moduleId]
-        const refs = listEntities(first.doc, module.entity)
-        const nextSelected = refs.some((r) => r.id === selected) ? selected : refs[0]?.id ?? null
-        set((s) => ({ selectedId: { ...s.selectedId, [moduleId]: nextSelected } }))
-      }
-      return
-    }
-
+    const epoch = get().modEpoch
     const nextDocs: Record<string, DocState> = {}
     const ensureBinding = (state: DocState, binding: DocBinding) => {
       if (!state.bindings[moduleId]) {
@@ -579,11 +593,15 @@ export const useAppStore = create<AppState>((set, get) => ({
       await loadFile(f.path, bindingFor(module, hasData ? 'localize' : 'primary', def), f.root, f.lang, f.label)
     }
 
+    if (get().modEpoch !== epoch) return
     set((s) => ({ docs: { ...s.docs, ...nextDocs } }))
     const primaries = primaryDocsOf({ ...get().docs, ...nextDocs }, moduleId)
-    const first = primaries[0]
+    const editorLang = typeof localStorage !== 'undefined' ? localStorage.getItem('editorLang') ?? 'zh' : 'zh'
+    const preferred = editorLangToDocLang(editorLang)
+    const first = primaries.find((d) => d.lang === preferred) ?? primaries.find((d) => d.lang === 'cn') ?? primaries.find((d) => d.lang === 'zh') ?? primaries[0]
     if (first) {
       const refs = listEntities(first.doc, module.entity)
+      if (get().modEpoch !== epoch) return
       set((s) => ({
         selectedId: { ...s.selectedId, [moduleId]: refs[0]?.id ?? null },
         primaryLang: { ...s.primaryLang, [moduleId]: first.lang ?? first.path }
@@ -775,7 +793,25 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
   },
 
-  loadArtwork: async (folder, name) => {
+  loadBuffIcons: async () => {
+    try {
+      const modPath = get().modPath
+      if (!modPath) return
+      const saved = localStorage.getItem('imageDir_buff-icons')
+      const dir = saved || `${modPath}\\Resource\\BuffIcon`.replace(/\\/g, '\\')
+      const list = await api.listImagesRecursive(dir)
+      const map: Record<string, string> = {}
+      for (const asset of list) {
+        const url = await api.readAssetAsDataUrl(asset.path)
+        if (url) map[asset.name.replace(/\.[^.]+$/, '')] = url
+      }
+      set({ buffIcons: map })
+    } catch {
+      // ignore
+    }
+  },
+
+    loadArtwork: async (folder, name) => {
     const cache = get().artCache[name]
     if (cache !== undefined) return cache
     const path = await api.resolveAsset(folder, name)

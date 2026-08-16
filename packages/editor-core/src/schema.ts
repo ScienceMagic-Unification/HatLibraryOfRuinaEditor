@@ -17,6 +17,7 @@ export type ScalarFieldDef = BaseFieldDef &
     | { kind: 'int'; required?: boolean; min?: number; max?: number; digitsOnly?: boolean; optional?: boolean }
     | { kind: 'enum'; values: string[]; required?: boolean; asChips?: boolean; labels?: Record<string, string>; colors?: Record<string, string>; icons?: Record<string, string>; dots?: boolean; allowCustom?: boolean; customNumeric?: boolean; noIdToggle?: boolean }
     | { kind: 'multiline'; required?: boolean; multiLineElements?: boolean }
+    | { kind: 'bool'; required?: boolean }
   )
 
 export interface AttrsFieldDef extends BaseFieldDef {
@@ -58,6 +59,10 @@ export type FieldDef = ScalarFieldDef | AttrsFieldDef | MultiFieldDef | MarkerFi
 export interface EntitySchema {
   root: string
   entity: string
+  /** 同一容器下可同时识别的实体名（例如 BattleEffectText / BattleEffectTextExtra） */
+  entities?: string[]
+  /** 多实体/多容器来源（例如 EffectText 的 effectTextList 与 extraTextList） */
+  entitySources?: { entity: string; containerPath?: string[] }[]
   idAttr: string
   /** 实体在根节点下的容器路径，例如本地化文件中的 ['cardDescList'] */
   containerPath?: string[]
@@ -105,6 +110,12 @@ export interface ResourceWorkspaceDef {
   /** 资源工作区选中项回填到该模块的字段（例如卡牌图片） */
   bindModuleId?: string
   bindField?: string
+  /** 是否递归读取子文件夹图片 */
+  recursive?: boolean
+  /** 默认不自动读取目录，需要手动重定向 */
+  defaultEmpty?: boolean
+  /** 小方形图标展示（如 Buff 图标） */
+  square?: boolean
 }
 
 export interface ArtworkPreviewDef {
@@ -147,6 +158,16 @@ export interface ModuleDefinition {
   preview?: ArtworkPreviewDef
   /** 资源型工作区（不是 XML 工作区，例如图片库） */
   resource?: ResourceWorkspaceDef
+  /** 只读工作区（例如内置资源/内置正则查看器） */
+  readonly?: boolean
+  /** 内置工作区，内容来自应用而不是当前 Mod */
+  builtin?: boolean
+  /** 内置图片工作区（奇点大工作区） */
+  builtinImages?: boolean
+  /** 内置正则查看器（奇点大工作区） */
+  builtinRegex?: boolean
+  /** 可编辑的 Mod 正则工作区（读取路径待实装） */
+  modRegex?: boolean
   regexRules?: RegexRule[]
   /** 加载时从数据实体中移除的字段（如废弃的 SpecialEffect） */
   stripFields?: string[]
@@ -161,4 +182,4 @@ export interface ValidationIssue {
 }
 
 export const isScalarField = (f: FieldDef): f is ScalarFieldDef =>
-  f.kind === 'text' || f.kind === 'int' || f.kind === 'enum' || f.kind === 'multiline'
+  f.kind === 'text' || f.kind === 'int' || f.kind === 'enum' || f.kind === 'multiline' || f.kind === 'bool'

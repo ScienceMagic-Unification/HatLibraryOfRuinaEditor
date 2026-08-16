@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { getTextField, listEntities, type ModuleDefinition } from '@ruina/editor-core'
 import { Badge, Button, Input } from '@ruina/ui'
-import { FolderOpen, Image, Loader2, RefreshCw, Trash2 } from 'lucide-react'
+import { ChevronDown, ChevronRight, FolderOpen, FolderTree, Image, LayoutGrid, Loader2, RefreshCw, Save, Trash2 } from 'lucide-react'
 import { api, type ImageAssetInfo } from '../api'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
@@ -17,6 +17,8 @@ function stripExt(name: string): string {
 const GAP = 12
 const MIN_CARD_WIDTH = 150
 const CARD_HEIGHT = 200
+const SQUARE_MIN_WIDTH = 92
+const SQUARE_HEIGHT = 100
 
 export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.Element {
   const { t } = useI18n()
@@ -31,9 +33,17 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
 
   const resourceDir = module.resource?.dir ?? 'Resource'
   const initialDir = useMemo(() => {
+    if (module.resource?.defaultEmpty) {
+      try {
+        const key = `imageDir_${module.id}_${modPath ?? 'none'}`
+        return localStorage.getItem(key) ?? ''
+      } catch {
+        return ''
+      }
+    }
     const parts = resourceDir.replace(/\\/g, '/').split('/').filter(Boolean)
     return modPath ? [modPath, ...parts].join('\\') : resourceDir
-  }, [modPath, resourceDir])
+  }, [modPath, resourceDir, module.resource])
 
 
   const [dir, setDir] = useState(initialDir)
@@ -55,11 +65,18 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
   const scrollRef = useRef<HTMLDivElement>(null)
   const anchorRef = useRef<string | null>(null)
   const [containerWidth, setContainerWidth] = useState(1200)
+  const [viewMode, setViewMode] = useState<'tiled' | 'actual'>('tiled')
+  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set(['']))
 
   const reload = useCallback(async (d: string) => {
+    if (!d) {
+      setImages([])
+      setLoading(false)
+      return
+    }
     setLoading(true)
     try {
-      const list = await api.listImages(d)
+      const list = module.resource?.recursive ? await api.listImagesRecursive(d) : await api.listImages(d)
       setImages(list)
     } catch (e) {
       setImages([])
@@ -67,7 +84,7 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
     } finally {
       setLoading(false)
     }
-  }, [setStatus])
+  }, [setStatus, module.resource])
 
   useEffect(() => {
     setDir(initialDir)
@@ -87,7 +104,10 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
     return () => ro.disconnect()
   }, [])
 
-  const columns = Math.max(1, Math.floor((containerWidth + GAP) / (MIN_CARD_WIDTH + GAP)))
+  const square = Boolean(module.resource?.square)
+  const minCardWidth = square ? SQUARE_MIN_WIDTH : MIN_CARD_WIDTH
+  const cardHeight = square ? SQUARE_HEIGHT : CARD_HEIGHT
+  const columns = Math.max(1, Math.floor((containerWidth + GAP) / (minCardWidth + GAP)))
   const rows = useMemo(() => {
     const out: ImageAssetInfo[][] = []
     for (let i = 0; i < images.length; i += columns) out.push(images.slice(i, i + columns))
@@ -97,11 +117,40 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
   const virtualizer = useVirtualizer({
     count: rows.length,
     getScrollElement: () => scrollRef.current,
-    estimateSize: () => CARD_HEIGHT + GAP,
+    estimateSize: () => cardHeight + GAP,
     overscan: 4
   })
 
-  const pickActive = Boolean(assetPick && module.id === 'page-artwork')
+  const tree = useMemo(() => {
+    const root = dir.replace(/[\\/]+$/, '')
+    const map = new Map<string, { images: ImageAssetInfo[]; folders: string[] }>()
+    const ensure = (key: string): { images: ImageAssetInfo[]; folders: string[] } => {
+      let node = map.get(key)
+      if (!node) {
+        node = { images: [], folders: [] }
+        map.set(key, node)
+      }
+      return node
+    }
+    for (const img of images) {
+      const rel = img.path.slice(root.length).replace(/\\/g, '/').replace(/^\/+/, '')
+      const parts = rel.split('/').filter(Boolean)
+      const fileName = parts.pop()
+      if (!fileName) continue
+      const folder = parts.join('/')
+      ensure(folder).images.push(img)
+      let cur = ''
+      for (const part of parts) {
+        const next = cur ? `${cur}/${part}` : part
+        const n = ensure(cur)
+        if (!n.folders.includes(next)) n.folders.push(next)
+        cur = next
+      }
+    }
+    return map
+  }, [images, dir])
+
+    const pickActive = Boolean(assetPick && module.id === 'page-artwork')
   const pickInitialBase = assetPick?.initialAssetName ?? ''
   const showUsage = Boolean(module.resource?.bindModuleId)
 
@@ -235,6 +284,65 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
       ? t('image.confirmDeleteManyMessage', { n: deleteQueue.length })
       : t('image.confirmDeleteMessage', { name: deleteQueue?.[0]?.name ?? '' })
 
+  const renderFolder = (folder: string, depth: number): JSX.Element => {
+    const node = tree.get(folder)
+    if (!node) return <></>
+    const isRoot = folder === ''
+    const name = isRoot ? (dir.split(/[\\/]/).pop() ?? dir) : folder.split('/').pop() ?? folder
+    const expanded = expandedFolders.has(folder)
+    const toggle = (): void => {
+      setExpandedFolders((prev) => {
+        const next = new Set(prev)
+        if (next.has(folder)) next.delete(folder)
+        else next.add(folder)
+        return next
+      })
+    }
+    return (
+      <div key={folder}>
+        {!isRoot ? (
+          <button
+            type="button"
+            className="flex w-full items-center gap-1 rounded px-2 py-1 text-left text-sm hover:bg-accent"
+            style={{ paddingLeft: 8 + depth * 16 }}
+            onClick={toggle}
+          >
+            {expanded ? <ChevronDown className="size-4" /> : <ChevronRight className="size-4" />}
+            <FolderOpen className="size-4 text-muted-foreground" />
+            <span className="font-medium">{name}</span>
+            <span className="text-[11px] text-muted-foreground">({node.images.length})</span>
+          </button>
+        ) : null}
+        {expanded ? (
+          <div>
+            {node.folders.map((sub) => renderFolder(sub, depth + 1))}
+            {node.images.length > 0 ? (
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(96px,1fr))] gap-2 px-2 py-2" style={{ paddingLeft: 8 + (depth + 1) * 16 }}>
+                {node.images.map((asset) => (
+                  <ImageCard
+                    key={asset.path}
+                    asset={asset}
+                    selected={selectedPaths.has(asset.path)}
+                    picking={pickActive}
+                    usageCount={usageCounts.get(baseOf(asset)) ?? 0}
+                    showUsage={showUsage}
+                    square={square}
+                    onSelect={handleSelect}
+                    onDelete={(a) => setDeleteQueue([a])}
+                    onRename={(a) => {
+                      setRenameValue(a.name)
+                      setRenaming(a)
+                    }}
+                  />
+                ))}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+      </div>
+    )
+  }
+
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <div className="flex shrink-0 items-center gap-2 border-b border-border bg-card px-3 py-2">
@@ -250,6 +358,22 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
         <Button size="sm" variant="outline" onClick={() => void pickDirectory()}>
           <FolderOpen className="size-4" /> {t('image.redirect')}
         </Button>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={() => {
+            if (!dir) return
+            try {
+              localStorage.setItem(`imageDir_${module.id}_${modPath ?? 'none'}`, dir)
+              void useAppStore.getState().loadBuffIcons()
+              setStatus(t('image.savedPath'), 'success')
+            } catch {
+              setStatus('保存路径失败', 'error')
+            }
+          }}
+        >
+          <Save className="size-4" /> {t('image.savePath')}
+        </Button>
         <Button size="sm" variant="ghost" onClick={() => void reload(dir)} disabled={loading}>
           <RefreshCw className={`size-4 ${loading ? 'animate-spin' : ''}`} />
         </Button>
@@ -259,6 +383,18 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
           </Button>
         ) : null}
         <div className="flex-1" />
+        <div className="flex rounded-lg border border-border bg-muted p-0.5">
+          {([{ id: 'tiled', label: t('image.tiled'), icon: LayoutGrid }, { id: 'actual', label: t('image.actual'), icon: FolderTree }] as const).map((m) => (
+            <button
+              key={m.id}
+              onClick={() => setViewMode(m.id)}
+              className={`inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${viewMode === m.id ? 'bg-background text-foreground shadow' : 'text-muted-foreground hover:text-foreground'}`}
+            >
+              <m.icon className="size-3.5" />
+              {m.label}
+            </button>
+          ))}
+        </div>
         {pickActive ? (
           <div className="flex items-center gap-2 rounded-md border border-amber-400/40 bg-amber-400/10 px-2 py-1 text-xs text-amber-300">
             <span>{t('image.pickHint', { field: module.resource?.bindField ?? 'Artwork' })}</span>
@@ -286,6 +422,8 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
             </div>
           ) : images.length === 0 ? (
             <div className="flex h-full items-center justify-center text-sm text-muted-foreground">{t('image.empty')}</div>
+          ) : viewMode === 'actual' ? (
+            renderFolder('', 0)
           ) : (
             <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
               {virtualizer.getVirtualItems().map((v) => {
@@ -321,6 +459,7 @@ export function ImageWorkspace({ module }: { module: ModuleDefinition }): JSX.El
                           picking={pickActive}
                           usageCount={usageCounts.get(base) ?? 0}
                           showUsage={showUsage}
+                          square={square}
                           onSelect={handleSelect}
                           onDelete={(a) => setDeleteQueue([a])}
                           onRename={(a) => {

@@ -22,7 +22,9 @@ export function CardAbilityTools(): JSX.Element {
   const setStatus = useAppStore((s) => s.setStatus)
   const primaryLang = useAppStore((s) => s.primaryLang['cardability'])
   const proofOn = useAppStore((s) => Boolean(s.proofMode['cardability']))
+  const proofPreviewOn = useAppStore((s) => Boolean(s.proofPreview['cardability']))
   const setProofMode = useAppStore((s) => s.setProofMode)
+  const setProofPreview = useAppStore((s) => s.setProofPreview)
   const [confirming, setConfirming] = useState(false)
 
   const abilityDocs = useMemo(() => Object.values(docs).filter((d) => d.bindings['cardability']?.kind === 'primary'), [docs])
@@ -81,6 +83,14 @@ export function CardAbilityTools(): JSX.Element {
         onClick={() => setProofMode('cardability', !proofOn)}
       >
         {t('proofMode')}：{proofOn ? 'ON' : 'OFF'}
+      </Button>
+      <Button
+        size="sm"
+        variant={proofPreviewOn ? 'default' : 'outline'}
+        className={proofPreviewOn ? 'w-full border-primary/60 bg-primary/15 font-medium text-primary' : 'w-full'}
+        onClick={() => setProofPreview('cardability', !proofPreviewOn)}
+      >
+        {t('proof.preview')}：{proofPreviewOn ? 'ON' : 'OFF'}
       </Button>
       <ConfirmDialog
         open={confirming}

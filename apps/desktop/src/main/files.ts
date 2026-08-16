@@ -120,10 +120,8 @@ export interface ImageAssetInfo {
 const IMAGE_EXTS = ['.png', '.jpg', '.jpeg', '.webp', '.gif']
 
 function assertResourcePath(path: string): string {
-  const abs = resolve(path)
-  const norm = abs.replace(/\\/g, '/')
-  if (!/\/Resource(\/|$)/i.test(norm)) throw new Error('路径必须位于 Mod 的 Resource 资源目录内')
-  return abs
+  // 图片读取/写入放宽为 Mod 文件夹下的任意路径，由 dialog:pick-directory 保证落在 Mod 内
+  return resolve(path)
 }
 
 function sanitizeImageName(name: string): string {
@@ -168,6 +166,25 @@ export async function listImages(dir: string): Promise<ImageAssetInfo[]> {
       const p = join(abs, e.name)
       const s = await stat(p).catch(() => null)
       out.push({ name: e.name, path: p, size: s?.size ?? 0, mtimeMs: s?.mtimeMs ?? 0 })
+    }
+    return out.sort((a, b) => a.name.localeCompare(b.name))
+  } catch {
+    return []
+  }
+}
+
+export async function listImagesRecursive(dir: string): Promise<ImageAssetInfo[]> {
+  const abs = assertResourcePath(dir)
+  try {
+    const entries = await readdir(abs, { withFileTypes: true, recursive: true })
+    const out: ImageAssetInfo[] = []
+    for (const e of entries) {
+      if (!e.isFile()) continue
+      const ext = extname(e.name).toLowerCase()
+      if (!IMAGE_EXTS.includes(ext)) continue
+      const full = resolve(abs, e.parentPath ?? abs, e.name)
+      const s = await stat(full).catch(() => null)
+      out.push({ name: e.name, path: full, size: s?.size ?? 0, mtimeMs: s?.mtimeMs ?? 0 })
     }
     return out.sort((a, b) => a.name.localeCompare(b.name))
   } catch {

@@ -15,8 +15,10 @@ import {
 import { Badge, Button, Input, Label, Select } from '@ruina/ui'
 import { Play, Replace } from 'lucide-react'
 import { useAppStore } from '../store'
+import { useI18n } from '../i18n'
 
 export function RegexPanel({ module }: { module: ModuleDefinition }): JSX.Element {
+  const { t } = useI18n()
   const docs = useAppStore((s) => s.docs)
   const selectedId = useAppStore((s) => s.selectedId[module.id] ?? null)
   const editDoc = useAppStore((s) => s.editDoc)
@@ -144,7 +146,7 @@ export function RegexPanel({ module }: { module: ModuleDefinition }): JSX.Elemen
         <Label>规则库（仅对本 XML 生效）</Label>
         <Select.Root value={ruleId} onValueChange={pickRule}>
           <Select.Trigger>
-            <Select.Value placeholder="选择预设规则" />
+            <Select.Value placeholder={t('select.preset')} />
           </Select.Trigger>
           <Select.Content>
             {rules.map((r) => (

@@ -94,7 +94,7 @@ export function App(): JSX.Element {
           </div>
           <div>
             <div className="text-sm font-semibold leading-tight">{t('app.title')}</div>
-            <div className="text-[10px] leading-tight text-muted-foreground">V0.1.2</div>
+            <div className="text-[10px] leading-tight text-muted-foreground">V0.2.0</div>
           </div>
         </div>
         <div className="mx-1 h-5 w-px bg-border" />
@@ -135,7 +135,7 @@ export function App(): JSX.Element {
                 ? 'border-amber-400/80 bg-amber-400/20 font-semibold text-amber-300 hover:bg-amber-400/30'
                 : 'border-dashed font-medium text-muted-foreground hover:text-foreground'
             }
-            title={hatEnabled ? '帽子奇点已开启（功能后续实装）' : '开启帽子奇点（功能后续实装）'}
+            title={hatEnabled ? '帽子奇点已开启' : '开启帽子奇点'}
           >
             <Atom className="size-4" />
             {hatEnabled ? t('hat.on') : t('hat.off')}
@@ -168,7 +168,7 @@ export function App(): JSX.Element {
       </header>
 
       <div className="flex min-h-0 flex-1">
-        <aside className="flex min-h-0 w-56 shrink-0 flex-col overflow-y-auto overscroll-contain border-r border-border bg-card">
+        <aside className="flex min-h-0 w-64 shrink-0 flex-col overflow-y-auto overscroll-contain border-r border-border bg-card">
           <div className="border-b border-border p-3 pb-2">
             <div className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">工作区</div>
             <nav className="space-y-2">
@@ -176,6 +176,7 @@ export function App(): JSX.Element {
                 modules={discoveredModules}
                 activeId={module?.id ?? ''}
                 onSelect={(id) => void setActiveModule(id)}
+                hatEnabled={hatEnabled}
               />
             </nav>
           </div>
