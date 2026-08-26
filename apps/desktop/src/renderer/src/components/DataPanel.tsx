@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState, type ReactNode } from 'react'
 import { useI18n } from '../i18n'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import type { EntitySchema, OrderedDoc } from '@ruina/editor-core'
@@ -13,7 +13,8 @@ export function DataPanel({
   selectedId,
   onSelect,
   accentLookup,
-  localizedNames
+  localizedNames,
+  localizedRender
 }: {
   doc: OrderedDoc
   schema: EntitySchema
@@ -21,6 +22,7 @@ export function DataPanel({
   onSelect: (id: string) => void
   accentLookup?: (id: string) => string | undefined
   localizedNames?: Record<string, string>
+  localizedRender?: (id: string) => ReactNode
 }): JSX.Element {
   const { t } = useI18n()
   const [search, setSearch] = useState('')
@@ -69,7 +71,7 @@ export function DataPanel({
               <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
               <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={idOnly ? t('search.idDesc') : hasDesc ? t('search.idNameDesc') : t('search.idName')} className="pl-8" />
             </div>
-            {localizedNames ? (
+            {localizedNames || localizedRender ? (
               <button
                 type="button"
                 onClick={() => setUseLocalized((v) => !v)}
@@ -89,6 +91,25 @@ export function DataPanel({
           </span>
         </div>
       </div>
+      {useLocalized && localizedRender ? (
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+          {filtered.map((ref) => {
+            const active = ref.id === selectedId
+            return (
+              <div
+                key={ref.id}
+                onClick={() => onSelect(ref.id)}
+                className={`cursor-pointer border-b border-border/50 px-3 py-2 text-sm transition-colors ${active ? 'bg-accent' : 'hover:bg-secondary/40'}`}
+              >
+                {localizedRender(ref.id)}
+              </div>
+            )
+          })}
+          {filtered.length === 0 ? (
+            <div className="p-6 text-center text-xs text-muted-foreground">{t('noMatch')}</div>
+          ) : null}
+        </div>
+      ) : (
       <div ref={parentRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
           {virtualizer.getVirtualItems().map((v) => {
@@ -123,6 +144,7 @@ export function DataPanel({
           ) : null}
         </div>
       </div>
+      )}
     </div>
   )
 }

@@ -39,6 +39,7 @@ export const passiveModule: ModuleDefinition = {
       { kind: 'multiline', name: 'Desc', label: '描述' }
     ]
   },
+  stripFields: ['UseCustomInnerType'],
   localizeRoots: [
     {
       root: 'PassiveDescRoot',

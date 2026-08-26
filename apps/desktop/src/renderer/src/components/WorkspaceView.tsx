@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { FieldDef, ModuleDefinition, OrderedDoc } from '@ruina/editor-core'
-import { createEntity, getTextField, insertEntity, listEntities, moveEntity, removeEntity, setAttr, setFieldValue } from '@ruina/editor-core'
+import { createEntity, getAllText, getTextField, insertEntity, listEntities, moveEntity, removeEntity, setAttr, setFieldValue } from '@ruina/editor-core'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import { editorLangToDocLang } from '../lib/lang'
@@ -11,6 +11,8 @@ import { SummaryPanel } from './SummaryPanel'
 import { SourcePanel } from './SourcePanel'
 import { LocalizePanel } from './LocalizePanel'
 import { PreviewPanel } from './PreviewPanel'
+import { RegexText } from './RegexText'
+import { useRegexRules } from '../lib/useRegexRules'
 import { CardNameTools } from './CardNameTools'
 import { ProofPanel } from './ProofPanel'
 import { CardBriefPanel } from './CardBriefPanel'
@@ -38,6 +40,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
   const ensureModuleDocs = useAppStore((s) => s.ensureModuleDocs)
   const primaryLang = useAppStore((s) => s.primaryLang[module.id])
   const setPrimaryLang = useAppStore((s) => s.setPrimaryLang)
+  const rules = useRegexRules()
 
   const primaryDocs = useMemo(
     () => Object.values(docs).filter((d) => d.bindings[module.id]?.kind === 'primary'),
@@ -73,6 +76,25 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
     }
     return map
   }, [module.id, docs, nameLang])
+  const abilityLocalized = useMemo(() => {
+    if (module.id !== 'cardability' || !dataDoc) return undefined
+    const map: Record<string, string> = {}
+    for (const r of listEntities(dataDoc.doc, module.entity)) {
+      const d = getAllText(r.node, 'Desc')
+      if (d) map[r.id] = d
+    }
+    return map
+  }, [module.id, dataDoc, module.entity])
+
+  const abilityLocalizedRender = useMemo(() => {
+    if (!abilityLocalized) return undefined
+    return (id: string): ReactNode => (
+      <>
+        <div className="text-[10px] leading-tight text-muted-foreground/60">{id}</div>
+        <div className="whitespace-pre-wrap text-xs leading-snug text-foreground/90">{abilityLocalized[id] ? <RegexText text={abilityLocalized[id]} rules={rules} /> : t('empty')}</div>
+      </>
+    )
+  }, [abilityLocalized, rules, t])
 
   const accentLookup = useMemo(() => {
     const sourceId = module.entity.accentFromModuleId
@@ -237,7 +259,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
         {module.id === 'effecttext' ? (
           <EffectTextListPanel doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} />
         ) : (
-          <DataPanel key={dataDoc?.path ?? 'none'} doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} />
+          <DataPanel key={dataDoc?.path ?? 'none'} doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} localizedRender={abilityLocalizedRender} />
         )}
         <div className="flex h-full min-h-0 min-w-0 flex-col">
           <div className="min-h-0 flex-1 overflow-hidden">

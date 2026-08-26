@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import type { EntityRef, FieldDef, ModuleDefinition, ValidationIssue } from '@ruina/editor-core'
-import { getFieldValue, getMulti, removeField, setFieldValue } from '@ruina/editor-core'
+import { getAllText, getFieldValue, getMulti, getTextField, removeField, setAllText, setFieldValue, setTextField } from '@ruina/editor-core'
 import { AlertTriangle, Hash } from 'lucide-react'
 import { Input, Label } from '@ruina/ui'
 import { FieldEditor } from './FieldEditor'
@@ -29,19 +29,42 @@ export function FormPanel({
   const { t, tl } = useI18n()
   const proofOn = useAppStore((s) => Boolean(s.proofMode[module.id]))
   const editData = useAppStore((s) => s.editData)
+  const isCardAbility = module.id === 'cardability'
+  const detectAbilityMode = (): 'independent' | 'continuous' =>
+    isCardAbility && getMulti(entity.node, 'Desc').length > 1 ? 'independent' : 'continuous'
+  const [abilityMode, setAbilityModeState] = useState<'independent' | 'continuous'>(detectAbilityMode)
+  useEffect(() => {
+    setAbilityModeState(detectAbilityMode())
+  }, [entity.id, module.id])
+  const setDescMode = (mode: 'independent' | 'continuous') => {
+    setAbilityModeState(mode)
+    editData(module.id, (_doc, refs) => {
+      const cur = refs.find((r) => r.id === entity.id)
+      if (!cur) return
+      if (mode === 'continuous') {
+        const text = getAllText(cur.node, 'Desc')
+        removeField(cur.node, 'Desc')
+        setTextField(cur.node, 'Desc', text)
+      } else {
+        const text = getTextField(cur.node, 'Desc') ?? ''
+        setAllText(cur.node, 'Desc', text)
+      }
+    })
+  }
   const entityIssues = useMemo(() => issues.filter((i) => i.entityId === entity.id), [issues, entity.id])
   const [showIds, setShowIds] = useState<Record<string, boolean>>({})
   const [showBoolIds, setShowBoolIds] = useState(false)
   type InnerKind = 'custom' | 'copy'
   type InnerMode = 'current' | 'vanilla' | 'other'
-  const deriveInnerState = (): { kind: InnerKind; mode: InnerMode } => {
+  const deriveInnerState = (): { on: boolean; kind: InnerKind; mode: InnerMode } => {
     const customValue = ((getFieldValue(entity.node, { kind: 'text', name: 'CustomInnerType' }) as string) ?? '').trim()
     const copyText = ((getFieldValue(entity.node, { kind: 'text', name: 'CopyInnerTypeFrom' }) as string) ?? '').trim()
     const copyPid = ((getFieldValue(entity.node, { kind: 'attr', name: 'CopyInnerTypePid', element: 'CopyInnerTypeFrom', attr: 'Pid', field: { kind: 'text', name: 'Pid' } }) as string) ?? '').trim()
-    if (copyText !== '' || copyPid !== '') return { kind: 'copy', mode: copyPid === '@origin' ? 'vanilla' : copyPid !== '' ? 'other' : 'current' }
-    return { kind: 'custom', mode: 'current' }
+    const hasCopy = copyText !== '' || copyPid !== ''
+    if (hasCopy) return { on: true, kind: 'copy', mode: copyPid === '@origin' ? 'vanilla' : copyPid !== '' ? 'other' : 'current' }
+    return { on: customValue !== '', kind: 'custom', mode: 'current' }
   }
-  const [innerState, setInnerState] = useState<{ kind: InnerKind; mode: InnerMode }>(deriveInnerState)
+  const [innerState, setInnerState] = useState<{ on: boolean; kind: InnerKind; mode: InnerMode }>(deriveInnerState)
   useEffect(() => {
     setInnerState(deriveInnerState())
   }, [entity.id, module.id])
@@ -145,6 +168,19 @@ export function FormPanel({
           </div>
         ) : null}
         {bodyFields.map((field) => {
+          if (field.name === 'Desc' && module.id === 'cardability') {
+            const descField: FieldDef = { kind: 'multiline', name: 'Desc', label: '能力描述', multiLineElements: abilityMode === 'independent' }
+            return (
+              <div key={field.name} className="space-y-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs text-muted-foreground">{t('abilityMode.label')}</span>
+                  <button type="button" onClick={() => setDescMode('independent')} className={`rounded-full border px-2.5 py-1 text-xs ${abilityMode === 'independent' ? 'bg-accent/60' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'}`}>{t('abilityMode.independent')}</button>
+                  <button type="button" onClick={() => setDescMode('continuous')} className={`rounded-full border px-2.5 py-1 text-xs ${abilityMode === 'continuous' ? 'bg-accent/60' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'}`}>{t('abilityMode.continuous')}</button>
+                </div>
+                <FieldEditor field={descField} value={getFieldValue(entity.node, descField)} onChange={(v) => handleFieldChange(descField, v)} />
+              </div>
+            )
+          }
           if (field.name === 'SkinChange') {
             const skinOn = Boolean(getFieldValue(entity.node, field))
             const skinNameField: FieldDef = { kind: 'text', name: 'SkinChange', label: '皮肤名称', omitWhenEmpty: true }
@@ -243,13 +279,13 @@ export function FormPanel({
             )
           }
           if (field.name === 'UseCustomInnerType') {
-            const on = Boolean(getFieldValue(entity.node, field))
             const customField: FieldDef = { kind: 'text', name: 'CustomInnerType', label: '自定义互斥类型', omitWhenEmpty: true }
             const copyTextField: FieldDef = { kind: 'int', name: 'CopyInnerTypeFrom', label: '与指定被动互斥', digitsOnly: true }
             const copyPidField: FieldDef = { kind: 'attr', name: 'CopyInnerTypePid', element: 'CopyInnerTypeFrom', attr: 'Pid', field: { kind: 'text', name: 'Pid' } }
             const customValue = ((getFieldValue(entity.node, customField) as string) ?? '').trim()
             const copyText = ((getFieldValue(entity.node, copyTextField) as string) ?? '').trim()
             const copyPid = ((getFieldValue(entity.node, copyPidField) as string) ?? '').trim()
+            const modId = copyPid === '@origin' ? '' : copyPid
             const writeInner = (mutate: (node: any) => void) => {
               editData(module.id, (_doc, refs) => {
                 const cur = refs.find((r) => r.id === entity.id)
@@ -263,17 +299,17 @@ export function FormPanel({
                 else setFieldValue(node, customField, v)
               })
             }
-            const writeCopy = (mode: InnerMode, v: string) => {
+            const writeCopy = (mode: InnerMode, passiveId: string, modIdValue: string) => {
               writeInner((node) => {
                 removeField(node, 'CustomInnerType')
-                if (v === '') removeField(node, 'CopyInnerTypeFrom')
-                else if (mode === 'current') {
-                  setFieldValue(node, copyTextField, v)
-                  setFieldValue(node, copyPidField, '')
-                } else {
-                  setFieldValue(node, copyTextField, '')
-                  setFieldValue(node, copyPidField, v)
+                if (passiveId === '') {
+                  removeField(node, 'CopyInnerTypeFrom')
+                  return
                 }
+                setFieldValue(node, copyTextField, passiveId)
+                if (mode === 'current') setFieldValue(node, copyPidField, '')
+                else if (mode === 'vanilla') setFieldValue(node, copyPidField, '@origin')
+                else setFieldValue(node, copyPidField, modIdValue)
               })
             }
             const setKind = (k: InnerKind) => {
@@ -283,23 +319,24 @@ export function FormPanel({
             }
             const setMode = (m: InnerMode) => {
               setInnerState((s) => ({ ...s, mode: m }))
-              if (m === 'vanilla') writeCopy('vanilla', '@origin')
-              else if (m === 'current') writeCopy('current', copyText)
-              else writeCopy('other', copyPid === '@origin' ? '' : copyPid)
+              if (m === 'vanilla') writeCopy('vanilla', copyText, '')
+              else if (m === 'current') writeCopy('current', copyText, '')
+              else writeCopy('other', copyText, modId)
             }
             return (
               <div key={field.name} className="space-y-2">
                 <label className="flex cursor-pointer items-center gap-2">
                   <input
                     type="checkbox"
-                    checked={on}
+                    checked={innerState.on}
                     onChange={(e) => {
-                      if (e.target.checked) handleFieldChange(field, true)
-                      else {
+                      if (e.target.checked) {
+                        setInnerState((s) => ({ ...s, on: true }))
+                      } else {
+                        setInnerState((s) => ({ ...s, on: false }))
                         writeInner((node) => {
                           removeField(node, 'CustomInnerType')
                           removeField(node, 'CopyInnerTypeFrom')
-                          setFieldValue(node, field, false)
                         })
                       }
                     }}
@@ -308,7 +345,7 @@ export function FormPanel({
                   <span className="text-sm">{tl(field.label ?? field.name)}</span>
                   <span className="text-[10px] text-amber-400/80">{t('extraBridgeHint')}</span>
                 </label>
-                {on ? (
+                {innerState.on ? (
                   <div className="ml-1 space-y-2 rounded-md border border-border/70 bg-secondary/20 p-3">
                     <div className="flex flex-wrap gap-1.5">
                       <button
@@ -347,16 +384,25 @@ export function FormPanel({
                         </div>
                         {innerState.mode === 'current' ? (
                           <div className="space-y-1">
-                            <Label>{tl('与指定被动互斥')}</Label>
-                            <FieldEditor field={copyTextField} value={copyText} onChange={(v) => writeCopy('current', (v as string) ?? '')} />
+                            <Label>{t('innerType.passiveId')}</Label>
+                            <FieldEditor field={copyTextField} value={copyText} onChange={(v) => writeCopy('current', (v as string) ?? '', '')} />
                           </div>
                         ) : innerState.mode === 'vanilla' ? (
-                          <div className="text-xs text-muted-foreground">Pid = @origin</div>
-                        ) : (
                           <div className="space-y-1">
-                            <Label>{t('innerType.otherMod')}</Label>
-                            <FieldEditor field={{ kind: 'text', name: 'Pid', label: 'Pid' }} value={copyPid} onChange={(v) => writeCopy('other', (v as string) ?? '')} />
+                            <Label>{t('innerType.passiveId')}</Label>
+                            <FieldEditor field={copyTextField} value={copyText} onChange={(v) => writeCopy('vanilla', (v as string) ?? '', '')} />
                           </div>
+                        ) : (
+                          <>
+                            <div className="space-y-1">
+                              <Label>{t('innerType.modId')}</Label>
+                              <FieldEditor field={{ kind: 'text', name: 'Pid' }} value={modId} onChange={(v) => writeCopy('other', copyText, (v as string) ?? '')} />
+                            </div>
+                            <div className="space-y-1">
+                              <Label>{t('innerType.passiveId')}</Label>
+                              <FieldEditor field={copyTextField} value={copyText} onChange={(v) => writeCopy('other', (v as string) ?? '', modId)} />
+                            </div>
+                          </>
                         )}
                       </>
                     )}
