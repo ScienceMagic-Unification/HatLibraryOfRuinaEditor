@@ -39,6 +39,13 @@ export interface AttrFieldDef extends BaseFieldDef {
   field: ScalarFieldDef
 }
 
+/** 容器子元素字段：读写指定容器元素下的一个子字段（例如 EquipEffect 下的 HP、TextList 下的 Desc） */
+export interface ChildFieldDef extends BaseFieldDef {
+  kind: 'child'
+  element: string
+  field: ScalarFieldDef | MultiFieldDef | MarkerFieldDef
+}
+
 export interface MarkerFieldDef extends BaseFieldDef {
   kind: 'marker'
 }
@@ -54,7 +61,7 @@ export interface ListFieldDef extends BaseFieldDef {
   addLabel?: string
 }
 
-export type FieldDef = ScalarFieldDef | AttrsFieldDef | MultiFieldDef | MarkerFieldDef | ListFieldDef | AttrFieldDef
+export type FieldDef = ScalarFieldDef | AttrsFieldDef | MultiFieldDef | MarkerFieldDef | ListFieldDef | AttrFieldDef | ChildFieldDef
 
 export interface EntitySchema {
   root: string

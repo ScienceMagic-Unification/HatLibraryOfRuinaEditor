@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
-import type { EntityRef, FieldDef, ModuleDefinition, ValidationIssue } from '@ruina/editor-core'
-import { getAllText, getFieldValue, getMulti, getTextField, removeField, setAllText, setFieldValue, setTextField } from '@ruina/editor-core'
+import type { EntityRef, FieldDef, ModuleDefinition, OrderedNode, ValidationIssue } from '@ruina/editor-core'
+import { findChildNode, getAllText, getAttr, getFieldValue, getMulti, getNodeText, getTextField, makeElement, nodeChildren, removeField, setAllText, setFieldValue, setTextField } from '@ruina/editor-core'
 import { AlertTriangle, Hash } from 'lucide-react'
 import { Input, Label } from '@ruina/ui'
 import { FieldEditor } from './FieldEditor'
@@ -12,6 +12,96 @@ import { AbilityDescPreview } from './AbilityDescPreview'
 import { EffectTextPreviewPanel } from './EffectTextPreviewPanel'
 import { PassiveAbilityPreviewPanel } from './PassiveAbilityPreviewPanel'
 import { cardAccent } from '../lib/cardAccent'
+
+/**
+ * 书页能力「模式」两个选项的主题色：
+ * 卡牌能力（独立）= 琥珀金，骰子能力（连续）= 骰子蓝；选中时描边发光，便于一眼区分。
+ */
+const ABILITY_MODE_COLORS: Record<'independent' | 'continuous', string> = {
+  independent: '#FFC075',
+  continuous: '#03BBFF'
+}
+
+function PassiveEditor({ module, entity }: { module: ModuleDefinition; entity: EntityRef }): JSX.Element {
+  const { t, tl } = useI18n()
+  const editData = useAppStore((s) => s.editData)
+  const readPassives = (): { id: string; origin: boolean }[] => {
+    const ee = findChildNode(entity.node, 'EquipEffect')
+    if (!ee) return []
+    const out: { id: string; origin: boolean }[] = []
+    for (const c of nodeChildren(ee)) {
+      if (!c || typeof c !== 'object' || Array.isArray(c)) continue
+      const key = Object.keys(c)[0]
+      if (key !== 'Passive') continue
+      out.push({ id: getNodeText(c as OrderedNode), origin: getAttr(c as OrderedNode, 'Pid') === '@origin' })
+    }
+    return out
+  }
+  const items = readPassives()
+  const write = (next: { id: string; origin: boolean }[]) => {
+    editData(module.id, (_doc, refs) => {
+      const cur = refs.find((r) => r.id === entity.id)
+      if (!cur) return
+      let ee = findChildNode(cur.node, 'EquipEffect')
+      if (!ee) {
+        ee = makeElement('EquipEffect')
+        nodeChildren(cur.node).push(ee)
+      }
+      removeField(ee, 'Passive')
+      for (const it of next) {
+        const id = it.id.trim()
+        if (!id) continue
+        nodeChildren(ee).push(makeElement('Passive', it.origin ? { Pid: '@origin' } : undefined, id))
+      }
+    })
+  }
+  return (
+    <div className="space-y-2 rounded-md border border-border/70 bg-secondary/20 p-3">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-medium text-muted-foreground">{tl('被动')}</span>
+        <button
+          type="button"
+          onClick={() => write([...items, { id: '', origin: false }])}
+          className="rounded-full border border-border bg-secondary/30 px-2.5 py-1 text-xs text-muted-foreground hover:bg-accent"
+        >
+          {t('addItem')}
+        </button>
+      </div>
+      {items.length === 0 ? (
+        <div className="py-2 text-center text-xs text-muted-foreground/70">{t('emptyRows')}</div>
+      ) : (
+        <div className="space-y-2">
+          {items.map((it, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <input
+                value={it.id}
+                onChange={(e) => write(items.map((x, xi) => (xi === i ? { ...x, id: e.target.value } : x)))}
+                className="h-8 min-w-0 flex-1 rounded-md border border-border bg-background px-2 font-mono text-xs"
+                placeholder="Passive ID"
+              />
+              <label className="flex shrink-0 cursor-pointer items-center gap-1 text-xs text-muted-foreground">
+                <input
+                  type="checkbox"
+                  checked={it.origin}
+                  onChange={(e) => write(items.map((x, xi) => (xi === i ? { ...x, origin: e.target.checked } : x)))}
+                  className="size-3.5 accent-[hsl(var(--primary))]"
+                />
+                {tl('原版')}
+              </label>
+              <button
+                type="button"
+                onClick={() => write(items.filter((_, xi) => xi !== i))}
+                className="shrink-0 rounded-md border border-border px-2 py-1 text-xs text-red-400 hover:bg-red-500/10"
+              >
+                {t('delete')}
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export function FormPanel({
   module,
@@ -115,6 +205,34 @@ export function FormPanel({
     }
   }
 
+  /** 书页能力模式按钮：选中项用各自主题色描边 + 外发光，未选中保持低调 */
+  const renderAbilityModeChip = (mode: 'independent' | 'continuous', label: string): JSX.Element => {
+    const active = abilityMode === mode
+    const color = ABILITY_MODE_COLORS[mode]
+    return (
+      <button
+        type="button"
+        aria-pressed={active}
+        onClick={() => setDescMode(mode)}
+        className={`rounded-full border px-3 py-1 text-xs transition-all duration-150 ${
+          active ? 'scale-[1.04] font-semibold' : 'border-border bg-secondary/30 font-medium text-muted-foreground hover:bg-accent/40'
+        }`}
+        style={
+          active
+            ? {
+                color,
+                borderColor: color,
+                backgroundColor: `${color}29`,
+                boxShadow: `0 0 0 1px ${color}80, 0 0 10px 2px ${color}66, inset 0 0 8px ${color}33`
+              }
+            : undefined
+        }
+      >
+        {label}
+      </button>
+    )
+  }
+
   const isToggleable = (field: FieldDef): boolean => {
     if (field.kind === 'enum') return field.asChips === true && field.noIdToggle !== true
     if (field.kind === 'attr') return field.field.kind === 'enum' && field.field.asChips === true && field.field.noIdToggle !== true
@@ -172,14 +290,17 @@ export function FormPanel({
             const descField: FieldDef = { kind: 'multiline', name: 'Desc', label: '能力描述', multiLineElements: abilityMode === 'independent' }
             return (
               <div key={field.name} className="space-y-2">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2">
                   <span className="text-xs text-muted-foreground">{t('abilityMode.label')}</span>
-                  <button type="button" onClick={() => setDescMode('independent')} className={`rounded-full border px-2.5 py-1 text-xs ${abilityMode === 'independent' ? 'bg-accent/60' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'}`}>{t('abilityMode.independent')}</button>
-                  <button type="button" onClick={() => setDescMode('continuous')} className={`rounded-full border px-2.5 py-1 text-xs ${abilityMode === 'continuous' ? 'bg-accent/60' : 'border-border bg-secondary/30 text-muted-foreground hover:bg-accent/40'}`}>{t('abilityMode.continuous')}</button>
+                  {renderAbilityModeChip('independent', t('abilityMode.independent'))}
+                  {renderAbilityModeChip('continuous', t('abilityMode.continuous'))}
                 </div>
                 <FieldEditor field={descField} value={getFieldValue(entity.node, descField)} onChange={(v) => handleFieldChange(descField, v)} />
               </div>
             )
+          }
+          if (field.name === 'Passive' && (module.id === 'equippage-enemy' || module.id === 'equippage-librarian')) {
+            return <PassiveEditor key={field.name} module={module} entity={entity} />
           }
           if (field.name === 'SkinChange') {
             const skinOn = Boolean(getFieldValue(entity.node, field))

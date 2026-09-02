@@ -73,6 +73,9 @@ interface AppState {
   docs: Record<string, DocState>
   activeModuleId: string
   primaryLang: Record<string, string>
+  primaryDocPath: Record<string, string>
+  docOverrides: Record<string, { add: string[]; remove: string[] }>
+  listScroll: Record<string, number>
   selectedId: Record<string, string | null>
   lastEditedPath: string | null
   historyTick: number
@@ -92,6 +95,10 @@ interface AppState {
   ensureModuleDocs: (moduleId: string) => Promise<void>
   openWorkspaceAndSelect: (moduleId: string, id: string) => Promise<void>
   setPrimaryLang: (moduleId: string, lang: string) => void
+  setPrimaryDoc: (moduleId: string, path: string) => void
+  importDoc: (moduleId: string) => Promise<void>
+  removeDoc: (moduleId: string, path: string) => void
+  setListScroll: (key: string, top: number) => void
   select: (moduleId: string, id: string | null) => void
   editData: (moduleId: string, mutate: (doc: OrderedDoc, refs: EntityRef[]) => void) => void
   editDoc: (path: string, mutate: (doc: OrderedDoc) => void) => void
@@ -115,6 +122,40 @@ const KNOWN_DATA_ROOTS = new Set(registryModules.filter((m) => m.dataRoot).map((
 const KNOWN_LOC_ROOTS = new Set(
   registryModules.flatMap((m) => (m.localizeRoots ?? []).map((r) => r.root))
 )
+
+const DOC_OVERRIDES_KEY = 'docOverrides'
+
+function loadDocOverrides(): Record<string, { add: string[]; remove: string[] }> {
+  try {
+    const raw = localStorage.getItem(DOC_OVERRIDES_KEY)
+    if (!raw) return {}
+    const parsed = JSON.parse(raw)
+    return parsed && typeof parsed === 'object' ? parsed : {}
+  } catch {
+    return {}
+  }
+}
+
+function persistDocOverrides(ov: Record<string, { add: string[]; remove: string[] }>): void {
+  try {
+    localStorage.setItem(DOC_OVERRIDES_KEY, JSON.stringify(ov))
+  } catch {
+    // ignore
+  }
+}
+
+function docOverridesKey(modPath: string, moduleId: string): string {
+  return modPath + '::' + moduleId
+}
+
+function bindingForImported(module: ModuleDefinition, root: string | null): DocBinding | null {
+  const locDefs = module.localizeRoots ?? []
+  const def = root ? locDefs.find((r) => r.root === root) : undefined
+  const hasData = Boolean(module.dataFiles?.length || module.dataFile || module.dataRoot)
+  if (def) return bindingFor(module, hasData ? 'localize' : 'primary', def)
+  if (root && root === module.entity.root) return bindingFor(module, 'primary')
+  return null
+}
 
 function hintForDataFile(name: string): string | null {
   const n = name.toLowerCase()
@@ -162,19 +203,15 @@ async function scanMod(modPath: string): Promise<{
     const locCandidates = await api.listFilesByGlobs(modPath, ['**/*.xml', '**/*.txt'])
   const localizeFiles: DiscoveredLocalizeFile[] = []
   const inferredLoc = new Map<string, EntitySchema>()
-  const LANG_SEG = /(^|[\\/])(cn|zh|chs|cht|en|jp|ja|ko|kr|ru|de|fr|es|pt|trcn)([\\/]|$)/i
   for (const path of locCandidates) {
     const rel = path.slice(modPath.length).replace(/\\/g, '/').replace(/^\/+/, '').toLowerCase()
-    const hasLocalizeSeg = /(^|[\\/])localize([\\/]|$)/i.test(rel)
-    const langSeg = LANG_SEG.test(rel)
-    const excluded = !hasLocalizeSeg && /^(data|resource|artwork|char|bufficon|assemblies)[\\/]/.test(rel)
-    if (excluded) continue
-    if (!hasLocalizeSeg && !langSeg) continue
+    const inExcludedDir = /^(data|resource|artwork|char|bufficon)[\\/]/.test(rel)
     try {
       const text = await api.readTextFile(path)
       const doc = parseXml(text)
       const root = findRootName(doc)
       if (!root || KNOWN_DATA_ROOTS.has(root)) continue
+      if (inExcludedDir && !KNOWN_LOC_ROOTS.has(root)) continue
       const lang = detectLang(path, text)
       localizeFiles.push({ path, root, lang: lang.lang, label: lang.label })
       if (!KNOWN_LOC_ROOTS.has(root) && !inferredLoc.has(root)) {
@@ -221,7 +258,7 @@ async function scanMod(modPath: string): Promise<{
     if (matches.length > 0) {
       if (tmpl.dataFile) {
         modules.push({ ...tmpl })
-        knownDataPaths.add(tmpl.dataFile)
+        knownDataPaths.add(`${modPath}\\Data\\${tmpl.dataFile}`)
       } else {
         const paths = matches.map((m) => m.path)
         for (const p of paths) knownDataPaths.add(p)
@@ -236,6 +273,7 @@ async function scanMod(modPath: string): Promise<{
 
   for (const d of dataFiles) {
     if (!d.root || knownDataPaths.has(d.path)) continue
+    if (KNOWN_LOC_ROOTS.has(d.root)) continue
     const hint = hintForDataFile(d.name)
     const tmpl = hint ? registryModules.find((m) => m.id === hint) : undefined
     if (tmpl) {
@@ -420,6 +458,9 @@ export const useAppStore = create<AppState>((set, get) => ({
   docs: {},
   activeModuleId: '',
   primaryLang: {},
+  primaryDocPath: {},
+  docOverrides: loadDocOverrides(),
+  listScroll: {},
   selectedId: {},
   lastEditedPath: null,
   historyTick: 0,
@@ -484,6 +525,8 @@ export const useAppStore = create<AppState>((set, get) => ({
         docs: {},
         selectedId: {},
         primaryLang: {},
+        primaryDocPath: {},
+        listScroll: {},
         artCache: {},
         modEpoch: get().modEpoch + 1,
         activeModuleId: modules[0]?.id ?? ''
@@ -583,14 +626,32 @@ export const useAppStore = create<AppState>((set, get) => ({
     const locDefs = module.localizeRoots ?? []
     const locFiles = get().localizeFiles.filter((f) => f.root && locDefs.some((r) => r.root === f.root))
     const hasData = dataPaths.length > 0
+    const key = docOverridesKey(modPath, moduleId)
+    const ov = get().docOverrides[key] ?? { add: [], remove: [] }
+    const removeSet = new Set(ov.remove)
+    const filteredDataPaths = dataPaths.filter((p) => !removeSet.has(p))
+    const filteredLocFiles = locFiles.filter((f) => !removeSet.has(f.path))
 
-    for (const p of dataPaths) {
+    for (const p of filteredDataPaths) {
       await loadFile(p, bindingFor(module, 'primary'), null, undefined, undefined)
     }
-    for (const f of locFiles) {
+    for (const f of filteredLocFiles) {
       const def = locDefs.find((r) => r.root === f.root)
       if (!def) continue
       await loadFile(f.path, bindingFor(module, hasData ? 'localize' : 'primary', def), f.root, f.lang, f.label)
+    }
+    for (const p of ov.add) {
+      if (get().docs[p]?.bindings[moduleId] || nextDocs[p]?.bindings[moduleId]) continue
+      try {
+        const text = await api.readTextFile(p)
+        const root = findRootName(parseXml(text))
+        const b = bindingForImported(module, root)
+        if (!b) continue
+        const lang = detectLang(p, text)
+        await loadFile(p, b, root, lang.lang, lang.label)
+      } catch {
+        // 忽略导入失败的文档
+      }
     }
 
     if (get().modEpoch !== epoch) return
@@ -602,14 +663,96 @@ export const useAppStore = create<AppState>((set, get) => ({
     if (first) {
       const refs = listEntities(first.doc, module.entity)
       if (get().modEpoch !== epoch) return
+      const hasLang = get().primaryLang[moduleId] !== undefined
+      const hasPath = get().primaryDocPath[moduleId] !== undefined
       set((s) => ({
-        selectedId: { ...s.selectedId, [moduleId]: refs[0]?.id ?? null },
-        primaryLang: { ...s.primaryLang, [moduleId]: first.lang ?? first.path }
+        selectedId: hasLang ? s.selectedId : { ...s.selectedId, [moduleId]: refs[0]?.id ?? null },
+        primaryLang: hasLang ? s.primaryLang : { ...s.primaryLang, [moduleId]: first.lang ?? first.path },
+        primaryDocPath: hasPath ? s.primaryDocPath : { ...s.primaryDocPath, [moduleId]: first.path }
       }))
     }
   },
 
   setPrimaryLang: (moduleId, lang) => set((s) => ({ primaryLang: { ...s.primaryLang, [moduleId]: lang } })),
+
+  setPrimaryDoc: (moduleId, path) => set((s) => ({ primaryDocPath: { ...s.primaryDocPath, [moduleId]: path } })),
+
+  importDoc: async (moduleId) => {
+    const module = get().modules.find((m) => m.id === moduleId)
+    const modPath = get().modPath
+    if (!module || !modPath) return
+    const paths = await api.pickXmlFiles()
+    if (!paths || paths.length === 0) return
+    const key = docOverridesKey(modPath, moduleId)
+    const prev = get().docOverrides[key] ?? { add: [], remove: [] }
+    const addSet = new Set(prev.add ?? [])
+    const removeSet = new Set(prev.remove ?? [])
+    let added = 0
+    for (const p of paths) {
+      try {
+        const text = await api.readTextFile(p)
+        const doc = parseXml(text)
+        const root = findRootName(doc)
+        const b = bindingForImported(module, root)
+        if (!b) {
+          get().setStatus('导入失败：该文件与当前工作区不匹配', 'error')
+          continue
+        }
+        if (b.kind === 'primary') b.issues = validateEntities(doc, module.entity)
+        const lang = detectLang(p, text)
+        const state = get().docs[p]
+        if (state) {
+          if (!state.bindings[moduleId]) state.bindings[moduleId] = b
+        } else {
+          get().docs[p] = {
+            path: p,
+            doc,
+            dirty: false,
+            rev: 0,
+            history: new SnapshotHistory(),
+            lastSavedText: text,
+            root,
+            lang: lang.lang,
+            langLabel: lang.label,
+            bindings: { [moduleId]: b }
+          }
+        }
+        addSet.add(p)
+        removeSet.delete(p)
+        added++
+      } catch (e) {
+        get().setStatus(`导入失败：${e instanceof Error ? e.message : String(e)}`, 'error')
+      }
+    }
+    if (added > 0) {
+      const ov = { ...get().docOverrides, [key]: { add: Array.from(addSet), remove: Array.from(removeSet) } }
+      set({ docs: { ...get().docs }, docOverrides: ov })
+      persistDocOverrides(get().docOverrides)
+      get().setStatus(`已导入 ${added} 个文档`, 'success')
+    } else {
+      get().setStatus('未导入任何文档', 'info')
+    }
+  },
+
+  removeDoc: (moduleId, path) => {
+    const modPath = get().modPath
+    if (!modPath || !path) return
+    const d = get().docs[path]
+    if (d?.bindings[moduleId]) {
+      delete d.bindings[moduleId]
+      if (Object.keys(d.bindings).length === 0) delete get().docs[path]
+    }
+    const key = docOverridesKey(modPath, moduleId)
+    const prev = get().docOverrides[key] ?? { add: [], remove: [] }
+    const addArr = (prev.add ?? []).filter((x) => x !== path)
+    const removeArr = Array.from(new Set([...(prev.remove ?? []), path]))
+    const ov = { ...get().docOverrides, [key]: { add: addArr, remove: removeArr } }
+    set({ docs: { ...get().docs }, docOverrides: ov })
+    persistDocOverrides(get().docOverrides)
+    get().setStatus('已移除文档', 'success')
+  },
+
+  setListScroll: (key, top) => set((s) => ({ listScroll: { ...s.listScroll, [key]: top } })),
 
   openWorkspaceAndSelect: async (moduleId, id) => {
     if (!get().modules.some((m) => m.id === moduleId)) {

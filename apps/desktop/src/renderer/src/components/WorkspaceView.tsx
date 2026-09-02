@@ -40,6 +40,10 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
   const ensureModuleDocs = useAppStore((s) => s.ensureModuleDocs)
   const primaryLang = useAppStore((s) => s.primaryLang[module.id])
   const setPrimaryLang = useAppStore((s) => s.setPrimaryLang)
+  const primaryDocPath = useAppStore((s) => s.primaryDocPath[module.id])
+  const setPrimaryDoc = useAppStore((s) => s.setPrimaryDoc)
+  const importDoc = useAppStore((s) => s.importDoc)
+  const removeDoc = useAppStore((s) => s.removeDoc)
   const rules = useRegexRules()
 
   const primaryDocs = useMemo(
@@ -47,7 +51,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
     [docs, module.id]
   )
   const toolsModule = module.id === 'cardname' || module.id === 'cardability' || module.id === 'passiveability' || module.id === 'effecttext'
-  const noBrief = module.id === 'cardname' || module.id === 'cardability' || module.id === 'passiveability' || module.id === 'effecttext'
+  const noBrief = module.id === 'cardname' || module.id === 'cardability' || module.id === 'passiveability' || module.id === 'effecttext' || module.id === 'bookstory'
   const localizeDocs = useMemo(
     () => Object.values(docs).filter((d) => d.bindings[module.id]?.kind === 'localize'),
     [docs, module.id]
@@ -56,7 +60,8 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
   const dataDoc =
     primaryLang === '__none__'
       ? undefined
-      : primaryDocs.find((d) => d.lang === primaryLang) ??
+      : primaryDocs.find((d) => d.path === primaryDocPath) ??
+        primaryDocs.find((d) => d.lang === primaryLang) ??
         primaryDocs.find((d) => d.lang === preferredDocLang) ??
         primaryDocs.find((d) => d.lang === 'cn') ??
         primaryDocs[0]
@@ -136,6 +141,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
 
   const isEffectText = module.id === 'effecttext'
   const isPassive = module.id === 'passive'
+  const isBookStory = module.id === 'bookstory'
   const [viewMode, setViewMode] = useState<'brief' | 'detail' | 'source'>('detail')
   const [toolsOpen, setToolsOpen] = useState(false)
   const rightCol = '360px'
@@ -229,7 +235,25 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
             <WorkspaceToolbar
         primaryDocs={primaryDocs}
         primaryLang={primaryLang}
-        onPrimaryLang={(v) => setPrimaryLang(module.id, v)}
+        primaryDocPath={primaryDocPath}
+        onPrimaryDoc={(v) => {
+          if (v === '__none__') {
+            setPrimaryLang(module.id, '__none__')
+            setPrimaryDoc(module.id, '')
+            return
+          }
+          const d = primaryDocs.find((x) => x.path === v)
+          if (d) {
+            setPrimaryDoc(module.id, d.path)
+            setPrimaryLang(module.id, d.lang ?? d.path)
+          }
+        }}
+        onImportDoc={() => void importDoc(module.id)}
+        onRemoveDoc={() => {
+          const p = primaryDocPath ?? dataDoc?.path
+          if (p) removeDoc(module.id, p)
+        }}
+        removeDisabled={!dataDoc}
         viewMode={viewMode}
         onViewMode={setViewMode}
         noBrief={noBrief}
@@ -253,13 +277,13 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
 <div
         className="grid min-h-0 flex-1"
         style={{
-          gridTemplateColumns: toolsModule || isPassive ? `${leftCol} minmax(0, 1fr)` : `${leftCol} minmax(420px, 1fr) ${rightCol}`
+          gridTemplateColumns: toolsModule || isPassive || isBookStory ? `${leftCol} minmax(0, 1fr)` : `${leftCol} minmax(420px, 1fr) ${rightCol}`
         }}
       >
         {module.id === 'effecttext' ? (
           <EffectTextListPanel doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} />
         ) : (
-          <DataPanel key={dataDoc?.path ?? 'none'} doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} localizedRender={abilityLocalizedRender} />
+          <DataPanel key={dataDoc?.path ?? 'none'} doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} localizedRender={abilityLocalizedRender} scrollKey={module.id} />
         )}
         <div className="flex h-full min-h-0 min-w-0 flex-col">
           <div className="min-h-0 flex-1 overflow-hidden">
@@ -283,7 +307,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
           </div>
           {module.id === 'cardname' || module.id === 'cardability' || module.id === 'effecttext' || module.id === 'passiveability' ? <ProofPanel moduleId={module.id} /> : null}
         </div>
-        {!toolsModule && !isPassive ? (
+        {!toolsModule && !isPassive && !isBookStory ? (
           <div className="h-full min-h-0 min-w-0 border-l border-border bg-card">
             {module.preview ? (
               <div className="h-full min-h-0 overflow-y-auto overscroll-contain">

@@ -5,6 +5,7 @@ const api = {
   pickModDirectory: () => ipcRenderer.invoke('dialog:pick-mod'),
   pickDirectory: (modPath: string) => ipcRenderer.invoke('dialog:pick-directory', modPath),
   pickImageFiles: () => ipcRenderer.invoke('dialog:pick-images'),
+  pickXmlFiles: () => ipcRenderer.invoke('dialog:pick-xml'),
   listDataFiles: (modPath: string) => ipcRenderer.invoke('mod:list-data', modPath),
   readTextFile: (path: string) => ipcRenderer.invoke('fs:read-text', path),
   saveFile: (path: string, content: string) => ipcRenderer.invoke('fs:save', path, content),

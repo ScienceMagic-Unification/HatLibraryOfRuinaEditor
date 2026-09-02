@@ -1,9 +1,9 @@
 import type { ModuleDefinition } from '@ruina/editor-core'
 import { useI18n } from '../i18n'
 import { useAppStore } from '../store'
-import { BadgeCheck, Database, FileCode2, FileText, Image as ImageIcon, MoreHorizontal, Shield, Sparkles, Swords, Tags } from 'lucide-react'
+import { BadgeCheck, BookOpen, Database, FileCode2, FileText, Image as ImageIcon, MoreHorizontal, Shield, Skull, Sparkles, Swords, Tags, User } from 'lucide-react'
 
-const ICONS: Record<string, typeof Swords> = { Swords, BadgeCheck, Tags, Image: ImageIcon, FileCode2, FileText, Sparkles, Shield }
+const ICONS: Record<string, typeof Swords> = { Swords, BadgeCheck, Tags, Image: ImageIcon, FileCode2, FileText, Sparkles, Shield, Skull, User, BookOpen }
 
 function Graph({
   title,
@@ -110,6 +110,7 @@ export function WorkspaceLinkGraph({
 
   const groups = [
     { title: t('graph.title'), icon: Swords, ids: ['cardinfo', 'cardname', 'cardability'], disabled: false },
+    { title: t('graph.keypages'), icon: BookOpen, ids: ['equippage-enemy', 'equippage-librarian', 'bookstory'], disabled: false },
     { title: t('graph.passive'), icon: Shield, ids: ['passive', 'passiveability'], disabled: false },
     { title: t('graph.effect'), icon: FileText, ids: ['effecttext'], disabled: false },
     { title: t('graph.image'), icon: ImageIcon, ids: ['page-artwork', 'buff-icons', 'other-images'], disabled: false },

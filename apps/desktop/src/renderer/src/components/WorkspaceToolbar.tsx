@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Badge, Button, Select } from '@ruina/ui'
-import { ArrowDown, ArrowUp, Copy, FileCode2, Languages, LayoutList, PenLine, Plus, Save, Trash2, Wrench } from 'lucide-react'
+import { ArrowDown, ArrowUp, Copy, FileCode2, FolderOpen, Languages, LayoutList, PenLine, Plus, Save, Trash2, Wrench, X } from 'lucide-react'
 import { useI18n } from '../i18n'
 import type { DocState } from '../store'
 import { useAppStore } from '../store'
@@ -9,7 +9,11 @@ import { useAppStore } from '../store'
 export function WorkspaceToolbar({
   primaryDocs,
   primaryLang,
-  onPrimaryLang,
+  primaryDocPath,
+  onPrimaryDoc,
+  onImportDoc,
+  onRemoveDoc,
+  removeDisabled,
   viewMode,
   onViewMode,
   noBrief,
@@ -32,7 +36,11 @@ export function WorkspaceToolbar({
 }: {
   primaryDocs: DocState[]
   primaryLang?: string
-  onPrimaryLang: (lang: string) => void
+  primaryDocPath?: string
+  onPrimaryDoc: (value: string) => void
+  onImportDoc: () => void
+  onRemoveDoc: () => void
+  removeDisabled?: boolean
   viewMode: 'brief' | 'detail' | 'source'
   onViewMode: (mode: 'brief' | 'detail' | 'source') => void
   noBrief?: boolean
@@ -55,9 +63,16 @@ export function WorkspaceToolbar({
 }): JSX.Element {
   const { t } = useI18n()
   const [notice, setNotice] = useState<string | null>(null)
+  const docName = (p: string): string => p.replace(/\\/g, '/').split('/').pop() ?? p
+  const langHint = (d: DocState): string => (d.lang && d.lang !== 'unknown' ? (d.langLabel ?? d.lang) : '')
+  const selectedLabel = (() => {
+    if (primaryLang === '__none__') return t('none')
+    const d = primaryDocs.find((x) => x.path === primaryDocPath) ?? primaryDocs[0]
+    return d ? `${docName(d.path)}${langHint(d) ? ' · ' + langHint(d) : ''}` : t('none')
+  })()
   return (
-    <div className="flex h-[52px] shrink-0 items-center gap-2 border-b border-border bg-card px-3 py-2">
-      <div className="flex gap-1">
+    <div className="flex h-[52px] shrink-0 items-center gap-2 overflow-hidden border-b border-border bg-card px-3 py-2">
+      <div className="flex shrink-0 gap-1">
         <Button size="sm" variant="secondary" onClick={onAdd} disabled={addDisabled}>
           <Plus /> {t('add')}
         </Button>
@@ -68,8 +83,8 @@ export function WorkspaceToolbar({
           <Trash2 /> {t('delete')}
         </Button>
       </div>
-      <div className="mx-1 h-5 w-px bg-border" />
-      <div className="flex gap-1">
+      <div className="mx-1 h-5 w-px shrink-0 bg-border" />
+      <div className="flex shrink-0 gap-1">
         <Button size="icon" variant="ghost" className="size-7" title={t('moveUp')} onClick={onMoveUp} disabled={moveDisabled}>
           <ArrowUp />
         </Button>
@@ -77,24 +92,31 @@ export function WorkspaceToolbar({
           <ArrowDown />
         </Button>
       </div>
-      <div className="flex items-center gap-1.5 rounded-md border border-border bg-muted px-1.5 py-1">
-        <span className="text-[10px] text-muted-foreground">{t('doc')}</span>
-        <Select.Root value={primaryLang && primaryDocs.some((d) => (d.lang ?? d.path) === primaryLang) ? primaryLang : primaryDocs[0]?.lang ?? '__none__'} onValueChange={onPrimaryLang}>
-            <Select.Trigger className="h-7 w-32 text-xs">
-              <Select.Value placeholder={t('select.document')} />
-            </Select.Trigger>
-            <Select.Content>
-              {primaryDocs.map((d) => (
-                <Select.Item key={d.path} value={d.lang ?? d.path}>
-                  {d.langLabel ?? d.lang ?? (d.path.split('\\').pop() as string)}
-                </Select.Item>
-              ))}
-              <Select.Item value="__none__">{t('none')}</Select.Item>
-            </Select.Content>
-          </Select.Root>
+      <div className="flex min-w-0 items-center gap-1.5 rounded-md border border-border bg-muted px-1.5 py-1">
+        <span className="shrink-0 text-[10px] text-muted-foreground">{t('doc')}</span>
+        <Select.Root value={primaryLang === '__none__' ? '__none__' : (primaryDocPath && primaryDocs.some((d) => d.path === primaryDocPath) ? primaryDocPath : (primaryDocs[0]?.path ?? '__none__'))} onValueChange={onPrimaryDoc}>
+          <Select.Trigger className="h-7 w-40 max-w-full text-xs" title={selectedLabel}>
+            <span className="min-w-0 flex-1 truncate text-left">{selectedLabel}</span>
+          </Select.Trigger>
+          <Select.Content>
+            {primaryDocs.map((d) => (
+              <Select.Item key={d.path} value={d.path} textValue={docName(d.path) + (langHint(d) ? ' ' + langHint(d) : '')} title={d.path}>
+                <span className="inline-block max-w-[180px] truncate align-bottom">{docName(d.path)}</span>
+                {langHint(d) ? <span className="ml-1 text-[10px] text-muted-foreground/70">{langHint(d)}</span> : null}
+              </Select.Item>
+            ))}
+            <Select.Item value="__none__">{t('none')}</Select.Item>
+          </Select.Content>
+        </Select.Root>
+        <Button size="icon" variant="ghost" className="size-7" title={t('doc.import')} onClick={onImportDoc}>
+          <FolderOpen className="size-4" />
+        </Button>
+        <Button size="icon" variant="ghost" className="size-7" title={t('doc.remove')} onClick={onRemoveDoc} disabled={removeDisabled}>
+          <X className="size-4" />
+        </Button>
       </div>
       <div className="flex-1" />
-      <div className="flex rounded-lg border border-border bg-muted p-0.5">
+      <div className="flex shrink-0 rounded-lg border border-border bg-muted p-0.5">
         {(
           [
             { id: 'brief', label: t('brief'), icon: LayoutList },
@@ -115,15 +137,15 @@ export function WorkspaceToolbar({
           </button>
         ))}
       </div>
-      <span className="text-xs text-muted-foreground">
+      <span className="shrink-0 whitespace-nowrap text-xs text-muted-foreground">
         {refsCount} {t('entries')} · {t('issues')} {issuesCount}
       </span>
       {dirtyCount > 0 ? (
-        <Badge variant="warning">{t('unsaved', { n: dirtyCount })}</Badge>
+        <Badge variant="warning" className="shrink-0 whitespace-nowrap">{t('unsaved', { n: dirtyCount })}</Badge>
       ) : (
-        <Badge variant="success">{t('saved')}</Badge>
+        <Badge variant="success" className="shrink-0 whitespace-nowrap">{t('saved')}</Badge>
       )}
-      <Button size="sm" variant="secondary" onClick={() => {
+      <Button size="sm" variant="secondary" className="shrink-0" onClick={() => {
         void (async () => {
           await onFix()
           setTimeout(() => setNotice(useAppStore.getState().status), 150)
@@ -131,7 +153,7 @@ export function WorkspaceToolbar({
       }} title="按 XML 规则与特殊规则校验并修复当前工作区" disabled={fixDisabled}>
         <Wrench /> {t('fix')}
       </Button>
-      <Button size="sm" onClick={() => {
+      <Button size="sm" className="shrink-0" onClick={() => {
         void (async () => {
           await onSave()
           setNotice(useAppStore.getState().status)

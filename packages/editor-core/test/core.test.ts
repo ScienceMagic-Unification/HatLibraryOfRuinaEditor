@@ -262,3 +262,46 @@ describe('移除字段', () => {
     expect(serializeXml(doc)).not.toContain('SpecialEffect')
   })
 })
+
+
+describe('child 容器子元素字段', () => {
+  const childSchema: EntitySchema = {
+    root: 'BookXmlRoot',
+    entity: 'Book',
+    idAttr: 'ID',
+    fields: [
+      { kind: 'child', element: 'EquipEffect', name: 'HP', field: { kind: 'int', name: 'HP', digitsOnly: true } },
+      { kind: 'child', element: 'EquipEffect', name: 'SResist', field: { kind: 'enum', name: 'SResist', values: ['Normal', 'Endure', 'Weak', 'Vulnerable', 'Immune'] } },
+      { kind: 'child', element: 'EquipEffect', name: 'CustomOnlyCard', field: { kind: 'multi', name: 'CustomOnlyCard' } },
+      { kind: 'child', element: 'TextList', name: 'Desc', field: { kind: 'multiline', name: 'Desc', multiLineElements: true } }
+    ]
+  }
+
+  it('读取并写入嵌套容器中的标量/枚举/多值/多行字段', () => {
+    const doc = parseXml('<BookXmlRoot><Book ID="1"><EquipEffect><HP>280</HP><SResist>Endure</SResist><CustomOnlyCard>107</CustomOnlyCard><CustomOnlyCard>109</CustomOnlyCard></EquipEffect><TextList><Desc>第一段</Desc><Desc>第二段</Desc></TextList></Book></BookXmlRoot>')
+    const ref = listEntities(doc, childSchema)[0]
+    expect(getFieldValue(ref.node, childSchema.fields[0])).toBe('280')
+    setFieldValue(ref.node, childSchema.fields[0], '300')
+    expect(serializeXml(doc)).toContain('<HP>300</HP>')
+    expect(getFieldValue(ref.node, childSchema.fields[1])).toBe('Endure')
+    setFieldValue(ref.node, childSchema.fields[1], 'Immune')
+    expect(serializeXml(doc)).toContain('<SResist>Immune</SResist>')
+    expect(getFieldValue(ref.node, childSchema.fields[2])).toEqual(['107', '109'])
+    setFieldValue(ref.node, childSchema.fields[2], ['201'])
+    expect(getFieldValue(ref.node, childSchema.fields[2])).toEqual(['201'])
+    expect(getFieldValue(ref.node, childSchema.fields[3])).toBe('第一段\n第二段')
+    setFieldValue(ref.node, childSchema.fields[3], 'A\nB\nC')
+    expect(serializeXml(doc)).toContain('<Desc>A</Desc>')
+    expect(getFieldValue(ref.node, childSchema.fields[3])).toBe('A\nB\nC')
+  })
+
+  it('容器缺失时返回默认值，写入时自动创建容器', () => {
+    const doc = parseXml('<BookXmlRoot><Book ID="2"><Name>空</Name></Book></BookXmlRoot>')
+    const ref = listEntities(doc, childSchema)[0]
+    expect(getFieldValue(ref.node, childSchema.fields[0])).toBeUndefined()
+    expect(getFieldValue(ref.node, childSchema.fields[2])).toEqual([])
+    setFieldValue(ref.node, childSchema.fields[0], '100')
+    expect(serializeXml(doc)).toContain('<EquipEffect>')
+    expect(serializeXml(doc)).toContain('<HP>100</HP>')
+  })
+})

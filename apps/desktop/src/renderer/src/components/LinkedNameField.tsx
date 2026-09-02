@@ -28,6 +28,7 @@ export function LinkedNameField({
   const docs = useAppStore((s) => s.docs)
   const locWorkspaceId = module.id === 'cardinfo' ? 'cardname' : module.id === 'passive' ? 'passiveability' : module.id
   const nameLang = useAppStore((s) => s.primaryLang[locWorkspaceId])
+  const nameDocPath = useAppStore((s) => s.primaryDocPath[locWorkspaceId])
   const editDoc = useAppStore((s) => s.editDoc)
 
   const locDef = useMemo(
@@ -35,7 +36,7 @@ export function LinkedNameField({
     [module]
   )
   const locFieldName = locDef?.fields.find((f) => f.name === 'LocalizedName' || f.name === 'Name')?.name
-  const linked = Boolean(module.dataRoot && locDef)
+  const linked = Boolean((module.dataFiles?.length || module.dataFile || module.dataRoot) && locDef)
 
   const nameDoc = useMemo(() => {
     if (!locDef) return undefined
@@ -43,8 +44,8 @@ export function LinkedNameField({
     const candidates = Object.values(docs).filter(
       (d) => d.bindings[module.id]?.kind === 'localize' && d.bindings[module.id]?.locDef?.root === locDef.root
     )
-    return candidates.find((d) => d.lang === nameLang) ?? candidates.find((d) => d.lang === 'cn') ?? candidates[0]
-  }, [docs, module.id, locDef, nameLang])
+    return candidates.find((d) => d.path === nameDocPath) ?? candidates.find((d) => d.lang === nameLang) ?? candidates.find((d) => d.lang === 'cn') ?? candidates[0]
+  }, [docs, module.id, locDef, nameLang, nameDocPath])
 
   const locValue = useMemo(() => {
     if (!nameDoc || !locDef || !locFieldName) return ''

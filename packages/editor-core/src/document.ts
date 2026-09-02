@@ -26,7 +26,7 @@ export function nodeChildren(node: OrderedNode): unknown[] {
 }
 
 /** 在节点的 children 中查找指定名称的元素节点 */
-function findChildNode(node: OrderedNode, name: string): OrderedNode | null {
+export function findChildNode(node: OrderedNode, name: string): OrderedNode | null {
   const children = nodeChildren(node)
   const idx = children.findIndex((c) => isRecord(c) && Object.keys(c)[0] === name)
   return idx < 0 ? null : (children[idx] as OrderedNode)
@@ -147,6 +147,23 @@ export function setTextField(node: OrderedNode, name: string, value: string): vo
   else arr.push({ '#text': value })
 }
 
+/** 读取元素节点自身的文本（非子元素） */
+export function getNodeText(node: OrderedNode): string {
+  const arr = nodeChildren(node)
+  for (const c of arr) {
+    if (isRecord(c) && '#text' in c) return c['#text'] === undefined ? '' : String(c['#text'])
+  }
+  return ''
+}
+
+/** 写入元素节点自身的文本（非子元素） */
+export function setNodeText(node: OrderedNode, text: string): void {
+  const arr = nodeChildren(node)
+  const t = arr.find((c) => isRecord(c) && '#text' in c)
+  if (t) (t as any)['#text'] = text
+  else arr.push({ '#text': text })
+}
+
 export function getAllText(node: OrderedNode, name: string): string {
   const children = nodeChildren(node)
   const out: string[] = []
@@ -245,6 +262,16 @@ export function getFieldValue(node: OrderedNode, field: FieldDef): unknown {
     case 'multiline':
       if (field.multiLineElements) return getAllText(node, field.name)
       return getTextField(node, field.name)
+    case 'child': {
+      const container = findChildNode(node, field.element)
+      if (!container) {
+        const inner = field.field
+        if (inner.kind === 'multi') return []
+        if (inner.kind === 'marker') return false
+        return undefined
+      }
+      return getFieldValue(container, field.field)
+    }
     case 'attr': {
       const container = findChildNode(node, field.element)
       if (!container) return undefined
@@ -290,6 +317,15 @@ export function setFieldValue(node: OrderedNode, field: FieldDef, value: unknown
       }
       setTextField(node, field.name, value === undefined ? '' : String(value))
       return
+    case 'child': {
+      let container = findChildNode(node, field.element)
+      if (!container) {
+        container = makeElement(field.element)
+        nodeChildren(node).push(container)
+      }
+      setFieldValue(container, field.field, value)
+      return
+    }
     case 'attr': {
       let container = findChildNode(node, field.element)
       if (!container) {

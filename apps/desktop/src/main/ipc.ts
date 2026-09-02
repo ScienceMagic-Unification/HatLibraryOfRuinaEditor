@@ -73,6 +73,15 @@ export function registerIpc(): void {
     return r.canceled ? [] : r.filePaths
   })
 
+  ipcMain.handle('dialog:pick-xml', async () => {
+    const r = await dialog.showOpenDialog({
+      title: '选择要导入的 XML / 文本文档',
+      properties: ['openFile', 'multiSelections'],
+      filters: [{ name: 'XML / 文本', extensions: ['xml', 'txt'] }]
+    })
+    return r.canceled ? [] : r.filePaths
+  })
+
   ipcMain.handle('mod:list-data', async (_e, modPath: unknown) => {
     return listXmlFiles(join(requireString(modPath, 'modPath'), 'Data'))
   })

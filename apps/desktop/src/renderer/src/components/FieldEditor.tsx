@@ -233,6 +233,11 @@ export function FieldEditor({
         </label>
       )
 
+    case 'child':
+      return (
+        <FieldEditor field={field.field} value={value} onChange={onChange} accentColor={accentColor} showIds={showIds} />
+      )
+
     case 'attr':
       return (
         <ScalarEditor
