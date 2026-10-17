@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList />
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ExhaustDice_Keyword">
+      <Name>소멸 - 주사위</Name>
+      <Desc>[사용 후] 이 주사위를 책장에서 제거한다.
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 주사위를 재사용하는 효과에는 영향을 주지 않는다.(~/HatKeyword~)
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 광역 공격에 대응하여 굴릴 때도 적용된다.(~/HatKeyword~)</Desc>
+      <KeywordIconId>Exhaust</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>false</IsChangeAbility>
+      <IsChangePassive>false</IsChangePassive>
+      <IsAutoLink>false</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_UnsealDice_Keyword">
+      <Name>발도</Name>
+      <Desc>이 주사위는 지정된 조건을 충족할 때만 굴린다.</Desc>
+      <KeywordIconId>Hat_Enchantments_UnsealDice</KeywordIconId>
+      <Color>#B22B36</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Keyword">
+      <Name>방패 강타</Name>
+      <Desc>이 방어 주사위는 다음 효과를 가진다.
+- [합 승리 전] 무작위 공격 유형의 주사위로 전환한다.
+- [사용 후] 주사위의 유형을 원래대로 되돌린다.</Desc>
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Slash_Keyword">
+      <Name>방패 강타: 참격</Name>
+      <Desc />
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsAutoLink>false</IsAutoLink>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Penetrate_Keyword">
+      <Name>방패 강타: 관통</Name>
+      <Desc />
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsAutoLink>false</IsAutoLink>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Hit_Keyword">
+      <Name>방패 강타: 타격</Name>
+      <Desc />
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsAutoLink>false</IsAutoLink>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Throughout_Dice_Keyword">
+      <Name>돌파</Name>
+      <Desc>[합 승리] 이 (~HatKeyword id="Hat_Enchantments_AtkDice"/~) 주사위는 대상에게 적중하는 대신 다시 굴린다.</Desc>
+      <KeywordIconId>Hat_Enchantments_Throughout_Dice</KeywordIconId>
+      <Color>#93a3c5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+<BattleEffectTextExtra ID="Hat_Enchantments_MultipleHit_Keyword">
+      <Name>연격</Name>
+      <Desc>이 공격 주사위의 피해량과 흐트러짐 피해량을 X로 나누고 대상을 X회 적중시킨다.
+- 이 효과가 중첩되면 가장 높은 값만 적용한다.</Desc>
+      <KeywordIconId>Hat_Enchantments_MultipleHit</KeywordIconId>
+      <Color>#F11F32</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+<BattleEffectTextExtra ID="Hat_Enchantments_Harmonious_Keyword">
+      <Name>공진</Name>
+      <Desc>이 주사위의 최종값을 X의 배수가 되도록 올림한다.
+- 이 효과가 중첩되면 가장 높은 값만 적용한다.</Desc>
+      <KeywordIconId>Hat_Enchantments_Harmonious</KeywordIconId>
+      <Color>#FFD551</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+<BattleEffectTextExtra ID="Hat_Enchantments_Precision_Keyword">
+      <Name>정밀</Name>
+      <Desc>이 공격 주사위에 대한 대상의 체력 및 흐트러짐 내성 피해 배율을 0.1×X만큼 증가시킨다.
+- 면역 내성에는 적용되지 않는다.
+- 이 효과가 중첩되면 가장 높은 값만 적용한다.</Desc>
+      <KeywordIconId>Hat_Enchantments_Insight</KeywordIconId>
+      <Color>#05BCFC</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+<BattleEffectTextExtra ID="Hat_Enchantments_ExhaustDice_Description_Keyword">
+      <Name>소멸</Name>
+      <Desc>[사용 후] 이 주사위를 책장에서 제거한다.
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 주사위를 재사용하는 효과에는 영향을 주지 않는다.(~/HatKeyword~)
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 광역 공격에 대응하여 굴릴 때도 적용된다.(~/HatKeyword~)</Desc>
+      <KeywordIconId>Exhaust</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>false</IsChangeSelf>
+      <IsChangeAbility>false</IsChangeAbility>
+      <IsChangePassive>false</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

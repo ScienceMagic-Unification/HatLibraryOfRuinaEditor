@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import type { ModuleDefinition } from '@ruina/editor-core'
 import { useI18n } from '../i18n'
+import { Input } from '@ruina/ui'
+import { pluginImageResources } from '../lib/builtinIcons'
 
 type BuiltinImageTab = 'range' | 'dice' | 'chapter' | 'singularity' | 'vanilla' | 'other'
 
@@ -16,6 +18,8 @@ const imageModules: Record<BuiltinImageTab, Record<string, string>> = {
 interface BuiltinImageEntry {
   name: string
   url: string
+  plugin?: string
+  resourceName?: string
 }
 
 function toEntries(modules: Record<string, string>): BuiltinImageEntry[] {
@@ -42,15 +46,23 @@ const TABS: { id: BuiltinImageTab; labelKey: string }[] = [
   { id: 'other', labelKey: 'tab.other' }
 ]
 
+// Legacy copies remain available to icon resolution, but have one home in the gallery.
+const pluginImageIds = new Set(pluginImageResources.map((resource) => resource.id))
+const otherImages = toEntries(imageModules.other).filter((entry) => !pluginImageIds.has(entry.name.replace(/\.png$/i, '')))
+
 /** 奇点大工作区 - 内置图片：只读平铺展示，无导入/删除/重命名。 */
 export function BuiltinImageWorkspace({ module }: { module: ModuleDefinition }): JSX.Element {
   const { t } = useI18n()
   const [activeTab, setActiveTab] = useState<BuiltinImageTab>('range')
-  const entries = useMemo(() => toEntries(imageModules[activeTab]), [activeTab])
+  const [query, setQuery] = useState('')
+  const entries = useMemo<BuiltinImageEntry[]>(() => activeTab === 'singularity'
+    ? pluginImageResources.map((r) => ({ name: r.id, url: r.url, plugin: r.plugin, resourceName: r.name })).sort((a, b) => a.name.localeCompare(b.name))
+    : activeTab === 'other' ? otherImages : toEntries(imageModules[activeTab]), [activeTab])
+  const filtered = useMemo(() => entries.filter((e) => `${e.name} ${e.plugin ?? ''} ${e.resourceName ?? ''}`.toLowerCase().includes(query.trim().toLowerCase())), [entries, query])
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div className="flex shrink-0 items-center gap-2 border-b border-border bg-card px-3 py-2">
+    <div className="flex min-h-0 flex-1 flex-col" data-testid="builtin-images">
+      <div className="flex shrink-0 flex-wrap items-center gap-2 border-b border-border bg-card px-3 py-2">
         <div className="flex gap-1">
           {TABS.map((tab) => (
             <button
@@ -66,20 +78,20 @@ export function BuiltinImageWorkspace({ module }: { module: ModuleDefinition }):
             </button>
           ))}
         </div>
-        <div className="flex-1" />
+        <Input className="ml-auto w-60" value={query} onChange={(e) => setQuery(e.target.value)} aria-label={t('keyword.search')} placeholder={t('keyword.search')}/>
         <span className="text-xs text-muted-foreground">{t('builtin.readonlyHint')}</span>
         <span className="rounded-md border border-border bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-          {t('total', { n: entries.length })}
+          {t('total', { n: entries.length })}{query ? ` · ${t('hits', { n: filtered.length })}` : ''}
         </span>
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-3">
-        {entries.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="flex h-full items-center justify-center text-sm text-muted-foreground">{t('image.empty')}</div>
         ) : (
           <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
-            {entries.map((entry) => (
-              <div key={entry.name} className="overflow-hidden rounded-lg border border-border bg-card">
+            {filtered.map((entry) => (
+              <div key={entry.resourceName ?? entry.name} data-resource-id={entry.name} className="overflow-hidden rounded-lg border border-border bg-card">
                 <div className="flex h-28 items-center justify-center overflow-hidden bg-black/30 p-2">
                   <img
                     src={entry.url}
@@ -88,8 +100,8 @@ export function BuiltinImageWorkspace({ module }: { module: ModuleDefinition }):
                     className="max-h-full max-w-full object-contain"
                   />
                 </div>
-                <div className="truncate border-t border-border px-2 py-1.5 text-center text-xs text-muted-foreground" title={entry.name}>
-                  {entry.name}
+                <div className="break-all border-t border-border px-2 py-1.5 text-center text-xs text-muted-foreground" title={entry.resourceName ?? entry.name}>
+                  {entry.name}{entry.plugin ? <div className="mt-1 text-[10px] text-muted-foreground/70">{entry.plugin}</div> : null}
                 </div>
               </div>
             ))}

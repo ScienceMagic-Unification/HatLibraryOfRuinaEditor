@@ -3,8 +3,9 @@ import { listEntities } from '@ruina/editor-core'
 import { api, type ImageAssetInfo } from '../api'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
+import { builtinScriptIds } from '../lib/singularityAbilities'
 
-export type AutocompleteSource = 'page-artwork' | 'page-ability'
+export type AutocompleteSource = 'page-artwork' | 'page-ability' | 'dice-ability'
 
 
 export function AutocompleteInput({
@@ -27,6 +28,7 @@ export function AutocompleteInput({
   const modules = useAppStore((s) => s.modules)
   const docs = useAppStore((s) => s.docs)
   const primaryLang = useAppStore((s) => s.primaryLang)
+  const hatEnabled = useAppStore((s) => s.hatEnabled)
 
   const [artworkOptions, setArtworkOptions] = useState<string[]>([])
   const [open, setOpen] = useState(false)
@@ -34,19 +36,20 @@ export function AutocompleteInput({
   const rootRef = useRef<HTMLDivElement>(null)
 
   const abilityOptions = useMemo(() => {
-    if (source !== 'page-ability') return []
+    if (source === 'page-artwork') return []
+    const builtin = hatEnabled ? builtinScriptIds(source === 'dice-ability' ? 'dice' : 'card') : []
     const module = modules.find((m) => m.id === 'cardability')
-    if (!module) return []
+    if (!module) return builtin
     const lang = primaryLang['cardability']
     const primaries = Object.values(docs).filter((d) => d.bindings['cardability']?.kind === 'primary')
     const chosen = primaries.find((d) => d.lang === lang) ?? primaries[0]
-    if (!chosen) return []
-    const ids = new Set<string>()
+    if (!chosen) return builtin
+    const ids = new Set<string>(builtin)
     for (const ref of listEntities(chosen.doc, module.entity)) {
-      if (ref.id) ids.add(ref.id)
+      if (ref.id && !(source === 'page-ability' && builtinScriptIds('dice').includes(ref.id))) ids.add(ref.id)
     }
     return Array.from(ids).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-  }, [source, modules, docs, primaryLang])
+  }, [source, modules, docs, primaryLang, hatEnabled])
 
   useEffect(() => {
     if (source !== 'page-artwork' || !modPath) return

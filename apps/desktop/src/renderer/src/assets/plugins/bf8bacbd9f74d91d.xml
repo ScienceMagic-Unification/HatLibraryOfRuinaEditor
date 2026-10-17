@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_Ammo_View">現在保有している(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)：</text>
+  <text id="Hat_Enchantments_Ammo_Unique">現在保有している特殊(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)：</text>
+  <text id="Hat_Enchantments_Ammo_Fill">装填済み</text>
+  <text id="Hat_Enchantments_Ammo_Empty">現在(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)を保有していない。</text>
+</localize>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { EntityRef, EntitySchema, ModuleDefinition, OrderedDoc } from '@ruina/editor-core'
 import { childArray, getRootChildren, getTextField, insertEntity, listEntities, makeElement, moveEntity, parseXml, removeEntity, serializeXml, setAttr, setMulti, setTextField } from '@ruina/editor-core'
 import { Button, Input, Select } from '@ruina/ui'
@@ -6,12 +6,13 @@ import { ArrowDown, ArrowUp, Check, ChevronsLeft, ChevronsRight, Copy, FileCode2
 import { useAppStore } from '../store'
 import { api } from '../api'
 import { useI18n } from '../i18n'
-import { editorLangToDocLang } from '../lib/lang'
-import { getBuiltinRegexEntries, getBuiltinRegexLanguages, parseRegexXml, type BattleEffectTextEntry } from '../lib/previewRules'
+import { workspaceLanguage } from '../lib/workspaceLanguage'
+import { getBuiltinRegexEntries, getBuiltinRegexLanguages, parseRegexXml, writeKeywordEntry, type BattleEffectTextEntry } from '../lib/previewRules'
 import { resolveBuiltinIconUrl } from '../lib/builtinIcons'
 import { RegexText } from './RegexText'
 import { AutoTextarea } from './AutoTextarea'
 import { useRegexRules } from '../lib/useRegexRules'
+import { keywordSearchAliases } from '../lib/keywordMigrations'
 
 const blankEntry: BattleEffectTextEntry = {
   id: '',
@@ -70,6 +71,7 @@ const CARD_NAME_SCHEMA: EntitySchema = {
 
 const BOOLEAN_FIELDS: { key: keyof BattleEffectTextEntry; label: string; realName: string }[] = [
   { key: 'hasBracket', label: '识别名检查[]', realName: 'HasBracket' },
+  { key: 'keepRecognizeName', label: '保留识别名', realName: 'KeepRecognizeName' },
   { key: 'isUnderline', label: '下划线', realName: 'IsUnderline' },
   { key: 'isItalic', label: '斜体', realName: 'IsItalic' },
   { key: 'isBold', label: '粗体', realName: 'IsBold' },
@@ -84,34 +86,20 @@ function langFullLabel(s: string): string {
   if (s === 'cn') return '简体中文'
   if (s === 'en') return 'English'
   if (s === 'jp' || s === 'ja') return '日本語'
+  if (s === 'kr' || s === 'ko') return '한국어'
   return s
 }
 
 function serializeEntryForSource(e: BattleEffectTextEntry): string {
-  const bool = (b: boolean): string => (b ? 'true' : 'false')
-  return [
-    '<BattleEffectTextExtra ID="' + e.id + '">',
-    '  <Name>' + e.name + '</Name>',
-    '  <RecognizeName>' + e.recognizeName + '</RecognizeName>',
-    '  <Desc>' + e.desc + '</Desc>',
-    '  <KeywordIconId>' + e.keywordIconId + '</KeywordIconId>',
-    '  <Color>' + e.color + '</Color>',
-    '  <HasBracket>' + bool(e.hasBracket) + '</HasBracket>',
-    '  <IsUnderline>' + bool(e.isUnderline) + '</IsUnderline>',
-    '  <IsItalic>' + bool(e.isItalic) + '</IsItalic>',
-    '  <IsBold>' + bool(e.isBold) + '</IsBold>',
-    '  <IsChangeSelf>' + bool(e.isChangeSelf) + '</IsChangeSelf>',
-    '  <IsChangeAbility>' + bool(e.isChangeAbility) + '</IsChangeAbility>',
-    '  <IsChangePassive>' + bool(e.isChangePassive) + '</IsChangePassive>',
-    '  <IsAutoLink>' + bool(e.isAutoLink) + '</IsAutoLink>',
-    '  <IsCardPreview>' + bool(e.isCardPreview) + '</IsCardPreview>'
-  ].concat(e.cardPreview.map((v) => '  <CardPreview>' + v + '</CardPreview>')).concat(['</BattleEffectTextExtra>']).join('\n')
+  const node = e.rawSource ? parseXml(e.rawSource).find((n: any) => n.BattleEffectTextExtra) : makeElement('BattleEffectTextExtra')
+  if (!node) return e.rawSource ?? ''
+  writeKeywordEntry(node as any, e)
+  return serializeXml([node])
 }
 
 /** 奇点大工作区 - 内置正则 / 模组正则：只读或可编辑字段表单模板 + 本地化文档选择器 + 说明抽屉。 */
 export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }): JSX.Element {
-  const { t, tl, lang } = useI18n()
-  const rules = useRegexRules()
+  const { t, tl } = useI18n()
   const localizeFiles = useAppStore((st) => st.localizeFiles)
   const docs = useAppStore((st) => st.docs)
   const ensureModuleDocs = useAppStore((st) => st.ensureModuleDocs)
@@ -138,8 +126,8 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
     return builtinLangs.map((s) => ({ value: s, label: langFullLabel(s) }))
   }, [setId, builtinLangs, modDocs])
 
-  const preferredDocLang = editorLangToDocLang(lang)
-  const selectedLang = primaryLang[module.id] ?? langOptions.find((o) => o.value === preferredDocLang)?.value ?? langOptions[0]?.value ?? 'cn'
+  const selectedLang = workspaceLanguage(docs, module.id, primaryLang[module.id])
+  const rules = useRegexRules(selectedLang)
   const setLang = (v: string): void => setPrimaryLang(module.id, v)
 
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -151,6 +139,9 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
   const [modEntries, setModEntries] = useState<BattleEffectTextEntry[]>([])
   const [notice, setNotice] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<'brief' | 'detail' | 'source'>('detail')
+  const listRef = useRef<HTMLDivElement>(null)
+  const rowRefs = useRef(new Map<string, HTMLButtonElement>())
+  const lastScrolledRef = useRef<string | null>(null)
 
   useEffect(() => {
     if (setId === 'mod') void loadBuffIcons()
@@ -188,9 +179,32 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
     if (!q) return entries
     return entries.filter((e) => {
       const name = (e.name || e.recognizeName || '').toLowerCase()
-      return e.id.toLowerCase().includes(q) || name.includes(q) || e.desc.toLowerCase().includes(q)
+      return e.id.toLowerCase().includes(q) || name.includes(q) || e.desc.toLowerCase().includes(q) || e.plugin?.toLowerCase().includes(q) || e.recognizeNames?.some((n) => n.toLowerCase().includes(q)) || keywordSearchAliases(e.id).some((alias) => alias.toLowerCase().includes(q))
     })
   }, [entries, search])
+
+  // 选中项变化时滚动进可视范围（新增/复制后立即定位到新条目）
+  useEffect(() => {
+    if (!selectedId || lastScrolledRef.current === selectedId) return
+    if (!entries.some((e) => e.id === selectedId)) return
+    if (!filtered.some((e) => e.id === selectedId)) {
+      if (search.trim() !== '') setSearch('')
+      return
+    }
+    const raf = requestAnimationFrame(() => {
+      const box = listRef.current
+      const node = rowRefs.current.get(selectedId)
+      if (!box || !node) return
+      const boxRect = box.getBoundingClientRect()
+      const nodeRect = node.getBoundingClientRect()
+      if (nodeRect.top < boxRect.top || nodeRect.bottom > boxRect.bottom) {
+        box.scrollTop += nodeRect.top - boxRect.top - Math.max(0, (box.clientHeight - nodeRect.height) / 2)
+      }
+      lastScrolledRef.current = selectedId
+    })
+    return () => cancelAnimationFrame(raf)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedId, filtered, entries, search])
 
   const selectedEntry = entries.find((e) => e.id === selectedId) ?? entries[0] ?? null
   useEffect(() => {
@@ -295,25 +309,7 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
     setSelectedId(null)
   }
 
-  const writeDraftToNode = (node: any, e: BattleEffectTextEntry): void => {
-    setAttr(node, 'ID', e.id)
-    const bool = (b: boolean): string => (b ? 'true' : 'false')
-    setTextField(node, 'Name', e.name)
-    setTextField(node, 'RecognizeName', e.recognizeName)
-    setTextField(node, 'Desc', e.desc)
-    setTextField(node, 'KeywordIconId', e.keywordIconId)
-    setTextField(node, 'Color', e.color)
-    setTextField(node, 'HasBracket', bool(e.hasBracket))
-    setTextField(node, 'IsUnderline', bool(e.isUnderline))
-    setTextField(node, 'IsItalic', bool(e.isItalic))
-    setTextField(node, 'IsBold', bool(e.isBold))
-    setTextField(node, 'IsChangeSelf', bool(e.isChangeSelf))
-    setTextField(node, 'IsChangeAbility', bool(e.isChangeAbility))
-    setTextField(node, 'IsChangePassive', bool(e.isChangePassive))
-    setTextField(node, 'IsAutoLink', bool(e.isAutoLink))
-    setTextField(node, 'IsCardPreview', bool(e.isCardPreview))
-    setMulti(node, 'CardPreview', e.cardPreview)
-  }
+  const writeDraftToNode = writeKeywordEntry
 
   const addPreviewCard = (): void => {
     if (!isEditable) return
@@ -363,7 +359,7 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4">
           <textarea
             className="h-full w-full resize-none rounded-md border border-border bg-muted p-3 font-mono text-xs text-foreground disabled:cursor-not-allowed disabled:opacity-80"
-            value={entry ? serializeEntryForSource(entry) : ''}
+            value={entry ? (!isEditable && entry.rawSource ? entry.rawSource : serializeEntryForSource(entry)) : ''}
             readOnly
             disabled
           />
@@ -437,7 +433,7 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
               <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t('search.regex')} className="pl-8" />
             </div>
           </div>
-          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+          <div ref={listRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
             {filtered.length === 0 ? (
               <div className="p-6 text-center text-xs text-muted-foreground">{search ? t('noMatch') : (setId === 'mod' ? t('list.noContent') : t('regex.empty'))}</div>
             ) : (
@@ -447,6 +443,10 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
                 return (
                   <button
                     key={entryItem.id}
+                    ref={(el) => {
+                      if (el) rowRefs.current.set(entryItem.id, el)
+                      else rowRefs.current.delete(entryItem.id)
+                    }}
                     onClick={() => setSelectedId(entryItem.id)}
                     className={`flex w-full items-center gap-2 border-b border-border/60 px-3 py-2 text-left transition-colors ${active ? 'bg-primary/15 text-primary' : 'text-muted-foreground hover:bg-accent hover:text-foreground'}`}
                   >
@@ -468,6 +468,8 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
           ) : (
             <div className="mx-auto flex max-w-3xl flex-col gap-3">
               <div className="space-y-3 rounded-lg border border-border bg-card p-4">
+                {entry.plugin ? <div className="break-all text-xs text-muted-foreground">{t('keyword.plugin')}: {entry.plugin} · {entry.language}<br />{entry.resourceName}<br />{t('keyword.referenceHint')}</div> : null}
+                <div className="rounded border border-border p-2"><RegexText text={`(~HatKeyword id="${entry.id}"/~)`} rules={new Map(rules).set(entry.id, entry)} /></div>
                 <Field label={tl('ID')}>
                   <ValueInput value={entry.id} disabled={!isEditable} onChange={(v) => setDraft({ ...draft, id: v })} />
                 </Field>
@@ -477,7 +479,7 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
                     <ValueInput value={entry.name} disabled={!isEditable} onChange={(v) => setDraft({ ...draft, name: v })} />
                   </Field>
                   <Field label={tl('识别名')}>
-                    <ValueInput value={entry.recognizeName} disabled={!isEditable} onChange={(v) => setDraft({ ...draft, recognizeName: v })} />
+                    <ValueInput value={(entry.recognizeNames ?? [entry.recognizeName]).join('\n')} multiline disabled={!isEditable} onChange={(v) => setDraft({ ...draft, recognizeName: v.split('\n')[0], recognizeNames: v.split('\n') })} />
                   </Field>
                 </div>
 
@@ -493,6 +495,10 @@ export function BuiltinRegexWorkspace({ module }: { module: ModuleDefinition }):
                 <Field label={tl('描述')}>
                   <ValueInput value={entry.desc} multiline rows={5} disabled={!isEditable} onChange={(v) => setDraft({ ...draft, desc: v })} />
                 </Field>
+                <div className="grid grid-cols-2 gap-3">
+                  <Field label="IconName"><ValueInput value={entry.iconName ?? ''} disabled={!isEditable} onChange={(v) => setDraft({ ...draft, iconName: v })} /></Field>
+                  <Field label="IconSheetName"><ValueInput value={entry.iconSheetName ?? ''} disabled={!isEditable} onChange={(v) => setDraft({ ...draft, iconSheetName: v })} /></Field>
+                </div>
 
                 <div className="flex items-start justify-between gap-3">
                   <div className="grid flex-1 grid-cols-3 gap-2">

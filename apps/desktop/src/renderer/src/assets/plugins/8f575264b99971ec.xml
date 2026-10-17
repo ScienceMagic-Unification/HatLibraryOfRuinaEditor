@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList />
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_HP_Color">
+      <Name>体力の色</Name>
+      <Desc />
+      <Color>#E46034</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Damage_Color">
+      <Name>ダメージの色</Name>
+      <Desc />
+      <Color>#FF5050</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Atk_Color">
+      <Name>攻撃の色</Name>
+      <Desc />
+      <Color>#FF430A</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Def_Color">
+      <Name>守備の色</Name>
+      <Desc />
+      <Color>#03BBFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <RecognizeName />
+      <KeywordIconId />
+      <IsUnderline>false</IsUnderline>
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsAutoLink>false</IsAutoLink>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Hide">
+      <Name>補足の色</Name>
+      <Desc />
+      <Color>#8F9699</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Hide_Italic">
+      <Name>補足の色 - 斜体</Name>
+      <Desc />
+      <Color>#8F9699</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsItalic>true</IsItalic>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_AtkDice">
+      <Name>攻撃</Name>
+      <Desc />
+      <Color>#FF430A</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>false</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_DefDice">
+      <Name>守備</Name>
+      <Desc />
+      <Color>#03BBFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>false</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Charge_Color">
+      <Name>充電の色</Name>
+      <Desc />
+      <Color>#2C9AF7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Rupture_Color">
+      <Name>破裂の色</Name>
+      <Desc />
+      <Color>#1BECC0</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

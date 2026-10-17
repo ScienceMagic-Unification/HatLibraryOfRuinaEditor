@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList />
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_CompositeCard_Keyword">
+      <Name>Composite Page</Name>
+      <Desc>Freely switch between forms.</Desc>
+      <KeywordIconId>Hat_Enchantments_CompositeCard</KeywordIconId>
+      <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_BrowseCard_Keyword">
+      <Name>Consult</Name>
+      <Desc>Display (~color=#FFD176~)(~u~)3(~/u~)(~/color~) pages and select 1.
+(~color=#FFD176~)(~i~)- Once displayed, the options remain unchanged until this page is used.(~/i~)(~/color~)</Desc>
+      <KeywordIconId>Hat_Enchantments_DiscoverCard</KeywordIconId>
+      <Color>#FFD176</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Preemptive_Keyword">
+      <Name>Preemptive</Name>
+      <Desc>This page acts before other pages of the same range type.</Desc>
+      <KeywordIconId>Hat_Enchantments_Preemptive</KeywordIconId>
+      <Color>#FDF417</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

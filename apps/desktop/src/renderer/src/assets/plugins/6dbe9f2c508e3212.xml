@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HatKeywordFixRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <Fix>
+    <Script>sakura</Script>
+    <Script>handCountDmgUp</Script>
+	<Script>fireIlsum</Script>
+	<Script>plutoCard</Script>
+    <Script regex="true">/discard/i</Script>
+    <AddKeyword>Discard_Keyword</AddKeyword>
+  </Fix>
+
+</HatKeywordFixRoot>

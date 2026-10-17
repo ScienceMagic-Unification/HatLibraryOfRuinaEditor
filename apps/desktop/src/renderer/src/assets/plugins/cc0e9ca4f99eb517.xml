@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Abilities>
+  <Ability Id="Hat_Enchantments_BasicAmmo_Dice">&lt;HatKeyword id="Hat_Enchantments_Ammo_Set_Keyword"/&gt;</Ability>
+  <Ability Id="Hat_Enchantments_SharedCounter_Dice">共有反撃ダイス</Ability>
+  <Ability Id="Hat_Enchantments_Exhaust_Dice">(~HatKeyword id="Hat_Enchantments_ExhaustDice_Description_Keyword"/~)</Ability>
+  <Ability Id="Hat_Enchantments_ShieldBash_Dice">(~HatKeyword id="Hat_Enchantments_ShieldBash_Keyword"/~)</Ability>
+  <Ability Id="Hat_Enchantments_ShieldBash_Slash_Dice">(~HatKeyword id="Hat_Enchantments_ShieldBash_Slash_Keyword"/~)</Ability>
+  <Ability Id="Hat_Enchantments_ShieldBash_Penetrate_Dice">(~HatKeyword id="Hat_Enchantments_ShieldBash_Penetrate_Keyword"/~)</Ability>
+  <Ability Id="Hat_Enchantments_ShieldBash_Hit_Dice">(~HatKeyword id="Hat_Enchantments_ShieldBash_Hit_Keyword"/~)</Ability>
+  <Ability Id="Hat_Enchantments_Throughout_Dice">(~HatKeyword id="Hat_Enchantments_Throughout_Dice_Keyword"/~)</Ability>
+</Abilities>

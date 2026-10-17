@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList />
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_CompositeCard_Keyword">
+      <Name>복합 책장</Name>
+      <Desc>여러 형태를 자유롭게 전환할 수 있다.</Desc>
+      <KeywordIconId>Hat_Enchantments_CompositeCard</KeywordIconId>
+      <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_BrowseCard_Keyword">
+      <Name>열람</Name>
+      <Desc>책장 (~color=#FFD176~)(~u~)3(~/u~)(~/color~)장을 표시하고 그중 1장을 선택한다.
+(~color=#FFD176~)(~i~)- 선택지가 표시된 후에는 이 책장을 사용할 때까지 갱신되지 않는다.(~/i~)(~/color~)</Desc>
+      <KeywordIconId>Hat_Enchantments_DiscoverCard</KeywordIconId>
+      <Color>#FFD176</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Preemptive_Keyword">
+      <Name>선제</Name>
+      <Desc>같은 사거리 유형의 책장 중에서 이 책장은 더 먼저 행동한다.</Desc>
+      <KeywordIconId>Hat_Enchantments_Preemptive</KeywordIconId>
+      <Color>#FDF417</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

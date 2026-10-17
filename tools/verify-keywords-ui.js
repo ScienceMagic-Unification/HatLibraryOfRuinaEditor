@@ -1,0 +1,65 @@
+(async () => {
+  const root = window.__keywordTestRoot
+  const store = window.__store
+  const saved = Object.fromEntries(['lastModPath', 'hatSingularityEnabled', 'regexAutocompleteEnabled'].map((key) => [key, localStorage.getItem(key)]))
+  const wait = () => new Promise((resolve) => setTimeout(resolve, 180))
+  const check = (value, message) => { if (!value) throw new Error(message) }
+  const clickText = (text) => { const button = [...document.querySelectorAll('button')].find((b) => b.textContent === text); check(button, 'Missing button: ' + text); button.click() }
+  const input = (element, value) => { Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(element, value); element.dispatchEvent(new Event('input', { bubbles: true })) }
+  const report = []
+  try {
+    const fixture = await window.api.readTextFile(root + '/docs/verification/keyword-mod/Assemblies/Localize/cn/Ability.xml')
+    await window.api.saveFile(root + '/docs/verification/keyword-mod/Assemblies/Localize/en/Ability.xml', fixture.replace('中文', 'English'))
+    await store.getState().openMod(root + '/docs/verification/keyword-mod')
+    store.getState().setHatEnabled(true)
+    await store.getState().setActiveModule('cardability')
+    store.getState().select('cardability', 'KeywordDemo')
+    store.getState().setPrimaryLang('cardability', 'cn')
+    await wait()
+    check(document.querySelector('[data-keyword-id="Hat_Tags_Trait"]')?.textContent === '特性', 'CN preview language')
+    report.push('CN preview: 特性')
+    store.getState().setHatEnabled(false); await wait()
+    check(!document.querySelector('[data-keyword-id]'), 'Singularity off must disable keyword rendering')
+    store.getState().setHatEnabled(true); await wait()
+    store.getState().setPrimaryLang('cardability', 'en')
+    store.getState().setPrimaryDoc('cardability', Object.values(store.getState().docs).find((d) => d.lang === 'en' && d.root === 'BattleCardAbilityDescRoot').path)
+    await wait()
+    check(document.querySelector('[data-keyword-id="Hat_Tags_Trait"]')?.textContent === 'Trait', 'EN preview language')
+    check([...document.querySelectorAll('[data-keyword-id] img')].every((img) => img.complete && img.naturalWidth > 0), 'Plugin icons must load')
+    report.push('EN preview: Trait; plugin icons loaded')
+    const area = [...document.querySelectorAll('textarea')].find((e) => e.value.includes('English'))
+    check(area, 'English editor')
+    const before = area.value
+    area.focus(); area.setSelectionRange(0, 7)
+    clickText('关键词库 / 插入')
+    await wait()
+    const search = document.querySelector('[role="dialog"] input')
+    input(search, 'HatSingularity.Tags')
+    await wait()
+    check(document.querySelector('[role="dialog"]')?.textContent.includes('Hat_Tags_Trait'), 'Search plugin')
+    check(document.querySelector('[role="dialog"] [data-keyword-id="Hat_Tags_Trait"]')?.textContent === 'English', 'Selected text wrapping preview')
+    const format = document.querySelector('[aria-label="引用格式"]')
+    format.value = 'link'; format.dispatchEvent(new Event('change', { bubbles: true }))
+    await wait()
+    clickText('插入原始引用')
+    await wait()
+    const edited = [...document.querySelectorAll('textarea')].find((e) => e.value.includes('English'))
+    check(edited.value.startsWith('(~HatKeywordLink id="Hat_Tags_Trait"~)English(~/HatKeywordLink~)'), 'Insert native paired link')
+    check(edited.value.endsWith(before.slice(7)), 'Keep text after selection')
+    await store.getState().saveModule('cardability')
+    const exported = await window.api.readTextFile(root + '/docs/verification/keyword-mod/Assemblies/Localize/en/Ability.xml')
+    check(new DOMParser().parseFromString(exported, 'text/xml').querySelector('Desc')?.textContent.includes('(~HatKeywordLink id="Hat_Tags_Trait"~)English'), 'Saved native reference')
+    check(!exported.includes('hat-resource:') && !exported.includes('data:image'), 'No preview resource serialization')
+    const cn = await window.api.readTextFile(root + '/docs/verification/keyword-mod/Assemblies/Localize/cn/Ability.xml')
+    check(cn.includes('中文') && !cn.includes('English'), 'Other language untouched')
+    check((await window.api.listImagesRecursive(root + '/docs/verification/keyword-mod')).length === 0, 'Plugin images must not be copied into the Mod')
+    report.push('Search by plugin, wrap selection as HatKeywordLink, insert, save and separate CN text: PASS')
+    // Show the keyword browser with its real inline icon for visual QA.
+    edited.focus(); edited.setSelectionRange(edited.value.length, edited.value.length)
+    clickText('关键词库 / 插入'); await wait()
+    input(document.querySelector('[role="dialog"] input'), 'Hat_Tags_Trait'); await wait()
+    await window.api.saveFile(root + '/docs/verification/keywords-ui-result.txt', report.join('\n'))
+  } finally {
+    for (const [key, value] of Object.entries(saved)) if (value === null) localStorage.removeItem(key); else localStorage.setItem(key, value)
+  }
+})()

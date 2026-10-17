@@ -113,6 +113,57 @@ export function moveEntity(doc: OrderedDoc, schema: EntitySchema, from: number, 
   list.splice(to, 0, item)
 }
 
+/** 多容器来源（entitySources）下，逐容器定位实体；单容器时退化为默认来源。 */
+function entitySourceList(schema: EntitySchema): { entity: string; containerPath?: string[] }[] {
+  return schema.entitySources?.length
+    ? schema.entitySources
+    : [{ entity: schema.entity, containerPath: schema.containerPath }]
+}
+
+/** 按 ID 在其所属容器（支持 entitySources 多容器）中删除实体；返回是否找到并删除。 */
+export function removeEntityById(doc: OrderedDoc, schema: EntitySchema, id: string): boolean {
+  for (const source of entitySourceList(schema)) {
+    const sourceSchema: EntitySchema = {
+      root: schema.root,
+      entity: source.entity,
+      idAttr: schema.idAttr,
+      containerPath: source.containerPath,
+      fields: []
+    }
+    const list = getContainerChildren(doc, sourceSchema)
+    const idx = list.findIndex((c) => isRecord(c) && getAttr(c as OrderedNode, schema.idAttr) === id)
+    if (idx >= 0) {
+      list.splice(idx, 1)
+      return true
+    }
+  }
+  return false
+}
+
+/** 按 ID 在其所属容器（支持 entitySources 多容器）内上移/下移；不跨容器。 */
+export function moveEntityById(doc: OrderedDoc, schema: EntitySchema, id: string, delta: -1 | 1): boolean {
+  for (const source of entitySourceList(schema)) {
+    const sourceSchema: EntitySchema = {
+      root: schema.root,
+      entity: source.entity,
+      idAttr: schema.idAttr,
+      containerPath: source.containerPath,
+      fields: []
+    }
+    const list = getContainerChildren(doc, sourceSchema)
+    const idx = list.findIndex((c) => isRecord(c) && getAttr(c as OrderedNode, schema.idAttr) === id)
+    if (idx >= 0) {
+      const to = idx + delta
+      if (to >= 0 && to < list.length) {
+        const [item] = list.splice(idx, 1)
+        list.splice(to, 0, item)
+      }
+      return true
+    }
+  }
+  return false
+}
+
 export function makeElement(name: string, attrs?: Record<string, string>, text?: string): OrderedNode {
   const node: any = { [name]: text === undefined ? [] : [{ '#text': text }] }
   if (attrs && Object.keys(attrs).length) {

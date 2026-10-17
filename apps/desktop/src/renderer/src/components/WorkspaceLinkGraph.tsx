@@ -114,7 +114,8 @@ export function WorkspaceLinkGraph({
     { title: t('graph.passive'), icon: Shield, ids: ['passive', 'passiveability'], disabled: false },
     { title: t('graph.effect'), icon: FileText, ids: ['effecttext'], disabled: false },
     { title: t('graph.image'), icon: ImageIcon, ids: ['page-artwork', 'buff-icons', 'other-images'], disabled: false },
-    { title: t('graph.singularity'), icon: Sparkles, ids: ['builtin-images', 'vanilla-regex', 'singularity-regex', 'mod-regex'], disabled: !hatEnabled }
+    { title: t('vanilla.title'), icon: BookOpen, ids: ['vanilla-cards', 'vanilla-passives', 'vanilla-abilities'], disabled: false },
+    { title: t('graph.singularity'), icon: Sparkles, ids: ['builtin-images', 'singularity-abilities', 'vanilla-regex', 'singularity-regex', 'mod-regex'], disabled: !hatEnabled }
   ]
 
   const knownIds = new Set(groups.flatMap((g) => g.ids))

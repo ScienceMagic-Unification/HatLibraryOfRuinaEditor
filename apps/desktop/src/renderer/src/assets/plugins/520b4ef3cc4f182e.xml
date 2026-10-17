@@ -1,0 +1,1227 @@
+
+<TraitDefinitions Version="2">
+  <Trait Path="Association" NameKey="trait.Association" ShowDefault="false" />
+  <Trait Path="Association.Cinq" NameKey="trait.Association.Cinq" ShowDefault="true" />
+  <Trait Path="Association.Cinq.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Cinq.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Cinq.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Cinq.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Cinq.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Cinq.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Cinq.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat" NameKey="trait.Association.Devyat" ShowDefault="true" />
+  <Trait Path="Association.Devyat.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Devyat.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Devyat.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Devyat.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Devyat.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Devyat.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Devyat.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci" NameKey="trait.Association.Dieci" ShowDefault="true" />
+  <Trait Path="Association.Dieci.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Dieci.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Dieci.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Dieci.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Dieci.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Dieci.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Dieci.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight" NameKey="trait.Association.Eight" ShowDefault="true" />
+  <Trait Path="Association.Eight.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Eight.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Eight.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Eight.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Eight.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Eight.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Eight.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana" NameKey="trait.Association.Hana" ShowDefault="true" />
+  <Trait Path="Association.Hana.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Hana.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Hana.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Hana.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Hana.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Hana.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Hana.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu" NameKey="trait.Association.Liu" ShowDefault="true" />
+  <Trait Path="Association.Liu.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Liu.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Liu.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Liu.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Liu.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Liu.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Liu.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven" NameKey="trait.Association.Seven" ShowDefault="true" />
+  <Trait Path="Association.Seven.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Seven.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Seven.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Seven.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Seven.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Seven.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Seven.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi" NameKey="trait.Association.Shi" ShowDefault="true" />
+  <Trait Path="Association.Shi.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Shi.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Shi.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Shi.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Shi.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Shi.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Shi.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres" NameKey="trait.Association.Tres" ShowDefault="true" />
+  <Trait Path="Association.Tres.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Tres.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Tres.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Tres.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Tres.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Tres.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Tres.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei" NameKey="trait.Association.Zwei" ShowDefault="true" />
+  <Trait Path="Association.Zwei.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Zwei.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Zwei.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Zwei.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Zwei.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Zwei.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Zwei.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi" NameKey="trait.Association.Öufi" ShowDefault="true" />
+  <Trait Path="Association.Öufi.East" NameKey="association.direction.East" ShowDefault="false" />
+  <Trait Path="Association.Öufi.East.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.East.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.East.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.East.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.East.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.East.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.East.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.East.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.East.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.East.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.East.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.East.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.North" NameKey="association.direction.North" ShowDefault="false" />
+  <Trait Path="Association.Öufi.North.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.North.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.North.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.North.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.North.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.North.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.North.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.North.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.North.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.North.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.North.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.North.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.South" NameKey="association.direction.South" ShowDefault="false" />
+  <Trait Path="Association.Öufi.South.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.South.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.South.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.South.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.South.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.South.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.South.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.South.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.South.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.South.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.South.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.South.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.West" NameKey="association.direction.West" ShowDefault="false" />
+  <Trait Path="Association.Öufi.West.Sec1" NameKey="association.section" ShowDefault="false">
+    <Arg>1</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.West.Sec1.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.West.Sec2" NameKey="association.section" ShowDefault="false">
+    <Arg>2</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.West.Sec2.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.West.Sec3" NameKey="association.section" ShowDefault="false">
+    <Arg>3</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.West.Sec3.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.West.Sec4" NameKey="association.section" ShowDefault="false">
+    <Arg>4</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.West.Sec4.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.West.Sec5" NameKey="association.section" ShowDefault="false">
+    <Arg>5</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.West.Sec5.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Association.Öufi.West.Sec6" NameKey="association.section" ShowDefault="false">
+    <Arg>6</Arg>
+  </Trait>
+  <Trait Path="Association.Öufi.West.Sec6.Director" NameKey="association.director" ShowDefault="false" />
+  <Trait Path="Bloodfiend" NameKey="trait.Bloodfiend" ShowDefault="true" />
+  <Trait Path="Bloodfiend.Kindred1" NameKey="trait.Bloodfiend.Kindred1" ShowDefault="true" />
+  <Trait Path="Bloodfiend.Kindred2" NameKey="trait.Bloodfiend.Kindred2" ShowDefault="true" />
+  <Trait Path="Bloodfiend.Kindred3" NameKey="trait.Bloodfiend.Kindred3" ShowDefault="true" />
+  <Trait Path="Bloodfiend.Kindred4" NameKey="trait.Bloodfiend.Kindred4" ShowDefault="true" />
+  <Trait Path="Bloodfiend.Kindred5" NameKey="trait.Bloodfiend.Kindred5" ShowDefault="true" />
+  <Trait Path="Bloodfiend.Kindred6" NameKey="trait.Bloodfiend.Kindred6" ShowDefault="true" />
+  <Trait Path="BlueReverberation" NameKey="trait.BlueReverberation" ShowDefault="true" />
+  <Trait Path="ChurchOfGears" NameKey="trait.ChurchOfGears" ShowDefault="true" />
+  <Trait Path="ChurchOfGears.Leader" NameKey="trait.ChurchOfGears.Leader" ShowDefault="false" />
+  <Trait Path="ColorFixer" NameKey="trait.ColorFixer" ShowDefault="true" />
+  <Trait Path="Corp" NameKey="trait.Corp" ShowDefault="false" />
+  <Trait Path="Corp.ACorp" NameKey="trait.Corp.ACorp" ShowDefault="true" />
+  <Trait Path="Corp.ACorp.Head" NameKey="trait.Corp.ACorp.Head" ShowDefault="true" />
+  <Trait Path="Corp.ACorp.Head.Arbiter" NameKey="trait.Corp.ACorp.Head.Arbiter" ShowDefault="true" />
+  <Trait Path="Corp.BCorp" NameKey="trait.Corp.BCorp" ShowDefault="true" />
+  <Trait Path="Corp.BCorp.Eye" NameKey="trait.Corp.BCorp.Eye" ShowDefault="true" />
+  <Trait Path="Corp.BCorp.Eye.Beholder" NameKey="trait.Corp.BCorp.Eye.Beholder" ShowDefault="true" />
+  <Trait Path="Corp.CCorp" NameKey="trait.Corp.CCorp" ShowDefault="true" />
+  <Trait Path="Corp.CCorp.Claw" NameKey="trait.Corp.CCorp.Claw" ShowDefault="true" />
+  <Trait Path="Corp.CCorp.Claw.Executioner" NameKey="trait.Corp.CCorp.Claw.Executioner" ShowDefault="true" />
+  <Trait Path="Corp.LobotomyCorp" NameKey="trait.Corp.LobotomyCorp" ShowDefault="true" />
+  <Trait Path="Corp.LobotomyCorp.Branch" NameKey="trait.Corp.LobotomyCorp.Branch" ShowDefault="false" />
+  <Trait Path="Corp.LobotomyCorp.Headquarters" NameKey="trait.Corp.LobotomyCorp.Headquarters" ShowDefault="false" />
+  <Trait Path="Corp.RCorp" NameKey="trait.Corp.RCorp" ShowDefault="true" />
+  <Trait Path="Corp.RCorp.4thPack" NameKey="trait.Corp.RCorp.4thPack" ShowDefault="true" />
+  <Trait Path="Corp.RCorp.4thPack.Captain" NameKey="trait.Corp.RCorp.4thPack.Captain" ShowDefault="true" />
+  <Trait Path="Corp.RCorp.4thPack.Rabbit" NameKey="trait.Corp.RCorp.4thPack.Rabbit" ShowDefault="true" />
+  <Trait Path="Corp.RCorp.4thPack.Rabbit.Leader" NameKey="trait.Corp.RCorp.4thPack.Rabbit.Leader" ShowDefault="false" />
+  <Trait Path="Corp.RCorp.4thPack.Reindeer" NameKey="trait.Corp.RCorp.4thPack.Reindeer" ShowDefault="true" />
+  <Trait Path="Corp.RCorp.4thPack.Reindeer.Leader" NameKey="trait.Corp.RCorp.4thPack.Reindeer.Leader" ShowDefault="false" />
+  <Trait Path="Corp.RCorp.4thPack.Rhino" NameKey="trait.Corp.RCorp.4thPack.Rhino" ShowDefault="true" />
+  <Trait Path="Corp.RCorp.4thPack.Rhino.Leader" NameKey="trait.Corp.RCorp.4thPack.Rhino.Leader" ShowDefault="false" />
+  <Trait Path="Corp.TCorp" NameKey="trait.Corp.TCorp" ShowDefault="true" />
+  <Trait Path="Corp.TCorp.Collector" NameKey="trait.Corp.TCorp.Collector" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.Collector.Class1" NameKey="trait.Corp.TCorp.Collector.Class1" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.Collector.Class2" NameKey="trait.Corp.TCorp.Collector.Class2" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.Collector.Class3" NameKey="trait.Corp.TCorp.Collector.Class3" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.Collector.Class4" NameKey="trait.Corp.TCorp.Collector.Class4" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.Collector.Class5" NameKey="trait.Corp.TCorp.Collector.Class5" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.VDCU" NameKey="trait.Corp.TCorp.VDCU" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.VDCU.Class1" NameKey="trait.Corp.TCorp.VDCU.Class1" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.VDCU.Class2" NameKey="trait.Corp.TCorp.VDCU.Class2" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.VDCU.Class3" NameKey="trait.Corp.TCorp.VDCU.Class3" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.VDCU.Class4" NameKey="trait.Corp.TCorp.VDCU.Class4" ShowDefault="false" />
+  <Trait Path="Corp.TCorp.VDCU.Class5" NameKey="trait.Corp.TCorp.VDCU.Class5" ShowDefault="false" />
+  <Trait Path="Corp.WCorp" NameKey="trait.Corp.WCorp" ShowDefault="true" />
+  <Trait Path="Corp.WCorp.Cleaner" NameKey="trait.Corp.WCorp.Cleaner" ShowDefault="false" />
+  <Trait Path="Corp.WCorp.Cleaner.L1" NameKey="trait.Corp.WCorp.Cleaner.L1" ShowDefault="false" />
+  <Trait Path="Corp.WCorp.Cleaner.L2" NameKey="trait.Corp.WCorp.Cleaner.L2" ShowDefault="false" />
+  <Trait Path="Corp.WCorp.Cleaner.L3" NameKey="trait.Corp.WCorp.Cleaner.L3" ShowDefault="false" />
+  <Trait Path="Corp.WCorp.Cleaner.L4" NameKey="trait.Corp.WCorp.Cleaner.L4" ShowDefault="false" />
+  <Trait Path="Corp.WCorp.Cleaner.L5" NameKey="trait.Corp.WCorp.Cleaner.L5" ShowDefault="false" />
+  <Trait Path="Donghwan" NameKey="trait.Donghwan" ShowDefault="false" />
+  <Trait Path="EGOGear" NameKey="trait.EGOGear" ShowDefault="true" />
+  <Trait Path="Fixer" NameKey="trait.Fixer" ShowDefault="true" />
+  <Trait Path="Fixer.Grade1" NameKey="trait.Fixer.Grade1" ShowDefault="false" />
+  <Trait Path="Fixer.Grade2" NameKey="trait.Fixer.Grade2" ShowDefault="false" />
+  <Trait Path="Fixer.Grade3" NameKey="trait.Fixer.Grade3" ShowDefault="false" />
+  <Trait Path="Fixer.Grade4" NameKey="trait.Fixer.Grade4" ShowDefault="false" />
+  <Trait Path="Fixer.Grade5" NameKey="trait.Fixer.Grade5" ShowDefault="false" />
+  <Trait Path="Fixer.Grade6" NameKey="trait.Fixer.Grade6" ShowDefault="false" />
+  <Trait Path="Fixer.Grade7" NameKey="trait.Fixer.Grade7" ShowDefault="false" />
+  <Trait Path="Fixer.Grade8" NameKey="trait.Fixer.Grade8" ShowDefault="false" />
+  <Trait Path="Fixer.Grade9" NameKey="trait.Fixer.Grade9" ShowDefault="false" />
+  <Trait Path="Human" NameKey="trait.Human" ShowDefault="false" />
+  <Trait Path="Light" NameKey="trait.Light" ShowDefault="false" />
+  <Trait Path="Light.Distortion" NameKey="trait.Light.Distortion" ShowDefault="true" />
+  <Trait Path="Light.Distortion.Derivative" NameKey="trait.Light.Distortion.Derivative" ShowDefault="false" />
+  <Trait Path="Light.EGO" NameKey="trait.Light.EGO" ShowDefault="true" />
+  <Trait Path="Light.UnstableEGO" NameKey="trait.Light.UnstableEGO" ShowDefault="true" />
+  <Trait Path="MechanicalAmalgam" NameKey="trait.MechanicalAmalgam" ShowDefault="false" />
+  
+  <Trait Path="Office" NameKey="trait.Office" ShowDefault="false" />
+  <Trait Path="Office.BayardOffice" NameKey="trait.Office.BayardOffice" ShowDefault="true" />
+  <Trait Path="Office.BayardOffice.Operator" NameKey="trait.Office.BayardOffice.Operator" ShowDefault="false" />
+  <Trait Path="Office.CaneOffice" NameKey="trait.Office.CaneOffice" ShowDefault="true" />
+  <Trait Path="Office.CaneOffice.Operator" NameKey="trait.Office.CaneOffice.Operator" ShowDefault="false" />
+  <Trait Path="Office.CharlesOffice" NameKey="trait.Office.CharlesOffice" ShowDefault="true" />
+  <Trait Path="Office.CharlesOffice.Operator" NameKey="trait.Office.CharlesOffice.Operator" ShowDefault="false" />
+  <Trait Path="Office.DawnOffice" NameKey="trait.Office.DawnOffice" ShowDefault="true" />
+  <Trait Path="Office.DawnOffice.Operator" NameKey="trait.Office.DawnOffice.Operator" ShowDefault="false" />
+  <Trait Path="Office.FullStopOffice" NameKey="trait.Office.FullStopOffice" ShowDefault="true" />
+  <Trait Path="Office.FullStopOffice.Operator" NameKey="trait.Office.FullStopOffice.Operator" ShowDefault="false" />
+  <Trait Path="Office.HookOffice" NameKey="trait.Office.HookOffice" ShowDefault="true" />
+  <Trait Path="Office.HookOffice.Operator" NameKey="trait.Office.HookOffice.Operator" ShowDefault="false" />
+  <Trait Path="Office.YunOffice" NameKey="trait.Office.YunOffice" ShowDefault="true" />
+  <Trait Path="Office.YunOffice.Operator" NameKey="trait.Office.YunOffice.Operator" ShowDefault="false" />
+  
+  <Trait Path="Syndicates" NameKey="trait.Syndicates" ShowDefault="true" />
+  <Trait Path="Syndicates.BrotherhoodOfIron" NameKey="trait.Syndicates.BrotherhoodOfIron" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers" NameKey="trait.Syndicates.Fingers" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Index" NameKey="trait.Syndicates.Fingers.Index" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Index.Device" NameKey="trait.Syndicates.Fingers.Index.Device" ShowDefault="false" />
+  <Trait Path="Syndicates.Fingers.Index.Device.OracleProxy" NameKey="trait.Syndicates.Fingers.Index.Device.OracleProxy" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Index.Device.Proxy" NameKey="trait.Syndicates.Fingers.Index.Device.Proxy" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Index.PaperSlip" NameKey="trait.Syndicates.Fingers.Index.PaperSlip" ShowDefault="false" />
+  <Trait Path="Syndicates.Fingers.Index.PaperSlip.Messenger" NameKey="trait.Syndicates.Fingers.Index.PaperSlip.Messenger" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Index.PaperSlip.Proselyte" NameKey="trait.Syndicates.Fingers.Index.PaperSlip.Proselyte" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Index.PaperSlip.Proxy" NameKey="trait.Syndicates.Fingers.Index.PaperSlip.Proxy" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Middle" NameKey="trait.Syndicates.Fingers.Middle" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Pinky" NameKey="trait.Syndicates.Fingers.Pinky" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Ring" NameKey="trait.Syndicates.Fingers.Ring" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Ring.SchoolOfCorporism" NameKey="trait.Syndicates.Fingers.Ring.SchoolOfCorporism" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Thumb" NameKey="trait.Syndicates.Fingers.Thumb" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Thumb.Capo" NameKey="trait.Syndicates.Fingers.Thumb.Capo" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Thumb.Soldato" NameKey="trait.Syndicates.Fingers.Thumb.Soldato" ShowDefault="true" />
+  <Trait Path="Syndicates.Fingers.Thumb.Sottocapo" NameKey="trait.Syndicates.Fingers.Thumb.Sottocapo" ShowDefault="true" />
+  <Trait Path="Syndicates.NightAwls" NameKey="trait.Syndicates.NightAwls" ShowDefault="true" />
+  <Trait Path="Workshop" NameKey="trait.Workshop" ShowDefault="false" />
+  <Trait Path="Workshop.LeafletWorkshop" NameKey="trait.Workshop.LeafletWorkshop" ShowDefault="true" />
+  <Trait Path="Workshop.LeafletWorkshop.Owner" NameKey="trait.Workshop.LeafletWorkshop.Owner" ShowDefault="false" />
+<Trait Path="Corp.MiraeInsurer" NameKey="trait.Corp.MiraeInsurer" ShowDefault="true" /><Trait Path="SmokeWar" NameKey="trait.SmokeWar" ShowDefault="true" /><Trait Path="Sweeper" NameKey="trait.Sweeper" ShowDefault="true" /><Trait Path="Rat" NameKey="trait.Rat" ShowDefault="true" /><Trait Path="Office.StreetlightOffice" NameKey="trait.Office.StreetlightOffice" ShowDefault="true" /><Trait Path="Office.StreetlightOffice.Operator" NameKey="trait.Office.StreetlightOffice.Operator" ShowDefault="false" /><Trait Path="PierreMeatPies" NameKey="trait.PierreMeatPies" ShowDefault="true" /><Trait Path="Syndicates.AxeGang" NameKey="trait.Syndicates.AxeGang" ShowDefault="true" /><Trait Path="Syndicates.SmilingFaces" NameKey="trait.Syndicates.SmilingFaces" ShowDefault="true" /><Trait Path="Office.MolarOffice" NameKey="trait.Office.MolarOffice" ShowDefault="true" /><Trait Path="Office.MolarOffice.Operator" NameKey="trait.Office.MolarOffice.Operator" ShowDefault="false" /><Trait Path="Syndicates.StrayDog" NameKey="trait.Syndicates.StrayDog" ShowDefault="true" /><Trait Path="Syndicates.TheCarnival" NameKey="trait.Syndicates.TheCarnival" ShowDefault="true" /><Trait Path="Syndicates.KurokumoClan" NameKey="trait.Syndicates.KurokumoClan" ShowDefault="true" /><Trait Path="Syndicates.KurokumoClan.Captain" NameKey="trait.Syndicates.KurokumoClan.Captain" ShowDefault="false" /><Trait Path="Syndicates.KurokumoClan.Wakashu" NameKey="trait.Syndicates.KurokumoClan.Wakashu" ShowDefault="false" /><Trait Path="Syndicates.KurokumoClan.Kashira" NameKey="trait.Syndicates.KurokumoClan.Kashira" ShowDefault="false" /><Trait Path="Light.Abnormality" NameKey="trait.Light.Abnormality" ShowDefault="true" /><Trait Path="Light.Abnormality.Derivative" NameKey="trait.Light.Abnormality.Derivative" ShowDefault="false" /><Trait Path="Light.AbnormalityCorrosion" NameKey="trait.Light.AbnormalityCorrosion" ShowDefault="true" /><Trait Path="Bloodbag" NameKey="trait.Bloodbag" ShowDefault="true" /><Trait Path="Syndicates.BremenMusician" NameKey="trait.Syndicates.BremenMusician" ShowDefault="true" /><Trait Path="Office.WedgeOffice" NameKey="trait.Office.WedgeOffice" ShowDefault="true" /><Trait Path="Office.WedgeOffice.Operator" NameKey="trait.Office.WedgeOffice.Operator" ShowDefault="false" /><Trait Path="Office.GazeOffice" NameKey="trait.Office.GazeOffice" ShowDefault="true" /><Trait Path="Office.GazeOffice.Operator" NameKey="trait.Office.GazeOffice.Operator" ShowDefault="false" /><Trait Path="Syndicates.RustedChainlink" NameKey="trait.Syndicates.RustedChainlink" ShowDefault="true" /><Trait Path="Office.JeongOffice" NameKey="trait.Office.JeongOffice" ShowDefault="true" /><Trait Path="Office.JeongOffice.Operator" NameKey="trait.Office.JeongOffice.Operator" ShowDefault="false" /><Trait Path="Corp.DCorp" NameKey="trait.Corp.DCorp" ShowDefault="true" /><Trait Path="Corp.ECorp" NameKey="trait.Corp.ECorp" ShowDefault="true" /><Trait Path="Corp.FCorp" NameKey="trait.Corp.FCorp" ShowDefault="true" /><Trait Path="Corp.GCorp" NameKey="trait.Corp.GCorp" ShowDefault="true" /><Trait Path="Corp.HCorp" NameKey="trait.Corp.HCorp" ShowDefault="true" /><Trait Path="Corp.JCorp" NameKey="trait.Corp.JCorp" ShowDefault="true" /><Trait Path="LoveTown" NameKey="trait.LoveTown" ShowDefault="true" /><Trait Path="TheEightChefs" NameKey="trait.TheEightChefs" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.GreatSister" NameKey="trait.Syndicates.Fingers.Middle.GreatSister" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.GreatBrother" NameKey="trait.Syndicates.Fingers.Middle.GreatBrother" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.BigBrother" NameKey="trait.Syndicates.Fingers.Middle.BigBrother" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.YoungBrother" NameKey="trait.Syndicates.Fingers.Middle.YoungBrother" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.LittleBrother" NameKey="trait.Syndicates.Fingers.Middle.LittleBrother" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.BigSister" NameKey="trait.Syndicates.Fingers.Middle.BigSister" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.YoungSister" NameKey="trait.Syndicates.Fingers.Middle.YoungSister" ShowDefault="true" /><Trait Path="Syndicates.Fingers.Middle.LittleSister" NameKey="trait.Syndicates.Fingers.Middle.LittleSister" ShowDefault="true" /><Trait Path="Syndicates.KurokumoClan.Patriarch" NameKey="trait.Syndicates.KurokumoClan.Patriarch" ShowDefault="true" /><Trait Path="Syndicates.BladeLineage" NameKey="trait.Syndicates.BladeLineage" ShowDefault="true" /><Trait Path="Syndicates.BladeLineage.Mentor" NameKey="trait.Syndicates.BladeLineage.Mentor" ShowDefault="true" /><Trait Path="Syndicates.BladeLineage.Salsu" NameKey="trait.Syndicates.BladeLineage.Salsu" ShowDefault="true" /><Trait Path="Puppet" NameKey="trait.Puppet" ShowDefault="true" /><Trait Path="NonHuman" NameKey="trait.NonHuman" ShowDefault="true" /></TraitDefinitions>

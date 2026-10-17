@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList />
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ExhaustDice_Keyword">
+      <Name>佚亡-骰子</Name>
+      <Desc>该骰子在[投掷后]从书页中移除
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 不影响重复投掷类效果(~/HatKeyword~)
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 含对抗群体攻击时投掷(~/HatKeyword~)</Desc>
+      <KeywordIconId>Exhaust</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>false</IsChangeAbility>
+      <IsChangePassive>false</IsChangePassive>
+      <IsAutoLink>false</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_UnsealDice_Keyword">
+      <Name>出鞘</Name>
+      <Desc>该骰子仅在满足特定条件时才会掷出</Desc>
+      <KeywordIconId>Hat_Enchantments_UnsealDice</KeywordIconId>
+      <Color>#B22B36</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Keyword">
+      <Name>盾击</Name>
+      <Desc>该招架骰子具有以下能力
+- [拼点胜利前]转化为随机进攻型骰子
+- [投掷后]复原其骰子类型</Desc>
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Slash_Keyword">
+      <Name>盾击:斩击</Name>
+      <Desc />
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsAutoLink>false</IsAutoLink>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Penetrate_Keyword">
+      <Name>盾击:突刺</Name>
+      <Desc />
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsAutoLink>false</IsAutoLink>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_ShieldBash_Hit_Keyword">
+      <Name>盾击:打击</Name>
+      <Desc />
+      <KeywordIconId>Hat_Enchantments_ShieldBash</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsAutoLink>false</IsAutoLink>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Throughout_Dice_Keyword">
+      <Name>贯通</Name>
+      <Desc>该(~HatKeyword id="Hat_Enchantments_AtkDice"/~)骰子在[拼点胜利]后不会击中目标而是再次投掷</Desc>
+      <KeywordIconId>Hat_Enchantments_Throughout_Dice</KeywordIconId>
+      <Color>#93a3c5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_MultipleHit_Keyword">
+      <Name>连击</Name>
+      <Desc>该(~HatKeyword id=&quot;Hat_Enchantments_AtkDice&quot;/~)骰子具有以下能力
+-造成的伤害与混乱伤害 / (~color=#F11F32~)(~u~)X(~/u~)(~/color~)
+-命中目标 (~color=#F11F32~)(~u~)X(~/u~)(~/color~) 次
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_MultipleHit</KeywordIconId>
+      <Color>#F11F32</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName/>
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Harmonious_Keyword">
+      <Name>谐振</Name>
+      <Desc>该骰子(~HatKeyword id=&quot;Origin_Dice&quot;~)最终值(~/HatKeyword~)被向上修正至 (~color=#FFD551~)(~u~)X(~/u~)(~/color~) 的倍数
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Harmonious</KeywordIconId>
+      <Color>#FFD551</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName/>
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Precision_Keyword">
+      <Name>精准</Name>
+      <Desc>该(~HatKeyword id=&quot;Hat_Enchantments_AtkDice&quot;/~)骰子视目标对应抗性的承伤系数 + (~color=#05BCFC~)(~u~)0.1*X(~/u~)(~/color~)  
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-不对[免疫]抗性生效(~/HatKeyword~)
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Insight</KeywordIconId>
+      <Color>#05BCFC</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName/>
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+<BattleEffectTextExtra ID="Hat_Enchantments_ExhaustDice_Description_Keyword">
+      <Name>佚亡</Name>
+      <Desc>该骰子在[投掷后]从书页中移除
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 不影响重复投掷类效果(~/HatKeyword~)
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 含对抗群体攻击时投掷(~/HatKeyword~)</Desc>
+      <KeywordIconId>Exhaust</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>false</IsChangeSelf>
+      <IsChangeAbility>false</IsChangeAbility>
+      <IsChangePassive>false</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

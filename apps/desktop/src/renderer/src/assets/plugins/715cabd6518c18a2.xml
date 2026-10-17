@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StaticSdf Padding="12" Width="256" Height="256">
+  <Face familyName="Great Vibes" styleName="Regular" pointSize="96" scale="1" lineHeight="120.192" ascentLine="81.696" capLine="76" meanLine="34" baseline="0" descentLine="-38.496" superscriptOffset="81.696" superscriptSize="0.5" subscriptOffset="-38.496" subscriptSize="0.5" underlineOffset="-10.752" underlineThickness="3.36" strikethroughOffset="13.6" strikethroughThickness="3.36" tabWidth="16" />
+  <Glyph Unicode="84" Index="268" X="13" Y="13" W="135" H="82" Width="133.5313" Height="80.45313" BearingX="2.5" BearingY="71.32813" Advance="89.5625" />
+  <Glyph Unicode="97" Index="643" X="173" Y="13" W="40" H="36" Width="38.3125" Height="34.65625" BearingX="2.875" BearingY="34.375" Advance="34.375" />
+  <Glyph Unicode="98" Index="678" X="173" Y="74" W="34" H="61" Width="32.84375" Height="60.09375" BearingX="4.3125" BearingY="59.60938" Advance="31.39063" />
+</StaticSdf>

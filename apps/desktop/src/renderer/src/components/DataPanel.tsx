@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useI18n } from '../i18n'
-import { useVirtualizer } from '@tanstack/react-virtual'
+import { observeElementOffset, useVirtualizer } from '@tanstack/react-virtual'
 import type { EntitySchema, OrderedDoc } from '@ruina/editor-core'
 import { getAllText, getFieldValue, listEntities } from '@ruina/editor-core'
 import { Input } from '@ruina/ui'
@@ -19,7 +19,8 @@ export function DataPanel({
   accentLookup,
   localizedNames,
   localizedRender,
-  scrollKey
+  scrollKey,
+  dirtyIds
 }: {
   doc: OrderedDoc
   schema: EntitySchema
@@ -29,17 +30,22 @@ export function DataPanel({
   localizedNames?: Record<string, string>
   localizedRender?: (id: string) => ReactNode
   scrollKey?: string
+  dirtyIds?: Set<string>
 }): JSX.Element {
   const { t } = useI18n()
   const [search, setSearch] = useState('')
-  const [useLocalized, setUseLocalized] = useState(false)
   const parentRef = useRef<HTMLDivElement>(null)
   const plainRef = useRef<HTMLDivElement>(null)
   const rowRefs = useRef(new Map<string, HTMLDivElement>())
   const lastScrolledRef = useRef<string | null>(null)
   const scrollTopRef = useRef(0)
+  const syncScrollOffset = useRef<((offset: number, scrolling: boolean) => void) | null>(null)
   const listScroll = useAppStore((s) => s.listScroll)
   const setListScroll = useAppStore((s) => s.setListScroll)
+  const localizedView = useAppStore((s) => s.localizedView)
+  const setLocalizedView = useAppStore((s) => s.setLocalizedView)
+  const viewKey = scrollKey ?? 'default'
+  const useLocalized = localizedView[viewKey] ?? false
   const displayField = schema.displayField ?? 'Name'
   const idOnly = schema.idOnlyList === true
   const hasDesc = schema.fields.some((f) => f.name === 'Desc')
@@ -50,7 +56,7 @@ export function DataPanel({
     return oneLine.length > 36 ? oneLine.slice(0, 36) + '…' : oneLine || '（空）'
   }
 
-  const refs = useMemo(() => listEntities(doc, schema), [doc])
+  const refs = useMemo(() => listEntities(doc, schema), [doc, schema])
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
     if (!q) return refs
@@ -60,15 +66,21 @@ export function DataPanel({
         const desc = descField ? (getAllText(r.node, descField.name) ?? '').toLowerCase() : ''
         return r.id.toLowerCase().includes(q) || desc.includes(q)
       }
-      const name = displayText(r.node).toLowerCase()
+      const name = String(getFieldValue(r.node, { kind: 'text', name: displayField }) ?? '').toLowerCase()
+      const localizedName = localizedNames?.[r.id]?.toLowerCase() ?? ''
       const desc = hasDesc ? (getAllText(r.node, 'Desc') ?? '').toLowerCase() : ''
-      return r.id.toLowerCase().includes(q) || name.includes(q) || desc.includes(q)
+      return r.id.toLowerCase().includes(q) || name.includes(q) || localizedName.includes(q) || desc.includes(q)
     })
-  }, [refs, search])
+  }, [refs, search, schema, displayField, idOnly, hasDesc, localizedNames])
 
   const virtualizer = useVirtualizer({
     count: filtered.length,
     getScrollElement: () => parentRef.current,
+    observeElementOffset: (instance, callback) => {
+      syncScrollOffset.current = callback
+      const cleanup = observeElementOffset(instance, callback)
+      return () => { syncScrollOffset.current = null; cleanup?.() }
+    },
     estimateSize: () => ROW_HEIGHT,
     overscan: 12
   })
@@ -107,6 +119,9 @@ export function DataPanel({
     }
     const index = filtered.findIndex((r) => r.id === selectedId)
     if (index < 0) return
+    // Record the selection before the animation frame: a quick search must not
+    // be cleared merely because scrolling has not painted yet (hidden windows).
+    lastScrolledRef.current = selectedId
     const raf = requestAnimationFrame(() => {
       if (isPlainList) {
         const box = plainRef.current
@@ -123,9 +138,11 @@ export function DataPanel({
         const top = index * ROW_HEIGHT
         if (top < box.scrollTop || top + ROW_HEIGHT > box.scrollTop + box.clientHeight) {
           virtualizer.scrollToIndex(index, { align: 'center' })
+          // Programmatic navigation must paint the target rows immediately,
+          // even when Electron defers the native scroll event.
+          syncScrollOffset.current?.(box.scrollTop, false)
         }
       }
-      lastScrolledRef.current = selectedId
     })
     return () => cancelAnimationFrame(raf)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -135,7 +152,6 @@ export function DataPanel({
     <div className="flex h-full min-h-0 min-w-0 flex-col border-r border-border bg-card">
       <div className="space-y-2 border-b border-border p-3">
         <div className="relative">
-          <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
           <div className="flex items-center gap-1.5">
             <div className="relative min-w-0 flex-1">
               <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -144,7 +160,7 @@ export function DataPanel({
             {localizedNames || localizedRender ? (
               <button
                 type="button"
-                onClick={() => setUseLocalized((v) => !v)}
+                onClick={() => setLocalizedView(viewKey, !useLocalized)}
                 className={`shrink-0 rounded-md border px-2 py-1 text-[11px] transition-colors ${
                   useLocalized ? 'border-primary/60 bg-primary/15 text-primary' : 'border-border text-muted-foreground hover:bg-accent'
                 }`}
@@ -180,9 +196,10 @@ export function DataPanel({
                   else rowRefs.current.delete(ref.id)
                 }}
                 onClick={() => onSelect(ref.id)}
-                className={`cursor-pointer border-b border-border/50 px-3 py-2 text-sm transition-colors ${active ? 'bg-accent' : 'hover:bg-secondary/40'}`}
+                className={`flex cursor-pointer items-start gap-2 border-b border-border/50 px-3 py-2 text-sm transition-colors ${active ? 'bg-accent' : 'hover:bg-secondary/40'}`}
               >
-                {localizedRender(ref.id)}
+                {dirtyIds?.has(ref.id) ? <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
+                <span className="min-w-0 flex-1">{localizedRender(ref.id)}</span>
               </div>
             )
           })}
@@ -207,6 +224,7 @@ export function DataPanel({
                 }`}
                 onClick={() => onSelect(ref.id)}
               >
+                {dirtyIds?.has(ref.id) ? <span className="size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
                 {idOnly ? (
                   <span className="min-w-0 flex-1 truncate font-mono text-xs">{ref.id}</span>
                 ) : (

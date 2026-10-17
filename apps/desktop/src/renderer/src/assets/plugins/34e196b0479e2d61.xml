@@ -1,0 +1,714 @@
+
+<TraitBooks Version="2">
+  <Book PackageId="" Id="100001">
+    <Trait Path="Rat" Status="Normal" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100002">
+    <Trait Path="Rat" Status="Normal" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100003">
+    <Trait Path="Rat" Status="Normal" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200001">
+    <Trait Path="Rat" Status="Normal" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200002">
+    <Trait Path="Rat" Status="Normal" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200003">
+    <Trait Path="Rat" Status="Normal" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100004">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100005">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade8" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100006">
+    <Trait Status="Normal" Path="Office.YunOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer.Grade8" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="101001">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="101002">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="101003">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="101004">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200004">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200005">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade8" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200006">
+    <Trait Status="Normal" Path="Office.YunOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer.Grade8" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="201001">
+    <Trait Status="Normal" Path="Office.YunOffice" />
+    <Trait Path="Fixer" Status="Normal" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100007">
+    <Trait Status="Normal" Path="Syndicates.BrotherhoodOfIron" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100008">
+    <Trait Status="Normal" Path="Syndicates.BrotherhoodOfIron" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100009">
+    <Trait Status="Normal" Path="Syndicates.BrotherhoodOfIron" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200007">
+    <Trait Status="Normal" Path="Syndicates.BrotherhoodOfIron" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200008">
+    <Trait Status="Normal" Path="Syndicates.BrotherhoodOfIron" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200009">
+    <Trait Status="Normal" Path="Syndicates.BrotherhoodOfIron" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100010">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100011">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade8" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="100012">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="111001">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="111002">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200010">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200011">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade8" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="200012">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="211001">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="211002">
+    <Trait Status="Normal" Path="Office.HookOffice" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="130004">
+    <Trait Status="Normal" Path="Office.FullStopOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer.Grade4" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="130005">
+    <Trait Status="Normal" Path="Office.FullStopOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade5" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="130006">
+    <Trait Status="Normal" Path="Office.FullStopOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade6" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="230004">
+    <Trait Status="Normal" Path="Office.FullStopOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer.Grade4" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="230005">
+    <Trait Status="Normal" Path="Office.FullStopOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade5" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="230006">
+    <Trait Status="Normal" Path="Office.FullStopOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade6" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="140001">
+    <Trait Status="Normal" Path="Association.Shi.South.Sec2.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="140002">
+    <Trait Status="Normal" Path="Association.Shi.South.Sec2" />
+    <Trait Status="Normal" Path="Fixer.Grade4" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="140003">
+    <Trait Status="Normal" Path="Association.Shi.South.Sec2" />
+    <Trait Status="Normal" Path="Fixer.Grade4" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="240001">
+    <Trait Status="Normal" Path="Association.Shi.South.Sec2.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="240002">
+    <Trait Status="Normal" Path="Association.Shi.South.Sec2" />
+    <Trait Status="Normal" Path="Fixer.Grade4" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="240003">
+    <Trait Status="Normal" Path="Association.Shi.South.Sec2" />
+    <Trait Status="Normal" Path="Fixer.Grade4" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="240019">
+    <Trait Status="Normal" Path="Corp.WCorp.Cleaner" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="240020">
+    <Trait Status="Normal" Path="Corp.WCorp.Cleaner" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="240021">
+    <Trait Status="Normal" Path="Corp.WCorp.Cleaner" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150006">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Sottocapo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150007">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Capo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150008">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Capo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150009">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Capo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150005">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Soldato" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250006">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Sottocapo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250007">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Capo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250008">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Capo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250009">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Capo" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250005">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Thumb.Soldato" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150015">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proxy" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150016">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proxy" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150017">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proxy" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="140018">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proselyte" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250015">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proxy" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250016">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proxy" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250017">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proxy" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="240018">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Proselyte" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150051">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Messenger" />
+    <Trait Status="Normal" Path="Light.Distortion" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150039">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Messenger" />
+    <Trait Status="Normal" Path="Light.Distortion" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150040">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Messenger" />
+    <Trait Status="Normal" Path="Light.Distortion" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250051">
+    <Trait Status="Normal" Path="Syndicates.Fingers.Index.PaperSlip.Messenger" />
+    <Trait Status="Normal" Path="Light.Distortion" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150013">
+    <Trait Status="Normal" Path="ColorFixer" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="BlueReverberation" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150014">
+    <Trait Status="Normal" Path="ChurchOfGears" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250014">
+    <Trait Status="Normal" Path="ChurchOfGears" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150022">
+    <Trait Status="Normal" Path="ColorFixer" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="Corp.LobotomyCorp.Headquarters" />
+    <Trait Status="Normal" Path="EGOGear" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150035">
+    <Trait Status="Normal" Path="ColorFixer" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250035">
+    <Trait Status="Normal" Path="ColorFixer" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150002">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150003">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150004">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2" />
+    <Trait Status="Normal" Path="Fixer.Grade3" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150001">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150020">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150021">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150018">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150019">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150036">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="Light.UnstableEGO" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150037">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150038">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="Light.EGO" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250002">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250003">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250004">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade3" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250001">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec2.Director" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250037">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250018">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250019">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250036">
+    <Trait Status="Normal" Path="Association.Liu.South.Sec1.Director" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150010">
+    <Trait Status="Normal" Path="Office.CaneOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150011">
+    <Trait Status="Normal" Path="Office.CaneOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150012">
+    <Trait Status="Normal" Path="Office.CaneOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250010">
+    <Trait Status="Normal" Path="Office.CaneOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250011">
+    <Trait Status="Normal" Path="Office.CaneOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="MechanicalAmalgam" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250012">
+    <Trait Status="Normal" Path="Office.CaneOffice" />
+    <Trait Status="Normal" Path="Fixer.Grade2" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150023">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Captain" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150024">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rabbit.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150025">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Reindeer.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150026">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rhino.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150028">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rabbit.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150030">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Reindeer.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150029">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rhino.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150031">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Captain" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150032">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rabbit.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150034">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Reindeer.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150033">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rhino.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150101">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rabbit" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150103">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Reindeer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="150102">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rhino" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250023">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Captain" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250024">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rabbit.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250026">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Reindeer.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250025">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rhino.Leader" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="251001">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rabbit" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="251003">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Reindeer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="251002">
+    <Trait Status="Normal" Path="Corp.RCorp.4thPack.Rhino" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="143005">
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+    <Trait Status="Hidden" Path="Donghwan" />
+  </Book>
+  <Book PackageId="" Id="243005">
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+    <Trait Status="Hidden" Path="Donghwan" />
+  </Book>
+  <Book PackageId="" Id="152001">
+    <Trait Status="Normal" Path="Syndicates.NightAwls" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="152002">
+    <Trait Status="Normal" Path="Syndicates.NightAwls" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="252001">
+    <Trait Status="Normal" Path="Syndicates.NightAwls" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="252002">
+    <Trait Status="Normal" Path="Syndicates.NightAwls" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="153001">
+    <Trait Status="Normal" Path="Office" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="253001">
+    <Trait Status="Normal" Path="Office" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="154001">
+    <Trait Path="Corp.MiraeInsurer" Status="Normal" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="154002">
+    <Trait Path="Corp.MiraeInsurer" Status="Normal" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="254001">
+    <Trait Path="Corp.MiraeInsurer" Status="Normal" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="254002">
+    <Trait Path="Corp.MiraeInsurer" Status="Normal" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="155001">
+    <Trait Status="Normal" Path="Workshop.LeafletWorkshop.Owner" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="155002">
+    <Trait Status="Normal" Path="Workshop.LeafletWorkshop" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="255001">
+    <Trait Status="Normal" Path="Workshop.LeafletWorkshop.Owner" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="255002">
+    <Trait Status="Normal" Path="Workshop.LeafletWorkshop" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="156001">
+    <Trait Status="Normal" Path="Office.BayardOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="156002">
+    <Trait Status="Normal" Path="Office.BayardOffice" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="256001">
+    <Trait Status="Normal" Path="Office.BayardOffice.Operator" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="256002">
+    <Trait Status="Normal" Path="Office.BayardOffice" />
+    <Trait Status="Normal" Path="Fixer" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="170001">
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="FormerInvalid" Path="Office.CharlesOffice" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="10">
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="102">
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="FormerInvalid" Path="Office.CharlesOffice" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="180003">
+    <Trait Status="Normal" Path="Fixer.Grade9" />
+    <Trait Status="FormerInvalid" Path="Office.CharlesOffice" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="6">
+    <Trait Status="FormerInvalid" Path="ColorFixer" />
+    <Trait Status="FormerInvalid" Path="Fixer.Grade1" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="250022">
+    <Trait Status="Normal" Path="ColorFixer" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="Corp.LobotomyCorp.Headquarters" />
+    <Trait Status="Normal" Path="EGOGear" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="180004">
+    <Trait Status="Normal" Path="ColorFixer" />
+    <Trait Status="Normal" Path="Fixer.Grade1" />
+    <Trait Status="Normal" Path="Corp.LobotomyCorp.Headquarters" />
+    <Trait Status="Normal" Path="EGOGear" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="8">
+    <Trait Status="FormerInvalid" Path="Corp.ACorp.Head.Arbiter" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+  <Book PackageId="" Id="180005">
+    <Trait Status="FormerInvalid" Path="Corp.ACorp.Head.Arbiter" />
+    <Trait Status="Hidden" Path="Human" />
+  </Book>
+<Book PackageId="" Id="1"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="2"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="3"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="4"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="5"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="7"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="11"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="12"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="13"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="14"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="15"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="16"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="9"><Trait Path="SmokeWar" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="17"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="18"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="19"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="20"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="31"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="110003"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="110004"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="110005"><Trait Path="Office.StreetlightOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade6" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="110006"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120001"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer.Grade6" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="111005"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="111006"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="111007"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="111008"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121007"><Trait Path="Fixer.Grade8" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121008"><Trait Path="Fixer.Grade8" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121009"><Trait Path="Fixer.Grade8" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121010"><Trait Path="Fixer.Grade8" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121011"><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121012"><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140022"><Trait Path="Corp.WCorp.Cleaner" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140021"><Trait Path="Corp.WCorp.Cleaner" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140020"><Trait Path="Corp.WCorp.Cleaner" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140019"><Trait Path="Corp.WCorp.Cleaner" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221010"><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221011"><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221012"><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221007"><Trait Path="Fixer.Grade8" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221009"><Trait Path="Fixer.Grade8" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221008"><Trait Path="Fixer.Grade8" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="211005"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="211006"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="211007"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="211008"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220001"><Trait Path="Office.StreetlightOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade6" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="110001"><Trait Path="PierreMeatPies" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="110002"><Trait Path="PierreMeatPies" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="210001"><Trait Path="PierreMeatPies" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="210002"><Trait Path="PierreMeatPies" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="201002"><Trait Status="Normal" Path="Office.YunOffice" /><Trait Path="Fixer" Status="Normal" /><Trait Status="Hidden" Path="Human" /></Book><Book PackageId="" Id="201003"><Trait Status="Normal" Path="Office.YunOffice" /><Trait Path="Fixer" Status="Normal" /><Trait Status="Hidden" Path="Human" /></Book><Book PackageId="" Id="210003"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="210006"><Trait Path="Office.StreetlightOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240015"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240016"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240017"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240022"><Trait Status="Normal" Path="Corp.WCorp.Cleaner" /><Trait Status="Hidden" Path="Human" /></Book><Book PackageId="" Id="141002"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140015"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140016"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140017"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="133001"><Trait Path="Workshop" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="233001"><Trait Path="Workshop" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260001"><Trait Path="Association.Hana.South.Sec3" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260003"><Trait Path="Association.Hana.South.Sec3" Status="Normal" /><Trait Path="Fixer.Grade1" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260002"><Trait Path="Association.Hana.South.Sec3.Director" Status="Normal" /><Trait Path="Fixer.Grade1" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260004"><Trait Path="Association.Hana.South.Sec3" Status="Normal" /><Trait Path="Fixer.Grade1" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Office.CharlesOffice" Status="FormerInvalid" /></Book><Book PackageId="" Id="160002"><Trait Path="Association.Hana.South.Sec3.Director" Status="Normal" /><Trait Path="Fixer.Grade1" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="160003"><Trait Path="Association.Hana.South.Sec3" Status="Normal" /><Trait Path="Fixer.Grade1" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="160004"><Trait Path="Association.Hana.South.Sec3" Status="Normal" /><Trait Path="Fixer.Grade1" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Office.CharlesOffice" Status="FormerInvalid" /></Book><Book PackageId="" Id="160101"><Trait Path="Association.Hana.South.Sec3" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121001"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121002"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121003"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121004"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221001"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120002"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer.Grade6" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120003"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer.Grade6" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220002"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer.Grade6" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220003"><Trait Path="Association.Zwei.South.Sec6" Status="Normal" /><Trait Path="Fixer.Grade6" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120004"><Trait Path="Association.Zwei.South.Sec6.Director" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220004"><Trait Path="Association.Zwei.South.Sec6.Director" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221013"><Trait Path="Syndicates.AxeGang" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221014"><Trait Path="Syndicates.AxeGang" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121014"><Trait Path="Syndicates.AxeGang" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121013"><Trait Path="Syndicates.AxeGang" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="111003"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="111004"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="211003"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="211004"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="180001"><Trait Path="Corp.ACorp.Head.Arbiter" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="180002"><Trait Path="Corp.CCorp.Claw.Executioner" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="MechanicalAmalgam" Status="Normal" /></Book><Book PackageId="" Id="170311"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170312"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170313"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170314"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170315"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170316"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170317"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170318"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170319"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170321"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170322"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170323"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170324"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="151001"><Trait Path="Syndicates.Fingers.Index.PaperSlip.Proselyte" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="151002"><Trait Path="Syndicates.Fingers.Index.PaperSlip.Proselyte" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="150105"><Trait Path="Syndicates.Fingers.Thumb.Soldato" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="143002"><Trait Path="Association.Seven.South.Sec3" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="243002"><Trait Path="Association.Seven.South.Sec3" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="143001"><Trait Path="Association.Seven.South.Sec3.Director" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="243001"><Trait Path="Association.Seven.South.Sec3.Director" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240023"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240024"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240025"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240026"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140023"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140024"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140025"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140026"><Trait Path="Syndicates.SmilingFaces" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120005"><Trait Path="Office.MolarOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120007"><Trait Path="Office.MolarOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220005"><Trait Path="Office.MolarOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220007"><Trait Path="Office.MolarOffice" Status="Normal" /><Trait Path="Fixer.Grade7" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220006"><Trait Path="Office.MolarOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120006"><Trait Path="Office.MolarOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120008"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120009"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="120010"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121005"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="121006"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221005"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="221006"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220010"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220009"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="220008"><Trait Path="Syndicates.StrayDog" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="160001"><Trait Path="Association.Hana.South.Sec3" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="141001"><Trait Status="Normal" Path="Association.Shi.South.Sec2" /><Trait Path="Fixer" Status="Normal" /><Trait Status="Hidden" Path="Human" /></Book><Book PackageId="" Id="241001"><Trait Status="Normal" Path="Association.Shi.South.Sec2" /><Trait Path="Fixer" Status="Normal" /><Trait Status="Hidden" Path="Human" /></Book><Book PackageId="" Id="241002"><Trait Path="Sweeper" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230001"><Trait Path="Syndicates.TheCarnival" Status="Normal" /><Trait Path="MechanicalAmalgam" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130001"><Trait Path="Syndicates.TheCarnival" Status="Normal" /><Trait Path="MechanicalAmalgam" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130002"><Trait Path="Syndicates.TheCarnival" Status="Normal" /><Trait Path="MechanicalAmalgam" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130003"><Trait Path="Syndicates.TheCarnival" Status="Normal" /><Trait Path="MechanicalAmalgam" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130018"><Trait Path="Syndicates.KurokumoClan.Captain" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130019"><Trait Path="Syndicates.KurokumoClan.Kashira" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130020"><Trait Path="Syndicates.KurokumoClan.Kashira" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230020"><Trait Path="Syndicates.KurokumoClan.Kashira" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230019"><Trait Path="Syndicates.KurokumoClan.Kashira" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="131001"><Trait Path="Syndicates.KurokumoClan.Wakashu" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="231001"><Trait Path="Syndicates.KurokumoClan.Wakashu" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130007"><Trait Path="Office.DawnOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade3" Status="Normal" /><Trait Path="SmokeWar" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230007"><Trait Path="Office.DawnOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade3" Status="Normal" /><Trait Path="SmokeWar" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130008"><Trait Path="Office.DawnOffice" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230008"><Trait Path="Office.DawnOffice" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130009"><Trait Path="Office.DawnOffice" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="9010101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9010201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9010301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9010102"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9010103"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9010302"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9010402"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9010532"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9010542"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9010552"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9020101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9020201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9020301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9020401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9010401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9010513"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9020533"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9020542"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9020543"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9030101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9030201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9030202"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9030301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9030302"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9030401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9030402"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9030403"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9030522"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9030532"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9030542"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9030543"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9030552"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9030553"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9040101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9040201"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9040401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9040402"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040403"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040522"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040542"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040543"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040552"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040553"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040554"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040555"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040562"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040563"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040564"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9040565"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050202"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050303"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050402"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050403"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9100201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9100202"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9100301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9100302"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9100303"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9100401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9020302"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9010511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9010512"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9020402"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9020403"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9020511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9020522"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9020532"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9030511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9030521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9030531"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9030541"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9030551"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9040511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9040521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9040531"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9040541"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9040551"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9040561"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050304"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050305"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050522"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050531"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050532"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050533"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050541"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050542"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050543"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050550"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050551"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050552"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050553"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050554"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9060102"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9060301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9060302"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9060303"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9060304"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060305"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9060402"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060531"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060512"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060532"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060533"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060534"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060535"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060541"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060542"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9060551"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060552"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9060553"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9070101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9070201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9070202"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="130021"><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130022"><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130023"><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Association.Seven.South.Sec3" Status="FormerInvalid" /></Book><Book PackageId="" Id="230023"><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Association.Seven.South.Sec3" Status="FormerInvalid" /></Book><Book PackageId="" Id="230022"><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230021"><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130010"><Trait Path="Office.GazeOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="MechanicalAmalgam" Status="Normal" /></Book><Book PackageId="" Id="230010"><Trait Path="Office.GazeOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="MechanicalAmalgam" Status="Normal" /></Book><Book PackageId="" Id="130011"><Trait Path="Office.GazeOffice" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="MechanicalAmalgam" Status="Normal" /></Book><Book PackageId="" Id="130012"><Trait Path="Office.GazeOffice" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="MechanicalAmalgam" Status="Normal" /></Book><Book PackageId="" Id="230011"><Trait Path="Office.GazeOffice" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="MechanicalAmalgam" Status="Normal" /></Book><Book PackageId="" Id="230012"><Trait Path="Office.GazeOffice" Status="Normal" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="MechanicalAmalgam" Status="Normal" /></Book><Book PackageId="" Id="130024"><Trait Path="Office.WedgeOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade3" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230024"><Trait Path="Office.WedgeOffice.Operator" Status="Normal" /><Trait Path="Fixer.Grade3" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130025"><Trait Path="Office.WedgeOffice" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130026"><Trait Path="Office.WedgeOffice" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230025"><Trait Path="Office.WedgeOffice" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230026"><Trait Path="Office.WedgeOffice" Status="Normal" /><Trait Path="Fixer.Grade4" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="230018"><Trait Path="Syndicates.KurokumoClan.Captain" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="132001"><Trait Path="Syndicates.RustedChainlink" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="132002"><Trait Path="Syndicates.RustedChainlink" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="232002"><Trait Path="Syndicates.RustedChainlink" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="232001"><Trait Path="Syndicates.RustedChainlink" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="234001"><Trait Path="Office.JeongOffice.Operator" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="134001"><Trait Path="Office.JeongOffice.Operator" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="134002"><Trait Path="Office.JeongOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="234002"><Trait Path="Office.JeongOffice" Status="Normal" /><Trait Path="Fixer" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240010"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Corp.JCorp" Status="Normal"><State Level="2" Status="FormerInvalid" /></Trait><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240009"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Corp.JCorp" Status="Normal"><State Level="2" Status="FormerInvalid" /></Trait><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140008"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Corp.JCorp" Status="Normal"><State Level="2" Status="FormerInvalid" /></Trait><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140009"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Corp.JCorp" Status="Normal"><State Level="2" Status="FormerInvalid" /></Trait><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140010"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Corp.JCorp" Status="Normal"><State Level="2" Status="FormerInvalid" /></Trait><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140012"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140013"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140014"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Corp.JCorp" Status="Normal"><State Level="2" Status="FormerInvalid" /></Trait><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130016"><Trait Path="LoveTown" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130017"><Trait Path="LoveTown" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130015"><Trait Path="LoveTown" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130014"><Trait Path="LoveTown" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130013"><Trait Path="LoveTown" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130027"><Trait Path="Office.DawnOffice" Status="FormerEffective" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="130028"><Trait Path="Office.DawnOffice" Status="FormerEffective" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Light.UnstableEGO" Status="Normal" /></Book><Book PackageId="" Id="142001"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142002"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142003"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142004"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142005"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142006"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142007"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142008"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142101"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="142201"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240027"><Trait Path="Office.DawnOffice" Status="FormerEffective" /><Trait Path="Fixer.Grade5" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Light.UnstableEGO" Status="Normal" /></Book><Book PackageId="" Id="1301011"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Office.DawnOffice" Status="FormerInvalid" /><Trait Path="Fixer.Grade5" Status="FormerInvalid" /><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1301021"><Trait Path="Light.Distortion.Derivative" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="1302021"><Trait Path="MechanicalAmalgam" Status="Normal" /><Trait Path="ChurchOfGears" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1303011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="TheEightChefs" Status="FormerEffective" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1303021"><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1304011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1305011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1305021"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1305031"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1304031"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1306011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Syndicates.Fingers.Middle.GreatSister" Status="FormerInvalid" /></Book><Book PackageId="" Id="260008"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="TheEightChefs" Status="FormerEffective" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260009"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Syndicates.Fingers.Middle.GreatSister" Status="FormerInvalid" /></Book><Book PackageId="" Id="1406011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Syndicates.Fingers.Middle.GreatSister" Status="FormerInvalid" /></Book><Book PackageId="" Id="260005"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Fixer.Grade1" Status="FormerEffective" /><Trait Path="ColorFixer" Status="FormerEffective" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260006"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Office.DawnOffice" Status="FormerInvalid" /><Trait Path="Fixer.Grade5" Status="FormerInvalid" /><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1310011"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Fixer.Grade1" Status="FormerEffective" /><Trait Path="ColorFixer" Status="FormerEffective" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1401011"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Office.DawnOffice" Status="FormerInvalid" /><Trait Path="Fixer.Grade5" Status="FormerInvalid" /><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1302011"><Trait Path="ChurchOfGears.Leader" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Light.Distortion" Status="Normal" /></Book><Book PackageId="" Id="260007"><Trait Path="ChurchOfGears.Leader" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Light.Distortion" Status="Normal" /></Book><Book PackageId="" Id="1402011"><Trait Path="ChurchOfGears.Leader" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Light.Distortion" Status="Normal" /></Book><Book PackageId="" Id="1403011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="TheEightChefs" Status="FormerEffective" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1404011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Syndicates.BremenMusician" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1405021"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1405031"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1405041"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1405011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260010"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1410011"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Fixer.Grade1" Status="FormerInvalid" /><Trait Path="ColorFixer" Status="FormerInvalid" /><Trait Path="Human" Status="Hidden" /><Trait Path="Light.Distortion" Status="Normal" /></Book><Book PackageId="" Id="1410012"><Trait Status="Normal" Path="Fixer.Grade9" /><Trait Status="FormerInvalid" Path="Office.CharlesOffice" /><Trait Status="Hidden" Path="Human" /></Book><Book PackageId="" Id="260012"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="260014"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1307011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1309011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1309021"><Trait Path="Light.Distortion.Derivative" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="1409021"><Trait Path="Light.Distortion.Derivative" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="1407011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1409011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1408011"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Bloodfiend" Status="Normal" /></Book><Book PackageId="" Id="1308011"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Bloodfiend" Status="Normal" /></Book><Book PackageId="" Id="1308021"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Bloodbag" Status="Normal" /><Trait Path="ColorFixer" Status="FormerInvalid" /><Trait Path="Fixer.Grade1" Status="FormerInvalid" /></Book><Book PackageId="" Id="260013"><Trait Path="BlueReverberation" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="Bloodfiend" Status="Normal" /></Book><Book PackageId="" Id="143003"><Trait Path="Syndicates.BladeLineage.Mentor" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="243004"><Trait Path="Syndicates.BladeLineage.Salsu" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="143004"><Trait Path="Syndicates.BladeLineage.Salsu" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="243003"><Trait Path="Syndicates.BladeLineage.Mentor" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140004"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140005"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140006"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="140007"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240004"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="240005"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /></Book><Book PackageId="" Id="1304021"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="1307021"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="1307031"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="1307041"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="1307051"><Trait Path="Puppet" Status="Normal" /><Trait Path="Human" Status="Hidden" /><Trait Path="BlueReverberation" Status="Normal" /></Book><Book PackageId="" Id="170101"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Fixer.Grade9" Status="FormerInvalid" /><Trait Path="Human" Status="Hidden" /><Trait Path="Office.CharlesOffice" Status="FormerInvalid" /></Book><Book PackageId="" Id="170201"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Fixer.Grade9" Status="FormerInvalid" /><Trait Path="Human" Status="Hidden" /><Trait Path="Office.CharlesOffice" Status="FormerInvalid" /></Book><Book PackageId="" Id="170301"><Trait Path="Light.Distortion" Status="Normal" /><Trait Path="Fixer.Grade9" Status="FormerInvalid" /><Trait Path="Human" Status="Hidden" /><Trait Path="Office.CharlesOffice" Status="FormerInvalid" /></Book><Book PackageId="" Id="170102"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="170202"><Trait Path="Light.Distortion.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9080101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9080102"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9080201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9080202"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9080301"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9080302"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9080511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9080512"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9080521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9080522"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9080531"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9080532"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9080541"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9090101"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9090102"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090201"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9090202"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090301"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090302"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090303"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090304"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9090512"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090513"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090514"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090515"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9090521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9070301"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070302"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9070303"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070401"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9070512"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070402"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9070521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9070522"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070531"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9070532"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070533"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070551"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9070541"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070542"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070552"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070553"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9070554"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050555"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9050556"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9050561"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050562"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050563"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050564"><Trait Path="Light.Abnormality" Status="Normal" /></Book><Book PackageId="" Id="9050302"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100402"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100511"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9100521"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9100522"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100532"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100531"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9100541"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9100542"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100551"><Trait Path="Light.AbnormalityCorrosion" Status="Normal" /></Book><Book PackageId="" Id="9100552"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100553"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100554"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100555"><Trait Path="Light.Abnormality.Derivative" Status="Normal" /></Book><Book PackageId="" Id="9100501"><Trait Path="Light.EGO" Status="Normal" /><Trait Path="NonHuman" Status="Hidden" /></Book></TraitBooks>

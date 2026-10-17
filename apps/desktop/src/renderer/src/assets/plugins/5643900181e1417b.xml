@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_HpShield">
+      <Name>HP Shield</Name>
+      <RecognizeName>HatHP Shield</RecognizeName>
+      <Desc>Prevents an equal amount of damage.
+Can stack up to Max. (~HatKeyword id="Origin_HP"/~).</Desc>
+      <KeywordIconId>Hat_HpShield</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BpShield">
+      <Name>Stagger Shield</Name>
+      <RecognizeName>HatStagger Shield</RecognizeName>
+      <Desc>Prevents an equal amount of Stagger damage.
+Can stack up to Max. (~HatKeyword id="Origin_BP"/~).</Desc>
+      <KeywordIconId>Hat_BpShield</KeywordIconId>
+      <Color>#F715E6</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_HpDebt">
+      <Name>HP Debt</Name>
+      <RecognizeName>HatHP Debt</RecognizeName>
+      <Desc>Cancels an equal amount of HP recovery.
+Can stack up to Max. (~HatKeyword id="Origin_HP"/~).</Desc>
+      <KeywordIconId>Hat_HpDebt</KeywordIconId>
+      <Color>#319350</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BpDebt">
+      <Name>Stagger Debt</Name>
+      <RecognizeName>HatStagger Debt</RecognizeName>
+      <Desc>Cancels an equal amount of Stagger Resist recovery.
+Can stack up to Max. (~HatKeyword id="Origin_BP"/~).</Desc>
+      <KeywordIconId>Hat_BpDebt</KeywordIconId>
+      <Color>#1A8F95</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="DmgDown">
+      <Name>Damage Down</Name>
+      <RecognizeName>HatDamage Down</RecognizeName>
+      <Desc>Offensive dice deal {0} less damage this Scene.</Desc>
+      <KeywordIconId>DmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakDmgUp">
+      <Name>Stagger Damage Up</Name>
+      <RecognizeName>HatStagger Damage Up</RecognizeName>
+      <Desc>Offensive dice deal {0} more Stagger damage this Scene.</Desc>
+      <KeywordIconId>BreakDmgUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakDmgDown">
+      <Name>Stagger Damage Down</Name>
+      <RecognizeName>HatStagger Damage Down</RecognizeName>
+      <Desc>Offensive dice deal {0} less Stagger damage this Scene.</Desc>
+      <KeywordIconId>BreakDmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable">
+      <Name>Bleed Fragile</Name>
+      <RecognizeName>HatBleed Fragile</RecognizeName>
+      <Desc>Take {0} more damage from [Bleed] this Scene.</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable_Keyword">
+      <Name>Bleed Fragile X</Name>
+      <Desc>Take X more damage from [Bleed] this Scene.</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingProtection">
+      <Name>Bleed Protection</Name>
+      <RecognizeName>HatBleed Protection</RecognizeName>
+      <Desc>Take {0} less damage from [Bleed] this Scene.</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingProtection_Keyword">
+      <Name>Bleed Protection X</Name>
+      <Desc>Take X less damage from [Bleed] this Scene.</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable">
+      <Name>Burn Fragile</Name>
+      <RecognizeName>HatBurn Fragile</RecognizeName>
+      <Desc>Take {0} more damage from [Burn] this Scene.</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable_Keyword">
+      <Name>Burn Fragile X</Name>
+      <Desc>Take X more damage from [Burn] this Scene.</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnProtection">
+      <Name>Burn Protection</Name>
+      <RecognizeName>HatBurn Protection</RecognizeName>
+      <Desc>Take {0} less damage from [Burn] this Scene.</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnProtection_Keyword">
+      <Name>Burn Protection X</Name>
+      <Desc>Take X less damage from [Burn] this Scene.</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable">
+      <Name>Rupture Fragile</Name>
+      <RecognizeName>HatRupture Fragile</RecognizeName>
+      <Desc>Take {0} more damage from (~HatKeyword id="Hat_Rupture"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable_Keyword">
+      <Name>Rupture Fragile X</Name>
+      <Desc>Take X more damage from (~HatKeyword id="Hat_Rupture"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureProtection">
+      <Name>Rupture Protection</Name>
+      <RecognizeName>HatRupture Protection</RecognizeName>
+      <Desc>Take {0} less damage from (~HatKeyword id="Hat_Rupture"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureProtection_Keyword">
+      <Name>Rupture Protection X</Name>
+      <Desc>Take X less damage from (~HatKeyword id="Hat_Rupture"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable">
+      <Name>Sinking Fragile</Name>
+      <RecognizeName>HatSinking Fragile</RecognizeName>
+      <Desc>Take {0} more damage from (~HatKeyword id="Hat_Sinking"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable_Keyword">
+      <Name>Sinking Fragile X</Name>
+      <Desc>Take X more damage from (~HatKeyword id="Hat_Sinking"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingProtection">
+      <Name>Sinking Protection</Name>
+      <RecognizeName>HatSinking Protection</RecognizeName>
+      <Desc>Take {0} less damage from (~HatKeyword id="Hat_Sinking"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingProtection_Keyword">
+      <Name>Sinking Protection X</Name>
+      <Desc>Take X less damage from (~HatKeyword id="Hat_Sinking"/~) this Scene.</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable">
+      <Name>Tremor Fragile</Name>
+      <RecognizeName>HatTremor Fragile</RecognizeName>
+      <Desc>This Scene, (~HatKeyword id="Hat_TremorBurst"/~) raises (~HatKeyword id="Hat_BreakStateLine"/~) by {0} more.</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable_Keyword">
+      <Name>Tremor Fragile X</Name>
+      <Desc>This Scene, (~HatKeyword id="Hat_TremorBurst"/~) raises (~HatKeyword id="Hat_BreakStateLine"/~) by X more.</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection">
+      <Name>Tremor Protection</Name>
+      <RecognizeName>HatTremor Protection</RecognizeName>
+      <Desc>This Scene, (~HatKeyword id="Hat_TremorBurst"/~) raises (~HatKeyword id="Hat_BreakStateLine"/~) by {0} less.</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection_Keyword">
+      <Name>Tremor Protection X</Name>
+      <Desc>This Scene, (~HatKeyword id="Hat_TremorBurst"/~) raises (~HatKeyword id="Hat_BreakStateLine"/~) by X less.</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp">
+      <Name>Increased Light Restoration</Name>
+      <RecognizeName>HatIncreased Light Restoration</RecognizeName>
+      <Desc>Whenever restoring Light this Scene, restore {0} additional Light.</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp_Keyword">
+      <Name>Increased Light Restoration X</Name>
+      <Desc>Whenever restoring Light this Scene, restore X additional Light.</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="GuardPowerUp">
+      <Name>Block Power Up</Name>
+      <RecognizeName>HatBlock Power Up</RecognizeName>
+      <Desc>Block dice gain +{0} Power this Scene.</Desc>
+      <KeywordIconId>GuardPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerUp">
+      <Name>Evade Power Up</Name>
+      <RecognizeName>HatEvade Power Up</RecognizeName>
+      <Desc>Evade dice gain +{0} Power this Scene.</Desc>
+      <KeywordIconId>EvasionPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="SlashPowerDown">
+      <Name>Slash Power Down</Name>
+      <RecognizeName>HatSlash Power Down</RecognizeName>
+      <Desc>Slash dice gain -{0} Power this Scene.</Desc>
+      <KeywordIconId>SlashPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="PenetratePowerDown">
+      <Name>Pierce Power Down</Name>
+      <RecognizeName>HatPierce Power Down</RecognizeName>
+      <Desc>Pierce dice gain -{0} Power this Scene.</Desc>
+      <KeywordIconId>PenetratePowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="HitPowerDown">
+      <Name>Blunt Power Down</Name>
+      <RecognizeName>HatBlunt Power Down</RecognizeName>
+      <Desc>Blunt dice gain -{0} Power this Scene.</Desc>
+      <KeywordIconId>HitPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="GuardPowerDown">
+      <Name>Block Power Down</Name>
+      <RecognizeName>HatBlock Power Down</RecognizeName>
+      <Desc>Block dice gain -{0} Power this Scene.</Desc>
+      <KeywordIconId>GuardPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerDown">
+      <Name>Evade Power Down</Name>
+      <RecognizeName>HatEvade Power Down</RecognizeName>
+      <Desc>Evade dice gain -{0} Power this Scene.</Desc>
+      <KeywordIconId>EvasionPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TempSpeedDice">
+      <Name>Temporary Speed Dice</Name>
+      <RecognizeName>HatTemporary Speed Dice</RecognizeName>
+      <Desc>Gain {0} additional Speed dice this Scene.</Desc>
+      <KeywordIconId>Hat_TempSpeedDice</KeywordIconId>
+      <Color>#FFCC00</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Rupture">
+      <Name>Rupture</Name>
+      <RecognizeName>HatRupture</RecognizeName>
+      <Desc>When hit, take (~color=#1BECC0~)(~u~){0}(~/u~)(~/color~) additional damage, then halve this stack (rounded down).</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Rupture_Keyword">
+      <Name>Rupture X</Name>
+      <Desc>When hit, take (~color=#1BECC0~)(~u~)X(~/u~)(~/color~) additional damage, then halve this stack (rounded down).</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Sinking">
+      <Name>Sinking</Name>
+      <RecognizeName>HatSinking</RecognizeName>
+      <Desc>When hit, take (~color=#1B80EC~)(~u~){0}(~/u~)(~/color~) additional Stagger damage, then halve this stack (rounded down).</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Sinking_Keyword">
+      <Name>Sinking X</Name>
+      <Desc>When hit, take (~color=#1B80EC~)(~u~)X(~/u~)(~/color~) additional Stagger damage, then halve this stack (rounded down).</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingDeluge">
+      <Name>Sinking Deluge</Name>
+      <RecognizeName>HatSinking Deluge</RecognizeName>
+      <Desc>Remove all (~HatKeyword id="Hat_Sinking"/~) from the target and deal Stagger damage equal to 3 times the removed stack.
+If this reduces the target's Stagger Resist to 0, the excess becomes damage.</Desc>
+      <KeywordIconId>Hat_SinkingDeluge</KeywordIconId>
+      <Color>#1B80EC</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Tremor">
+      <Name>Tremor</Name>
+      <RecognizeName>HatTremor</RecognizeName>
+      <Desc>When taking deflect damage, raise (~HatKeyword id="Hat_BreakStateLine"/~) by half the difference between the dice rolls, up to {0} (rounded down).
+When affected by (~HatKeyword id="Hat_TremorBurst"/~), raise (~HatKeyword id="Hat_BreakStateLine"/~) by {0}.
+At the end of each Scene, halve the stack (rounded down).</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Tremor_Keyword">
+      <Name>Tremor X</Name>
+      <Desc>When taking deflect damage, raise (~HatKeyword id="Hat_BreakStateLine"/~) by half the difference between the dice rolls, up to X (rounded down).
+When affected by (~HatKeyword id="Hat_TremorBurst"/~), raise (~HatKeyword id="Hat_BreakStateLine"/~) by X.
+At the end of each Scene, halve the stack (rounded down).</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorFusion">
+      <Name>Tremor - Superposition</Name>
+      <RecognizeName>HatTremor - Superposition</RecognizeName>
+      <Desc>When taking deflect damage, raise (~HatKeyword id="Hat_BreakStateLine"/~) by half the difference between the dice rolls, up to {0} (rounded down).
+When affected by (~HatKeyword id="Hat_TremorBurst"/~), raise (~HatKeyword id="Hat_BreakStateLine"/~) by {0}.
+At the end of each Scene, convert to (~HatKeyword id="Hat_Tremor"/~), then halve the stack (rounded down).
+Has all of the combined (~HatKeyword id="Hat_Tremor"/~) effects.</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorFusion_Keyword">
+      <Name>Tremor - Superposition</Name>
+      <Desc>Can combine multiple (~HatKeyword id="Hat_Tremor"/~) effects.
+At the end of each Scene, convert to (~HatKeyword id="Hat_Tremor"/~), then halve the stack (rounded down).</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorBurst">
+      <Name>Tremor Burst</Name>
+      <RecognizeName>HatTremor Burst</RecognizeName>
+      <Desc>Raise the target's (~HatKeyword id="Hat_BreakStateLine"/~) by its (~HatKeyword id="Hat_Tremor"/~) stack.</Desc>
+      <KeywordIconId>Hat_TremorBurst</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BreakStateLine">
+      <Name>Stagger Threshold</Name>
+      <RecognizeName>HatStagger Threshold</RecognizeName>
+      <Desc>The Stagger Resist threshold at which this character becomes Staggered increases by {0}.
+Removed when recovering from Stagger.</Desc>
+      <KeywordIconId>Hat_BreakStateLine</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Preassembled_Keyword">
+      <Name>Innate</Name>
+      <RecognizeName>HatInnate</RecognizeName>
+      <Desc>Draw this page in addition to the normal draw at the start of the Act.</Desc>
+      <KeywordIconId>Hat_Preassembled</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Discard_Keyword">
+      <Name>Discard</Name>
+      <RecognizeName>HatDiscard</RecognizeName>
+      <Desc>Remove a page from hand. When there are no pages available to draw, shuffle discarded pages into the remaining deck.</Desc>
+      <KeywordIconId>Discard</KeywordIconId>
+      <Color>#C72828</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Poise">
+      <Name>Poise</Name>
+      <RecognizeName>HatPoise</RecognizeName>
+      <Desc>When rolling a die that can (~HatKeyword id="Hat_Crit_Keyword"/~), increase its maximum based on its original roll range, up to {0}.
+(~HatKeyword id="Hat_OnCrit_Keyword"/~), reduce the stack by the increase; (~HatKeyword id="Hat_FailCrit_Keyword"/~), reduce it by only 1.</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Poise_Keyword">
+      <Name>Poise X</Name>
+      <Desc>When rolling a die that can (~HatKeyword id="Hat_Crit_Keyword"/~), increase its maximum based on its original roll range, up to X/2 (rounded up).
+(~HatKeyword id="Hat_OnCrit_Keyword"/~), reduce the stack by the increase; (~HatKeyword id="Hat_FailCrit_Keyword"/~), reduce it by only 1.</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Crit_Keyword">
+      <Name>Crit</Name>
+      <RecognizeName>HatCrit</RecognizeName>
+      <Desc>If this die can (~HatKeyword id="Hat_Crit_Keyword"/~) and its base roll exceeds its original maximum, this roll is a (~HatKeyword id="Hat_Crit_Keyword"/~).
+(Offensive dice can (~HatKeyword id="Hat_Crit_Keyword"/~).)</Desc>
+      <KeywordIconId>Hat_Crit</KeywordIconId>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_OnCrit_Keyword">
+      <Name>On Crit</Name>
+      <RecognizeName>HatOn Crit</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_FailCrit_Keyword">
+      <Name>On Failed Crit</Name>
+      <RecognizeName>HatOn Failed Crit</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValue">
+      <Name>Clash Power</Name>
+      <Desc>Affects only clash results; does not count as a dice value or Power bonus.</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp">
+      <Name>Clash Power Up</Name>
+      <Desc>(~HatKeyword id="Hat_ParryingValue"/~) +{0} this Scene.</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp_Keyword">
+      <Name>Clash Power Up X</Name>
+      <Desc>(~HatKeyword id="Hat_ParryingValue"/~) +X this Scene.</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown">
+      <Name>Clash Power Down</Name>
+      <Desc>(~HatKeyword id="Hat_ParryingValue"/~) -{0} this Scene.</Desc>
+      <KeywordIconId>Hat_ParryingValueDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown_Keyword">
+      <Name>Clash Power Down X</Name>
+      <Desc>(~HatKeyword id="Hat_ParryingValue"/~) - X this Scene.</Desc>
+      <KeywordIconId>Hat_ParryingValueDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

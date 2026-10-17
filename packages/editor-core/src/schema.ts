@@ -7,13 +7,15 @@ export interface BaseFieldDef {
   placeholder?: string
   /** 输入框宽度 Tailwind class，如 w-24 / flex-1 */
   widthClass?: string
+  /** 列表行内整行渲染（如骰子列表的特效资源/骰子能力/动作脚本），便于展示长文本 */
+  fullRow?: boolean
   /** 值为空时从 XML 中移除该元素 */
   omitWhenEmpty?: boolean
 }
 
 export type ScalarFieldDef = BaseFieldDef &
   (
-    | { kind: 'text'; required?: boolean; placeholder?: string; autocomplete?: 'page-artwork' | 'page-ability' }
+    | { kind: 'text'; required?: boolean; placeholder?: string; autocomplete?: 'page-artwork' | 'page-ability' | 'dice-ability' }
     | { kind: 'int'; required?: boolean; min?: number; max?: number; digitsOnly?: boolean; optional?: boolean }
     | { kind: 'enum'; values: string[]; required?: boolean; asChips?: boolean; labels?: Record<string, string>; colors?: Record<string, string>; icons?: Record<string, string>; dots?: boolean; allowCustom?: boolean; customNumeric?: boolean; noIdToggle?: boolean }
     | { kind: 'multiline'; required?: boolean; multiLineElements?: boolean }

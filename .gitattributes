@@ -1,0 +1,2 @@
+# Imported plugin payloads are verified by SHA256; preserve their original bytes.
+/apps/desktop/src/renderer/src/assets/plugins/*.xml -text whitespace=-blank-at-eol,-blank-at-eof

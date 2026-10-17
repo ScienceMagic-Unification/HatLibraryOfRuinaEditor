@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreviewCardByScriptRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<Preview Script="carnival">
+		<PreviewCard>401007</PreviewCard>
+	</Preview>
+	
+	<Preview Script="lowelonly">
+		<PreviewCard>601014</PreviewCard>
+	</Preview>
+	
+	<Preview Script="myoBerserk">
+		<PreviewCard>608001</PreviewCard>
+	</Preview>
+	
+	<Preview Script="Seven_Engagement">
+		<PreviewCard>511005</PreviewCard>
+	</Preview>
+	
+	<Preview Script="Sword_getbonecuttingcardpl">
+		<PreviewCard>512006</PreviewCard>
+	</Preview>
+
+	<Preview Script="selfstunwithabil">
+		<PreviewCard>616007</PreviewCard>
+	</Preview>
+		
+	<Preview Script="argaliaDistortedArea">
+		<PreviewCard>705012</PreviewCard>
+	</Preview>
+
+	<Preview Script="philipSpecial">
+		<PreviewCard>705022</PreviewCard>
+	</Preview>
+		
+	<Preview Script="indexRelease1">
+		<PreviewCard>605009</PreviewCard>
+		<PreviewCard>605010</PreviewCard>
+	</Preview>
+	<Preview Script="indexRelease2">
+		<PreviewCard>605010</PreviewCard>
+	</Preview>
+	
+	<Preview Script="AddBullet1AndDraw">
+		<PreviewCard>602020</PreviewCard>
+		<PreviewCard>602021</PreviewCard>
+		<PreviewCard>602022</PreviewCard>
+	</Preview>
+	<Preview Script="AddBullet2">
+		<PreviewCard>602020</PreviewCard>
+		<PreviewCard>602021</PreviewCard>
+		<PreviewCard>602022</PreviewCard>
+	</Preview>
+
+	<Preview Script="latitiaEgoDice">
+		<PreviewCard>910117</PreviewCard>
+	</Preview>
+
+	<Preview Script="Pluto_Contract_1">
+		<PreviewCard>703906</PreviewCard>
+	</Preview>
+	<Preview Script="Pluto_Contract_2">
+		<PreviewCard>703907</PreviewCard>
+	</Preview>
+	<Preview Script="Pluto_Contract_3">
+		<PreviewCard>703908</PreviewCard>
+	</Preview>
+	<Preview Script="Pluto_Contract_4">
+		<PreviewCard>703909</PreviewCard>
+	</Preview>
+	<Preview Script="Pluto_Contract_5">
+		<PreviewCard>703910</PreviewCard>
+	</Preview>
+
+	<Preview Script="jaeheon_link">
+		<PreviewCard>707712</PreviewCard>
+		<PreviewCard>707713</PreviewCard>
+	</Preview>
+
+	<Preview Script="Pluto_UC_Protect">
+		<PreviewCard>707911</PreviewCard>
+	</Preview>
+	<Preview Script="Pluto_UC_Atk">
+		<PreviewCard>707912</PreviewCard>
+	</Preview>
+	<Preview Script="Pluto_UC_Light">
+		<PreviewCard>707913</PreviewCard>
+		<PreviewCard>707914</PreviewCard>
+	</Preview>
+	<Preview Script="UC_Light">
+		<PreviewCard>707914</PreviewCard>
+	</Preview>
+
+	<Preview Script="universeatk">
+		<PreviewCard>900903</PreviewCard>
+	</Preview>
+	
+	<Preview Script="final_netzach_universe1">
+		<PreviewCard>9904105</PreviewCard>
+	</Preview>
+
+	<Preview Script="porccubusTaleAtk1">
+		<PreviewCard>901204</PreviewCard>
+	</Preview>
+	<Preview Script="porccubusTaleAtk2">
+		<PreviewCard>901204</PreviewCard>
+	</Preview>
+
+	<Preview Script="final_netzach_porccubus1">
+		<PreviewCard>9904305</PreviewCard>
+	</Preview>
+	<Preview Script="final_netzach_porccubus2">
+		<PreviewCard>9904305</PreviewCard>
+	</Preview>
+	<Preview Script="final_netzach_porccubus3">
+		<PreviewCard>9904305</PreviewCard>
+	</Preview>
+
+	<Preview Script="scarecrow_give_wisdom">
+		<PreviewCard>901902</PreviewCard>
+	</Preview>
+
+	<Preview Script="scarecrow_give_wisdom_final">
+		<PreviewCard>9907125</PreviewCard>
+	</Preview>
+
+	<Preview Script="latitia_atk_heart_1">
+		<PreviewCard>902451</PreviewCard>
+		<PreviewCard>902452</PreviewCard>
+	</Preview>
+	<Preview Script="latitia_pink_kaboom">
+		<PreviewCard>902451</PreviewCard>
+		<PreviewCard>902452</PreviewCard>
+	</Preview>
+
+	<Preview Script="final_latitia_atk_heart_1">
+		<PreviewCard>9903451</PreviewCard>
+		<PreviewCard>9903452</PreviewCard>
+	</Preview>
+	<Preview Script="final_latitia_ego">
+		<PreviewCard>9903451</PreviewCard>
+		<PreviewCard>9903452</PreviewCard>
+	</Preview>
+	<Preview Script="final_latitia_pink_kaboom">
+		<PreviewCard>9903451</PreviewCard>
+		<PreviewCard>9903452</PreviewCard>
+	</Preview>
+
+	<Preview Script="final_gebura_nothing_fear">
+		<PreviewCard>9906505</PreviewCard>
+	</Preview>
+
+	<Preview Script="final_bloodbath_area_atk">
+		<PreviewCard>9910107</PreviewCard>
+	</Preview>
+	<Preview Script="final_bloodbath_givedepress">
+		<PreviewCard>9910107</PreviewCard>
+	</Preview>
+	<Preview Script="final_bloodbath_givedepress_atk">
+		<PreviewCard>9910107</PreviewCard>
+	</Preview>
+	
+</PreviewCardByScriptRoot>

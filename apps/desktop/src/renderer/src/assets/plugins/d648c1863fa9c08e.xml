@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_HpShield">
+      <Name>역장</Name>
+      <RecognizeName>Hat역장</RecognizeName>
+      <Desc>같은 양의 피해를 막는다.
+최대 (~HatKeyword id="Origin_HP"/~)만큼 보유할 수 있다.</Desc>
+      <KeywordIconId>Hat_HpShield</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BpShield">
+      <Name>흐트러짐 역장</Name>
+      <RecognizeName>Hat흐트러짐 역장</RecognizeName>
+      <Desc>같은 양의 흐트러짐 피해를 막는다.
+최대 (~HatKeyword id="Origin_BP"/~)만큼 보유할 수 있다.</Desc>
+      <KeywordIconId>Hat_BpShield</KeywordIconId>
+      <Color>#F715E6</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_HpDebt">
+      <Name>중상</Name>
+      <RecognizeName>Hat중상</RecognizeName>
+      <Desc>같은 양의 체력 회복을 상쇄한다.
+최대 (~HatKeyword id="Origin_HP"/~)만큼 보유할 수 있다.</Desc>
+      <KeywordIconId>Hat_HpDebt</KeywordIconId>
+      <Color>#319350</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BpDebt">
+      <Name>붕괴</Name>
+      <RecognizeName>Hat붕괴</RecognizeName>
+      <Desc>같은 양의 흐트러짐 저항 회복을 상쇄한다.
+최대 (~HatKeyword id="Origin_BP"/~)만큼 보유할 수 있다.</Desc>
+      <KeywordIconId>Hat_BpDebt</KeywordIconId>
+      <Color>#1A8F95</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="DmgDown">
+      <Name>피해량 감소</Name>
+      <RecognizeName>Hat피해량 감소</RecognizeName>
+      <Desc>이번 막 동안 공격 주사위의 피해량 -{0}.</Desc>
+      <KeywordIconId>DmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakDmgUp">
+      <Name>흐트러짐 피해량 증가</Name>
+      <RecognizeName>Hat흐트러짐 피해량 증가</RecognizeName>
+      <Desc>이번 막 동안 공격 주사위의 흐트러짐 피해량 +{0}.</Desc>
+      <KeywordIconId>BreakDmgUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakDmgDown">
+      <Name>흐트러짐 피해량 감소</Name>
+      <RecognizeName>Hat흐트러짐 피해량 감소</RecognizeName>
+      <Desc>이번 막 동안 공격 주사위의 흐트러짐 피해량 -{0}.</Desc>
+      <KeywordIconId>BreakDmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable">
+      <Name>출혈 취약</Name>
+      <RecognizeName>Hat출혈 취약</RecognizeName>
+      <Desc>이번 막 동안 [출혈]로 받는 피해량 {0} 증가.</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable_Keyword">
+      <Name>출혈 취약 X</Name>
+      <Desc>이번 막 동안 [출혈]로 받는 피해량 X 증가.</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingProtection">
+      <Name>출혈 보호</Name>
+      <RecognizeName>Hat출혈 보호</RecognizeName>
+      <Desc>이번 막 동안 [출혈]로 받는 피해량 {0} 감소.</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingProtection_Keyword">
+      <Name>출혈 보호 X</Name>
+      <Desc>이번 막 동안 [출혈]로 받는 피해량 X 감소.</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable">
+      <Name>화상 취약</Name>
+      <RecognizeName>Hat화상 취약</RecognizeName>
+      <Desc>이번 막 동안 [화상]로 받는 피해량 {0} 증가.</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable_Keyword">
+      <Name>화상 취약 X</Name>
+      <Desc>이번 막 동안 [화상]로 받는 피해량 X 증가.</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnProtection">
+      <Name>화상 보호</Name>
+      <RecognizeName>Hat화상 보호</RecognizeName>
+      <Desc>이번 막 동안 [화상]로 받는 피해량 {0} 감소.</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnProtection_Keyword">
+      <Name>화상 보호 X</Name>
+      <Desc>이번 막 동안 [화상]로 받는 피해량 X 감소.</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable">
+      <Name>파열 취약</Name>
+      <RecognizeName>Hat파열 취약</RecognizeName>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Rupture"/~)으로 받는 피해량 {0} 증가.</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable_Keyword">
+      <Name>파열 취약 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Rupture"/~)으로 받는 피해량 X 증가.</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureProtection">
+      <Name>파열 보호</Name>
+      <RecognizeName>Hat파열 보호</RecognizeName>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Rupture"/~)으로 받는 피해량 {0} 감소.</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureProtection_Keyword">
+      <Name>파열 보호 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Rupture"/~)으로 받는 피해량 X 감소.</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable">
+      <Name>침잠 취약</Name>
+      <RecognizeName>Hat침잠 취약</RecognizeName>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Sinking"/~)으로 받는 피해량 {0} 증가.</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable_Keyword">
+      <Name>침잠 취약 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Sinking"/~)으로 받는 피해량 X 증가.</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingProtection">
+      <Name>침잠 보호</Name>
+      <RecognizeName>Hat침잠 보호</RecognizeName>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Sinking"/~)으로 받는 피해량 {0} 감소.</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingProtection_Keyword">
+      <Name>침잠 보호 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_Sinking"/~)으로 받는 피해량 X 감소.</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable">
+      <Name>진동 취약</Name>
+      <RecognizeName>Hat진동 취약</RecognizeName>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_TremorBurst"/~)으로 인한 (~HatKeyword id="Hat_BreakStateLine"/~) 상승량이 {0} 증가.</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable_Keyword">
+      <Name>진동 취약 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_TremorBurst"/~)으로 인한 (~HatKeyword id="Hat_BreakStateLine"/~) 상승량이 X 증가.</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection">
+      <Name>진동 보호</Name>
+      <RecognizeName>Hat진동 보호</RecognizeName>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_TremorBurst"/~)으로 인한 (~HatKeyword id="Hat_BreakStateLine"/~) 상승량이 {0} 감소.</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection_Keyword">
+      <Name>진동 보호 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_TremorBurst"/~)으로 인한 (~HatKeyword id="Hat_BreakStateLine"/~) 상승량이 X 감소.</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp">
+      <Name>빛 회복량 증가</Name>
+      <RecognizeName>Hat빛 회복량 증가</RecognizeName>
+      <Desc>이번 막 동안 빛을 회복할 때 추가로 빛을 {0} 회복한다.</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp_Keyword">
+      <Name>빛 회복량 증가 X</Name>
+      <Desc>이번 막 동안 빛을 회복할 때 추가로 빛을 X 회복한다.</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="GuardPowerUp">
+      <Name>방어 위력 증가</Name>
+      <RecognizeName>Hat방어 위력 증가</RecognizeName>
+      <Desc>이번 막 동안 방어 주사위 위력 +{0}.</Desc>
+      <KeywordIconId>GuardPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerUp">
+      <Name>회피 위력 증가</Name>
+      <RecognizeName>Hat회피 위력 증가</RecognizeName>
+      <Desc>이번 막 동안 회피 주사위 위력 +{0}.</Desc>
+      <KeywordIconId>EvasionPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="SlashPowerDown">
+      <Name>참격 위력 감소</Name>
+      <RecognizeName>Hat참격 위력 감소</RecognizeName>
+      <Desc>이번 막 동안 참격 주사위 위력 -{0}.</Desc>
+      <KeywordIconId>SlashPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="PenetratePowerDown">
+      <Name>관통 위력 감소</Name>
+      <RecognizeName>Hat관통 위력 감소</RecognizeName>
+      <Desc>이번 막 동안 관통 주사위 위력 -{0}.</Desc>
+      <KeywordIconId>PenetratePowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="HitPowerDown">
+      <Name>타격 위력 감소</Name>
+      <RecognizeName>Hat타격 위력 감소</RecognizeName>
+      <Desc>이번 막 동안 타격 주사위 위력 -{0}.</Desc>
+      <KeywordIconId>HitPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="GuardPowerDown">
+      <Name>방어 위력 감소</Name>
+      <RecognizeName>Hat방어 위력 감소</RecognizeName>
+      <Desc>이번 막 동안 방어 주사위 위력 -{0}.</Desc>
+      <KeywordIconId>GuardPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerDown">
+      <Name>회피 위력 감소</Name>
+      <RecognizeName>Hat회피 위력 감소</RecognizeName>
+      <Desc>이번 막 동안 회피 주사위 위력 -{0}.</Desc>
+      <KeywordIconId>EvasionPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TempSpeedDice">
+      <Name>임시 속도 주사위</Name>
+      <RecognizeName>Hat임시 속도 주사위</RecognizeName>
+      <Desc>이번 막 동안 속도 주사위를 추가로 {0}개 얻는다.</Desc>
+      <KeywordIconId>Hat_TempSpeedDice</KeywordIconId>
+      <Color>#FFCC00</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Rupture">
+      <Name>파열</Name>
+      <RecognizeName>Hat파열</RecognizeName>
+      <Desc>피격 시 추가로 (~color=#1BECC0~)(~u~){0}(~/u~)(~/color~)의 피해를 받고, 이후 이 수치를 절반으로 줄인다(소수점 이하 버림).</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Rupture_Keyword">
+      <Name>파열 X</Name>
+      <Desc>피격 시 추가로 (~color=#1BECC0~)(~u~)X(~/u~)(~/color~)의 피해를 받고, 이후 이 수치를 절반으로 줄인다(소수점 이하 버림).</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Sinking">
+      <Name>침잠</Name>
+      <RecognizeName>Hat침잠</RecognizeName>
+      <Desc>피격 시 추가로 (~color=#1B80EC~)(~u~){0}(~/u~)(~/color~)의 흐트러짐 피해를 받고, 이후 이 수치를 절반으로 줄인다(소수점 이하 버림).</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Sinking_Keyword">
+      <Name>침잠 X</Name>
+      <Desc>피격 시 추가로 (~color=#1B80EC~)(~u~)X(~/u~)(~/color~)의 흐트러짐 피해를 받고, 이후 이 수치를 절반으로 줄인다(소수점 이하 버림).</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingDeluge">
+      <Name>침잠 쇄도</Name>
+      <RecognizeName>Hat침잠 쇄도</RecognizeName>
+      <Desc>대상의 (~HatKeyword id="Hat_Sinking"/~)을 모두 제거하고 제거한 수치의 3배만큼 흐트러짐 피해를 준다.
+이 효과로 대상의 흐트러짐 저항이 0이 되면 초과분을 피해로 전환한다.</Desc>
+      <KeywordIconId>Hat_SinkingDeluge</KeywordIconId>
+      <Color>#1B80EC</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Tremor">
+      <Name>진동</Name>
+      <RecognizeName>Hat진동</RecognizeName>
+      <Desc>반사 피해를 받을 때 두 주사위 값 차이의 절반만큼 (~HatKeyword id="Hat_BreakStateLine"/~)을 높인다(최대 {0}, 소수점 이하 버림).
+(~HatKeyword id="Hat_TremorBurst"/~)을 받을 때 (~HatKeyword id="Hat_BreakStateLine"/~)을 {0} 높인다.
+막 종료 시 수치를 절반으로 줄인다(소수점 이하 버림).</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Tremor_Keyword">
+      <Name>진동 X</Name>
+      <Desc>반사 피해를 받을 때 두 주사위 값 차이의 절반만큼 (~HatKeyword id="Hat_BreakStateLine"/~)을 높인다(최대 X, 소수점 이하 버림).
+(~HatKeyword id="Hat_TremorBurst"/~)을 받을 때 (~HatKeyword id="Hat_BreakStateLine"/~)을 X 높인다.
+막 종료 시 수치를 절반으로 줄인다(소수점 이하 버림).</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorFusion">
+      <Name>진동 - 중첩</Name>
+      <RecognizeName>Hat진동 - 중첩</RecognizeName>
+      <Desc>반사 피해를 받을 때 두 주사위 값 차이의 절반만큼 (~HatKeyword id="Hat_BreakStateLine"/~)을 높인다(최대 {0}, 소수점 이하 버림).
+(~HatKeyword id="Hat_TremorBurst"/~)을 받을 때 (~HatKeyword id="Hat_BreakStateLine"/~)을 {0} 높인다.
+막 종료 시 (~HatKeyword id="Hat_Tremor"/~)으로 전환한 후 수치를 절반으로 줄인다(소수점 이하 버림).
+중첩된 모든 (~HatKeyword id="Hat_Tremor"/~) 효과를 가진다.</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorFusion_Keyword">
+      <Name>진동 - 중첩</Name>
+      <Desc>여러 (~HatKeyword id="Hat_Tremor"/~) 효과를 중첩할 수 있다.
+막 종료 시 (~HatKeyword id="Hat_Tremor"/~)으로 전환한 후 수치를 절반으로 줄인다(소수점 이하 버림).</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorBurst">
+      <Name>진동 폭발</Name>
+      <RecognizeName>Hat진동 폭발</RecognizeName>
+      <Desc>대상의 (~HatKeyword id="Hat_BreakStateLine"/~)을 (~HatKeyword id="Hat_Tremor"/~) 수치만큼 높인다.</Desc>
+      <KeywordIconId>Hat_TremorBurst</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BreakStateLine">
+      <Name>흐트러짐 구간</Name>
+      <RecognizeName>Hat흐트러짐 구간</RecognizeName>
+      <Desc>흐트러짐 상태가 되는 흐트러짐 저항의 기준값이 {0} 증가한다.
+흐트러짐 상태에서 회복하면 제거된다.</Desc>
+      <KeywordIconId>Hat_BreakStateLine</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Preassembled_Keyword">
+      <Name>예장</Name>
+      <RecognizeName>Hat예장</RecognizeName>
+      <Desc>무대 시작 시 이 책장을 추가로 뽑는다.</Desc>
+      <KeywordIconId>Hat_Preassembled</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Discard_Keyword">
+      <Name>버림</Name>
+      <RecognizeName>Hat버림</RecognizeName>
+      <Desc>손에서 책장을 제거한다. 책장을 뽑을 때 뽑을 책장이 없으면 버린 책장을 남은 덱에 섞는다.</Desc>
+      <KeywordIconId>Discard</KeywordIconId>
+      <Color>#C72828</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Poise">
+      <Name>호흡</Name>
+      <RecognizeName>Hat호흡</RecognizeName>
+      <Desc>(~HatKeyword id="Hat_Crit_Keyword"/~)이 가능한 주사위를 굴릴 때 원래 주사위 값 범위에 따라 최대값을 최대 {0}만큼 증가시킨다.
+(~HatKeyword id="Hat_OnCrit_Keyword"/~) 증가량과 같은 수치를 소모하고, (~HatKeyword id="Hat_FailCrit_Keyword"/~) 1만 소모한다.</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Poise_Keyword">
+      <Name>호흡 X</Name>
+      <Desc>(~HatKeyword id="Hat_Crit_Keyword"/~)이 가능한 주사위를 굴릴 때 원래 주사위 값 범위에 따라 최대값을 최대 X/2만큼 증가시킨다(소수점 이하 올림).
+(~HatKeyword id="Hat_OnCrit_Keyword"/~) 증가량과 같은 수치를 소모하고, (~HatKeyword id="Hat_FailCrit_Keyword"/~) 1만 소모한다.</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Crit_Keyword">
+      <Name>크리티컬</Name>
+      <RecognizeName>Hat크리티컬</RecognizeName>
+      <Desc>이 주사위가 (~HatKeyword id="Hat_Crit_Keyword"/~)이 가능하고 기본값이 원래 최대값보다 높으면 이번 주사위 굴림을 (~HatKeyword id="Hat_Crit_Keyword"/~)로 판정한다.
+(공격 주사위는 (~HatKeyword id="Hat_Crit_Keyword"/~)이 가능하다.)</Desc>
+      <KeywordIconId>Hat_Crit</KeywordIconId>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_OnCrit_Keyword">
+      <Name>크리티컬 시</Name>
+      <RecognizeName>Hat크리티컬 시</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_FailCrit_Keyword">
+      <Name>크리티컬 실패 시</Name>
+      <RecognizeName>Hat크리티컬 실패 시</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValue">
+      <Name>합 위력</Name>
+      <Desc>합 결과에만 영향을 주며 주사위 값이나 위력 보정에 포함되지 않는다.</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp">
+      <Name>합 위력 증가</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_ParryingValue"/~) +{0}.</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp_Keyword">
+      <Name>합 위력 증가 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_ParryingValue"/~) +X.</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown">
+      <Name>합 위력 감소</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_ParryingValue"/~) -{0}.</Desc>
+      <KeywordIconId>Hat_ParryingValueDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown_Keyword">
+      <Name>합 위력 감소 X</Name>
+      <Desc>이번 막 동안 (~HatKeyword id="Hat_ParryingValue"/~) -X.</Desc>
+      <KeywordIconId>Hat_ParryingValueDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

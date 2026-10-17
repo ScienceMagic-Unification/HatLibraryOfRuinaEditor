@@ -1,0 +1,10 @@
+
+<BattleCardAbilityDescRoot>
+  <BattleCardAbility ID="KeywordDemo">
+    <Desc>(~HatKeywordLink id=&quot;Hat_Tags_Trait&quot;~)English(~/HatKeywordLink~) (~HatKeyword id=&quot;Hat_Tags_Trait&quot;/~)
+(~HatKeyword id=&quot;Hat_Enchantments_Ammo_Keyword&quot;/~)
+(~b~)Bold (~i~)nested(~/i~) tail(~/b~)
+(~HatKeywordLink id=&quot;Hat_Tags_Trait&quot;~)CUSTOM(~/HatKeywordLink~)
+(~noparse~)(~HatKeyword id=&quot;Hat_Tags_Trait&quot;/~)(~/noparse~)</Desc>
+  </BattleCardAbility>
+</BattleCardAbilityDescRoot>

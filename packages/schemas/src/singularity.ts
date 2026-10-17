@@ -88,9 +88,16 @@ export const modRegexModule: ModuleDefinition = {
   }
 }
 
-/** 奇点大工作区右侧挂载的四个模块。 */
+export const singularityAbilitiesModule: ModuleDefinition = {
+  id: 'singularity-abilities', title: '奇点能力', icon: 'Sparkles',
+  description: '内置书页与骰子能力描述', builtin: true, readonly: true,
+  entity: { root: '__singularity_abilities__', entity: 'Ability', idAttr: 'ID', fields: [] }
+}
+
+/** 奇点大工作区模块。 */
 export const singularityModules: ModuleDefinition[] = [
   builtinImagesModule,
+  singularityAbilitiesModule,
   vanillaRegexModule,
   singularityRegexModule,
   modRegexModule

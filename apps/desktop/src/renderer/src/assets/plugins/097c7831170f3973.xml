@@ -1,0 +1,665 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Strength">
+      <RecognizeName>Strength</RecognizeName>
+      <KeywordIconId>Strength</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Strength_Keyword">
+      <KeywordIconId>Strength</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Endurance">
+      <RecognizeName>Endurance</RecognizeName>
+      <KeywordIconId>Endurance</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Endurance_Keyword">
+      <KeywordIconId>Endurance</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Quickness">
+      <RecognizeName>Haste</RecognizeName>
+      <KeywordIconId>Quickness</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Quickness_Keyword">
+      <KeywordIconId>Quickness</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Protection">
+      <RecognizeName>Protection</RecognizeName>
+      <KeywordIconId>Protection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Protection_Keyword">
+      <KeywordIconId>Protection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakProtection">
+      <RecognizeName>Stagger Protection</RecognizeName>
+      <KeywordIconId>BreakProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakProtection_Keyword">
+      <KeywordIconId>BreakProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="DmgUp">
+      <RecognizeName>Damage Up</RecognizeName>
+      <KeywordIconId>DmgUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="SlashPowerUp">
+      <RecognizeName>Slash Power Up</RecognizeName>
+      <KeywordIconId>SlashPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="PenetratePowerUp">
+      <RecognizeName>Pierce Power Up</RecognizeName>
+      <KeywordIconId>PenetratePowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="HitPowerUp">
+      <RecognizeName>Blunt Power Up</RecognizeName>
+      <KeywordIconId>HitPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="SweepersSkill">
+      <RecognizeName>Persistence</RecognizeName>
+      <KeywordIconId>SweepersSkill</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="WarpCharge">
+      <RecognizeName>Charge</RecognizeName>
+      <KeywordIconId>WarpCharge</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Resistance_simple">
+      <RecognizeName>Resilience</RecognizeName>
+      <KeywordIconId />
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Vibrate_Re">
+      <KeywordIconId>Vibrate</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="OnlyOne_Keyword">
+      <RecognizeName>Singleton</RecognizeName>
+      <KeywordIconId>OnlyOne</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="IndexRelease">
+      <RecognizeName>Blade Unlocked</RecognizeName>
+      <KeywordIconId>IndexRelease</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Weak">
+      <RecognizeName>Feeble</RecognizeName>
+      <KeywordIconId>Weak</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Weak_Keyword">
+      <KeywordIconId>Weak</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Disarm">
+      <RecognizeName>Disarm</RecognizeName>
+      <KeywordIconId>Disarm</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Disarm_Keyword">
+      <KeywordIconId>Disarm</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Vulnerable">
+      <RecognizeName>Fragile</RecognizeName>
+      <KeywordIconId>Vulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Vulnerable_Keyword">
+      <KeywordIconId>Vulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Binding">
+      <RecognizeName>Bind</RecognizeName>
+      <KeywordIconId>Binding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Binding_Keyword">
+      <KeywordIconId>Binding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Burn">
+      <RecognizeName>Burn</RecognizeName>
+      <KeywordIconId>Burn</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Burn_Keyword">
+      <KeywordIconId>Burn</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Paralysis">
+      <RecognizeName>Paralysis</RecognizeName>
+      <KeywordIconId>Paralysis</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Paralysis_Keyword">
+      <KeywordIconId>Paralysis</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Bleeding">
+      <RecognizeName>Bleed</RecognizeName>
+      <KeywordIconId>Bleeding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Bleeding_Keyword">
+      <KeywordIconId>Bleeding</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BinahFairy">
+      <RecognizeName>Fairy</RecognizeName>
+      <KeywordIconId>BinahFairy</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Fairy_Keyword">
+      <KeywordIconId>BinahFairy</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Decay">
+      <RecognizeName>Erosion</RecognizeName>
+      <KeywordIconId>Decay</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Butterfly_Seal">
+      <KeywordIconId>Butterfly_Seal</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Stun">
+      <RecognizeName>Immobilize</RecognizeName>
+      <KeywordIconId>Stun</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="ForbidRecovery">
+      <RecognizeName>Antirecovery</RecognizeName>
+      <KeywordIconId>ForbidRecovery</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="NullifyPower">
+      <RecognizeName>Nullify Power</RecognizeName>
+      <KeywordIconId>NullifyPower</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Smoke">
+      <RecognizeName>Smoke</RecognizeName>
+      <KeywordIconId>Smoke</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Smoke_Keyword">
+      <KeywordIconId>Smoke</KeywordIconId>
+      <Color>yellow</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="NicolaiTarget">
+      <RecognizeName>Mark</RecognizeName>
+      <KeywordIconId>NicolaiTarget</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="RedMist">
+      <RecognizeName>Red Mist</RecognizeName>
+      <KeywordIconId>RedMist</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_RedMist">
+      <RecognizeName>E.G.O of the Red Mist</RecognizeName>
+      <KeywordIconId>RedMistEgo</KeywordIconId>
+      <Color>yellow</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_PositiveEmotion">
+      <Name>Positive Emotion</Name>
+      <RecognizeName>Positive Emotion</RecognizeName>
+      <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_NegativeEmotion">
+      <Name>Negative Emotion</Name>
+      <RecognizeName>Negative Emotion</RecognizeName>
+      <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_EmotionLevel">
+      <Name>Emotion Level</Name>
+      <RecognizeName>Emotion Level</RecognizeName>
+      <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Ego">
+      <Name>E.G.O</Name>
+      <RecognizeName>E.G.O</RecognizeName>
+      <KeywordIconId>Emotion</KeywordIconId>
+      <Color>#B969F5</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Card">
+      <Name>Page</Name>
+      <KeywordIconId>Card</KeywordIconId>
+      <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice">
+      <Name>Die</Name>
+      <KeywordIconId>Dice</KeywordIconId>
+      <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_PlayPoint">
+      <Name>Light</Name>
+      <KeywordIconId>PlayPoint</KeywordIconId>
+      <Color>#FFF6BB</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_HP">
+      <Name>HP</Name>
+      <KeywordIconId>HP</KeywordIconId>
+      <Color>#E46034</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_BP">
+      <Name>Stagger Resist</Name>
+      <KeywordIconId>BP</KeywordIconId>
+      <Color>#F0F464</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Speed">
+      <Name>Speed</Name>
+      <KeywordIconId>Speed</KeywordIconId>
+      <Color>#D7BE8B</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Range_Near">
+      <Name>Melee</Name>
+      <KeywordIconId>Range_Near</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Range_Far">
+      <Name>Ranged</Name>
+      <KeywordIconId>Range_Far</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Range_Special">
+      <Name>Preemptive Melee</Name>
+      <KeywordIconId>Range_Special</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Range_Instance">
+      <Name>On Play</Name>
+      <KeywordIconId>Range_Instance</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Range_FarArea">
+      <Name>Mass Attack</Name>
+      <KeywordIconId>Range_FarArea</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_SlashAtk">
+      <KeywordIconId>Dice_SlashAtk</KeywordIconId>
+      <Color>#FF430A</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_PenetrateAtk">
+      <KeywordIconId>Dice_PenetrateAtk</KeywordIconId>
+      <Color>#FF430A</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_HitAtk">
+      <KeywordIconId>Dice_HitAtk</KeywordIconId>
+      <Color>#FF430A</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_GuardDef">
+      <KeywordIconId>Dice_GuardDef</KeywordIconId>
+      <Color>#03BBFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_EvasionDef">
+      <KeywordIconId>Dice_EvasionDef</KeywordIconId>
+      <Color>#03BBFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_SlashStandby">
+      <KeywordIconId>Dice_SlashStandby</KeywordIconId>
+      <Color>#FFBF06</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_PenetrateStandby">
+      <KeywordIconId>Dice_PenetrateStandby</KeywordIconId>
+      <Color>#FFBF06</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_HitStandby">
+      <KeywordIconId>Dice_HitStandby</KeywordIconId>
+      <Color>#FFBF06</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_GuardStandby">
+      <KeywordIconId>Dice_GuardStandby</KeywordIconId>
+      <Color>#FFBF06</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Origin_Dice_EvasionStandby">
+      <KeywordIconId>Dice_EvasionStandby</KeywordIconId>
+      <Color>#FFBF06</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Exhaust_Keyword">
+      <KeywordIconId>Exhaust</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="ExhaustOnUse_Keyword">
+      <RecognizeName>Exhaust</RecognizeName>
+      <KeywordIconId>Exhaust</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Recover_Keyword">
+      <KeywordIconId>Recover</KeywordIconId>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="RecoverBreak_Keyword">
+      <KeywordIconId>RecoverBreak</KeywordIconId>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

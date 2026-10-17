@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList />
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_CompositeCard_Keyword">
+      <Name>复合书页</Name>
+      <Desc>可在多种形态中自由切换</Desc>
+      <KeywordIconId>Hat_Enchantments_CompositeCard</KeywordIconId>
+      <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_BrowseCard_Keyword">
+      <Name>查阅</Name>
+      <Desc>展示 (~color=#FFD176~)(~u~)3(~/u~)(~/color~) 张书页并从中选择1张
+(~color=#FFD176~)(~i~)- 展示后书页选项将不再刷新直至其被使用(~/i~)(~/color~)</Desc>
+      <KeywordIconId>Hat_Enchantments_DiscoverCard</KeywordIconId>
+      <Color>#FFD176</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Preemptive_Keyword">
+      <Name>先制</Name>
+      <Desc>在类型相同的书页中，本书页拥有更高的行动优先级</Desc>
+      <KeywordIconId>Hat_Enchantments_Preemptive</KeywordIconId>
+      <Color>#FDF417</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

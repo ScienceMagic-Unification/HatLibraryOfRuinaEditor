@@ -9,3 +9,15 @@ release/
 .ruina/
 .n.pnpm-store/
 *.tmp
+.pnpm-store/
+.dsh/
+**/.cache/
+*.tsbuildinfo
+/dbg*.png
+/dbg*.txt
+/ui_passive*.png
+/ui_passive*.txt
+/docs/preview/*_test*
+/docs/preview/selftest*
+/docs/verification/*
+!/docs/verification/*-mod/

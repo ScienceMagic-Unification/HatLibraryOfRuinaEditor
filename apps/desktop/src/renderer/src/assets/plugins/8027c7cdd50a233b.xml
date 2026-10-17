@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList>
+    <BattleEffectText ID="Hat_Enchantments_Ammo">
+      <Name>弹药</Name>
+      <Desc>当前未获得(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)</Desc>
+    </BattleEffectText>
+  </effectTextList>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Keyword">
+      <Name>弹药</Name>
+      <Desc>(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)拥有不同基础值与效果
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)按顺序存储与填装(~/HatKeyword~)
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 特殊(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)可按类型填装(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Set_Keyword">
+      <Name>可填装</Name>
+      <Desc>该骰子可通过填装(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)以临时获得其基础值与效果</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo_Set</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Normal">
+      <Name>常规弹</Name>
+      <Desc>(~HatKeyword id="Hat_Enchantments_Atk_Color"~)1~1(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo_Normal</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

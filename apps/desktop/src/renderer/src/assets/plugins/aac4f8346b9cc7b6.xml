@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_HpShield">
+      <Name>バリア</Name>
+      <RecognizeName>Hatバリア</RecognizeName>
+      <Desc>同じ量のダメージを防ぐ。
+最大(~HatKeyword id="Origin_HP"/~)まで保有できる。</Desc>
+      <KeywordIconId>Hat_HpShield</KeywordIconId>
+      <Color>#0997F7</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BpShield">
+      <Name>精神障壁</Name>
+      <RecognizeName>Hat精神障壁</RecognizeName>
+      <Desc>同じ量の混乱ダメージを防ぐ。
+最大(~HatKeyword id="Origin_BP"/~)まで保有できる。</Desc>
+      <KeywordIconId>Hat_BpShield</KeywordIconId>
+      <Color>#F715E6</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_HpDebt">
+      <Name>重傷</Name>
+      <RecognizeName>Hat重傷</RecognizeName>
+      <Desc>同じ量の体力回復を打ち消す。
+最大(~HatKeyword id="Origin_HP"/~)まで保有できる。</Desc>
+      <KeywordIconId>Hat_HpDebt</KeywordIconId>
+      <Color>#319350</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BpDebt">
+      <Name>崩壊</Name>
+      <RecognizeName>Hat崩壊</RecognizeName>
+      <Desc>同じ量の混乱抵抗値の回復を打ち消す。
+最大(~HatKeyword id="Origin_BP"/~)まで保有できる。</Desc>
+      <KeywordIconId>Hat_BpDebt</KeywordIconId>
+      <Color>#1A8F95</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="DmgDown">
+      <Name>ダメージ減少</Name>
+      <RecognizeName>Hatダメージ減少</RecognizeName>
+      <Desc>この幕の間、攻撃ダイスのダメージが{0}減少。</Desc>
+      <KeywordIconId>DmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakDmgUp">
+      <Name>混乱ダメージ増加</Name>
+      <RecognizeName>Hat混乱ダメージ増加</RecognizeName>
+      <Desc>この幕の間、攻撃ダイスの混乱ダメージが{0}増加。</Desc>
+      <KeywordIconId>BreakDmgUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="BreakDmgDown">
+      <Name>混乱ダメージ減少</Name>
+      <RecognizeName>Hat混乱ダメージ減少</RecognizeName>
+      <Desc>この幕の間、攻撃ダイスの混乱ダメージが{0}減少。</Desc>
+      <KeywordIconId>BreakDmgDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable">
+      <Name>出血脆弱</Name>
+      <RecognizeName>Hat出血脆弱</RecognizeName>
+      <Desc>この幕の間、[出血]によるダメージが{0}増加。</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingVulnerable_Keyword">
+      <Name>出血脆弱 X</Name>
+      <Desc>この幕の間、[出血]によるダメージがX増加。</Desc>
+      <KeywordIconId>Hat_BleedingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingProtection">
+      <Name>出血保護</Name>
+      <RecognizeName>Hat出血保護</RecognizeName>
+      <Desc>この幕の間、[出血]によるダメージが{0}減少。</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BleedingProtection_Keyword">
+      <Name>出血保護 X</Name>
+      <Desc>この幕の間、[出血]によるダメージがX減少。</Desc>
+      <KeywordIconId>Hat_BleedingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable">
+      <Name>火傷脆弱</Name>
+      <RecognizeName>Hat火傷脆弱</RecognizeName>
+      <Desc>この幕の間、[火傷]によるダメージが{0}増加。</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnVulnerable_Keyword">
+      <Name>火傷脆弱 X</Name>
+      <Desc>この幕の間、[火傷]によるダメージがX増加。</Desc>
+      <KeywordIconId>Hat_BurnVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnProtection">
+      <Name>火傷保護</Name>
+      <RecognizeName>Hat火傷保護</RecognizeName>
+      <Desc>この幕の間、[火傷]によるダメージが{0}減少。</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BurnProtection_Keyword">
+      <Name>火傷保護 X</Name>
+      <Desc>この幕の間、[火傷]によるダメージがX減少。</Desc>
+      <KeywordIconId>Hat_BurnProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable">
+      <Name>破裂脆弱</Name>
+      <RecognizeName>Hat破裂脆弱</RecognizeName>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Rupture"/~)によるダメージが{0}増加。</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureVulnerable_Keyword">
+      <Name>破裂脆弱 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Rupture"/~)によるダメージがX増加。</Desc>
+      <KeywordIconId>Hat_RuptureVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureProtection">
+      <Name>破裂保護</Name>
+      <RecognizeName>Hat破裂保護</RecognizeName>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Rupture"/~)によるダメージが{0}減少。</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_RuptureProtection_Keyword">
+      <Name>破裂保護 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Rupture"/~)によるダメージがX減少。</Desc>
+      <KeywordIconId>Hat_RuptureProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable">
+      <Name>沈潜脆弱</Name>
+      <RecognizeName>Hat沈潜脆弱</RecognizeName>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Sinking"/~)によるダメージが{0}増加。</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingVulnerable_Keyword">
+      <Name>沈潜脆弱 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Sinking"/~)によるダメージがX増加。</Desc>
+      <KeywordIconId>Hat_SinkingVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingProtection">
+      <Name>沈潜保護</Name>
+      <RecognizeName>Hat沈潜保護</RecognizeName>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Sinking"/~)によるダメージが{0}減少。</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingProtection_Keyword">
+      <Name>沈潜保護 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_Sinking"/~)によるダメージがX減少。</Desc>
+      <KeywordIconId>Hat_SinkingProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable">
+      <Name>振動脆弱</Name>
+      <RecognizeName>Hat振動脆弱</RecognizeName>
+      <Desc>この幕の間、(~HatKeyword id="Hat_TremorBurst"/~)による(~HatKeyword id="Hat_BreakStateLine"/~)の上昇量が{0}増加。</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorVulnerable_Keyword">
+      <Name>振動脆弱 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_TremorBurst"/~)による(~HatKeyword id="Hat_BreakStateLine"/~)の上昇量がX増加。</Desc>
+      <KeywordIconId>Hat_TremorVulnerable</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection">
+      <Name>振動保護</Name>
+      <RecognizeName>Hat振動保護</RecognizeName>
+      <Desc>この幕の間、(~HatKeyword id="Hat_TremorBurst"/~)による(~HatKeyword id="Hat_BreakStateLine"/~)の上昇量が{0}減少。</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorProtection_Keyword">
+      <Name>振動保護 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_TremorBurst"/~)による(~HatKeyword id="Hat_BreakStateLine"/~)の上昇量がX減少。</Desc>
+      <KeywordIconId>Hat_TremorProtection</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp">
+      <Name>光回復量増加</Name>
+      <RecognizeName>Hat光回復量増加</RecognizeName>
+      <Desc>この幕の間、光を回復するたびに追加で光を{0}回復する。</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_LightRecoverUp_Keyword">
+      <Name>光回復量増加 X</Name>
+      <Desc>この幕の間、光を回復するたびに追加で光をX回復する。</Desc>
+      <KeywordIconId>Hat_LightRecoverUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="GuardPowerUp">
+      <Name>防御威力増加</Name>
+      <RecognizeName>Hat防御威力増加</RecognizeName>
+      <Desc>この幕の間、防御ダイスの威力+{0}。</Desc>
+      <KeywordIconId>GuardPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerUp">
+      <Name>回避威力増加</Name>
+      <RecognizeName>Hat回避威力増加</RecognizeName>
+      <Desc>この幕の間、回避ダイスの威力+{0}。</Desc>
+      <KeywordIconId>EvasionPowerUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="SlashPowerDown">
+      <Name>斬撃威力減少</Name>
+      <RecognizeName>Hat斬撃威力減少</RecognizeName>
+      <Desc>この幕の間、斬撃ダイスの威力-{0}。</Desc>
+      <KeywordIconId>SlashPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="PenetratePowerDown">
+      <Name>貫通威力減少</Name>
+      <RecognizeName>Hat貫通威力減少</RecognizeName>
+      <Desc>この幕の間、貫通ダイスの威力-{0}。</Desc>
+      <KeywordIconId>PenetratePowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="HitPowerDown">
+      <Name>打撃威力減少</Name>
+      <RecognizeName>Hat打撃威力減少</RecognizeName>
+      <Desc>この幕の間、打撃ダイスの威力-{0}。</Desc>
+      <KeywordIconId>HitPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="GuardPowerDown">
+      <Name>防御威力減少</Name>
+      <RecognizeName>Hat防御威力減少</RecognizeName>
+      <Desc>この幕の間、防御ダイスの威力-{0}。</Desc>
+      <KeywordIconId>GuardPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="EvasionPowerDown">
+      <Name>回避威力減少</Name>
+      <RecognizeName>Hat回避威力減少</RecognizeName>
+      <Desc>この幕の間、回避ダイスの威力-{0}。</Desc>
+      <KeywordIconId>EvasionPowerDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TempSpeedDice">
+      <Name>臨時速度ダイス</Name>
+      <RecognizeName>Hat臨時速度ダイス</RecognizeName>
+      <Desc>この幕の間、速度ダイスを追加で{0}個得る。</Desc>
+      <KeywordIconId>Hat_TempSpeedDice</KeywordIconId>
+      <Color>#FFCC00</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Rupture">
+      <Name>破裂</Name>
+      <RecognizeName>Hat破裂</RecognizeName>
+      <Desc>被攻撃時、追加で(~color=#1BECC0~)(~u~){0}(~/u~)(~/color~)ダメージを受け、その後この数値を半分にする（端数切り捨て）。</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Rupture_Keyword">
+      <Name>破裂 X</Name>
+      <Desc>被攻撃時、追加で(~color=#1BECC0~)(~u~)X(~/u~)(~/color~)ダメージを受け、その後この数値を半分にする（端数切り捨て）。</Desc>
+      <KeywordIconId>Hat_Rupture</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Sinking">
+      <Name>沈潜</Name>
+      <RecognizeName>Hat沈潜</RecognizeName>
+      <Desc>被攻撃時、追加で(~color=#1B80EC~)(~u~){0}(~/u~)(~/color~)混乱ダメージを受け、その後この数値を半分にする（端数切り捨て）。</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Sinking_Keyword">
+      <Name>沈潜 X</Name>
+      <Desc>被攻撃時、追加で(~color=#1B80EC~)(~u~)X(~/u~)(~/color~)混乱ダメージを受け、その後この数値を半分にする（端数切り捨て）。</Desc>
+      <KeywordIconId>Hat_Sinking</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_SinkingDeluge">
+      <Name>沈潜殺到</Name>
+      <RecognizeName>Hat沈潜殺到</RecognizeName>
+      <Desc>対象の(~HatKeyword id="Hat_Sinking"/~)を全て除去し、その数値の3倍の混乱ダメージを与える。
+対象の混乱抵抗値が0になった場合、超過分をダメージに変換する。</Desc>
+      <KeywordIconId>Hat_SinkingDeluge</KeywordIconId>
+      <Color>#1B80EC</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Tremor">
+      <Name>振動</Name>
+      <RecognizeName>Hat振動</RecognizeName>
+      <Desc>反動ダメージを受けたとき、両ダイスの値の差の半分だけ(~HatKeyword id="Hat_BreakStateLine"/~)を引き上げる（最大{0}、端数切り捨て）。
+(~HatKeyword id="Hat_TremorBurst"/~)を受けたとき、(~HatKeyword id="Hat_BreakStateLine"/~)を{0}引き上げる。
+幕の終了時、数値が半分になる（端数切り捨て）。</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Tremor_Keyword">
+      <Name>振動 X</Name>
+      <Desc>反動ダメージを受けたとき、両ダイスの値の差の半分だけ(~HatKeyword id="Hat_BreakStateLine"/~)を引き上げる（最大X、端数切り捨て）。
+(~HatKeyword id="Hat_TremorBurst"/~)を受けたとき、(~HatKeyword id="Hat_BreakStateLine"/~)をX引き上げる。
+幕の終了時、数値が半分になる（端数切り捨て）。</Desc>
+      <KeywordIconId>Hat_Tremor</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorFusion">
+      <Name>振動 - 重畳</Name>
+      <RecognizeName>Hat振動 - 重畳</RecognizeName>
+      <Desc>反動ダメージを受けたとき、両ダイスの値の差の半分だけ(~HatKeyword id="Hat_BreakStateLine"/~)を引き上げる（最大{0}、端数切り捨て）。
+(~HatKeyword id="Hat_TremorBurst"/~)を受けたとき、(~HatKeyword id="Hat_BreakStateLine"/~)を{0}引き上げる。
+幕の終了時、(~HatKeyword id="Hat_Tremor"/~)に変換し、その後数値を半分にする（端数切り捨て）。
+重畳された全ての(~HatKeyword id="Hat_Tremor"/~)効果を持つ。</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorFusion_Keyword">
+      <Name>振動 - 重畳</Name>
+      <Desc>複数の(~HatKeyword id="Hat_Tremor"/~)効果を重ね合わせられる。
+幕の終了時、(~HatKeyword id="Hat_Tremor"/~)に変換し、その後数値を半分にする（端数切り捨て）。</Desc>
+      <KeywordIconId>Hat_TremorFusion</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_TremorBurst">
+      <Name>振動爆発</Name>
+      <RecognizeName>Hat振動爆発</RecognizeName>
+      <Desc>対象の(~HatKeyword id="Hat_BreakStateLine"/~)を(~HatKeyword id="Hat_Tremor"/~)の数値だけ引き上げる。</Desc>
+      <KeywordIconId>Hat_TremorBurst</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_BreakStateLine">
+      <Name>混乱区間</Name>
+      <RecognizeName>Hat混乱区間</RecognizeName>
+      <Desc>混乱状態になる混乱抵抗値の閾値が{0}増加する。
+混乱状態から回復すると解除される。</Desc>
+      <KeywordIconId>Hat_BreakStateLine</KeywordIconId>
+      <Color>#F2B764</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Preassembled_Keyword">
+      <Name>初手</Name>
+      <RecognizeName>Hat初手</RecognizeName>
+      <Desc>舞台の開始時、このページを通常のドローに加えて引く。</Desc>
+      <KeywordIconId>Hat_Preassembled</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Discard_Keyword">
+      <Name>捨てる</Name>
+      <RecognizeName>Hat捨てる</RecognizeName>
+      <Desc>手元からページを取り除く。ページを引く際に引けるページがなければ、捨てたページを残りのデッキに混ぜる。</Desc>
+      <KeywordIconId>Discard</KeywordIconId>
+      <Color>#C72828</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Poise">
+      <Name>呼吸</Name>
+      <RecognizeName>Hat呼吸</RecognizeName>
+      <Desc>(~HatKeyword id="Hat_Crit_Keyword"/~)可能なダイスを使用するとき、元の出目の範囲に基づき最大値を最大{0}増加させる。
+(~HatKeyword id="Hat_OnCrit_Keyword"/~)、増加量と同じ数値を消費する。(~HatKeyword id="Hat_FailCrit_Keyword"/~)、1だけ消費する。</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Poise_Keyword">
+      <Name>呼吸 X</Name>
+      <Desc>(~HatKeyword id="Hat_Crit_Keyword"/~)可能なダイスを使用するとき、元の出目の範囲に基づき最大値を最大X/2増加させる（端数切り上げ）。
+(~HatKeyword id="Hat_OnCrit_Keyword"/~)、増加量と同じ数値を消費する。(~HatKeyword id="Hat_FailCrit_Keyword"/~)、1だけ消費する。</Desc>
+      <KeywordIconId>Hat_Poise</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Crit_Keyword">
+      <Name>クリティカル</Name>
+      <RecognizeName>Hatクリティカル</RecognizeName>
+      <Desc>このダイスが(~HatKeyword id="Hat_Crit_Keyword"/~)可能で、基礎値が元の最大値を上回った場合、今回のダイス使用は(~HatKeyword id="Hat_Crit_Keyword"/~)となる。
+（攻撃ダイスは(~HatKeyword id="Hat_Crit_Keyword"/~)可能。）</Desc>
+      <KeywordIconId>Hat_Crit</KeywordIconId>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_OnCrit_Keyword">
+      <Name>クリティカル時</Name>
+      <RecognizeName>Hatクリティカル時</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_FailCrit_Keyword">
+      <Name>非クリティカル時</Name>
+      <RecognizeName>Hat非クリティカル時</RecognizeName>
+      <Color>#88ABAB</Color>
+      <HasBracket>true</HasBracket>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValue">
+      <Name>マッチ威力</Name>
+      <Desc>マッチの結果のみに影響し、出目や威力の補正には含まれない。</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#FFC67C</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp">
+      <Name>マッチ威力増加</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_ParryingValue"/~)+{0}。</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueUp_Keyword">
+      <Name>マッチ威力増加 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_ParryingValue"/~)+X。</Desc>
+      <KeywordIconId>Hat_ParryingValueUp</KeywordIconId>
+      <Color>#33CCFF</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown">
+      <Name>マッチ威力減少</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_ParryingValue"/~)-{0}。</Desc>
+      <KeywordIconId>Hat_ParryingValueDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_ParryingValueDown_Keyword">
+      <Name>マッチ威力減少 X</Name>
+      <Desc>この幕の間、(~HatKeyword id="Hat_ParryingValue"/~)-X。</Desc>
+      <KeywordIconId>Hat_ParryingValueDown</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_CompositeCard_Title">选择另一形态</text>
+  <text id="Hat_Enchantments_DiscoverCard_Title">查阅一张书页</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Empty">没有可用(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Full">没有(~HatKeyword id="Hat_Enchantments_Ammo_Set_Keyword"/~)骰子</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Normal">点击以填装1发普通(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Special">点击以装填1发此类特殊(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Description">点击以切换书页形态</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Locked">本书页无法手动切换形态</text>
+  <text id="Hat_Enchantments_Sidebar_Discover_Description">点击以(~HatKeyword id="Hat_Enchantments_BrowseCard_Keyword"/~)1张书页</text>
+</localize>

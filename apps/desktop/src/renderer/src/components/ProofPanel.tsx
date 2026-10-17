@@ -2,8 +2,7 @@ import type { EntitySchema } from '@ruina/editor-core'
 import { getAllText, getTextField, listEntities } from '@ruina/editor-core'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
-import { RegexText } from './RegexText'
-import { useRegexRules } from '../lib/useRegexRules'
+import { LanguageRegexText } from './LanguageRegexText'
 
 const NAME_SCHEMA: EntitySchema = {
   root: 'BattleCardDescRoot',
@@ -36,7 +35,6 @@ type ProofModuleId = 'cardname' | 'cardability' | 'effecttext' | 'passiveability
 
 export function ProofPanel({ moduleId }: { moduleId: ProofModuleId }): JSX.Element | null {
   const { t } = useI18n()
-  const rules = useRegexRules()
   const on = useAppStore((s) => Boolean(s.proofMode[moduleId]))
   const preview = useAppStore((s) => Boolean(s.proofPreview[moduleId]))
   const docs = useAppStore((s) => s.docs)
@@ -68,12 +66,13 @@ export function ProofPanel({ moduleId }: { moduleId: ProofModuleId }): JSX.Eleme
     if (isEffect || isPassiveAbility) {
       return {
         lang,
+        language: d.lang,
         name: hit ? getTextField(hit.node, 'Name') ?? '' : '',
         desc: hit ? getTextField(hit.node, 'Desc') ?? '' : ''
       }
     }
     const value = hit ? (isName ? getTextField(hit.node, field) : getAllText(hit.node, field)) ?? '' : ''
-    return { lang, value }
+    return { lang, language: d.lang, value }
   })
 
   return (
@@ -100,11 +99,11 @@ export function ProofPanel({ moduleId }: { moduleId: ProofModuleId }): JSX.Eleme
                   <div className="space-y-1">
                     <div className="text-xs font-medium">{n.name || t('empty')}</div>
                     <div className="whitespace-pre-wrap text-xs leading-snug">
-                      {preview && n.desc ? <RegexText text={n.desc} rules={rules} scope={isPassiveAbility ? 'passive' : 'all'} /> : n.desc || t('empty')}
+                      {preview && n.desc ? <LanguageRegexText text={n.desc} language={n.language} scope={isPassiveAbility ? 'passive' : 'all'} /> : n.desc || t('empty')}
                     </div>
                   </div>
                 ) : (
-                  <span className="whitespace-pre-wrap">{preview && n.value ? <RegexText text={n.value} rules={rules} /> : n.value || t('empty')}</span>
+                  <span className="whitespace-pre-wrap">{preview && n.value ? <LanguageRegexText text={n.value} language={n.language} /> : n.value || t('empty')}</span>
                 )}
               </div>
             ))}

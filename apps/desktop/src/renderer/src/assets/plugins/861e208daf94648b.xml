@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_CompositeCard_Title">別の形態を選択</text>
+  <text id="Hat_Enchantments_DiscoverCard_Title">ページを閲覧</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Empty">使用可能な(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)がない</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Full">(~HatKeyword id="Hat_Enchantments_Ammo_Set_Keyword"/~)ダイスがない</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Normal">クリックして通常(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)を1発装填する。</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Special">クリックしてこの種類の特殊(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)を1発装填する。</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Description">クリックしてページの形態を切り替える。</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Locked">このページの形態は手動で切り替えられない。</text>
+  <text id="Hat_Enchantments_Sidebar_Discover_Description">クリックしてページを1枚(~HatKeyword id="Hat_Enchantments_BrowseCard_Keyword"/~)する。</text>
+</localize>

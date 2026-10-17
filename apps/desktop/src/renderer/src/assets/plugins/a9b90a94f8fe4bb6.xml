@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_Ammo_View">현재 보유 중인 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~):</text>
+  <text id="Hat_Enchantments_Ammo_Unique">현재 보유 중인 특수 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~):</text>
+  <text id="Hat_Enchantments_Ammo_Fill">장전됨</text>
+  <text id="Hat_Enchantments_Ammo_Empty">현재 보유 중인 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) 없음.</text>
+</localize>

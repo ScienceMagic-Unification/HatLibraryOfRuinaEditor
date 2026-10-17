@@ -71,7 +71,8 @@ export function WorkspaceToolbar({
     return d ? `${docName(d.path)}${langHint(d) ? ' · ' + langHint(d) : ''}` : t('none')
   })()
   return (
-    <div className="flex h-[52px] shrink-0 items-center gap-2 overflow-hidden border-b border-border bg-card px-3 py-2">
+    <div className="flex min-h-[52px] shrink-0 flex-wrap items-center gap-x-3 gap-y-1.5 border-b border-border bg-card px-3 py-2">
+      <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1.5">
       <div className="flex shrink-0 gap-1">
         <Button size="sm" variant="secondary" onClick={onAdd} disabled={addDisabled}>
           <Plus /> {t('add')}
@@ -115,7 +116,8 @@ export function WorkspaceToolbar({
           <X className="size-4" />
         </Button>
       </div>
-      <div className="flex-1" />
+      </div>
+      <div className="ml-auto flex flex-wrap items-center justify-end gap-x-2 gap-y-1.5">
       <div className="flex shrink-0 rounded-lg border border-border bg-muted p-0.5">
         {(
           [
@@ -161,6 +163,7 @@ export function WorkspaceToolbar({
       }} disabled={dirtyCount === 0}>
         <Save /> {t('saveModule')}
       </Button>
+      </div>
       {notice ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="w-full max-w-sm rounded-xl border border-border bg-card p-4 shadow-2xl">

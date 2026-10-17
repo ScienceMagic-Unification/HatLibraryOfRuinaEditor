@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_CompositeCard_Title">다른 형태 선택</text>
+  <text id="Hat_Enchantments_DiscoverCard_Title">책장 열람</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Empty">사용 가능한 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) 없음</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Full">(~HatKeyword id="Hat_Enchantments_Ammo_Set_Keyword"/~) 주사위 없음</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Normal">클릭하여 일반 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) 1발을 장전한다.</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Special">클릭하여 이 종류의 특수 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) 1발을 장전한다.</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Description">클릭하여 책장의 형태를 전환한다.</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Locked">이 책장의 형태는 수동으로 전환할 수 없다.</text>
+  <text id="Hat_Enchantments_Sidebar_Discover_Description">클릭하여 책장 1장을 (~HatKeyword id="Hat_Enchantments_BrowseCard_Keyword"/~)한다.</text>
+</localize>

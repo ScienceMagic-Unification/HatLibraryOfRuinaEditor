@@ -1,0 +1,53 @@
+export const abilityMessages = {
+  zh: {
+    'module.singularity-abilities': '奇点能力',
+    'abilities.search': '搜索能力、Script 或插件',
+    'abilities.mode': '能力类别', 'abilities.kind': '适用对象', 'abilities.all': '全部',
+    'abilities.builtin': '内置 · 可填 XML', 'abilities.extension': 'C# 扩展 · 需编译',
+    'abilities.dice': '骰子能力', 'abilities.card': '卡牌能力',
+    'abilities.scope': '按当前 DLL 与源码核对。附魔插件提供内置骰子 Script；先制、复合、速览等卡牌玩法在 C# 扩展中说明。关键词、样式与虚拟方法不作为 Script 提供。',
+    'abilities.noCard': '本次核对的奇点插件没有发布可直接填入 Card/Script 的内置卡牌能力。请查看“C# 扩展”。',
+    'abilities.field': '适用字段', 'abilities.compileFirst': '先编译自定义类，再将自己的 ID 写入对应卡牌或骰子 Script。此处 API 名不是 Script。',
+    'abilities.copy': '复制', 'abilities.copyScript': '复制 Script ID', 'abilities.copied': '已复制', 'abilities.copyFailed': '复制失败，请选中示例文本手动复制',
+    'abilities.editCard': '前往战斗书页', 'abilities.case': '常用简易案例', 'abilities.description': '插件内置能力原文预览', 'abilities.previewLang': '预览语言',
+    'abilities.xml': '完整 CardInfo.xml 示例', 'abilities.xmlHint': '示例使用测试 ID 900001；请改成自己的唯一 ID 并配置卡图。保留现有卡牌 Script，仅填写目标骰子的 Script。插件已提供能力说明，不要复制同 ID 本地化文件覆盖；英文资源中的原文按插件实际内容显示。',
+    'abilities.csharp': 'C# 示例 / 自定义类', 'abilities.dependencies': '依赖与初始化', 'abilities.initializer': '宿主初始化示例',
+    'abilities.initialize': '需要 HatSingularity.Enchantments 3.3.4 及其框架依赖。正常宿主调用 EnchantmentPlugin.Initialize(宿主程序集)，注册资源和补丁；已由宿主初始化时不必重复添加示例初始化器。HatSingularity.UI 是可选按钮/面板集成，不是 XML Script。下列为 DLL 的引用清单；游戏/Unity 程序集由游戏环境提供。',
+    'abilities.references': '程序集引用', 'abilities.audit': '来源与其他插件核对', 'abilities.version': '版本',
+    'abilities.auditHint': '只读扫描当前拆分 DLL 中公开、非抽象、可构造的 DiceCardAbility_/DiceCardSelfAbility_ 类型，并核对附魔资源注册源码。零表示未发现本页面范围内的直接 Script，并非插件没有功能。悬停程序集名可查看 SHA256。'
+  },
+  en: {
+    'module.singularity-abilities': 'Singularity abilities',
+    'abilities.search': 'Search ability, Script or plugin',
+    'abilities.mode': 'Ability category', 'abilities.kind': 'Target', 'abilities.all': 'All',
+    'abilities.builtin': 'Built-in · XML', 'abilities.extension': 'C# extension · Compile',
+    'abilities.dice': 'Die ability', 'abilities.card': 'Card ability',
+    'abilities.scope': 'Checked against the current DLLs and source. Enchantments provides built-in die Scripts. Preemptive, composite and discover pages require C# extensions. Keywords, styles and virtual methods are not Scripts.',
+    'abilities.noCard': 'The audited plugins publish no built-in card ability for Card/Script. See C# extensions.',
+    'abilities.field': 'XML field', 'abilities.compileFirst': 'Compile your own class, then use its ID in the matching card or die Script. The API name shown here is not a Script.',
+    'abilities.copy': 'Copy', 'abilities.copyScript': 'Copy Script ID', 'abilities.copied': 'Copied', 'abilities.copyFailed': 'Copy failed; select and copy the example text manually',
+    'abilities.editCard': 'Open combat pages', 'abilities.case': 'Simple usage case', 'abilities.description': 'Original built-in ability text', 'abilities.previewLang': 'Preview language',
+    'abilities.xml': 'Complete CardInfo.xml example', 'abilities.xmlHint': 'Replace test ID 900001 with a unique ID and configure artwork. Keep the existing card Script; fill only the target die Script. The plugin supplies ability text: do not override it with duplicate localization files. English resources are displayed exactly as shipped.',
+    'abilities.csharp': 'C# example / Custom class', 'abilities.dependencies': 'Dependencies and initialization', 'abilities.initializer': 'Host initialization example',
+    'abilities.initialize': 'Requires HatSingularity.Enchantments 3.3.4 and its framework dependencies. The host calls EnchantmentPlugin.Initialize(hostAssembly) to register resources and patches. Do not add a duplicate initializer if the host already does this. HatSingularity.UI is optional button/panel integration, not a Script. The DLL reference list below includes game/Unity assemblies supplied by the game.',
+    'abilities.references': 'Assembly references', 'abilities.audit': 'Sources and other plugins', 'abilities.version': 'Version',
+    'abilities.auditHint': 'Read-only scan of public, concrete, constructible DiceCardAbility_/DiceCardSelfAbility_ types, checked against Enchantments registration source. Zero means no direct Script in this scope, not an absence of plugin features. Hover an assembly name for SHA256.'
+  },
+  jp: {
+    'module.singularity-abilities': '特異点能力',
+    'abilities.search': '能力・Script・プラグインを検索',
+    'abilities.mode': '能力分類', 'abilities.kind': '対象', 'abilities.all': 'すべて',
+    'abilities.builtin': '内置 · XML指定可能', 'abilities.extension': 'C# 拡張 · コンパイル必要',
+    'abilities.dice': 'ダイス能力', 'abilities.card': 'ページ能力',
+    'abilities.scope': '現在の DLL とソースで確認済みです。附魔は内置ダイス Script を提供します。先制・複合・速覧は C# 拡張です。キーワード・スタイル・仮想メソッドは Script ではありません。',
+    'abilities.noCard': '確認したプラグインには Card/Script へ直接指定できる内置ページ能力がありません。C# 拡張を参照してください。',
+    'abilities.field': 'XML フィールド', 'abilities.compileFirst': '独自クラスをコンパイル後、その ID を対応する Script に指定します。ここに表示する API 名は Script ではありません。',
+    'abilities.copy': 'コピー', 'abilities.copyScript': 'Script ID をコピー', 'abilities.copied': 'コピーしました', 'abilities.copyFailed': 'コピー失敗。サンプル文字列を選択して手動コピーしてください',
+    'abilities.editCard': '戦闘ページへ', 'abilities.case': '簡単な使用例', 'abilities.description': 'プラグインの能力原文', 'abilities.previewLang': '表示言語',
+    'abilities.xml': '完全な CardInfo.xml 例', 'abilities.xmlHint': 'テスト ID 900001 を固有 ID に変更し、画像を設定してください。既存のページ Script を保持し、対象ダイスの Script のみ指定します。能力文はプラグインが提供します。同 ID の翻訳で上書きしないでください。英語資源も配布原文のまま表示します。',
+    'abilities.csharp': 'C# 例 / 独自クラス', 'abilities.dependencies': '依存関係と初期化', 'abilities.initializer': 'ホスト初期化例',
+    'abilities.initialize': 'HatSingularity.Enchantments 3.3.4 とフレームワーク依存が必要です。ホストが EnchantmentPlugin.Initialize(hostAssembly) を呼び出します。既存の初期化があれば重複追加しません。HatSingularity.UI は任意のボタン・パネル連携で、Script ではありません。以下にはゲーム環境の Unity 参照も含まれます。',
+    'abilities.references': 'アセンブリ参照', 'abilities.audit': '出典と他プラグインの確認', 'abilities.version': 'バージョン',
+    'abilities.auditHint': '公開・非抽象・構築可能な DiceCardAbility_/DiceCardSelfAbility_ を読み取り専用で走査し、登録ソースも確認しました。0 はこの範囲の直接 Script がない意味です。名前にカーソルを置くと SHA256 を表示します。'
+  }
+}

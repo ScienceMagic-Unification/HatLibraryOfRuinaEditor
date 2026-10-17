@@ -235,7 +235,7 @@ export function FieldEditor({
 
     case 'child':
       return (
-        <FieldEditor field={field.field} value={value} onChange={onChange} accentColor={accentColor} showIds={showIds} />
+          <FieldEditor field={{ ...field.field, label: field.label ?? field.field.label, help: field.help ?? field.field.help }} value={value} onChange={onChange} accentColor={accentColor} showIds={showIds} />
       )
 
     case 'attr':
@@ -329,7 +329,7 @@ export function FieldEditor({
                   </div>
                   <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 sm:grid-cols-3">
                     {field.attrs.map((a) => (
-                      <div key={a.name} className="space-y-0.5">
+                      <div key={a.name} className={`space-y-0.5 ${a.fullRow ? 'col-span-full' : ''}`}>
                         <span className="text-[10px] text-muted-foreground/70">{tl(a.label ?? a.name)}</span>
                         <ScalarEditor
                           compact

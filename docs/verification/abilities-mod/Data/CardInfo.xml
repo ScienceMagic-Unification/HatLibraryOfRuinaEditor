@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiceCardXmlRoot>
+  <Version>1.1</Version>
+  <Card ID="900001">
+    <Name>Example</Name>
+    <TextId>-1</TextId>
+    <Artwork/>
+    <Rarity>Common</Rarity>
+    <Spec Range="Near" Cost="1" Affection="One" EmotionLimit="0"/>
+    <Script/>
+    <BehaviourList>
+      <Behaviour Min="4" Dice="8" Type="Standby" Detail="Guard" Motion="G" EffectRes="" Script="Hat_Enchantments_Exhaust_Dice" ActionScript=""/>
+    </BehaviourList>
+    <Chapter>1</Chapter>
+    <Priority>1</Priority>
+    <Category>None</Category>
+  </Card>
+</DiceCardXmlRoot>

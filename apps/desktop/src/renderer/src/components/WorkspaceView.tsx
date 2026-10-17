@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
-import type { FieldDef, ModuleDefinition, OrderedDoc } from '@ruina/editor-core'
-import { createEntity, getAllText, getTextField, insertEntity, listEntities, moveEntity, removeEntity, setAttr, setFieldValue } from '@ruina/editor-core'
+import type { EntitySchema, FieldDef, ModuleDefinition, OrderedDoc } from '@ruina/editor-core'
+import { createEntity, getAllText, getFieldValue, getRootChildren, getTextField, insertEntity, listEntities, makeElement, moveEntityById, removeEntityById, setAttr, setFieldValue } from '@ruina/editor-core'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
-import { editorLangToDocLang } from '../lib/lang'
 import { cardAccent } from '../lib/cardAccent'
 import { DataPanel } from './DataPanel'
 import { FormPanel } from './FormPanel'
@@ -25,9 +24,15 @@ import { EffectTextListPanel } from './EffectTextListPanel'
 import { ImageWorkspace } from './ImageWorkspace'
 import { BuiltinImageWorkspace } from './BuiltinImageWorkspace'
 import { BuiltinRegexWorkspace } from './BuiltinRegexWorkspace'
+import { SingularityAbilitiesWorkspace } from './SingularityAbilitiesWorkspace'
+import { VanillaAbilitiesWorkspace } from './VanillaAbilitiesWorkspace'
+import { CorePageForm } from './CorePageForm'
+import { CorePagePreview } from './CorePagePreview'
+import { isCorePage } from '../lib/corePages'
+import { selectPrimaryDocument } from '../lib/documentSelection'
 
 export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Element {
-  const { t, lang } = useI18n()
+  const { t } = useI18n()
   const modPath = useAppStore((s) => s.modPath)
   const docs = useAppStore((s) => s.docs)
   const discoveredModules = useAppStore((s) => s.modules)
@@ -45,6 +50,9 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
   const importDoc = useAppStore((s) => s.importDoc)
   const removeDoc = useAppStore((s) => s.removeDoc)
   const rules = useRegexRules()
+  const dirtyEntities = useAppStore((s) => s.dirtyEntities)
+  const markEntitiesDirty = useAppStore((s) => s.markEntitiesDirty)
+  const dirtyIds = useMemo(() => new Set(dirtyEntities[module.id] ?? []), [dirtyEntities, module.id])
 
   const primaryDocs = useMemo(
     () => Object.values(docs).filter((d) => d.bindings[module.id]?.kind === 'primary'),
@@ -56,15 +64,8 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
     () => Object.values(docs).filter((d) => d.bindings[module.id]?.kind === 'localize'),
     [docs, module.id]
   )
-  const preferredDocLang = editorLangToDocLang(lang)
-  const dataDoc =
-    primaryLang === '__none__'
-      ? undefined
-      : primaryDocs.find((d) => d.path === primaryDocPath) ??
-        primaryDocs.find((d) => d.lang === primaryLang) ??
-        primaryDocs.find((d) => d.lang === preferredDocLang) ??
-        primaryDocs.find((d) => d.lang === 'cn') ??
-        primaryDocs[0]
+  const preferredDocLang = 'cn'
+  const dataDoc = selectPrimaryDocument(docs, module.id, primaryLang, primaryDocPath, preferredDocLang)
 
   const nameLang = useAppStore((s) => s.primaryLang['cardname'])
   const localizedNames = useMemo(() => {
@@ -126,10 +127,10 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
 
   const dependencyIds = useMemo(
     () =>
-      [module.entity.accentFromModuleId, module.preview?.nameWorkspaceId, module.preview?.abilityWorkspaceId].filter(
+      [module.entity.accentFromModuleId, module.preview?.nameWorkspaceId, module.preview?.abilityWorkspaceId, isCorePage(module.id) ? 'bookstory' : undefined].filter(
         (id): id is string => Boolean(id)
       ),
-    [module.entity.accentFromModuleId, module.preview]
+    [module.id, module.entity.accentFromModuleId, module.preview]
   )
   useEffect(() => {
     void ensureModuleDocs(module.id)
@@ -158,6 +159,8 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
   if (module.builtinImages) return <BuiltinImageWorkspace module={module} />
 
   if (module.builtinRegex) return <BuiltinRegexWorkspace module={module} />
+  if (module.id === 'vanilla-passives' || module.id === 'vanilla-abilities' || module.id === 'vanilla-cards') return <VanillaAbilitiesWorkspace key={module.id} kind={module.id === 'vanilla-passives' ? 'passive' : module.id === 'vanilla-cards' ? 'card' : 'ability'}/>
+  if (module.id === 'singularity-abilities') return <SingularityAbilitiesWorkspace />
 
   if (module.resource) return <ImageWorkspace module={module} />
 
@@ -167,13 +170,36 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
     return String(max + 1)
   }
 
+  const effectTextInsertSchema = (): EntitySchema => ({
+    root: module.entity.root,
+    entity: 'BattleEffectText',
+    idAttr: module.entity.idAttr,
+    containerPath: ['effectTextList'],
+    fields: module.entity.fields
+  })
+
+  const ensureEffectTextList = (doc: OrderedDoc): void => {
+    const rootChildren = getRootChildren(doc, module.entity.root)
+    const exists = rootChildren.some((c) => c && typeof c === 'object' && !Array.isArray(c) && Object.keys(c as Record<string, unknown>)[0] === 'effectTextList')
+    if (!exists) rootChildren.push(makeElement('effectTextList'))
+  }
+
   const addEntity = () => {
     const id = nextId()
-    editData(module.id, (doc) => {
-      const node = createEntity(module.entity, id)
-      insertEntity(doc, module.entity, node)
-    })
+    if (module.id === 'effecttext') {
+      editData(module.id, (doc) => {
+        ensureEffectTextList(doc)
+        const schema = effectTextInsertSchema()
+        insertEntity(doc, schema, createEntity(schema, id))
+      })
+    } else {
+      editData(module.id, (doc) => {
+        const node = createEntity(module.entity, id)
+        insertEntity(doc, module.entity, node)
+      })
+    }
     select(module.id, id)
+    markEntitiesDirty(module.id, [id])
     setStatus(`已新增记录 #${id}`, 'success')
   }
 
@@ -183,11 +209,20 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
     editData(module.id, (doc) => {
       const cur = listEntities(doc, module.entity).find((r) => r.id === entity.id)
       if (!cur) return
-      const node = structuredClone(cur.node)
-      setAttr(node, module.entity.idAttr, id)
-      insertEntity(doc, module.entity, node, cur.index + 1)
+      if (module.id === 'effecttext') {
+        ensureEffectTextList(doc)
+        const schema = effectTextInsertSchema()
+        const node = createEntity(schema, id)
+        for (const f of module.entity.fields) setFieldValue(node, f, getFieldValue(cur.node, f))
+        insertEntity(doc, schema, node)
+      } else {
+        const node = structuredClone(cur.node)
+        setAttr(node, module.entity.idAttr, id)
+        insertEntity(doc, module.entity, node, cur.index + 1)
+      }
     })
     select(module.id, id)
+    markEntitiesDirty(module.id, [id])
     setStatus(`已复制为 #${id}`, 'success')
   }
 
@@ -195,8 +230,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
     if (!entity) return
     const idx = refs.findIndex((r) => r.id === entity.id)
     editData(module.id, (doc) => {
-      const cur = listEntities(doc, module.entity).find((r) => r.id === entity.id)
-      if (cur) removeEntity(doc, module.entity, cur.index)
+      removeEntityById(doc, module.entity, entity.id)
     })
     select(module.id, refs[Math.max(0, idx - 1)]?.id ?? null)
     setStatus('已删除记录（可撤销）', 'info')
@@ -205,11 +239,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
   const move = (delta: -1 | 1) => {
     if (!entity) return
     editData(module.id, (doc) => {
-      const refs = listEntities(doc, module.entity)
-      const from = refs.findIndex((r) => r.id === entity.id)
-      const to = from + delta
-      if (from < 0 || to < 0 || to >= refs.length) return
-      moveEntity(doc, module.entity, refs[from].index, refs[to].index)
+      moveEntityById(doc, module.entity, entity.id, delta)
     })
   }
 
@@ -281,15 +311,17 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
         }}
       >
         {module.id === 'effecttext' ? (
-          <EffectTextListPanel doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} />
+          <EffectTextListPanel doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} dirtyIds={dirtyIds} />
         ) : (
-          <DataPanel key={dataDoc?.path ?? 'none'} doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} localizedRender={abilityLocalizedRender} scrollKey={module.id} />
+          <DataPanel key={dataDoc?.path ?? 'none'} doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} localizedRender={abilityLocalizedRender} scrollKey={module.id} dirtyIds={dirtyIds} />
         )}
         <div className="flex h-full min-h-0 min-w-0 flex-col">
           <div className="min-h-0 flex-1 overflow-hidden">
             {viewMode === 'brief' ? (
               entity ? (
-                module.id === 'cardinfo' ? (
+                isCorePage(module.id) ? (
+                  <CorePageForm module={module} entity={entity} brief issues={issues} onFieldChange={onFieldChange} onIdChange={onIdChange}/>
+                ) : module.id === 'cardinfo' ? (
                   <CardBriefPanel module={module} entity={entity} onFieldChange={onFieldChange} onIdChange={onIdChange} />
                 ) : (
                   <SummaryPanel module={module} entity={entity} onFieldChange={onFieldChange} onIdChange={onIdChange} />
@@ -300,7 +332,7 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
             ) : viewMode === 'source' ? (
               <SourcePanel module={module} entity={entity} />
             ) : entity ? (
-              <FormPanel module={module} entity={entity} issues={issues} onFieldChange={onFieldChange} onIdChange={onIdChange} />
+              isCorePage(module.id) ? <CorePageForm module={module} entity={entity} issues={issues} onFieldChange={onFieldChange} onIdChange={onIdChange}/> : <FormPanel module={module} entity={entity} issues={issues} onFieldChange={onFieldChange} onIdChange={onIdChange} />
             ) : (
               <div className="flex items-center justify-center text-sm text-muted-foreground">请选择一条记录</div>
             )}
@@ -309,7 +341,9 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
         </div>
         {!toolsModule && !isPassive && !isBookStory ? (
           <div className="h-full min-h-0 min-w-0 border-l border-border bg-card">
-            {module.preview ? (
+            {isCorePage(module.id) ? (
+              <div className="h-full overflow-y-auto"><CorePagePreview module={module} entity={entity}/></div>
+            ) : module.preview ? (
               <div className="h-full min-h-0 overflow-y-auto overscroll-contain">
                 <PreviewPanel modPath={modPath} module={module} entity={entity} />
               </div>

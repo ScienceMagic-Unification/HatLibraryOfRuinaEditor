@@ -1,0 +1,506 @@
+{
+  "abilities": [
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_BasicAmmo_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_BasicAmmo_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    },
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_Exhaust_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_Exhaust_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    },
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_SharedCounter_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_SharedCounter_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    },
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_ShieldBash_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_ShieldBash_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    },
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_ShieldBash_Hit_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_ShieldBash_Hit_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    },
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_ShieldBash_Penetrate_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_ShieldBash_Penetrate_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    },
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_ShieldBash_Slash_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_ShieldBash_Slash_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    },
+    {
+      "version": "3.11.0.0",
+      "kind": "dice",
+      "id": "Hat_Enchantments_Throughout_Dice",
+      "type": "HatSingularity.Enchantments.DiceCardAbility_Hat_Enchantments_Throughout_Dice",
+      "plugin": "HatSingularity.Enchantments"
+    }
+  ],
+  "plugins": [
+    {
+      "version": "1.0.0.0",
+      "scripts": [],
+      "plugin": "HatSingularity.Abilities",
+      "sha256": "899a58875350f756071df39478d299c831babd37fc58a9873f2bc52b53a0650f",
+      "references": [
+        "mscorlib",
+        "UnityEngine.CoreModule",
+        "Assembly-CSharp",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro",
+        "0Harmony",
+        "UnityEngine.AnimationModule",
+        "HatSingularity.Utils",
+        "GameLogicHelperFramework",
+        "System",
+        "ConvertBufAggregate",
+        "AutoKeywordUtil",
+        "UnityEngine.TextRenderingModule",
+        "System.Core",
+        "UnityEngine.UIModule",
+        "HatSingularity.KeywordView",
+        "10EnumExtender"
+      ]
+    },
+    {
+      "version": "0.8.0.0",
+      "scripts": [],
+      "plugin": "HatSingularity.Actions",
+      "sha256": "56b39a4e19e337c6d4f3750fa47743df60513955b0e895ed17b9472c07c57900",
+      "references": [
+        "mscorlib",
+        "System",
+        "System.Core",
+        "UnityEngine.CoreModule",
+        "Assembly-CSharp",
+        "UnityEngine.JSONSerializeModule"
+      ]
+    },
+    {
+      "version": "1.1.0.0",
+      "scripts": [],
+      "plugin": "HatSingularity",
+      "sha256": "1883ba9cf1bc7721606cf07ab453c2f8f25e45fea4a8433a135789a3eb8450dd",
+      "references": [
+        "mscorlib",
+        "HatSingularity.Abilities",
+        "HatSingularity.Utils"
+      ]
+    },
+    {
+      "version": "1.0.0.0",
+      "scripts": [],
+      "plugin": "HatSingularity.KeywordView",
+      "sha256": "4fdb1cebdb75cce7d0547f8c5c5d988add0d0f1a83e4ad289572406e6ac4dd5f",
+      "references": [
+        "mscorlib",
+        "System.Xml",
+        "UnityEngine.CoreModule",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro",
+        "Assembly-CSharp",
+        "HatSingularity.Utils",
+        "System.Core",
+        "System",
+        "0Harmony",
+        "GameLogicHelperFramework",
+        "UnityEngine.InputLegacyModule",
+        "UnityEngine.UIModule"
+      ]
+    },
+    {
+      "version": "1.0.0.0",
+      "scripts": [],
+      "plugin": "HatSingularity.Tags",
+      "sha256": "0245e962877d2d75b46e1c42000e5af58ef44bb79b4740115838f00a57e2a693",
+      "references": [
+        "mscorlib",
+        "System.Core",
+        "System.Xml",
+        "System",
+        "UnityEngine.CoreModule",
+        "Assembly-CSharp",
+        "0Harmony",
+        "Unity.TextMeshPro",
+        "UnityEngine.TextCoreModule",
+        "UnityEngine.UI",
+        "UnityEngine.UIModule",
+        "UnityEngine.ImageConversionModule",
+        "UnityEngine.InputLegacyModule"
+      ]
+    },
+    {
+      "version": "0.9.2.0",
+      "scripts": [],
+      "plugin": "HatSingularity.UI",
+      "sha256": "0da84fa72d3e2a7d838b9fb2a89237cf2d07dafba2789b33ce9f3373ba4649a4",
+      "references": [
+        "mscorlib",
+        "System.Core",
+        "Assembly-CSharp",
+        "UnityEngine.CoreModule",
+        "UnityEngine.UI",
+        "UnityEngine.UIModule",
+        "Unity.TextMeshPro",
+        "UnityEngine.AssetBundleModule",
+        "UnityEngine.AnimationModule",
+        "0Harmony",
+        "UnityEngine.AudioModule",
+        "System.Xml",
+        "UnityEngine.ParticleSystemModule",
+        "UnityEngine.TextRenderingModule",
+        "UnityEngine.InputLegacyModule",
+        "UnityEngine.ImageConversionModule",
+        "System"
+      ]
+    },
+    {
+      "version": "1.0.0.0",
+      "scripts": [],
+      "plugin": "HatSingularity.Utils",
+      "sha256": "9937f5100ebec976145524121323ab2196251f6a77ae7c6a1f217085399ae26b",
+      "references": [
+        "mscorlib",
+        "System.Xml",
+        "UnityEngine.CoreModule",
+        "Assembly-CSharp",
+        "0Harmony",
+        "System",
+        "System.Core",
+        "UnityEngine.AssetBundleModule",
+        "10EnumExtender",
+        "AutoKeywordUtil",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI",
+        "GameLogicHelperFramework",
+        "UnityEngine.ImageConversionModule"
+      ]
+    },
+    {
+      "plugin": "HatSingularity.Enchantments",
+      "references": [
+        "System",
+        "System.Core",
+        "System.Xml",
+        "HatSingularity.Abilities",
+        "HatSingularity.Utils",
+        "HatSingularity.KeywordView",
+        "AutoKeywordUtil",
+        "GameLogicHelperFramework",
+        "10EnumExtender",
+        "Assembly-CSharp",
+        "0Harmony",
+        "UnityEngine",
+        "UnityEngine.CoreModule"
+      ],
+      "scripts": [
+        "Hat_Enchantments_BasicAmmo_Dice",
+        "Hat_Enchantments_Exhaust_Dice",
+        "Hat_Enchantments_SharedCounter_Dice",
+        "Hat_Enchantments_ShieldBash_Dice",
+        "Hat_Enchantments_ShieldBash_Hit_Dice",
+        "Hat_Enchantments_ShieldBash_Penetrate_Dice",
+        "Hat_Enchantments_ShieldBash_Slash_Dice",
+        "Hat_Enchantments_Throughout_Dice"
+      ],
+      "version": "3.11.0.0",
+      "sourceFiles": [
+        {
+          "sha256": "2865a57e1dd1dc5883a486c8faf08e649a84c6a859290d220c18fc21d4d7b0e5",
+          "path": "Integration/AutomaticSidebars.cs"
+        },
+        {
+          "sha256": "d896c8c07f5ed982c1ad1d6e2e30aca0c956f79707ec114627bab4c2e2b88cb4",
+          "path": "Integration/DiceSealDisplay.cs"
+        },
+        {
+          "sha256": "299910ae23c967decaabdd3724c72c6cd6ba7dd513809be2d615c587866213a6",
+          "path": "Integration/ShieldBashDisplay.cs"
+        },
+        {
+          "sha256": "a6ea4152d7ba0130d70a31ac7c90a57326d46926e30359f2a9291903b29eab62",
+          "path": "Integration/ThroughoutDisplay.cs"
+        },
+        {
+          "sha256": "7cade1a4de57cf6e9a4ade77964813e70d3e64134e3cdffcc51851a21fd0b954",
+          "path": "Integration/UI_AmmoSidebar.cs"
+        },
+        {
+          "sha256": "aa677edcee053927e7418b33ba6aaa8a02302941b113893bbdc87240583a0471",
+          "path": "Integration/UI_CompositeSidebar.cs"
+        },
+        {
+          "sha256": "124472f9218c42dec233af768ef7aaa56e5812c8d13fc3eba70e37461391199b",
+          "path": "Integration/UI_DiscoverSidebar.cs"
+        },
+        {
+          "sha256": "94908205f79022a82068e690204becd44a33d635a35fc46e48842745d8add319",
+          "path": "Properties/AssemblyInfo.cs"
+        },
+        {
+          "sha256": "1b56e1f024d54965d7093df5231692ea355038a51ad296ea69e6353dbf3c4a44",
+          "path": "Ruina/AbilityBases.cs"
+        },
+        {
+          "sha256": "66e262e0673058631d3f83e1b6b7a01b0f8c7c872b36818847bfedc8c252b8d2",
+          "path": "Ruina/AbilityKeywordPatch.cs"
+        },
+        {
+          "sha256": "cfff38ded1132a707bc4f9a828d9f3958088b5d072348bb9eff9a43e97331bf1",
+          "path": "Ruina/AmmoUtil.cs"
+        },
+        {
+          "sha256": "e2802b87dd0a6e983898f3226657359f54fe3d4666bac4843fe3baa3252d7510",
+          "path": "Ruina/AmmoXmlRegistration.cs"
+        },
+        {
+          "sha256": "4a32a95aab98cbe34d8166b15e8714efd6360711c11be8e4635046a274e99f5a",
+          "path": "Ruina/AreaAttackDescription.cs"
+        },
+        {
+          "sha256": "10d73b97d0481d1995d9f0bb65bf93632491eb80ee31af7f76e3040e38da043d",
+          "path": "Ruina/BattleUnitBuf_Hat_Enchantments_Ammo.cs"
+        },
+        {
+          "sha256": "572172d8d7695c5aa02c967893fd5ed9ddf4d4a653164b08bd38a62bf8523600",
+          "path": "Ruina/BuiltinAmmoResources.cs"
+        },
+        {
+          "sha256": "9a951065ee40e30c006efdd577fd701ce25a93735463f5e354a3d7a67c70812c",
+          "path": "Ruina/BuiltinCardResources.cs"
+        },
+        {
+          "sha256": "0536687a22df65fd98ddb61b04958fc88d24839cd8f10bba277bd6a0e87f701b",
+          "path": "Ruina/CardCopy.cs"
+        },
+        {
+          "sha256": "d2d7d88597bcf93ac8d6c7dccb22d4514a267788fa57fcf6d98f9e7dc79a02f2",
+          "path": "Ruina/CardXmlIsolation.cs"
+        },
+        {
+          "sha256": "0bf8f7a7badc9a9645a4b990778c9c161926173eae11e66a6ac99a4cb5f08236",
+          "path": "Ruina/CompositeCardCopy.cs"
+        },
+        {
+          "sha256": "b997e74f5a5c8997996354823c2b3a9ba7bdfd36f18048935ce1939555170649",
+          "path": "Ruina/CompositeCardPatches.cs"
+        },
+        {
+          "sha256": "10fb77d9ba49c34a67db3fdc5b7ef90c9f33ca0e38cc20f69fd91af62af23dec",
+          "path": "Ruina/CompositeCards.cs"
+        },
+        {
+          "sha256": "6e1e4afde5317f28271c1bd3866cad74618489f6610ef082b9bee063bed233d9",
+          "path": "Ruina/DiceAbilities/AbilityBindings.cs"
+        },
+        {
+          "sha256": "a2634f973754c4132012b449083a4334f726dbf301a23e029be3b37c19da06e1",
+          "path": "Ruina/DiceAbilities/AmmoSlotAbility.cs"
+        },
+        {
+          "sha256": "96569663c33ca917b25b9352d84fa42a3994bc4aec616b20aab0c45dcf4b27c1",
+          "path": "Ruina/DiceAbilities/BuiltinDiceAbilities.cs"
+        },
+        {
+          "sha256": "248e59050a2b2b0c9c5a8df29e551f2d6bb149d1437f9397fde5299b7c53a1d5",
+          "path": "Ruina/DiceAbilities/Descriptions/BuiltinTraitDescriptions.cs"
+        },
+        {
+          "sha256": "f88eb11847f67afccdd8fdd4f90482fd861e4b8f31282cd2b3017dac5af19303",
+          "path": "Ruina/DiceAbilities/Descriptions/DiceDescriptionSummary.cs"
+        },
+        {
+          "sha256": "5b7ea15993e16ad75a5e4d58ed8486ff0664929ae80aff32e31c3356b18fffc3",
+          "path": "Ruina/DiceAbilities/Descriptions/MaximumKeywordDescription.cs"
+        },
+        {
+          "sha256": "e5aa6e94da3b414636121f3524211621d70529b101b165c176f5fcac65954d57",
+          "path": "Ruina/DiceAbilities/Descriptions/ShieldBashDescription.cs"
+        },
+        {
+          "sha256": "48a46eee834b9e01c536bb4376566a8eccaeec44b94f28ecf16aa4d96c57f8c7",
+          "path": "Ruina/DiceAbilities/DiceAbilities.cs"
+        },
+        {
+          "sha256": "1db38c7e5477c31649407cb72597c83c9a2d96ff233ba9b8f3fe326a6db5c13d",
+          "path": "Ruina/DiceAbilities/DiceAbilityContracts.cs"
+        },
+        {
+          "sha256": "f550bc53ab16b326e3178c89508f94f85c26fc35b6f13440a851ade53d396679",
+          "path": "Ruina/DiceAbilities/DiceRollContext.cs"
+        },
+        {
+          "sha256": "fcef0f1b10a0644a948ae718053f09407736b2d1fbd0fc187bea422f8cffda57",
+          "path": "Ruina/DiceAbilities/EnchantmentDiceAbility.cs"
+        },
+        {
+          "sha256": "a31b29a65f013858a92de98f742d13bf1cd616737eba065c3d7ec2a02086335f",
+          "path": "Ruina/DiceAbilities/Execution/CancelledAreaDefense.cs"
+        },
+        {
+          "sha256": "79aca5c938646a99d53f82bb34a67be7571113ce91a295da411ae585ede73bc2",
+          "path": "Ruina/DiceAbilities/Execution/CancelledDicePatches.cs"
+        },
+        {
+          "sha256": "25398e8a491ac5d8c24dc3df3b319efa27b9d3e19912e8a1554773f6e0a4c646",
+          "path": "Ruina/DiceAbilities/Execution/CancelledDiceRuntime.cs"
+        },
+        {
+          "sha256": "42f3a815b9b4f77d8191a4dc423ef7dc36605463a5391f9796060367ab86244c",
+          "path": "Ruina/DiceAbilities/Execution/DiceExecutionRules.cs"
+        },
+        {
+          "sha256": "69af99e1feab5fd4325d46d322be227f333766667f34dcf1b3846014493671fc",
+          "path": "Ruina/DiceAbilities/Execution/DiceSealSnapshots.cs"
+        },
+        {
+          "sha256": "4f269599bd3e292265aa38f19d1530e95aa2951159aa151f4da90b4960e9d238",
+          "path": "Ruina/DiceAbilities/Execution/ExhaustDiceUtil.cs"
+        },
+        {
+          "sha256": "ee9797788dd883e4d94b35198501e0b89bc97fd22a67921eb0d5372bf4c9dfb5",
+          "path": "Ruina/DiceAbilities/Execution/NumericDiceTraits.cs"
+        },
+        {
+          "sha256": "61ea60fa939210f1f61571e1a7b393d7dbcc020730b70ed0264500838a7f1cd0",
+          "path": "Ruina/DiceAbilities/Execution/ResonanceFinalValuePatch.cs"
+        },
+        {
+          "sha256": "8edf5bca0287d8f53dfbe5f7daf79664e3424e71a5b529070a07dabe50a471cd",
+          "path": "Ruina/DiceAbilities/Execution/SharedCounterUtil.cs"
+        },
+        {
+          "sha256": "0b62222af1948abafbbdcaf45f560afba6ca9ff18e964c7b581b30fef86dc732",
+          "path": "Ruina/DiceAbilities/Execution/ShieldBash.cs"
+        },
+        {
+          "sha256": "364966411a4fb95df7994c00b38bd2f9416fcba48a53cc4a1bf61f71fddd9ff9",
+          "path": "Ruina/DiceAbilities/Execution/ShieldBashAction.cs"
+        },
+        {
+          "sha256": "de830c54ffff37442ebb42c18d72520800a3d818c17716ee9eb6181e3cd53bfc",
+          "path": "Ruina/DiceAbilities/Execution/ShieldBashPatches.cs"
+        },
+        {
+          "sha256": "3135b5f7639f6f60366ad0f204c54ef9dbc168775f3550669728871e71da8728",
+          "path": "Ruina/DiceAbilities/Execution/Throughout.cs"
+        },
+        {
+          "sha256": "20c29b1cf8356568a2be26960ba902b8a4ae6db50b262f28c41f70071af7d033",
+          "path": "Ruina/DiceAbilities/Execution/ThroughoutPatches.cs"
+        },
+        {
+          "sha256": "c79ebe00d6805a1686ce9890ab33fa53f6084c7793f2f4b0f191be8dc77625d1",
+          "path": "Ruina/DiscoverAbility.cs"
+        },
+        {
+          "sha256": "e90a0ae1a0d3549dc1804b1f5604dac1ec3b8812b13a4473378a747879be4d43",
+          "path": "Ruina/DiscoverCards.cs"
+        },
+        {
+          "sha256": "762f6f63533e971607e0c596ad3a9112d9ac98e773d2cbb3870392f82e8375b3",
+          "path": "Ruina/DiscoverModifiers.cs"
+        },
+        {
+          "sha256": "b55dd05493f40d2c8d165efa0582c8f0a10a8ff9270eeff278f189bcea9331d2",
+          "path": "Ruina/EnchantmentRuntime.cs"
+        },
+        {
+          "sha256": "81f6277d2ddc3d214026c8c9e915632c492be3d1e15880037427647405fb9cd7",
+          "path": "Ruina/EnchantmentText.cs"
+        },
+        {
+          "sha256": "a993611d7274e935e2a4b00cac411e781993d4038f182c1e6a9ed69ced208f28",
+          "path": "Ruina/EnchantmentUiIntegration.cs"
+        },
+        {
+          "sha256": "bdcb6584286cd42a3b79c3b5d1ce78bd2858460f82a47db3d45ff0b46039a16d",
+          "path": "Ruina/KeywordValuePatch.cs"
+        },
+        {
+          "sha256": "ec11ebb3786329e66206d8af97d0ce18cebd431a14303a37bf1fa24899d1585b",
+          "path": "Ruina/Plugin.cs"
+        },
+        {
+          "sha256": "eb801e012d8903b60a3149d680532b2a8cc92d18c870a6f5a0063141ef4b1f3d",
+          "path": "Ruina/PreemptiveCards.cs"
+        },
+        {
+          "sha256": "6fc5a678a35a5c9e4ce9d83d66f62541b289fb2f35308d5228c9084e6c6dc513",
+          "path": "Ruina/RangeDisguiseTranspiler.cs"
+        },
+        {
+          "sha256": "0756d865e5d08f17babf899cadc9e26c922b190cadc2e7fed7a03da0ac375b41",
+          "path": "Ruina/SpeedDice/SpeedDiceEffect.cs"
+        },
+        {
+          "sha256": "e77789c3beb46cb083ea3444a859dd2dd9f2f670a30c2033f6c735076e337831",
+          "path": "Ruina/SpeedDice/SpeedDiceEffects.cs"
+        },
+        {
+          "sha256": "40dd9ee4c4441c9772ae505bfc191dc6acc3042d6a56559a5613e17a28fd4873",
+          "path": "Ruina/SpeedDice/SpeedDicePatches.cs"
+        },
+        {
+          "sha256": "9b29dc0515d429235d46d165ef7fff0f1f5158285a56deddfc674399786dd6f5",
+          "path": "Runtime/AmmoSlotText.cs"
+        },
+        {
+          "sha256": "d3e53f6ba93cef4402a726c15944e6dba676fe8884f16a5a53f40cb039e2fc06",
+          "path": "Runtime/Ammunition.cs"
+        },
+        {
+          "sha256": "bdaf457448044223ea144df2e9d72efd7f7b9b2a2ef0ee472dfc9e34f3bb82ca",
+          "path": "Runtime/BuiltinAmmo.cs"
+        },
+        {
+          "sha256": "0bfeb3cdb23fe831a6cc3a2be0be5ba3a5da083a734d22360a28563f6cfa406e",
+          "path": "Runtime/BuiltinTextStyles.cs"
+        },
+        {
+          "sha256": "a72328584bf3850cc5c06ebef5399f389c53365d037a075b2c7ec61a81e7d940",
+          "path": "Runtime/EffectGrant.cs"
+        },
+        {
+          "sha256": "db8a7394349075ae24037e806b80a3612840d4885e32cea4b5b5902ad264e3a3",
+          "path": "Runtime/EnchantmentState.cs"
+        },
+        {
+          "sha256": "89f2edfe29efa1a5371cabf147e98142ba5d72d21c5abcdb7a0284e48f3fb591",
+          "path": "Runtime/KeywordTextAggregation.cs"
+        },
+        {
+          "sha256": "e652945930401faa0ee64e41bf055685782c7245bafb0dd25ebe031753fecd5e",
+          "path": "Runtime/KeywordValueMarkup.cs"
+        },
+        {
+          "sha256": "b191bf8a1b3af399826c8e3bc4746aa341663335ebd61582fa5d8b0879eb7a00",
+          "path": "Runtime/StateKey.cs"
+        }
+      ],
+      "sourceProject": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Enchantments\\HatSingularity.Enchantments.csproj",
+      "source": "project"
+    }
+  ]
+}

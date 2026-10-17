@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AmmoDefinitions>
+  <!-- 常规弹只增加 1/1，不触发额外命中效果；Limit=0 表示无默认库存上限。 -->
+  <Ammo Id="Hat_Enchantments_Ammo_Normal" Icon="Hat_Enchantments_Ammo_Normal" Min="1" Max="1" Cost="0" Limit="0" />
+</AmmoDefinitions>

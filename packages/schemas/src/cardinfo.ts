@@ -103,9 +103,9 @@ export const cardInfoModule: ModuleDefinition = {
             label: '动作',
             values: ['H', 'J', 'Z', 'G', 'E', 'F', 'N', 'S', 'S1', 'S2', 'S3', 'S4', 'S5', 'H2', 'J2', 'Z2', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12', 'S13', 'S14', 'S15']
           },
-          { kind: 'text', name: 'EffectRes', label: '特效资源' },
-          { kind: 'text', name: 'Script', label: '骰子能力', autocomplete: 'page-ability' },
-          { kind: 'text', name: 'ActionScript', label: '动作脚本' }
+          { kind: 'text', name: 'EffectRes', label: '特效资源', fullRow: true },
+          { kind: 'text', name: 'Script', label: '骰子能力', autocomplete: 'dice-ability', fullRow: true },
+          { kind: 'text', name: 'ActionScript', label: '动作脚本', fullRow: true }
         ]
       },
       {

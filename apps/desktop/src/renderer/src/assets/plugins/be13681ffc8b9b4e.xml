@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Labels>
+  <Language Id="cn">
+    <Text Key="Title">特性关键词</Text>
+  </Language>
+  <Language Id="en">
+    <Text Key="Title">Trait Keywords</Text>
+  </Language>
+  <Language Id="jp">
+    <Text Key="Title">特性キーワード</Text>
+  </Language>
+  <Language Id="kr">
+    <Text Key="Title">특성 키워드</Text>
+  </Language>
+</Labels>

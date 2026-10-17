@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Vulnerable_break">
+      <Name>混乱易损</Name>
+      <RecognizeName>混乱易损</RecognizeName>
+      <Desc>这一幕中被击中时所受混乱伤害+{0}</Desc>
+      <KeywordIconId>Vulnerable_break</KeywordIconId>
+      <Color>#FF3333</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Vulnerable_break_Keyword">
+      <Name>混乱易损 X</Name>
+      <Desc>这一幕中被击中时所受混乱伤害+X</Desc>
+      <KeywordIconId>Vulnerable_break</KeywordIconId>
+      <Color>#FF3333</Color>
+      <IsChangeSelf>true</IsChangeSelf>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

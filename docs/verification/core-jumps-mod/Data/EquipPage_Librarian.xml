@@ -1,0 +1,1 @@
+<BookXmlRoot><Book ID="1"><Name>跳转测试</Name><EquipEffect><Passive>55</Passive><Passive Pid="@origin">12</Passive><Passive Pid="Other.Mod">55</Passive><OnlyCard>703001</OnlyCard><OnlyCard>999999999</OnlyCard><CustomOnlyCard>107</CustomOnlyCard><CustomOnlyCard>108</CustomOnlyCard></EquipEffect></Book></BookXmlRoot>

@@ -1,0 +1,1720 @@
+{
+  "resources": [
+    {
+      "sha256": "1bcf6862e5afe9828b1e167eda16b919bd45f33b8c5f64fe29e10889cd8943eb",
+      "path": "234e5dc15674d420.png",
+      "id": "DmgDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.DmgDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "b5f3fe266d30f50cc1df5da5bb6849dee2213299122830e14702bb7d494fb49c",
+      "path": "12d870f8c3c5a0f1.png",
+      "id": "Hat_BleedingProtection",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_BleedingProtection.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "34fe74d170243f6fb45ba1fddd7d0b71ea851c346fdea7e30620fc0eae02b899",
+      "path": "d60c6c13c59d8f64.png",
+      "id": "Hat_BleedingVulnerable",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_BleedingVulnerable.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "3930f40ab1f9875c9623bcc4ae782157e34e947ff80f9918eee4e47d94631559",
+      "path": "a40dbafb6870a6e2.png",
+      "id": "Hat_BurnProtection",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_BurnProtection.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "cf6c305c36bca0e02b2fbba6d8a472d30ece2d43a51dd99ab1259a2cdc65c19a",
+      "path": "e523be7ec0ed13a4.png",
+      "id": "Hat_BurnVulnerable",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_BurnVulnerable.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "638ca4205b06cd8b7399eff345792e62b3e32df909031fa928a86cda133c1d80",
+      "path": "10ea60bb6fc3896e.png",
+      "id": "Hat_LightRecoverUp",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_LightRecoverUp.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "91771fe818ba3ec2fbbfcbf9d40c8a326b0445e5fc54cc2c8efbff437c04ab7c",
+      "path": "8be40fef3c79af82.png",
+      "id": "Hat_HpShield",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_HpShield.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "71c1538f7a8ef9ad3d447bf207e898d0cc3ef0e5fe7af2c0530f6bd941774cf3",
+      "path": "f0c298a7d3defcde.png",
+      "id": "Hat_Poise",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_Poise.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "68c909321916f4f7714628e454c00aaae0e37a52a506cedc9e4fa7fc557a1401",
+      "path": "efce09520c98bef4.png",
+      "id": "Hat_Rupture",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_Rupture.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "2473dd0b7ccbdadc4f9b2424266750e363723f55e8eb634300711e0dc015c020",
+      "path": "b743c1b6a1d3cdff.png",
+      "id": "Hat_RuptureProtection",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_RuptureProtection.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "89e6e91df83feb94757928d3cadd0cc8add52d787b776ea527a73526630b45dc",
+      "path": "3b9d2602f6ce0e6b.png",
+      "id": "Hat_RuptureVulnerable",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_RuptureVulnerable.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "6c69c324fcb7e25032ce53dc760108442496d2abf822a1542a1b5d950df848ab",
+      "path": "d3ee16c1eb21b232.png",
+      "id": "Hat_Sinking",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_Sinking.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "873629f2cdbeefbc6f14d4391a1b8d38b6e55ee4a5e766be0ef1aac2d11e2eb0",
+      "path": "daca190f8aea8020.png",
+      "id": "Hat_SinkingDeluge",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_SinkingDeluge.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "f3b25bbecb7b38098966a1a96abf78aa871e1d8bdee065d9b2933d7680a37494",
+      "path": "65c8a77d76702d25.png",
+      "id": "Hat_SinkingProtection",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_SinkingProtection.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "fbb6a6ca7c65b62ab5fdd5ad83bfbd2324edd15d39372d80a983093d3c561908",
+      "path": "ca43ae0805980f0f.png",
+      "id": "Hat_SinkingVulnerable",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_SinkingVulnerable.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "674da98bf3b213157bcd346842bd0657630054b60240480c6f428e45949a8cbb",
+      "path": "af6dd5da1754d9e9.png",
+      "id": "Hat_BpShield",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_BpShield.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "08e70c51c34863458a2e16dd738e0e7355138d86af668c2bc9769c96d1f21630",
+      "path": "51b19e57c40d6d7c.png",
+      "id": "Hat_TempSpeedDice",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_TempSpeedDice.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "5de8fb555eb0a7f77195da6f5f4e593829ce042cb28c6111b14e0df455d0b310",
+      "path": "6781a3e88c89a846.png",
+      "id": "Hat_Tremor",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_Tremor.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "96d7c0db2b0635b9ad7ae74e64ea2a1f70050679fb28530e4e014289ca070070",
+      "path": "2f8cb3bad1085a6d.png",
+      "id": "Hat_TremorBurst",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_TremorBurst.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "749b9ab684ea0b27a3e6ac06c78b1e9d86d2ad9ccb5083d2e7e8c2b54ef83247",
+      "path": "fe671218f6e6498e.png",
+      "id": "HitPowerDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.HitPowerDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "ed32df1f0433b6be1ab270ee71b5424e94a4b497c43dff1b35102f1ed5d45f6b",
+      "path": "883a5b17459f9485.png",
+      "id": "PenetratePowerDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.PenetratePowerDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "3780ed5cbb4a6a30fbc667b262b64bc115091cef90c17102378208bf022b9ac8",
+      "path": "54dfa39c22dadf40.png",
+      "id": "SlashPowerDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.SlashPowerDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "cc552b8d3b9b0a8b2aa5cb848fe16f33df545feabda01b539fc75958dfccd771",
+      "path": "a3995d4061d66f58.png",
+      "id": "AllPowerDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.AllPowerDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "8ae302c43d1db1787211f5e31fac64c0991c8b2e0aca1950dd6cd5e3f751e66d",
+      "path": "540e75a553801aa8.png",
+      "id": "AllPowerUp",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.AllPowerUp.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "a9d4a55a5bab59ee08a2d02c96600099eda539add18b310a3407be5c7ca0fb71",
+      "path": "49a97a66d4f63197.png",
+      "id": "Hat_Preassembled",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_Preassembled.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "e1b0bc32a87df2fdaa4241558a24c892387ab3808760eb4998521cb02d9878d5",
+      "path": "3fe8c23f157bc7d6.png",
+      "id": "BreakDmgUp",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.BreakDmgUp.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "07e04900b29c33cf1c55d164b4c42f48f75e8f2135b6dd4a3a532407a64059c5",
+      "path": "cba0252373152b42.png",
+      "id": "Hat_TremorFusion",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_TremorFusion.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "4b15fb304fafc7a93233dd027e45a3d2199c5c4146e097176d6198f2ac156a53",
+      "path": "5072aebc4daa9497.png",
+      "id": "BreakDmgDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.BreakDmgDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "684b6d7773888f6e2d4dfa557deaf3998a4d032e8d2fd706279def707b02ff4e",
+      "path": "c5a14f1afb2660f9.png",
+      "id": "Hat_TremorProtection",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_TremorProtection.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "90572aa347b4e848ef12f0e7169dfb8b25e43d158dae0b649ddb3c343c985c53",
+      "path": "034b939fccf0a5bc.png",
+      "id": "Hat_TremorVulnerable",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_TremorVulnerable.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "63e63c4d43171457f627dd41690cd8633c344ae129f63a687abe8f9c1a6e516f",
+      "path": "08f860d183f1e296.png",
+      "id": "Hat_BreakStateLine",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_BreakStateLine.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "fdc3f0dd6396ce22eab95405a7f227eefc38b7cf44602e3e55f2fd363d08acdc",
+      "path": "1333017a016f36ab.png",
+      "id": "Hat_BpDebt",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_BpDebt.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "fd52e41aad73175831e7d9229bb13b26ebe90e73a4af15580bfe83990dd95760",
+      "path": "37bccf3cfcc15e65.png",
+      "id": "Hat_HpDebt",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_HpDebt.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "d0eb047c55e4b0bda74b926c03ecbd04cc282ea59ec6798a38230c23962b5ef6",
+      "path": "1264c45e4fa56aed.png",
+      "id": "Hat_CritUI_BG",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.sprites.Hat_CritUI_BG.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "8525474a85f26228cb480c6db07e3f31d63a48061023c3a7c653354573aa461d",
+      "path": "a57913bae84849f6.png",
+      "id": "Hat_Crit",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_Crit.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "1d2b72bdb134e234c66faf8f3df0d78c236d7846f8587a1dd628e2eb76a7de32",
+      "path": "f22c7a0137c00658.png",
+      "id": "EvasionPowerUp",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.EvasionPowerUp.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "2d20bf42e162e1d6dbdd18e8b00e2b8e967d0618aba887ac899f3e9980a2609e",
+      "path": "68a4a70328a81d31.png",
+      "id": "GuardPowerUp",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.GuardPowerUp.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "5f9356afad6c2b529c67f764f79b031ee30e95742959e7cb0465d2294f84ee74",
+      "path": "675ba0ce715e3542.png",
+      "id": "EvasionPowerDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.EvasionPowerDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "c7c95bc397553c2777f089091b79e3903ed39be1d984926f0ebfd6b988e4d38c",
+      "path": "110e20c4c4508ab4.png",
+      "id": "GuardPowerDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.GuardPowerDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "a977d25f6225b33448792b207222f9001ec1c367df4262ccddafad84a0d46a54",
+      "path": "5eb822c287184ef9.png",
+      "id": "Hat_ParryingValueDown",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_ParryingValueDown.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "9de3f8d2fda5ca712c92e39c150e465ece0b7734975e0918c269b8de3a35d4aa",
+      "path": "4066f126bacfe1ec.png",
+      "id": "Hat_ParryingValueUp",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.buficons.Hat_ParryingValueUp.png",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "image"
+    },
+    {
+      "sha256": "ac96de7732d39dc024ffb249806fa0d2c1844c66344965a53736bdd45c2e2380",
+      "path": "6dbe9f2c508e3212.xml",
+      "id": "HatAbilities_HatKeywordFix",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.HatAbilities_HatKeywordFix.xml",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "xml"
+    },
+    {
+      "sha256": "284b16861cb3f699e36f76ad50dcfdb8442e0d45da15a735f6fc8b358f3f25ba",
+      "path": "",
+      "id": "hatsingularity_buf_vfx",
+      "language": "",
+      "name": "HatSingularity.Abilities.Resources.hatsingularity_buf_vfx.assetbundle",
+      "plugin": "HatSingularity.Abilities",
+      "kind": "bundle"
+    },
+    {
+      "sha256": "4f956c958877c1106d4f691c86ef6f1d564ea892b4eecb672f96f69ccee1e851",
+      "path": "",
+      "id": "RolandAdvanced",
+      "language": "",
+      "name": "HatSingularity.Actions.Sequences.RolandAdvanced.json",
+      "plugin": "HatSingularity.Actions",
+      "kind": "other"
+    },
+    {
+      "sha256": "410e9be550979fe44a25dc2ba23cae73e9c43a63d01e532d9295c10691a497b3",
+      "path": "",
+      "id": "RolandCinematic",
+      "language": "",
+      "name": "HatSingularity.Actions.Sequences.RolandCinematic.json",
+      "plugin": "HatSingularity.Actions",
+      "kind": "other"
+    },
+    {
+      "sha256": "66e4ec8dd7dcd7c3b3fa0c5c482f67acc4ec06e770bf75fcc73837a38cf3a576",
+      "path": "44530e08da240661.png",
+      "id": "RecoverBreak",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.RecoverBreak.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "370f0208fbc3ff6ca67c138c134975b9cf1b1262a9480cbf6efe0ddd9effe21f",
+      "path": "8a70e26d5adc5d73.png",
+      "id": "Discard",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.Discard.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "704bbd7b1858f6028d5a8dfafaa4196934205be634ede9e7cff1d324ecabdf22",
+      "path": "8124727343211069.png",
+      "id": "Emotion",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.Emotion.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "6ab0a26908208e3eb0c4eec015c68037b4b3e3e5948c9cb848d95676aa51c624",
+      "path": "1fee652c83dead37.png",
+      "id": "Exhaust",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.Exhaust.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "f64a96b6ad8ca18b75cf5f19ddc0927de2bbf00c46794076d407c55000733daf",
+      "path": "6497ce0d43a9f0b4.png",
+      "id": "OnlyOne",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.OnlyOne.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "e6a91d00066cb2c8996179d230872ff941694b0001abdb8b8e198db17273d391",
+      "path": "49999df1d55ca951.png",
+      "id": "Recover",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.Recover.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "413333758ac309781d2ec9279abdc1b4ad759f14e0439a76d10e5fdfa1c62e73",
+      "path": "d1f4713ecae663ef.png",
+      "id": "BP",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.BP.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "95f6a6d848f901e0e5d81652afd051520427a4cb3914a4458674676b6262450c",
+      "path": "a70ea5fa6f88f475.png",
+      "id": "Card",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.Card.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "5fb5c6fb01b31dc94267630770f0470b8603a5d042bad949d6ca14556d911a55",
+      "path": "cc6f4b503753ff65.png",
+      "id": "Dice",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.Dice.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "a3bd9b347f6284302e13601c82f7d7398c4ffb93e42e4475e4d2a045ae07d5cd",
+      "path": "50f6949f76dd2fa5.png",
+      "id": "HP",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.HP.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "fbdeeb74103a3408aac88cbfa68b0052ac14b0f185d9169219d8b0cc05a0ed1a",
+      "path": "eb481baa46544e1c.png",
+      "id": "PlayPoint",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.PlayPoint.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "76406ffa0a99bbd46333355afcd3a2d6e6e6a620575e82748a98d5b5a97549b8",
+      "path": "09ed6633db3ad81e.png",
+      "id": "Speed",
+      "language": "",
+      "name": "HatSingularity.KeywordView.Resources.buficons.Speed.png",
+      "plugin": "HatSingularity.KeywordView",
+      "kind": "image"
+    },
+    {
+      "sha256": "fbe12a9cd5ea012710806ffcb79a789f74b7ba47753e47f10432b327b1633df2",
+      "path": "34e196b0479e2d61.xml",
+      "id": "BaseBooks",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Books.BaseBooks.xml",
+      "plugin": "HatSingularity.Tags",
+      "kind": "xml"
+    },
+    {
+      "sha256": "f74e81edb17729297d36eb0145af66d365597210d47c0dbaed415c8ff53bebe5",
+      "path": "520b4ef3cc4f182e.xml",
+      "id": "Traits",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Definitions.Traits.xml",
+      "plugin": "HatSingularity.Tags",
+      "kind": "xml"
+    },
+    {
+      "sha256": "9a31fb82dde4d45ba55b59d6aaea70a219727d0da0d3e687b24316dc7399f9b3",
+      "path": "d46d13b4151b055d.png",
+      "id": "GreatVibesTab",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Fonts.GreatVibesTab.png",
+      "plugin": "HatSingularity.Tags",
+      "kind": "image"
+    },
+    {
+      "sha256": "fcf367f2aee452496010fae1e437ae36f6ae041efc597354bd6054e12769565c",
+      "path": "715cabd6518c18a2.xml",
+      "id": "GreatVibesTab",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Fonts.GreatVibesTab.xml",
+      "plugin": "HatSingularity.Tags",
+      "kind": "xml"
+    },
+    {
+      "sha256": "8070a5c7e7727a0db7088bc2ba579d528ae98172c1b328f091a18ae599a47ee4",
+      "path": "7c11bd5127dac92f.png",
+      "id": "Hat_Tags_Trait",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Icons.Hat_Tags_Trait.png",
+      "plugin": "HatSingularity.Tags",
+      "kind": "image"
+    },
+    {
+      "sha256": "922015d0f3aa6f7b9aa36e93d2ff47250f9bf3a011cc9c4b732beaf70ff261fb",
+      "path": "a316b1b12fe69e92.png",
+      "id": "TraitGlow",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Icons.TraitGlow.png",
+      "plugin": "HatSingularity.Tags",
+      "kind": "image"
+    },
+    {
+      "sha256": "e91364493575624360042ef2c4ed5dbbe673a11eb07bfa976cacb93d9267bebd",
+      "path": "29ad7be855ce86a0.png",
+      "id": "TraitIcon",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Icons.TraitIcon.png",
+      "plugin": "HatSingularity.Tags",
+      "kind": "image"
+    },
+    {
+      "sha256": "61093a21f5e63dedf54222b3c09997e54c0fe43e3851d21386e02ddcbc246d49",
+      "path": "",
+      "id": "GreatVibes-OFL",
+      "language": "",
+      "name": "HatSingularity.Tags.Resources.Licenses.GreatVibes-OFL.txt",
+      "plugin": "HatSingularity.Tags",
+      "kind": "other"
+    },
+    {
+      "sha256": "9b7643493ec96e49888c4f616de839c55bfe0a3dc0c0be5043367d1c30f90a41",
+      "path": "",
+      "id": "AmmoLoad",
+      "language": "",
+      "name": "HatSingularity.UI.Resources.AmmoLoad.wav",
+      "plugin": "HatSingularity.UI",
+      "kind": "other"
+    },
+    {
+      "sha256": "ac1a44c063117a3e80a64581e201e70f9aa4c629ada4fad27213bfdec1140fb7",
+      "path": "f7a0a133777629f6.png",
+      "id": "FlavorBackground",
+      "language": "",
+      "name": "HatSingularity.UI.Resources.FlavorBackground.png",
+      "plugin": "HatSingularity.UI",
+      "kind": "image"
+    },
+    {
+      "sha256": "c84db6d11c2d32660c8387b81cb1aa826ca7e1ac915237519b1aac564bd03199",
+      "path": "18bac80506a8a50a.png",
+      "id": "SidebarBackground",
+      "language": "",
+      "name": "HatSingularity.UI.Resources.SidebarBackground.png",
+      "plugin": "HatSingularity.UI",
+      "kind": "image"
+    },
+    {
+      "sha256": "276a08e429bab3ab8cecc3b52a3a569d33353710976e2759d91b91652cf1d4a5",
+      "path": "",
+      "id": "Resources",
+      "language": "",
+      "name": "HatSingularity.UI.Resources.hat_ui",
+      "plugin": "HatSingularity.UI",
+      "kind": "bundle"
+    },
+    {
+      "sha256": "8906ba7484f6d713d17759b902447ac41b6a2e71b9a1b6291351662b1cae452a",
+      "path": "51bd0fe86c7989df.xml",
+      "id": "HatCore_PreviewCard",
+      "language": "",
+      "name": "HatSingularity.Utils.Resources.HatCore_PreviewCard.xml",
+      "plugin": "HatSingularity.Utils",
+      "kind": "xml"
+    },
+    {
+      "sha256": "78ca588015152ee96afa6a2b3be3896283f4796b8b227419e543d32446fb7dde",
+      "path": "101866a6692c0929.xml",
+      "id": "HatCore_HatKeywordFix",
+      "language": "",
+      "name": "HatSingularity.Utils.Resources.HatCore_HatKeywordFix.xml",
+      "plugin": "HatSingularity.Utils",
+      "kind": "xml"
+    },
+    {
+      "sha256": "a0ff8746613644055093bc14503955871906d22f5300b405bf40422849d82680",
+      "language": "",
+      "sourcePath": "Resources/AmmoDefinitions.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "AmmoDefinitions",
+      "name": "HatSingularity.Enchantments.Resources.AmmoDefinitions.xml",
+      "kind": "xml",
+      "path": "303ed01bdb75d92f.xml"
+    },
+    {
+      "sha256": "4d9b9a0c99f1bed1a942ca6129f011ce9d2c24cbcb4d4fcebe15a90e530eee85",
+      "language": "cn",
+      "sourcePath": "Resources/Localization/cn/Abilities.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Abilities",
+      "name": "HatSingularity.Enchantments.Resources.Localization.cn.Abilities.xml",
+      "kind": "xml",
+      "path": "3a98ad64ca2658d3.xml"
+    },
+    {
+      "sha256": "eefe304c951e64a2916f914adbbcf31e63e4a29a473725fe549872585c8cbbad",
+      "language": "cn",
+      "sourcePath": "Resources/Localization/cn/CardEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.cn.CardEffects.xml",
+      "kind": "xml",
+      "path": "c5c44039027160e7.xml"
+    },
+    {
+      "sha256": "65518050b135be5b4bc96e9bfb4d40b9a11851135bc3c7a8f09dd81be4ca40f8",
+      "language": "cn",
+      "sourcePath": "Resources/Localization/cn/CardEtc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEtc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.cn.CardEtc.xml",
+      "kind": "xml",
+      "path": "bcadf1c173e918d8.xml"
+    },
+    {
+      "sha256": "767daf72031efe5febf3ebd307f6811fb1938b7746ca8e8db2e14184b8275462",
+      "language": "cn",
+      "sourcePath": "Resources/Localization/cn/DiceEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "DiceEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.cn.DiceEffects.xml",
+      "kind": "xml",
+      "path": "0ed1b74ae37ad308.xml"
+    },
+    {
+      "sha256": "bf2858bf132684b6b50d936a399137be54685db763957afcac69424786bc78ea",
+      "language": "cn",
+      "sourcePath": "Resources/Localization/cn/Effects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Effects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.cn.Effects.xml",
+      "kind": "xml",
+      "path": "8027c7cdd50a233b.xml"
+    },
+    {
+      "sha256": "8cf5faf46ba08c5920babe194af6029eab9987edf5d109dc88577262bd239e01",
+      "language": "cn",
+      "sourcePath": "Resources/Localization/cn/Etc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Etc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.cn.Etc.xml",
+      "kind": "xml",
+      "path": "fab5303b56fce3f6.xml"
+    },
+    {
+      "sha256": "4bac64bd29ecf8d8b6d72f6f96b3014eeb5953f137975d89c3156c561e92f28b",
+      "language": "cn",
+      "sourcePath": "Resources/Localization/cn/Styles.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Styles",
+      "name": "HatSingularity.Enchantments.Resources.Localization.cn.Styles.xml",
+      "kind": "xml",
+      "path": "6c24a7f3d1f1c1cb.xml"
+    },
+    {
+      "sha256": "867b14ce64525395af0fcfa2fb7cdd81b1b0a539a211c7cb38e5ce556d6a7ff3",
+      "language": "en",
+      "sourcePath": "Resources/Localization/en/Abilities.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Abilities",
+      "name": "HatSingularity.Enchantments.Resources.Localization.en.Abilities.xml",
+      "kind": "xml",
+      "path": "f7c985ccf627c691.xml"
+    },
+    {
+      "sha256": "a0b80589cc4f63f8764558f27f75a9d7fa07de773ccb8db5f1e2b1a3e7ef35a1",
+      "language": "en",
+      "sourcePath": "Resources/Localization/en/CardEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.en.CardEffects.xml",
+      "kind": "xml",
+      "path": "ae3bc5ea98b8eb12.xml"
+    },
+    {
+      "sha256": "a4dae3192878c666cd8ea7cfde9361b1f975e1e2844d48ca64b705e4d6234113",
+      "language": "en",
+      "sourcePath": "Resources/Localization/en/CardEtc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEtc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.en.CardEtc.xml",
+      "kind": "xml",
+      "path": "b3a8576b5251fae3.xml"
+    },
+    {
+      "sha256": "19a36a3ab59cdb41a9d8a0a5a02c83b8ed6b8a5588353071d807aa8a653c940f",
+      "language": "en",
+      "sourcePath": "Resources/Localization/en/DiceEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "DiceEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.en.DiceEffects.xml",
+      "kind": "xml",
+      "path": "eac413a5c51313aa.xml"
+    },
+    {
+      "sha256": "eb346b0fc4c02762c6c38ea9a541d4c8c748d88a5970794f31fd6fa7cf35cc2b",
+      "language": "en",
+      "sourcePath": "Resources/Localization/en/Effects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Effects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.en.Effects.xml",
+      "kind": "xml",
+      "path": "33ddc7d6a815641d.xml"
+    },
+    {
+      "sha256": "05bbf7b884e8b573218919b28debb2b9861c12705203e805244bae86ef987b62",
+      "language": "en",
+      "sourcePath": "Resources/Localization/en/Etc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Etc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.en.Etc.xml",
+      "kind": "xml",
+      "path": "60389080d6b1f26b.xml"
+    },
+    {
+      "sha256": "299572537aec99cbe11e2a89c37f57290a29965e26e46d68efed7012e22e9f4c",
+      "language": "en",
+      "sourcePath": "Resources/Localization/en/Styles.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Styles",
+      "name": "HatSingularity.Enchantments.Resources.Localization.en.Styles.xml",
+      "kind": "xml",
+      "path": "eece5c804c9d4ce0.xml"
+    },
+    {
+      "sha256": "76856cddeb3fa3ab68f71776c43e70e86391f2698c1114cbaf6d25898ea16f8f",
+      "language": "jp",
+      "sourcePath": "Resources/Localization/jp/Abilities.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Abilities",
+      "name": "HatSingularity.Enchantments.Resources.Localization.jp.Abilities.xml",
+      "kind": "xml",
+      "path": "cc0e9ca4f99eb517.xml"
+    },
+    {
+      "sha256": "8bd55c2058e6088d6f8a29f0ea25d236b2d1fde2571a24632c468ba3e012254b",
+      "language": "jp",
+      "sourcePath": "Resources/Localization/jp/CardEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.jp.CardEffects.xml",
+      "kind": "xml",
+      "path": "2e585874e87cc3e8.xml"
+    },
+    {
+      "sha256": "ef68cfb83c93a4e489e904b01accc5ec8c2e659b82cfcfe9a073ccafe002f500",
+      "language": "jp",
+      "sourcePath": "Resources/Localization/jp/CardEtc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEtc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.jp.CardEtc.xml",
+      "kind": "xml",
+      "path": "861e208daf94648b.xml"
+    },
+    {
+      "sha256": "f8c65f8dcf38cfe5bc34b21f731aede542c8ae03df17da6d291f1a946367ca85",
+      "language": "jp",
+      "sourcePath": "Resources/Localization/jp/DiceEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "DiceEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.jp.DiceEffects.xml",
+      "kind": "xml",
+      "path": "549348a46a394632.xml"
+    },
+    {
+      "sha256": "7b0e24d8f7fc5734216a28ec159517c13fb816a3658ccd8ee76c99ccc43cbd3f",
+      "language": "jp",
+      "sourcePath": "Resources/Localization/jp/Effects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Effects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.jp.Effects.xml",
+      "kind": "xml",
+      "path": "bf95d32ea337c882.xml"
+    },
+    {
+      "sha256": "d0aec87c6e58731f992745b703490f1b9dd9f9eb2f97821e456b87db87f45b75",
+      "language": "jp",
+      "sourcePath": "Resources/Localization/jp/Etc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Etc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.jp.Etc.xml",
+      "kind": "xml",
+      "path": "bf8bacbd9f74d91d.xml"
+    },
+    {
+      "sha256": "3b9cf38d5298cfb6041bb6921bddc1024b93459dcb597e258784fa2a31824da3",
+      "language": "jp",
+      "sourcePath": "Resources/Localization/jp/Styles.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Styles",
+      "name": "HatSingularity.Enchantments.Resources.Localization.jp.Styles.xml",
+      "kind": "xml",
+      "path": "8f575264b99971ec.xml"
+    },
+    {
+      "sha256": "5cdfbd5445977954de408f26ea69fabed827e82983362803e9c16edeb3de52fb",
+      "language": "kr",
+      "sourcePath": "Resources/Localization/kr/Abilities.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Abilities",
+      "name": "HatSingularity.Enchantments.Resources.Localization.kr.Abilities.xml",
+      "kind": "xml",
+      "path": "2f2c053a57f9b43a.xml"
+    },
+    {
+      "sha256": "36c346df8841e621d02882a0df9d7b4b6bbcd9215c15780568c46ae75ca99890",
+      "language": "kr",
+      "sourcePath": "Resources/Localization/kr/CardEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.kr.CardEffects.xml",
+      "kind": "xml",
+      "path": "cd1de9381278a145.xml"
+    },
+    {
+      "sha256": "09051793966e1ada59718e7a02106c13780402478d53d5aed2ca41cfcd476b14",
+      "language": "kr",
+      "sourcePath": "Resources/Localization/kr/CardEtc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "CardEtc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.kr.CardEtc.xml",
+      "kind": "xml",
+      "path": "06c178c5e54cb4f0.xml"
+    },
+    {
+      "sha256": "820861a8c24429f3ade9d933e7c4d523511277a4465abdbdf09d87409c569145",
+      "language": "kr",
+      "sourcePath": "Resources/Localization/kr/DiceEffects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "DiceEffects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.kr.DiceEffects.xml",
+      "kind": "xml",
+      "path": "c4d71862d0ba55be.xml"
+    },
+    {
+      "sha256": "ae6c2a5f3c2d16332cdc0b481036d3841d5c609aa8e5803dc9c697bd5bd9fb1e",
+      "language": "kr",
+      "sourcePath": "Resources/Localization/kr/Effects.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Effects",
+      "name": "HatSingularity.Enchantments.Resources.Localization.kr.Effects.xml",
+      "kind": "xml",
+      "path": "cb91363e10582587.xml"
+    },
+    {
+      "sha256": "777be91d3f4e321a675cd7b742f5c24777867331f9332315cc8a14914e7f849e",
+      "language": "kr",
+      "sourcePath": "Resources/Localization/kr/Etc.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Etc",
+      "name": "HatSingularity.Enchantments.Resources.Localization.kr.Etc.xml",
+      "kind": "xml",
+      "path": "a9b90a94f8fe4bb6.xml"
+    },
+    {
+      "sha256": "83c2fb3698774560cee95ad575f1bdf40f6026a86bcbc49672b892b3350a2bcb",
+      "language": "kr",
+      "sourcePath": "Resources/Localization/kr/Styles.xml",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Styles",
+      "name": "HatSingularity.Enchantments.Resources.Localization.kr.Styles.xml",
+      "kind": "xml",
+      "path": "07a059ff5df13055.xml"
+    },
+    {
+      "sha256": "da53fdca5d612ab363cb069847ee848d667324969ed02b44e64dca542659db7d",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_Ammo_Normal.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_Ammo_Normal",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_Ammo_Normal.png",
+      "kind": "image",
+      "path": "51863a28f2ea73ab.png"
+    },
+    {
+      "sha256": "c1dec3a64241566b175185b26ac085ae5bbb2fd66995a5efff2acf5e9214ffab",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_Ammo_Set.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_Ammo_Set",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_Ammo_Set.png",
+      "kind": "image",
+      "path": "684ba83c701aebd0.png"
+    },
+    {
+      "sha256": "da53fdca5d612ab363cb069847ee848d667324969ed02b44e64dca542659db7d",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_Ammo.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_Ammo",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_Ammo.png",
+      "kind": "image",
+      "path": "affd6c7c07327f36.png"
+    },
+    {
+      "sha256": "3fb44622aaede4a4afc08b1aa44bc94a24372b32e3d32de2d5f95fab91a08c68",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_CompositeCard.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_CompositeCard",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_CompositeCard.png",
+      "kind": "image",
+      "path": "90f1cb2b9dde3bf1.png"
+    },
+    {
+      "sha256": "cfa61a5337b971ffc5c614f6c19ca6d014c1c404ddbaba858b80076d4bcfd8d4",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_DiscoverCard.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_DiscoverCard",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_DiscoverCard.png",
+      "kind": "image",
+      "path": "80ae4d4c2128fa88.png"
+    },
+    {
+      "sha256": "ecd8d368bda12e043ca4a394b1bbfc5dab399746c29d7c79a735b86736245bda",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_Harmonious.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_Harmonious",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_Harmonious.png",
+      "kind": "image",
+      "path": "d5a2c052e7821755.png"
+    },
+    {
+      "sha256": "d82b89b7bf668257a67a4c09649c3c7b3ec742dbcd583acbd79ad7b7c2109fae",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_Insight.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_Insight",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_Insight.png",
+      "kind": "image",
+      "path": "ca5c3dd3c81d4f94.png"
+    },
+    {
+      "sha256": "def7c11bb50abfec7144fa8697a1558781edf30f2f609195acd5be3dd1821412",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_MultipleHit.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_MultipleHit",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_MultipleHit.png",
+      "kind": "image",
+      "path": "61d1eb429f7c8143.png"
+    },
+    {
+      "sha256": "1c666fe0dc797ab88b66c6f2972c70a4f46d4fdede485afd2d187858be699175",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_Preemptive.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_Preemptive",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_Preemptive.png",
+      "kind": "image",
+      "path": "7b3f6cd912aa1fbc.png"
+    },
+    {
+      "sha256": "f832a402cc57ca51faafd5ca09fd9c4dd27980ca6ccc42e66ea6cc546c022d3c",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_ShieldBash.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_ShieldBash",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_ShieldBash.png",
+      "kind": "image",
+      "path": "dbc6eef7dc01c43e.png"
+    },
+    {
+      "sha256": "fae186220b6b5411d58fff67b8936ae00d184b83535eebea73d2f8da613e8167",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_Throughout_Dice.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_Throughout_Dice",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_Throughout_Dice.png",
+      "kind": "image",
+      "path": "ca76b5c0a6cde8d8.png"
+    },
+    {
+      "sha256": "e772650652f062b547dd98f71c5ad1cd2214dc13dec537f27d6f5ec8d5d58e69",
+      "language": "",
+      "sourcePath": "Resources/BufIcons/Hat_Enchantments_UnsealDice.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_UnsealDice",
+      "name": "HatSingularity.Enchantments.Resources.BufIcons.Hat_Enchantments_UnsealDice.png",
+      "kind": "image",
+      "path": "4521f4ad973ae439.png"
+    },
+    {
+      "sha256": "c141fbe7bfa0b7845f322f731ad2bd7dc23d50fcaae9af7b16bf1aa9f542a2ab",
+      "language": "",
+      "sourcePath": "Resources/CardIcons/Hat_Enchantments_DiscoverCard_Button_Done.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_DiscoverCard_Button_Done",
+      "name": "HatSingularity.Enchantments.Resources.CardIcons.Hat_Enchantments_DiscoverCard_Button_Done.png",
+      "kind": "image",
+      "path": "1c4a32f765bda3c0.png"
+    },
+    {
+      "sha256": "e59e35ae70e4b1dfb4d70d19e666ed7eb0a2786f4d90091e4b4c733e759ad5da",
+      "language": "",
+      "sourcePath": "Resources/CardIcons/Hat_Enchantments_DiscoverCard_Button.png",
+      "plugin": "HatSingularity.Enchantments",
+      "id": "Hat_Enchantments_DiscoverCard_Button",
+      "name": "HatSingularity.Enchantments.Resources.CardIcons.Hat_Enchantments_DiscoverCard_Button.png",
+      "kind": "image",
+      "path": "8ca60d69081cf04e.png"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "4032bb453731a7e0d5120e8285fb34fb60c8b6c939d40d34997cdfd01cf9c1d1",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.cn.HatAbilities_EffectTexts.xml",
+      "id": "HatAbilities_EffectTexts",
+      "path": "c030363e494974d0.xml",
+      "kind": "xml",
+      "language": "cn",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\cn\\HatAbilities_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "23fa844c339b2a6e73b05f7c24b3d6ecc71fd91e65ac0ecd1ce6f3a1d04c9b6c",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.cn.HatAbilities_Etc.xml",
+      "id": "HatAbilities_Etc",
+      "path": "03400ffdf92dfe95.xml",
+      "kind": "xml",
+      "language": "cn",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\cn\\HatAbilities_Etc.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "d650105a21f72b95c78e6fa815feba8b126f9a0d9312ccd6bb9b88577e14507f",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.en.HatAbilities_EffectTexts.xml",
+      "id": "HatAbilities_EffectTexts",
+      "path": "5643900181e1417b.xml",
+      "kind": "xml",
+      "language": "en",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\en\\HatAbilities_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "30983f3fa6f54bbfe0b08df5afb46de0f2f327863217786632807f1490abd682",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.en.HatAbilities_Etc.xml",
+      "id": "HatAbilities_Etc",
+      "path": "94511c70185a31cd.xml",
+      "kind": "xml",
+      "language": "en",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\en\\HatAbilities_Etc.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "f7208bb6d33c39452c27bc76e39c63e7281a80548fcaa287fe1136427a9fe374",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.jp.HatAbilities_EffectTexts.xml",
+      "id": "HatAbilities_EffectTexts",
+      "path": "aac4f8346b9cc7b6.xml",
+      "kind": "xml",
+      "language": "jp",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\jp\\HatAbilities_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "6704ba76974b22b34704bf81d34bdf61c6f16b1b48228d9ef7b2ee6ad2a01490",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.jp.HatAbilities_Etc.xml",
+      "id": "HatAbilities_Etc",
+      "path": "4394d8dade44b831.xml",
+      "kind": "xml",
+      "language": "jp",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\jp\\HatAbilities_Etc.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "07549d29508d2a41203300ea130eafd66c9596f6767b1e7ba09a153a576571ce",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.kr.HatAbilities_EffectTexts.xml",
+      "id": "HatAbilities_EffectTexts",
+      "path": "d648c1863fa9c08e.xml",
+      "kind": "xml",
+      "language": "kr",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\kr\\HatAbilities_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "d2f6627ed0fb118c2f56c5667fcd8d056d8d2ebbc4d3f99634d58b3b6e2026fa",
+      "plugin": "HatSingularity.Abilities",
+      "name": "HatSingularity.Abilities.Resources.kr.HatAbilities_Etc.xml",
+      "id": "HatAbilities_Etc",
+      "path": "f1a90d1e87dd8476.xml",
+      "kind": "xml",
+      "language": "kr",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\kr\\HatAbilities_Etc.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "265023fb273b492f45a3a48f553d44875ce78de7799d940ec6ceb7d9e638b241",
+      "plugin": "HatSingularity.KeywordView",
+      "name": "HatSingularity.KeywordView.Resources.cn.HatKeyword_OriginKeyword.xml",
+      "id": "HatKeyword_OriginKeyword",
+      "path": "758b71caf54fb2cd.xml",
+      "kind": "xml",
+      "language": "cn",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.KeywordView\\Resources\\cn\\HatKeyword_OriginKeyword.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "45b1ebe566bac191aa181b79dec61f99dc250b3f43b86ece1ace7817b422e243",
+      "plugin": "HatSingularity.KeywordView",
+      "name": "HatSingularity.KeywordView.Resources.en.HatKeyword_OriginKeyword.xml",
+      "id": "HatKeyword_OriginKeyword",
+      "path": "097c7831170f3973.xml",
+      "kind": "xml",
+      "language": "en",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.KeywordView\\Resources\\en\\HatKeyword_OriginKeyword.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "d6b601b9a13f1aa68a6c4cf4e704720dab73029f16b44f5150d698fbf8a2aa6b",
+      "plugin": "HatSingularity.KeywordView",
+      "name": "HatSingularity.KeywordView.Resources.jp.HatKeyword_OriginKeyword.xml",
+      "id": "HatKeyword_OriginKeyword",
+      "path": "c9d95dc00d795dfe.xml",
+      "kind": "xml",
+      "language": "jp",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.KeywordView\\Resources\\jp\\HatKeyword_OriginKeyword.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "6148d4d3759cc63673770740d32db88ae882ba2196ba5da3a559d097787e2d68",
+      "plugin": "HatSingularity.KeywordView",
+      "name": "HatSingularity.KeywordView.Resources.kr.HatKeyword_OriginKeyword.xml",
+      "id": "HatKeyword_OriginKeyword",
+      "path": "2b1b3388c0b62072.xml",
+      "kind": "xml",
+      "language": "kr",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.KeywordView\\Resources\\kr\\HatKeyword_OriginKeyword.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "d00763f656f06e61b21e7aabf536d0c0c5a9abb9261d5d3895e7218ba8deab3e",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.cn.HatCore_EffectTexts.xml",
+      "id": "HatCore_EffectTexts",
+      "path": "37e3e8cdba84b89c.xml",
+      "kind": "xml",
+      "language": "cn",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\cn\\HatCore_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "0a0c6203054f05148f9bf6fe3165d83182213082159a6e79daa1fe2e0ce49b7f",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.cn.HatCore_Etc.xml",
+      "id": "HatCore_Etc",
+      "path": "7933182a2285dfc9.xml",
+      "kind": "xml",
+      "language": "cn",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\cn\\HatCore_Etc.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "c8051747e32066fa571c480a0eaa990b5653364199af8abd175f5d2dfb278a29",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.en.HatCore_EffectTexts.xml",
+      "id": "HatCore_EffectTexts",
+      "path": "21f65bc78a16b4a7.xml",
+      "kind": "xml",
+      "language": "en",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\en\\HatCore_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "beadb017c25786ba242c5f254de62a4c1a55298eb3ce5b567f90f49b55851261",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.en.HatCore_Etc.xml",
+      "id": "HatCore_Etc",
+      "path": "e37ffbca71c8eb9b.xml",
+      "kind": "xml",
+      "language": "en",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\en\\HatCore_Etc.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "0a016ac60ec816de967b0578988d63b9de3343319a7d4256fc5bf52c4c9c1176",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.jp.HatCore_EffectTexts.xml",
+      "id": "HatCore_EffectTexts",
+      "path": "486fa45680ea05ca.xml",
+      "kind": "xml",
+      "language": "jp",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\jp\\HatCore_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "ccffbef2c4c4b23ab7b4c1051a5cc9dfb25f7d039a6824b8e52136f3a61e349e",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.jp.HatCore_Etc.xml",
+      "id": "HatCore_Etc",
+      "path": "c0d9af203c6006b8.xml",
+      "kind": "xml",
+      "language": "jp",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\jp\\HatCore_Etc.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "f24ee1b0c9dd795989364f762fc95ee1e93697ddb890d844279dee6225b8997f",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.kr.HatCore_EffectTexts.xml",
+      "id": "HatCore_EffectTexts",
+      "path": "3057a7ca121496ef.xml",
+      "kind": "xml",
+      "language": "kr",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\kr\\HatCore_EffectTexts.xml"
+    },
+    {
+      "source": "CoreReady-20261011",
+      "sha256": "6076a0c74ca60bb0d2e3f0299888a2af0dde44b2f6c5b7e8a7cd9ec7651b4ebc",
+      "plugin": "HatSingularity.Utils",
+      "name": "HatSingularity.Utils.Resources.kr.HatCore_Etc.xml",
+      "id": "HatCore_Etc",
+      "path": "6afc1b2b32c0203c.xml",
+      "kind": "xml",
+      "language": "kr",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Utils\\Resources\\kr\\HatCore_Etc.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "f538f559b31be04e3fff7b807474a28895604a58649480b1d2e99176a7f59dbb",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Localization.cn.Traits.xml",
+      "id": "Traits",
+      "path": "3b1270ac7cce949d.xml",
+      "kind": "xml",
+      "language": "cn",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Localization\\cn\\Traits.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "7b5f54578adb04d08ad1ebbd877def3ef69ddd332feb4762dd3ec782ac531359",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Localization.en.Traits.xml",
+      "id": "Traits",
+      "path": "a5f3248ac7671c73.xml",
+      "kind": "xml",
+      "language": "en",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Localization\\en\\Traits.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "dd4d7d3296ff853893e88f201d38c4f0150ad986a91b939cf97871c1c5f5a814",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Localization.jp.Traits.xml",
+      "id": "Traits",
+      "path": "11611f0817ea8afd.xml",
+      "kind": "xml",
+      "language": "jp",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Localization\\jp\\Traits.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "07c514d4126aa292e05c09ed62401bd2e1775af72fb3872d120b424f65a3cf3f",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Localization.kr.Traits.xml",
+      "id": "Traits",
+      "path": "2375a3aa11b1f64c.xml",
+      "kind": "xml",
+      "language": "kr",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Localization\\kr\\Traits.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "b2f8b1ce8fc48822dec99ee91ced46d54f9e3b55d2cad2c7b45d16aa1c746a1b",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Keywords.cn.xml",
+      "id": "cn",
+      "path": "1956c888b19f74a6.xml",
+      "kind": "xml",
+      "language": "cn",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Keywords\\cn.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "733a514814d5a108f7dd1e31d9bb6c945891de8f3fa40fc55173ef92d335cda1",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Keywords.en.xml",
+      "id": "en",
+      "path": "1abf483483a87dda.xml",
+      "kind": "xml",
+      "language": "en",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Keywords\\en.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "e3f5c4bdb20578636a6cd9c2cea7f45092382a0dcfa0985c3d718c4559fa4b42",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Keywords.jp.xml",
+      "id": "jp",
+      "path": "9b673fa573016c3c.xml",
+      "kind": "xml",
+      "language": "jp",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Keywords\\jp.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "22b726b0203dde17526c1ead5e4e08d5f9466f91c9f54674b138586e9f4ea345",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.Keywords.kr.xml",
+      "id": "kr",
+      "path": "44ccc10510e57424.xml",
+      "kind": "xml",
+      "language": "kr",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\Keywords\\kr.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "8d50f899435ccf375eaa458834fcb75d9f118840aa964695bdf6de18df9ebe66",
+      "plugin": "HatSingularity.Tags",
+      "name": "HatSingularity.Tags.Resources.UI.Labels.xml",
+      "id": "Labels",
+      "path": "be13681ffc8b9b4e.xml",
+      "kind": "xml",
+      "language": "",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Tags\\Resources\\UI\\Labels.xml"
+    },
+    {
+      "source": "project-localization",
+      "sha256": "ebadd1ab72349f860f4ae69c978eaeca0be774b46db1cf225026db0f70c53335",
+      "plugin": "HatSingularity.UI",
+      "name": "HatSingularity.UI.Resources.SidebarTexts.xml",
+      "id": "SidebarTexts",
+      "path": "0ce7a35e33639404.xml",
+      "kind": "xml",
+      "language": "",
+      "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.UI\\Resources\\SidebarTexts.xml"
+    }
+  ],
+  "assemblies": [
+    {
+      "plugin": "HatSingularity.Abilities",
+      "sha256": "899a58875350f756071df39478d299c831babd37fc58a9873f2bc52b53a0650f",
+      "version": "1.0.0.0"
+    },
+    {
+      "plugin": "HatSingularity.Actions",
+      "sha256": "56b39a4e19e337c6d4f3750fa47743df60513955b0e895ed17b9472c07c57900",
+      "version": "0.8.0.0"
+    },
+    {
+      "plugin": "HatSingularity",
+      "sha256": "1883ba9cf1bc7721606cf07ab453c2f8f25e45fea4a8433a135789a3eb8450dd",
+      "version": "1.1.0.0"
+    },
+    {
+      "plugin": "HatSingularity.KeywordView",
+      "sha256": "4fdb1cebdb75cce7d0547f8c5c5d988add0d0f1a83e4ad289572406e6ac4dd5f",
+      "version": "1.0.0.0"
+    },
+    {
+      "plugin": "HatSingularity.Tags",
+      "sha256": "0245e962877d2d75b46e1c42000e5af58ef44bb79b4740115838f00a57e2a693",
+      "version": "1.0.0.0"
+    },
+    {
+      "plugin": "HatSingularity.UI",
+      "sha256": "0da84fa72d3e2a7d838b9fb2a89237cf2d07dafba2789b33ce9f3373ba4649a4",
+      "version": "0.9.2.0"
+    },
+    {
+      "plugin": "HatSingularity.Utils",
+      "sha256": "9937f5100ebec976145524121323ab2196251f6a77ae7c6a1f217085399ae26b",
+      "version": "1.0.0.0"
+    },
+    {
+      "version": "3.11.0.0",
+      "sourceProject": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\HatSingularity.Enchantments\\HatSingularity.Enchantments.csproj",
+      "plugin": "HatSingularity.Enchantments",
+      "source": "project",
+      "sourceFiles": [
+        {
+          "sha256": "2865a57e1dd1dc5883a486c8faf08e649a84c6a859290d220c18fc21d4d7b0e5",
+          "path": "Integration/AutomaticSidebars.cs"
+        },
+        {
+          "sha256": "d896c8c07f5ed982c1ad1d6e2e30aca0c956f79707ec114627bab4c2e2b88cb4",
+          "path": "Integration/DiceSealDisplay.cs"
+        },
+        {
+          "sha256": "299910ae23c967decaabdd3724c72c6cd6ba7dd513809be2d615c587866213a6",
+          "path": "Integration/ShieldBashDisplay.cs"
+        },
+        {
+          "sha256": "a6ea4152d7ba0130d70a31ac7c90a57326d46926e30359f2a9291903b29eab62",
+          "path": "Integration/ThroughoutDisplay.cs"
+        },
+        {
+          "sha256": "7cade1a4de57cf6e9a4ade77964813e70d3e64134e3cdffcc51851a21fd0b954",
+          "path": "Integration/UI_AmmoSidebar.cs"
+        },
+        {
+          "sha256": "aa677edcee053927e7418b33ba6aaa8a02302941b113893bbdc87240583a0471",
+          "path": "Integration/UI_CompositeSidebar.cs"
+        },
+        {
+          "sha256": "124472f9218c42dec233af768ef7aaa56e5812c8d13fc3eba70e37461391199b",
+          "path": "Integration/UI_DiscoverSidebar.cs"
+        },
+        {
+          "sha256": "94908205f79022a82068e690204becd44a33d635a35fc46e48842745d8add319",
+          "path": "Properties/AssemblyInfo.cs"
+        },
+        {
+          "sha256": "1b56e1f024d54965d7093df5231692ea355038a51ad296ea69e6353dbf3c4a44",
+          "path": "Ruina/AbilityBases.cs"
+        },
+        {
+          "sha256": "66e262e0673058631d3f83e1b6b7a01b0f8c7c872b36818847bfedc8c252b8d2",
+          "path": "Ruina/AbilityKeywordPatch.cs"
+        },
+        {
+          "sha256": "cfff38ded1132a707bc4f9a828d9f3958088b5d072348bb9eff9a43e97331bf1",
+          "path": "Ruina/AmmoUtil.cs"
+        },
+        {
+          "sha256": "e2802b87dd0a6e983898f3226657359f54fe3d4666bac4843fe3baa3252d7510",
+          "path": "Ruina/AmmoXmlRegistration.cs"
+        },
+        {
+          "sha256": "4a32a95aab98cbe34d8166b15e8714efd6360711c11be8e4635046a274e99f5a",
+          "path": "Ruina/AreaAttackDescription.cs"
+        },
+        {
+          "sha256": "10d73b97d0481d1995d9f0bb65bf93632491eb80ee31af7f76e3040e38da043d",
+          "path": "Ruina/BattleUnitBuf_Hat_Enchantments_Ammo.cs"
+        },
+        {
+          "sha256": "572172d8d7695c5aa02c967893fd5ed9ddf4d4a653164b08bd38a62bf8523600",
+          "path": "Ruina/BuiltinAmmoResources.cs"
+        },
+        {
+          "sha256": "9a951065ee40e30c006efdd577fd701ce25a93735463f5e354a3d7a67c70812c",
+          "path": "Ruina/BuiltinCardResources.cs"
+        },
+        {
+          "sha256": "0536687a22df65fd98ddb61b04958fc88d24839cd8f10bba277bd6a0e87f701b",
+          "path": "Ruina/CardCopy.cs"
+        },
+        {
+          "sha256": "d2d7d88597bcf93ac8d6c7dccb22d4514a267788fa57fcf6d98f9e7dc79a02f2",
+          "path": "Ruina/CardXmlIsolation.cs"
+        },
+        {
+          "sha256": "0bf8f7a7badc9a9645a4b990778c9c161926173eae11e66a6ac99a4cb5f08236",
+          "path": "Ruina/CompositeCardCopy.cs"
+        },
+        {
+          "sha256": "b997e74f5a5c8997996354823c2b3a9ba7bdfd36f18048935ce1939555170649",
+          "path": "Ruina/CompositeCardPatches.cs"
+        },
+        {
+          "sha256": "10fb77d9ba49c34a67db3fdc5b7ef90c9f33ca0e38cc20f69fd91af62af23dec",
+          "path": "Ruina/CompositeCards.cs"
+        },
+        {
+          "sha256": "6e1e4afde5317f28271c1bd3866cad74618489f6610ef082b9bee063bed233d9",
+          "path": "Ruina/DiceAbilities/AbilityBindings.cs"
+        },
+        {
+          "sha256": "a2634f973754c4132012b449083a4334f726dbf301a23e029be3b37c19da06e1",
+          "path": "Ruina/DiceAbilities/AmmoSlotAbility.cs"
+        },
+        {
+          "sha256": "96569663c33ca917b25b9352d84fa42a3994bc4aec616b20aab0c45dcf4b27c1",
+          "path": "Ruina/DiceAbilities/BuiltinDiceAbilities.cs"
+        },
+        {
+          "sha256": "248e59050a2b2b0c9c5a8df29e551f2d6bb149d1437f9397fde5299b7c53a1d5",
+          "path": "Ruina/DiceAbilities/Descriptions/BuiltinTraitDescriptions.cs"
+        },
+        {
+          "sha256": "f88eb11847f67afccdd8fdd4f90482fd861e4b8f31282cd2b3017dac5af19303",
+          "path": "Ruina/DiceAbilities/Descriptions/DiceDescriptionSummary.cs"
+        },
+        {
+          "sha256": "5b7ea15993e16ad75a5e4d58ed8486ff0664929ae80aff32e31c3356b18fffc3",
+          "path": "Ruina/DiceAbilities/Descriptions/MaximumKeywordDescription.cs"
+        },
+        {
+          "sha256": "e5aa6e94da3b414636121f3524211621d70529b101b165c176f5fcac65954d57",
+          "path": "Ruina/DiceAbilities/Descriptions/ShieldBashDescription.cs"
+        },
+        {
+          "sha256": "48a46eee834b9e01c536bb4376566a8eccaeec44b94f28ecf16aa4d96c57f8c7",
+          "path": "Ruina/DiceAbilities/DiceAbilities.cs"
+        },
+        {
+          "sha256": "1db38c7e5477c31649407cb72597c83c9a2d96ff233ba9b8f3fe326a6db5c13d",
+          "path": "Ruina/DiceAbilities/DiceAbilityContracts.cs"
+        },
+        {
+          "sha256": "f550bc53ab16b326e3178c89508f94f85c26fc35b6f13440a851ade53d396679",
+          "path": "Ruina/DiceAbilities/DiceRollContext.cs"
+        },
+        {
+          "sha256": "fcef0f1b10a0644a948ae718053f09407736b2d1fbd0fc187bea422f8cffda57",
+          "path": "Ruina/DiceAbilities/EnchantmentDiceAbility.cs"
+        },
+        {
+          "sha256": "a31b29a65f013858a92de98f742d13bf1cd616737eba065c3d7ec2a02086335f",
+          "path": "Ruina/DiceAbilities/Execution/CancelledAreaDefense.cs"
+        },
+        {
+          "sha256": "79aca5c938646a99d53f82bb34a67be7571113ce91a295da411ae585ede73bc2",
+          "path": "Ruina/DiceAbilities/Execution/CancelledDicePatches.cs"
+        },
+        {
+          "sha256": "25398e8a491ac5d8c24dc3df3b319efa27b9d3e19912e8a1554773f6e0a4c646",
+          "path": "Ruina/DiceAbilities/Execution/CancelledDiceRuntime.cs"
+        },
+        {
+          "sha256": "42f3a815b9b4f77d8191a4dc423ef7dc36605463a5391f9796060367ab86244c",
+          "path": "Ruina/DiceAbilities/Execution/DiceExecutionRules.cs"
+        },
+        {
+          "sha256": "69af99e1feab5fd4325d46d322be227f333766667f34dcf1b3846014493671fc",
+          "path": "Ruina/DiceAbilities/Execution/DiceSealSnapshots.cs"
+        },
+        {
+          "sha256": "4f269599bd3e292265aa38f19d1530e95aa2951159aa151f4da90b4960e9d238",
+          "path": "Ruina/DiceAbilities/Execution/ExhaustDiceUtil.cs"
+        },
+        {
+          "sha256": "ee9797788dd883e4d94b35198501e0b89bc97fd22a67921eb0d5372bf4c9dfb5",
+          "path": "Ruina/DiceAbilities/Execution/NumericDiceTraits.cs"
+        },
+        {
+          "sha256": "61ea60fa939210f1f61571e1a7b393d7dbcc020730b70ed0264500838a7f1cd0",
+          "path": "Ruina/DiceAbilities/Execution/ResonanceFinalValuePatch.cs"
+        },
+        {
+          "sha256": "8edf5bca0287d8f53dfbe5f7daf79664e3424e71a5b529070a07dabe50a471cd",
+          "path": "Ruina/DiceAbilities/Execution/SharedCounterUtil.cs"
+        },
+        {
+          "sha256": "0b62222af1948abafbbdcaf45f560afba6ca9ff18e964c7b581b30fef86dc732",
+          "path": "Ruina/DiceAbilities/Execution/ShieldBash.cs"
+        },
+        {
+          "sha256": "364966411a4fb95df7994c00b38bd2f9416fcba48a53cc4a1bf61f71fddd9ff9",
+          "path": "Ruina/DiceAbilities/Execution/ShieldBashAction.cs"
+        },
+        {
+          "sha256": "de830c54ffff37442ebb42c18d72520800a3d818c17716ee9eb6181e3cd53bfc",
+          "path": "Ruina/DiceAbilities/Execution/ShieldBashPatches.cs"
+        },
+        {
+          "sha256": "3135b5f7639f6f60366ad0f204c54ef9dbc168775f3550669728871e71da8728",
+          "path": "Ruina/DiceAbilities/Execution/Throughout.cs"
+        },
+        {
+          "sha256": "20c29b1cf8356568a2be26960ba902b8a4ae6db50b262f28c41f70071af7d033",
+          "path": "Ruina/DiceAbilities/Execution/ThroughoutPatches.cs"
+        },
+        {
+          "sha256": "c79ebe00d6805a1686ce9890ab33fa53f6084c7793f2f4b0f191be8dc77625d1",
+          "path": "Ruina/DiscoverAbility.cs"
+        },
+        {
+          "sha256": "e90a0ae1a0d3549dc1804b1f5604dac1ec3b8812b13a4473378a747879be4d43",
+          "path": "Ruina/DiscoverCards.cs"
+        },
+        {
+          "sha256": "762f6f63533e971607e0c596ad3a9112d9ac98e773d2cbb3870392f82e8375b3",
+          "path": "Ruina/DiscoverModifiers.cs"
+        },
+        {
+          "sha256": "b55dd05493f40d2c8d165efa0582c8f0a10a8ff9270eeff278f189bcea9331d2",
+          "path": "Ruina/EnchantmentRuntime.cs"
+        },
+        {
+          "sha256": "81f6277d2ddc3d214026c8c9e915632c492be3d1e15880037427647405fb9cd7",
+          "path": "Ruina/EnchantmentText.cs"
+        },
+        {
+          "sha256": "a993611d7274e935e2a4b00cac411e781993d4038f182c1e6a9ed69ced208f28",
+          "path": "Ruina/EnchantmentUiIntegration.cs"
+        },
+        {
+          "sha256": "bdcb6584286cd42a3b79c3b5d1ce78bd2858460f82a47db3d45ff0b46039a16d",
+          "path": "Ruina/KeywordValuePatch.cs"
+        },
+        {
+          "sha256": "ec11ebb3786329e66206d8af97d0ce18cebd431a14303a37bf1fa24899d1585b",
+          "path": "Ruina/Plugin.cs"
+        },
+        {
+          "sha256": "eb801e012d8903b60a3149d680532b2a8cc92d18c870a6f5a0063141ef4b1f3d",
+          "path": "Ruina/PreemptiveCards.cs"
+        },
+        {
+          "sha256": "6fc5a678a35a5c9e4ce9d83d66f62541b289fb2f35308d5228c9084e6c6dc513",
+          "path": "Ruina/RangeDisguiseTranspiler.cs"
+        },
+        {
+          "sha256": "0756d865e5d08f17babf899cadc9e26c922b190cadc2e7fed7a03da0ac375b41",
+          "path": "Ruina/SpeedDice/SpeedDiceEffect.cs"
+        },
+        {
+          "sha256": "e77789c3beb46cb083ea3444a859dd2dd9f2f670a30c2033f6c735076e337831",
+          "path": "Ruina/SpeedDice/SpeedDiceEffects.cs"
+        },
+        {
+          "sha256": "40dd9ee4c4441c9772ae505bfc191dc6acc3042d6a56559a5613e17a28fd4873",
+          "path": "Ruina/SpeedDice/SpeedDicePatches.cs"
+        },
+        {
+          "sha256": "9b29dc0515d429235d46d165ef7fff0f1f5158285a56deddfc674399786dd6f5",
+          "path": "Runtime/AmmoSlotText.cs"
+        },
+        {
+          "sha256": "d3e53f6ba93cef4402a726c15944e6dba676fe8884f16a5a53f40cb039e2fc06",
+          "path": "Runtime/Ammunition.cs"
+        },
+        {
+          "sha256": "bdaf457448044223ea144df2e9d72efd7f7b9b2a2ef0ee472dfc9e34f3bb82ca",
+          "path": "Runtime/BuiltinAmmo.cs"
+        },
+        {
+          "sha256": "0bfeb3cdb23fe831a6cc3a2be0be5ba3a5da083a734d22360a28563f6cfa406e",
+          "path": "Runtime/BuiltinTextStyles.cs"
+        },
+        {
+          "sha256": "a72328584bf3850cc5c06ebef5399f389c53365d037a075b2c7ec61a81e7d940",
+          "path": "Runtime/EffectGrant.cs"
+        },
+        {
+          "sha256": "db8a7394349075ae24037e806b80a3612840d4885e32cea4b5b5902ad264e3a3",
+          "path": "Runtime/EnchantmentState.cs"
+        },
+        {
+          "sha256": "89f2edfe29efa1a5371cabf147e98142ba5d72d21c5abcdb7a0284e48f3fb591",
+          "path": "Runtime/KeywordTextAggregation.cs"
+        },
+        {
+          "sha256": "e652945930401faa0ee64e41bf055685782c7245bafb0dd25ebe031753fecd5e",
+          "path": "Runtime/KeywordValueMarkup.cs"
+        },
+        {
+          "sha256": "b191bf8a1b3af399826c8e3bc4746aa341663335ebd61582fa5d8b0879eb7a00",
+          "path": "Runtime/StateKey.cs"
+        }
+      ]
+    }
+  ]
+}

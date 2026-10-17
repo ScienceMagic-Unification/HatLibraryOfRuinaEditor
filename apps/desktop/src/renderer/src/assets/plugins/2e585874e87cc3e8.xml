@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList />
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_CompositeCard_Keyword">
+      <Name>複合ページ</Name>
+      <Desc>複数の形態を自由に切り替えられる。</Desc>
+      <KeywordIconId>Hat_Enchantments_CompositeCard</KeywordIconId>
+      <Color>#E0C297</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_BrowseCard_Keyword">
+      <Name>閲覧</Name>
+      <Desc>ページ(~color=#FFD176~)(~u~)3(~/u~)(~/color~)枚を表示し、その中から1枚を選ぶ。
+(~color=#FFD176~)(~i~)- 表示後、このページを使用するまで選択肢は更新されない。(~/i~)(~/color~)</Desc>
+      <KeywordIconId>Hat_Enchantments_DiscoverCard</KeywordIconId>
+      <Color>#FFD176</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Preemptive_Keyword">
+      <Name>先制</Name>
+      <Desc>同じ射程タイプのページの中で、このページは先に行動する。</Desc>
+      <KeywordIconId>Hat_Enchantments_Preemptive</KeywordIconId>
+      <Color>#FDF417</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

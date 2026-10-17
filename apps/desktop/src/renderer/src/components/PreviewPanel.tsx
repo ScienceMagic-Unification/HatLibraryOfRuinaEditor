@@ -12,6 +12,9 @@ import { joinPath } from '../lib/path'
 import { cardAccent } from '../lib/cardAccent'
 import { RegexText } from './RegexText'
 import { useRegexRules } from '../lib/useRegexRules'
+import { builtinAbilityDescription } from '../lib/singularityAbilities'
+import { workspaceLanguage } from '../lib/workspaceLanguage'
+import { selectPrimaryDocument } from '../lib/documentSelection'
 
 const NAME_SCHEMA: EntitySchema = {
   root: 'BattleCardDescRoot',
@@ -41,7 +44,6 @@ export function PreviewPanel({
   entity: EntityRef | null
 }): JSX.Element {
   const { t, tl } = useI18n()
-  const rules = useRegexRules()
   const loadArtwork = useAppStore((s) => s.loadArtwork)
   const docs = useAppStore((s) => s.docs)
   const openWorkspaceAndSelect = useAppStore((s) => s.openWorkspaceAndSelect)
@@ -49,6 +51,8 @@ export function PreviewPanel({
   const ensureModuleDocs = useAppStore((s) => s.ensureModuleDocs)
   const nameLang = useAppStore((s) => s.primaryLang['cardname'])
   const abilityLang = useAppStore((s) => s.primaryLang['cardability'])
+  const abilityPath = useAppStore((s) => s.primaryDocPath['cardability'])
+  const previewLanguage = workspaceLanguage(docs, 'cardability', abilityLang, abilityPath)
   const [url, setUrl] = useState<string | null>(null)
   const artwork = entity ? (getTextField(entity.node, module.preview?.field ?? '') ?? '') : ''
 
@@ -93,7 +97,9 @@ export function PreviewPanel({
     return docsOfRoot.find((d) => d.lang === lang) ?? docsOfRoot.find((d) => d.lang === 'cn') ?? docsOfRoot[0]
   }
   const nameDoc = useMemo(() => pickDoc('BattleCardDescRoot', nameLang), [docs, nameLang])
-  const abilityDoc = useMemo(() => pickDoc('BattleCardAbilityDescRoot', abilityLang), [docs, abilityLang])
+  const abilityDoc = useMemo(() => selectPrimaryDocument(docs, 'cardability', abilityLang, abilityPath), [docs, abilityLang, abilityPath])
+  const rules = useRegexRules(previewLanguage)
+  const hatEnabled = useAppStore((s) => s.hatEnabled)
 
   const localizedName = useMemo(() => {
     if (!entity || !nameDoc) return undefined
@@ -102,9 +108,9 @@ export function PreviewPanel({
   }, [entity, nameDoc])
 
   const abilityText = (id: string): string | undefined => {
-    if (!id || !abilityDoc) return undefined
-    const hit = listEntities(abilityDoc.doc, ABILITY_SCHEMA).find((r) => r.id === id)
-    return hit ? getAllText(hit.node, 'Desc') || undefined : undefined
+    if (!id) return undefined
+    const hit = abilityDoc ? listEntities(abilityDoc.doc, ABILITY_SCHEMA).find((r) => r.id === id) : undefined
+    return (hit ? getAllText(hit.node, 'Desc') || undefined : undefined) ?? (hatEnabled && previewLanguage !== '__none__' ? builtinAbilityDescription(id, previewLanguage) : undefined)
   }
 
   if (!card) {
@@ -221,7 +227,7 @@ export function PreviewPanel({
                 </span>
                 {desc ? (
                   <span className="mt-0.5 min-w-0 flex-1 whitespace-pre-wrap text-[11px] leading-5 text-foreground">
-                    <RegexText text={desc} rules={rules} />
+                    <RegexText text={desc} rules={rules} scope="dice" diceAbilityIds={[script]} diceContext={{ type, detail, source: 'native' }} />
                   </span>
                 ) : (
                   <span className="mt-0.5 min-w-0 flex-1 text-[11px] leading-snug text-muted-foreground/60">{script}</span>

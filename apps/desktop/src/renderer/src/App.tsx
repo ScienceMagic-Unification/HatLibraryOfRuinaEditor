@@ -13,7 +13,8 @@ import {
   Sparkles,
   Swords,
   Tags,
-  Undo2
+  Undo2,
+  Wand2
 } from 'lucide-react'
 import { useAppStore } from './store'
 import { useI18n } from './i18n'
@@ -44,6 +45,8 @@ export function App(): JSX.Element {
   const gamePath = useAppStore((s) => s.gamePath)
   const hatEnabled = useAppStore((s) => s.hatEnabled)
   const setHatEnabled = useAppStore((s) => s.setHatEnabled)
+  const regexAutocomplete = useAppStore((s) => s.regexAutocomplete)
+  const setRegexAutocomplete = useAppStore((s) => s.setRegexAutocomplete)
 
   const booted = useRef(false)
   const [showCloseConfirm, setShowCloseConfirm] = useState(false)
@@ -94,7 +97,7 @@ export function App(): JSX.Element {
           </div>
           <div>
             <div className="text-sm font-semibold leading-tight">{t('app.title')}</div>
-            <div className="text-[10px] leading-tight text-muted-foreground">V0.2.2</div>
+            <div className="text-[10px] leading-tight text-muted-foreground">V0.2.3</div>
           </div>
         </div>
         <div className="mx-1 h-5 w-px bg-border" />
@@ -139,6 +142,21 @@ export function App(): JSX.Element {
           >
             <Atom className="size-4" />
             {hatEnabled ? t('hat.on') : t('hat.off')}
+          </Button>
+          <Button
+            size="sm"
+            variant={regexAutocomplete ? 'default' : 'outline'}
+            onClick={() => setRegexAutocomplete(!regexAutocomplete)}
+            aria-label="正则补全开关"
+            className={
+              regexAutocomplete
+                ? 'border-sky-400/70 bg-sky-400/20 font-semibold text-sky-300 hover:bg-sky-400/30'
+                : 'border-dashed font-medium text-muted-foreground hover:text-foreground'
+            }
+            title={regexAutocomplete ? t('regexAutocomplete.on') : t('regexAutocomplete.off')}
+          >
+            <Wand2 className="size-4" />
+            {regexAutocomplete ? t('regexAutocomplete.on') : t('regexAutocomplete.off')}
           </Button>
         </div>
         <div className="flex-1" />

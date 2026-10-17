@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_Ammo_View">Currently stored (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~):</text>
+  <text id="Hat_Enchantments_Ammo_Unique">Currently stored special (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~):</text>
+  <text id="Hat_Enchantments_Ammo_Fill">Loaded</text>
+  <text id="Hat_Enchantments_Ammo_Empty">No (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) currently acquired.</text>
+</localize>

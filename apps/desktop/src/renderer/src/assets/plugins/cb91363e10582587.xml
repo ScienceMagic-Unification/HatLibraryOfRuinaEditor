@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList>
+    <BattleEffectText ID="Hat_Enchantments_Ammo">
+      <Name>탄약</Name>
+      <Desc>현재 보유 중인 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) 없음.</Desc>
+    </BattleEffectText>
+  </effectTextList>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Keyword">
+      <Name>탄약</Name>
+      <Desc>(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)마다 기본값과 효과가 다르다.
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)은 순서대로 보관하고 장전한다.(~/HatKeyword~)
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 특수 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)은 종류를 선택하여 장전할 수 있다.(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Set_Keyword">
+      <Name>장전 가능</Name>
+      <Desc>이 주사위에 (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)을 장전하여 해당 기본값과 효과를 일시적으로 얻을 수 있다.</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo_Set</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Normal">
+      <Name>일반탄</Name>
+      <Desc>(~HatKeyword id="Hat_Enchantments_Atk_Color"~)1~1(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo_Normal</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

@@ -1,13 +1,14 @@
 import type { ModuleDefinition } from '@ruina/editor-core'
-import { optionMeta } from './meta'
 
 /** 抗性枚举：普通 / 耐受 / 脆弱 / 致命 / 免疫 */
-const resistValues = ['Normal', 'Endure', 'Weak', 'Vulnerable', 'Immune'] as const
+export const resistValues = ['Normal', 'Endure', 'Resist', 'Vulnerable', 'Weak', 'Immune', 'None'] as const
 const resistLabels: Record<string, string> = {
   Normal: '普通',
   Endure: '耐受',
-  Weak: '脆弱',
-  Vulnerable: '致命',
+  Resist: '抵抗',
+  Weak: '致命',
+  Vulnerable: '脆弱',
+  None: '无',
   Immune: '免疫'
 }
 const resistColors: Record<string, string> = {
@@ -56,14 +57,14 @@ function bookEntity(): ModuleDefinition['entity'] {
     displayField: 'Name',
     idNumeric: true,
     headerFields: ['Rarity'],
-    locked: { TextId: '-1' },
     defaults: {
       HpReduction: '0',
-      HP: '0',
+      TextId: '-1',
+      HP: '1',
       DeadLine: '0',
-      Break: '0',
-      SpeedMin: '0',
-      Speed: '0',
+      Break: '1',
+      SpeedMin: '1',
+      Speed: '1',
       EquipSpeedDiceNum: '0',
       SResist: 'Normal',
       PResist: 'Normal',
@@ -71,22 +72,23 @@ function bookEntity(): ModuleDefinition['entity'] {
       SBResist: 'Normal',
       PBResist: 'Normal',
       HBResist: 'Normal',
-      MaxPlayPoint: '0',
-      StartPlayPoint: '0',
+      MaxPlayPoint: '3',
+      StartPlayPoint: '3',
       AddedStartDraw: '0',
       Rarity: 'Common',
       CharacterSkinType: 'Lor',
       SkinGender: 'N',
       Chapter: '1',
-      Episode: '0',
+      Episode: '-1',
       RangeType: 'Melee',
       SpeedDiceNum: '1',
-      RandomFace: 'true',
+      RandomFace: 'false',
       SuccessionPossibleNumber: '9'
     },
     quickFields: ['Name', 'Rarity', 'Chapter', 'RangeType'],
     fields: [
       { kind: 'text', name: 'Name', label: '名称', required: true },
+      { kind: 'int', name: 'TextId', label: '文本 ID', optional: true },
       {
         kind: 'enum',
         name: 'Rarity',
@@ -106,13 +108,13 @@ function bookEntity(): ModuleDefinition['entity'] {
         labels: rangeTypeLabels,
         icons: { Melee: 'near', Range: 'far', Hybrid: 'special' }
       },
-      { kind: 'int', name: 'Episode', label: '章节幕', digitsOnly: true },
+      { kind: 'int', name: 'Episode', label: '章节幕' },
       {
         kind: 'multi',
         name: 'Option',
         label: '特性',
-        values: ['Basic', 'OnlyPage', 'EGO', 'EgoPersonal', 'Personal', 'NoInventory', 'ExhaustOnUse', 'EgoChange'],
-        labels: optionMeta
+        values: ['None', 'Basic', 'MultiDeck'],
+        labels: { None: '无', Basic: '基础书页', MultiDeck: '多卡组' }
       },
       { kind: 'text', name: 'BookIcon', label: '书页图标' },
       { kind: 'child', element: 'EquipEffect', name: 'HP', label: '生命值', field: { kind: 'int', name: 'HP', digitsOnly: true } },
@@ -121,7 +123,7 @@ function bookEntity(): ModuleDefinition['entity'] {
       { kind: 'child', element: 'EquipEffect', name: 'DeadLine', label: 'DeadLine', field: { kind: 'int', name: 'DeadLine', digitsOnly: true } },
       { kind: 'child', element: 'EquipEffect', name: 'SpeedMin', label: '速度下限', field: { kind: 'int', name: 'SpeedMin', digitsOnly: true } },
       { kind: 'child', element: 'EquipEffect', name: 'Speed', label: '速度上限', field: { kind: 'int', name: 'Speed', digitsOnly: true } },
-      { kind: 'child', element: 'EquipEffect', name: 'EquipSpeedDiceNum', label: '速度骰子数(战斗)', field: { kind: 'int', name: 'SpeedDiceNum', digitsOnly: true } },
+      { kind: 'child', element: 'EquipEffect', name: 'EquipSpeedDiceNum', label: '效果内速度骰子数', field: { kind: 'int', name: 'SpeedDiceNum', digitsOnly: true } },
       { kind: 'child', element: 'EquipEffect', name: 'SResist', label: '斩击抗性', field: { kind: 'enum', name: 'SResist', values: [...resistValues], asChips: true, labels: resistLabels, dots: true, colors: resistColors } },
       { kind: 'child', element: 'EquipEffect', name: 'PResist', label: '突刺抗性', field: { kind: 'enum', name: 'PResist', values: [...resistValues], asChips: true, labels: resistLabels, dots: true, colors: resistColors } },
       { kind: 'child', element: 'EquipEffect', name: 'HResist', label: '打击抗性', field: { kind: 'enum', name: 'HResist', values: [...resistValues], asChips: true, labels: resistLabels, dots: true, colors: resistColors } },
@@ -130,13 +132,13 @@ function bookEntity(): ModuleDefinition['entity'] {
       { kind: 'child', element: 'EquipEffect', name: 'HBResist', label: '打击混乱抗性', field: { kind: 'enum', name: 'HBResist', values: [...resistValues], asChips: true, labels: resistLabels, dots: true, colors: resistColors } },
       { kind: 'child', element: 'EquipEffect', name: 'MaxPlayPoint', label: '最大光芒', field: { kind: 'int', name: 'MaxPlayPoint', digitsOnly: true } },
       { kind: 'child', element: 'EquipEffect', name: 'StartPlayPoint', label: '初始光芒', field: { kind: 'int', name: 'StartPlayPoint', digitsOnly: true } },
-      { kind: 'child', element: 'EquipEffect', name: 'AddedStartDraw', label: '初始抽牌', field: { kind: 'int', name: 'AddedStartDraw', digitsOnly: true } },
+      { kind: 'child', element: 'EquipEffect', name: 'AddedStartDraw', label: '额外初始抽牌', field: { kind: 'int', name: 'AddedStartDraw' } },
       { kind: 'child', element: 'EquipEffect', name: 'OnlyCard', label: '专属卡牌', field: { kind: 'multi', name: 'OnlyCard' } },
       { kind: 'child', element: 'EquipEffect', name: 'CustomOnlyCard', label: '自定义专属卡牌', field: { kind: 'multi', name: 'CustomOnlyCard' } },
       { kind: 'child', element: 'EquipEffect', name: 'Passive', label: '被动', field: { kind: 'multi', name: 'Passive' } },
       { kind: 'text', name: 'CharacterSkin', label: '皮肤' },
       { kind: 'text', name: 'CharacterSkinType', label: '皮肤类型' },
-      { kind: 'text', name: 'SkinGender', label: '皮肤性别' },
+      { kind: 'enum', name: 'SkinGender', label: '皮肤性别', values: ['N', 'F', 'M', 'Creature', 'EGO'], asChips: true },
       {
         kind: 'enum',
         name: 'Chapter',
@@ -153,7 +155,7 @@ function bookEntity(): ModuleDefinition['entity'] {
       { kind: 'bool', name: 'NotEquip', label: '不可装备' },
       { kind: 'bool', name: 'RandomFace', label: '随机立绘' },
       { kind: 'int', name: 'SuccessionPossibleNumber', label: '继承次数', digitsOnly: true },
-      { kind: 'text', name: 'Category', label: '类别', omitWhenEmpty: true }
+      { kind: 'multi', name: 'Category', label: '类别', values: ['None', 'Thumb', 'Smoke1', 'Smoke2', 'TheIndex', 'RhinoUnit', 'DeckFixed'] }
     ]
   }
 }

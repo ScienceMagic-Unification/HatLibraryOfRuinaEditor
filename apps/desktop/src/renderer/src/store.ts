@@ -1,3 +1,5 @@
+import { corePageModuleForFile, isCorePage } from './lib/corePages'
+import { selectPrimaryDocument } from './lib/documentSelection'
 import { create } from 'zustand'
 import {
   SnapshotHistory,
@@ -13,6 +15,7 @@ import {
   listEntities,
   parseXml,
   serializeXml,
+  serializeNode,
   validateEntities,
   type EntityRef,
   type EntitySchema,
@@ -76,6 +79,8 @@ interface AppState {
   primaryDocPath: Record<string, string>
   docOverrides: Record<string, { add: string[]; remove: string[] }>
   listScroll: Record<string, number>
+  localizedView: Record<string, boolean>
+  dirtyEntities: Record<string, string[]>
   selectedId: Record<string, string | null>
   lastEditedPath: string | null
   historyTick: number
@@ -86,6 +91,7 @@ interface AppState {
   modEpoch: number
   assetPick: { fromModuleId: string; field: string; initialAssetName?: string } | null
   hatEnabled: boolean
+  regexAutocomplete: boolean
   proofMode: Record<string, boolean>
   proofPreview: Record<string, boolean>
   boot: () => Promise<void>
@@ -99,9 +105,13 @@ interface AppState {
   importDoc: (moduleId: string) => Promise<void>
   removeDoc: (moduleId: string, path: string) => void
   setListScroll: (key: string, top: number) => void
+  setLocalizedView: (key: string, on: boolean) => void
+  markEntitiesDirty: (moduleId: string, ids: string[]) => void
+  clearModuleDirty: (moduleId: string) => void
+  clearAllDirty: () => void
   select: (moduleId: string, id: string | null) => void
   editData: (moduleId: string, mutate: (doc: OrderedDoc, refs: EntityRef[]) => void) => void
-  editDoc: (path: string, mutate: (doc: OrderedDoc) => void) => void
+  editDoc: (path: string, mutate: (doc: OrderedDoc) => void) => boolean
   undo: () => void
   redo: () => void
   saveModule: (moduleId: string) => Promise<boolean>
@@ -114,6 +124,7 @@ interface AppState {
   cancelAssetPick: () => void
   setStatus: (status: string, kind?: 'info' | 'success' | 'error') => void
   setHatEnabled: (enabled: boolean) => void
+  setRegexAutocomplete: (enabled: boolean) => void
   setProofMode: (moduleId: string, on: boolean) => void
   setProofPreview: (moduleId: string, on: boolean) => void
 }
@@ -158,6 +169,8 @@ function bindingForImported(module: ModuleDefinition, root: string | null): DocB
 }
 
 function hintForDataFile(name: string): string | null {
+  const core = corePageModuleForFile(name)
+  if (core) return core
   const n = name.toLowerCase()
   if (n.includes('cardinfo') || n === 'card.xml') return 'cardinfo'
   if (n.includes('passive')) return 'passive'
@@ -223,32 +236,19 @@ async function scanMod(modPath: string): Promise<{
     }
   }
 
-  // 第三层兜底：目录名没有 Localize / 语言段时，按根节点识别
-  for (const path of locCandidates) {
-    if (localizeFiles.some((f) => f.path === path)) continue
-    const rel = path.slice(modPath.length).replace(/\\/g, '/').replace(/^\/+/, '').toLowerCase()
-    if (/^(data|resource|artwork|char|bufficon|assemblies)[\\/]/.test(rel)) continue
-    try {
-      const text = await api.readTextFile(path)
-      const doc = parseXml(text)
-      const root = findRootName(doc)
-      if (!root || !KNOWN_LOC_ROOTS.has(root)) continue
-      const lang = detectLang(path, text)
-      localizeFiles.push({ path, root, lang: lang.lang, label: lang.label })
-      if (!inferredLoc.has(root)) {
-        const schema = inferEntitySchema(doc, root)
-        if (schema) inferredLoc.set(root, schema)
-      }
-    } catch {
-      // 跳过无法解析的文件
-    }
-  }
-
   const modules: ModuleDefinition[] = []
   const knownDataPaths = new Set<string>()
   const knownLocPaths = new Set<string>()
 
-  for (const tmpl of registryModules.filter((m) => !m.resource)) {
+  for (const tmpl of registryModules.filter((m) => !m.resource && !m.builtin)) {
+    if (isCorePage(tmpl.id)) {
+      const matches = dataFiles.filter((d) => d.root === 'BookXmlRoot' && corePageModuleForFile(d.name) === tmpl.id)
+      if (matches.length) {
+        matches.forEach((d) => knownDataPaths.add(d.path))
+        modules.push({ ...tmpl, dataFile: undefined, dataFiles: matches.map((d) => d.path) })
+      }
+      continue
+    }
     const matches = tmpl.dataRoot
       ? dataFiles.filter((d) => d.root === tmpl.dataRoot)
       : tmpl.dataFile
@@ -362,7 +362,7 @@ async function scanMod(modPath: string): Promise<{
     })
   }
 
-  for (const tmpl of registryModules.filter((m) => m.resource)) modules.push({ ...tmpl })
+  for (const tmpl of registryModules.filter((m) => m.resource || m.id === 'vanilla-passives' || m.id === 'vanilla-abilities' || m.id === 'vanilla-cards')) modules.push({ ...tmpl })
 
   
 
@@ -433,18 +433,8 @@ function primaryDocsOf(docs: Record<string, DocState>, moduleId: string): DocSta
   return Object.values(docs).filter((d) => d.bindings[moduleId]?.kind === 'primary')
 }
 
-function activePrimaryDoc(
-  docs: Record<string, DocState>,
-  moduleId: string,
-  primaryLang: string | undefined
-): DocState | undefined {
-  const primaries = primaryDocsOf(docs, moduleId)
-  if (primaries.length === 0) return undefined
-  if (primaries.length === 1) return primaries[0]
-  return primaries.find((d) => d.lang === primaryLang) ?? primaries[0]
-}
-
 const hatInitial = typeof localStorage !== 'undefined' ? localStorage.getItem('hatSingularityEnabled') === '1' : false
+const regexAutocompleteInitial = typeof localStorage !== 'undefined' ? localStorage.getItem('regexAutocompleteEnabled') === '1' : false
 
 export const useAppStore = create<AppState>((set, get) => ({
   ready: false,
@@ -461,6 +451,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   primaryDocPath: {},
   docOverrides: loadDocOverrides(),
   listScroll: {},
+  localizedView: {},
+  dirtyEntities: {},
   selectedId: {},
   lastEditedPath: null,
   historyTick: 0,
@@ -471,6 +463,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   modEpoch: 0,
   assetPick: null,
   hatEnabled: hatInitial,
+  regexAutocomplete: regexAutocompleteInitial,
   proofMode: {},
   proofPreview: {},
 
@@ -487,6 +480,15 @@ export const useAppStore = create<AppState>((set, get) => ({
       // localStorage 不可用时忽略
     }
     set({ hatEnabled: enabled })
+  },
+
+  setRegexAutocomplete: (enabled) => {
+    try {
+      localStorage.setItem('regexAutocompleteEnabled', enabled ? '1' : '0')
+    } catch {
+      // localStorage 不可用时忽略
+    }
+    set({ regexAutocomplete: enabled })
   },
 
   boot: async () => {
@@ -527,6 +529,8 @@ export const useAppStore = create<AppState>((set, get) => ({
         primaryLang: {},
         primaryDocPath: {},
         listScroll: {},
+        localizedView: {},
+        dirtyEntities: {},
         artCache: {},
         modEpoch: get().modEpoch + 1,
         activeModuleId: modules[0]?.id ?? ''
@@ -754,6 +758,26 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   setListScroll: (key, top) => set((s) => ({ listScroll: { ...s.listScroll, [key]: top } })),
 
+  setLocalizedView: (key, on) => set((s) => ({ localizedView: { ...s.localizedView, [key]: on } })),
+
+  markEntitiesDirty: (moduleId, ids) => {
+    if (!ids.length) return
+    set((s) => {
+      const existing = new Set(s.dirtyEntities[moduleId] ?? [])
+      for (const id of ids) if (id) existing.add(id)
+      return { dirtyEntities: { ...s.dirtyEntities, [moduleId]: Array.from(existing) } }
+    })
+  },
+
+  clearModuleDirty: (moduleId) => set((s) => {
+    if (!(moduleId in s.dirtyEntities)) return {}
+    const next = { ...s.dirtyEntities }
+    delete next[moduleId]
+    return { dirtyEntities: next }
+  }),
+
+  clearAllDirty: () => set({ dirtyEntities: {} }),
+
   openWorkspaceAndSelect: async (moduleId, id) => {
     if (!get().modules.some((m) => m.id === moduleId)) {
       get().setStatus('目标工作区不存在', 'error')
@@ -770,20 +794,28 @@ export const useAppStore = create<AppState>((set, get) => ({
   editData: (moduleId, mutate) => {
     const module = get().modules.find((m) => m.id === moduleId)
     if (!module) return
-    const doc = activePrimaryDoc(get().docs, moduleId, get().primaryLang[moduleId])
+    const doc = selectPrimaryDocument(get().docs, moduleId, get().primaryLang[moduleId], get().primaryDocPath[moduleId])
     if (!doc) return
-    get().editDoc(doc.path, (d) => {
+    const selectedId = get().selectedId[moduleId] ?? null
+    const beforeNode = selectedId ? listEntities(doc.doc, module.entity).find((r) => r.id === selectedId)?.node : undefined
+    const beforeText = beforeNode ? serializeNode(beforeNode) : null
+    const changed = get().editDoc(doc.path, (d) => {
       const refs = listEntities(d, module.entity)
       mutate(d, refs)
     })
+    if (changed && selectedId) {
+      const afterNode = listEntities(doc.doc, module.entity).find((r) => r.id === selectedId)?.node
+      const afterText = afterNode ? serializeNode(afterNode) : null
+      if (afterText !== null && afterText !== beforeText) get().markEntitiesDirty(moduleId, [selectedId])
+    }
   },
 
-  editDoc: (path, mutate) => {
+  editDoc: (path, mutate): boolean => {
     const d = get().docs[path]
-    if (!d) return
+    if (!d) return false
     const before = serializeXml(d.doc)
     mutate(d.doc)
-    if (serializeXml(d.doc) === before) return
+    if (serializeXml(d.doc) === before) return false
     const cloned = structuredClone(d.doc)
     d.history.push(before)
     // 为每个绑定了该文件的工作区重新校验
@@ -797,6 +829,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       lastEditedPath: path,
       historyTick: state.historyTick + 1
     }))
+    return true
   },
 
   undo: () => {
@@ -847,6 +880,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         d.dirty = false
         d.history.clear()
       }
+      get().clearModuleDirty(moduleId)
       set((state) => ({ docs: { ...state.docs } }))
       get().setStatus(`已保存当前模块 ${dirty.length} 个文件`, 'success')
       return true
@@ -870,6 +904,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         d.dirty = false
         d.history.clear()
       }
+      get().clearAllDirty()
       set((state) => ({ docs: { ...state.docs } }))
       get().setStatus(`全部保存完成：共 ${dirty.length} 个文件`, 'success')
       return true

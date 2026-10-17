@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_CompositeCard_Title">Select another form</text>
+  <text id="Hat_Enchantments_DiscoverCard_Title">Consult a page</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Empty">No (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) available</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Full">No (~HatKeyword id="Hat_Enchantments_Ammo_Set_Keyword"/~) dice available</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Normal">Click to load 1 regular (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~).</text>
+  <text id="Hat_Enchantments_Sidebar_Ammo_Special">Click to load 1 special (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~) of this type.</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Description">Click to switch this page's form.</text>
+  <text id="Hat_Enchantments_Sidebar_Composite_Locked">This page's form cannot be switched manually.</text>
+  <text id="Hat_Enchantments_Sidebar_Discover_Description">Click to (~HatKeyword id="Hat_Enchantments_BrowseCard_Keyword"/~) 1 page.</text>
+</localize>

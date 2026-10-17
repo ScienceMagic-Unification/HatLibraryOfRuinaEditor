@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <text id="Hat_Enchantments_Ammo_View">当前已存储以下(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)</text>
+  <text id="Hat_Enchantments_Ammo_Unique">当前已存储以下特殊(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)</text>
+  <text id="Hat_Enchantments_Ammo_Fill">已填装</text>
+  <text id="Hat_Enchantments_Ammo_Empty">当前未获得(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)</text>
+</localize>

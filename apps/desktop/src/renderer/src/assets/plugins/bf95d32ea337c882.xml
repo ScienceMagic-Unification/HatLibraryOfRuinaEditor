@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleEffectTextRootExtra>
+  <effectTextList>
+    <BattleEffectText ID="Hat_Enchantments_Ammo">
+      <Name>弾薬</Name>
+      <Desc>現在(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)を保有していない。</Desc>
+    </BattleEffectText>
+  </effectTextList>
+  <extraTextList>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Keyword">
+      <Name>弾薬</Name>
+      <Desc>(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)ごとに基礎値と効果が異なる。
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- (~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)は順番に保管・装填される。(~/HatKeyword~)
+(~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- 特殊(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)は種類を選んで装填できる。(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+      <RecognizeName />
+      <IsItalic>false</IsItalic>
+      <IsBold>false</IsBold>
+      <IsCardPreview>false</IsCardPreview>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Set_Keyword">
+      <Name>装填可能</Name>
+      <Desc>このダイスに(~HatKeyword id="Hat_Enchantments_Ammo_Keyword"/~)を装填すると、その基礎値と効果を一時的に得る。</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo_Set</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+    <BattleEffectTextExtra ID="Hat_Enchantments_Ammo_Normal">
+      <Name>通常弾</Name>
+      <Desc>(~HatKeyword id="Hat_Enchantments_Atk_Color"~)1~1(~/HatKeyword~)</Desc>
+      <KeywordIconId>Hat_Enchantments_Ammo_Normal</KeywordIconId>
+      <Color>#FFCB21</Color>
+      <HasBracket>true</HasBracket>
+      <IsUnderline>true</IsUnderline>
+      <IsChangeSelf>true</IsChangeSelf>
+      <IsChangeAbility>true</IsChangeAbility>
+      <IsChangePassive>true</IsChangePassive>
+      <IsAutoLink>true</IsAutoLink>
+    </BattleEffectTextExtra>
+  </extraTextList>
+</BattleEffectTextRootExtra>

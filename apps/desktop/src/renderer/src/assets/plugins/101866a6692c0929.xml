@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HatKeywordFixRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <Fix>
+    <Script>yanAreaDice</Script>
+    <Script>yanOnly1Dice</Script>
+	<Script>servantofwrath_decay1atk</Script>
+	<Script>servantofwrath_decay2atk</Script>
+	<Script>servantofwrath_decay2atk_area</Script>
+	<Script>servantofwrath_decay6atk_area</Script>
+    <AddKeyword>Decay</AddKeyword>
+  </Fix>
+
+</HatKeywordFixRoot>

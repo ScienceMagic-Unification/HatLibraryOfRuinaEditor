@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { EntitySchema, OrderedDoc } from '@ruina/editor-core'
 import { getTextField, listEntities } from '@ruina/editor-core'
 import { Input } from '@ruina/ui'
@@ -13,12 +13,14 @@ export function EffectTextListPanel({
   doc,
   schema,
   selectedId,
-  onSelect
+  onSelect,
+  dirtyIds
 }: {
   doc: OrderedDoc
   schema: EntitySchema
   selectedId: string | null
   onSelect: (id: string) => void
+  dirtyIds?: Set<string>
 }): JSX.Element {
   const { t } = useI18n()
   const rules = useRegexRules()
@@ -26,6 +28,9 @@ export function EffectTextListPanel({
   const buffIcons = useAppStore((s) => s.buffIcons)
   const loadBuffIcons = useAppStore((s) => s.loadBuffIcons)
   const [search, setSearch] = useState('')
+  const listRef = useRef<HTMLDivElement>(null)
+  const rowRefs = useRef(new Map<string, HTMLButtonElement>())
+  const lastScrolledRef = useRef<string | null>(null)
 
   useEffect(() => {
     void loadBuffIcons()
@@ -42,6 +47,29 @@ export function EffectTextListPanel({
     })
   }, [refs, search])
 
+  // 选中项变化时滚动进可视范围（新增/复制后立即定位到新条目）
+  useEffect(() => {
+    if (!selectedId || lastScrolledRef.current === selectedId) return
+    if (!refs.some((r) => r.id === selectedId)) return
+    if (!filtered.some((r) => r.id === selectedId)) {
+      if (search.trim() !== '') setSearch('')
+      return
+    }
+    const raf = requestAnimationFrame(() => {
+      const box = listRef.current
+      const node = rowRefs.current.get(selectedId)
+      if (!box || !node) return
+      const boxRect = box.getBoundingClientRect()
+      const nodeRect = node.getBoundingClientRect()
+      if (nodeRect.top < boxRect.top || nodeRect.bottom > boxRect.bottom) {
+        box.scrollTop += nodeRect.top - boxRect.top - Math.max(0, (box.clientHeight - nodeRect.height) / 2)
+      }
+      lastScrolledRef.current = selectedId
+    })
+    return () => cancelAnimationFrame(raf)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedId, filtered, refs, search])
+
   return (
     <div className="flex h-full min-h-0 min-w-0 flex-col border-r border-border bg-card">
       <div className="space-y-2 border-b border-border p-3">
@@ -56,7 +84,7 @@ export function EffectTextListPanel({
           </span>
         </div>
       </div>
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      <div ref={listRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         {filtered.length === 0 ? (
           <div className="p-6 text-center text-xs text-muted-foreground">{search ? t('noMatch') : t('list.noContent')}</div>
         ) : (
@@ -76,12 +104,17 @@ export function EffectTextListPanel({
             return (
               <button
                 key={id}
+                ref={(el) => {
+                  if (el) rowRefs.current.set(id, el)
+                  else rowRefs.current.delete(id)
+                }}
                 onClick={() => onSelect(id)}
                 className={`flex w-full flex-col items-start gap-0.5 border-b border-border/60 px-3 py-2 text-left transition-colors ${
                   active ? 'bg-primary/15 text-primary' : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                 }`}
               >
                 <span className="flex min-w-0 items-center gap-1.5">
+                  {dirtyIds?.has(id) ? <span className="size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
                   {icon ? <img src={icon} alt="" className="size-4 shrink-0 object-contain align-[-3px]" draggable={false} /> : null}
                   <span className="min-w-0 truncate text-sm font-medium text-foreground" style={style}>
                     {name || t('empty')}

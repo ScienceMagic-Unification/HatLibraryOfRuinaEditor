@@ -5,6 +5,7 @@ import { Badge, Button, Textarea } from '@ruina/ui'
 import { Languages, RefreshCw } from 'lucide-react'
 import { useAppStore, type DocState } from '../store'
 import { useI18n } from '../i18n'
+import { AutoTextarea } from './AutoTextarea'
 
 function locSchema(def: LocalizationRootDef): EntitySchema {
   return { root: def.root, entity: def.entity, idAttr: def.idAttr ?? 'ID', containerPath: def.containerPath, fields: [] }
@@ -84,14 +85,15 @@ export function LocalizePanel({
                   <div key={f.name} className="space-y-1">
                     <div className="text-[10px] text-muted-foreground/70">{tl(f.label ?? f.name)}</div>
                     {f.kind === 'multiline' ? (
-                      <Textarea
+                      <AutoTextarea
+                        language={e.doc.lang}
                         value={v}
                         rows={3}
                         onChange={(ev) =>
                           editDoc(e.doc.path, (doc) => {
                             const refs = listEntities(doc, locSchema(e.def))
                             const hit = refs.find((r) => r.id === e.id)
-                            if (hit) setTextField(hit.node, f.name, ev.target.value)
+                            if (hit) setTextField(hit.node, f.name, ev)
                           })
                         }
                       />

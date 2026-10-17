@@ -1,0 +1,30 @@
+
+<BookXmlRoot>
+  <Book ID="101">
+    <Name>Enemy original</Name>
+    <TextId>902</TextId>
+    <Rarity>Rare</Rarity>
+    <SpeedDiceNum>3</SpeedDiceNum>
+    <Option>MultiDeck</Option>
+    <EquipEffect>
+      <HP>80</HP>
+      <Break>40</Break>
+      <SpeedMin>2</SpeedMin>
+      <Speed>5</Speed>
+      <SpeedDiceNum>9</SpeedDiceNum>
+      <StartPlayPoint>3</StartPlayPoint>
+      <MaxPlayPoint>4</MaxPlayPoint>
+      <AddedStartDraw>2</AddedStartDraw>
+      <SResist>Weak</SResist>
+      <SBResist>Resist</SBResist>
+      <Passive Pid="Other.Mod" Future="keep">111</Passive>
+      <Passive Pid="@origin">1</Passive>
+      <OnlyCard>703001</OnlyCard>
+      <CustomOnlyCard>107</CustomOnlyCard>
+      <Extension x="untouched"/>
+      <Passive Pid="Third.Mod">55</Passive>
+    </EquipEffect>
+    <FutureRoot/>
+    <CharacterSkin>OnlySkin</CharacterSkin>
+  </Book>
+</BookXmlRoot>

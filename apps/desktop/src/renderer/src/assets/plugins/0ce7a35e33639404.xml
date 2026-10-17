@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<localize>
+  <language id="cn">
+    <text id="Function">功能</text>
+    <text id="Unavailable">当前条件不满足。</text>
+    <text id="Rejected">操作未完成，请重新检查当前状态。</text>
+  </language>
+  <language id="en">
+    <text id="Function">Action</text>
+    <text id="Unavailable">The requirements are not currently met.</text>
+    <text id="Rejected">The action could not be completed. Check the current state.</text>
+  </language>
+  <language id="jp">
+    <text id="Function">操作</text>
+    <text id="Unavailable">現在、条件を満たしていません。</text>
+    <text id="Rejected">操作を完了できませんでした。現在の状態を確認してください。</text>
+  </language>
+  <language id="kr">
+    <text id="Function">기능</text>
+    <text id="Unavailable">현재 조건을 충족하지 않습니다.</text>
+    <text id="Rejected">작업을 완료하지 못했습니다. 현재 상태를 확인하세요.</text>
+  </language>
+</localize>
