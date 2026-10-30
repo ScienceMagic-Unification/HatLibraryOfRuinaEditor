@@ -275,22 +275,32 @@ export function setMarker(node: OrderedNode, name: string, on: boolean): void {
 }
 
 export function getListRows(node: OrderedNode, field: ListFieldDef): OrderedNode[] {
-  const listEl = findChildNode(node, field.name)
-  if (!listEl) return []
-  return nodeChildren(listEl).filter((c) => isRecord(c) && Object.keys(c)[0] === field.item) as OrderedNode[]
+  const listEl = field.direct ? node : findChildNode(node, field.name)
+  return listEl ? nodeChildren(listEl).filter((c) => isRecord(c) && nodeKey(c as OrderedNode) === field.item) as OrderedNode[] : []
 }
 
 export function setListRows(node: OrderedNode, field: ListFieldDef, rows: OrderedNode[]): void {
-  removeField(node, field.name)
-  if (rows.length === 0) return
-  const listEl = makeElement(field.name)
-  const arr = nodeChildren(listEl)
-  for (const r of rows) arr.push(r)
-  nodeChildren(node).push(listEl)
+  let listEl = field.direct ? node : findChildNode(node, field.name)
+  if (!listEl) {
+    if (!rows.length) return
+    listEl = makeElement(field.name)
+    nodeChildren(node).push(listEl)
+  }
+  // Replace only known row nodes, preserving container attributes, comments and extension fields.
+  const children = nodeChildren(listEl)
+  let cursor = 0
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i]
+    if (!isRecord(child) || nodeKey(child as OrderedNode) !== field.item) continue
+    if (cursor < rows.length) children[i] = rows[cursor++]
+    else { children.splice(i, 1); i-- }
+  }
+  children.push(...rows.slice(cursor))
 }
 
 /** 按 schema 读取字段值 */
 export function getFieldValue(node: OrderedNode, field: FieldDef): unknown {
+  if ('selfText' in field && field.selfText) return getNodeText(node)
   switch (field.kind) {
     case 'attrs': {
       const container = findChildNode(node, field.name)
@@ -335,6 +345,7 @@ export function getFieldValue(node: OrderedNode, field: FieldDef): unknown {
 
 /** 写入字段值（list 请使用行编辑函数） */
 export function setFieldValue(node: OrderedNode, field: FieldDef, value: unknown): void {
+  if ('selfText' in field && field.selfText) { setNodeText(node, value == null ? '' : String(value)); return }
   switch (field.kind) {
     case 'attrs': {
       let container = findChildNode(node, field.name)
@@ -400,6 +411,8 @@ export function setFieldValue(node: OrderedNode, field: FieldDef, value: unknown
 export function createEntity(schema: EntitySchema, id: string): OrderedNode {
   const node: any = { [schema.entity]: [], ':@': { ['@_' + schema.idAttr]: id } }
   for (const f of schema.fields) {
+    if ('selfText' in f && f.selfText) { setFieldValue(node, f, ''); continue }
+    if (f.omitWhenEmpty) continue
     switch (f.kind) {
       case 'text':
       case 'multiline':

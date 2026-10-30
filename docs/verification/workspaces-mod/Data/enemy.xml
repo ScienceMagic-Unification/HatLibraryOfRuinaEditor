@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<EnemyUnitClassRoot>
+  <Enemy ID="1">
+    <NameID>12</NameID>
+    <MinHeight>165</MinHeight>
+    <MaxHeight>165</MaxHeight>
+    <BookId>100001</BookId>
+    <DeckId>100001</DeckId>
+    <Exp>2</Exp>
+    <DropTable Level="0">
+      <DropItem Prob="3">200001</DropItem>
+    </DropTable>
+  </Enemy>
+  <Enemy ID="2">
+    <NameID>11</NameID>
+    <MinHeight>180</MinHeight>
+    <MaxHeight>180</MaxHeight>
+    <BookId>100002</BookId>
+    <DeckId>100002</DeckId>
+    <Exp>2</Exp>
+    <DropTable Level="0">
+      <DropItem Prob="3">200001</DropItem>
+    </DropTable>
+  </Enemy>
+</EnemyUnitClassRoot>

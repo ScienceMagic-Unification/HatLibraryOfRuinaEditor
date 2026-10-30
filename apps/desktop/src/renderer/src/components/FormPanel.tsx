@@ -1,10 +1,11 @@
+import { EntityIdInput } from './EntityIdInput'
 import { useEffect, useMemo, useState } from 'react'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import type { EntityRef, FieldDef, ModuleDefinition, ValidationIssue } from '@ruina/editor-core'
 import { getAllText, getFieldValue, getMulti, getTextField, removeField, setAllText, setFieldValue, setTextField } from '@ruina/editor-core'
 import { AlertTriangle, Hash } from 'lucide-react'
-import { Input, Label } from '@ruina/ui'
+import { Label } from '@ruina/ui'
 import { FieldEditor } from './FieldEditor'
 import { LinkedNameField } from './LinkedNameField'
 import { FieldTitle } from './FieldTitle'
@@ -33,7 +34,7 @@ export function FormPanel({
   entity: EntityRef
   issues: ValidationIssue[]
   onFieldChange: (field: FieldDef, value: unknown) => void
-  onIdChange: (id: string) => void
+  onIdChange: (id: string) => boolean | void
 }): JSX.Element {
   const { t, tl } = useI18n()
   const proofOn = useAppStore((s) => Boolean(s.proofMode[module.id]))
@@ -167,9 +168,10 @@ export function FormPanel({
               {t('id.label')}
               <span className="ml-0.5 text-red-400">*</span>
             </Label>
-            <Input
+            <EntityIdInput
+              key={module.id + entity.id}
               value={entity.id}
-              onChange={(e) => onIdChange(module.entity.idNumeric ? e.target.value.replace(/\D/g, '') : e.target.value)}
+              onCommit={onIdChange} numeric={module.entity.idNumeric}
               inputMode={module.entity.idNumeric ? 'numeric' : undefined}
               className={module.entity.idOnlyList ? 'font-mono w-full' : 'font-mono'}
               
@@ -451,7 +453,7 @@ export function FormPanel({
           const toggleable = isToggleable(field)
           return (
             <div key={field.name} className="space-y-1.5">
-              {field.name !== 'Name' ? (
+              {field.kind !== 'list' && field.kind !== 'attrs' && !(field.name === 'Name' && (!field.label || field.label === '名称')) ? (
                 toggleable ? (
                   <FieldTitle
                     label={tl(field.label ?? field.name)}
@@ -467,7 +469,7 @@ export function FormPanel({
                   </Label>
                 )
               ) : null}
-              {field.name === 'Name' ? (
+              {field.name === 'Name' && (!field.label || field.label === '名称') ? (
                 <LinkedNameField
                   module={module}
                   entity={entity}

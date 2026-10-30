@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<GiftXmlRoot>
+  <Gift ID="0">
+    <Name />
+    <Resource />
+    <Position>None</Position>
+    <NoAppear>true</NoAppear>
+  </Gift>
+  <Gift ID="1">
+    <Name>Librarian_Special_0</Name>
+    <Resource />
+    <Position>None</Position>
+    <NoAppear>true</NoAppear>
+  </Gift>
+</GiftXmlRoot>

@@ -1,6 +1,6 @@
 import type { OrderedDoc, OrderedNode } from './xml'
 import type { EntitySchema, FieldDef, ValidationIssue } from './schema'
-import { listEntities, getFieldValue, findChildNode } from './document'
+import { listEntities, getFieldValue, getNodeText, findChildNode } from './document'
 
 function validateScalar(
   value: string | undefined,
@@ -65,6 +65,8 @@ function validateField(node: Record<string, unknown>, field: FieldDef, issues: V
     case 'list': {
       const rows = (raw ?? []) as Record<string, unknown>[]
       rows.forEach((row, ri) => {
+        if (field.textField) validateScalar(getNodeText(row), field.textField, issues, { ...ctx, prefix: `${field.name}[${ri}]` })
+        for (const child of field.fields ?? []) validateField(row, child, issues, ctx)
         for (const a of field.attrs) {
           const v = (row as any)[':@']?.['@_' + a.name]
           validateScalar(typeof v === 'string' ? v : undefined, a, issues, { ...ctx, prefix: `${field.name}[${ri}]` })

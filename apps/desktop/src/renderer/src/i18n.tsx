@@ -1,3 +1,4 @@
+import { workspaceMessages, workspaceLabels } from './workspaceI18n'
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { abilityMessages } from './abilityI18n'
 import { corePageMessages, corePageLabels } from './corePageI18n'
@@ -8,6 +9,7 @@ const dict = {
   zh: {
     ...abilityMessages.zh,
     ...corePageMessages.zh,
+    ...workspaceMessages.zh,
     'keyword.library': '关键词库 / 插入',
     'keyword.search': '搜索 ID、显示名或插件',
     'keyword.plugin': '来源插件',
@@ -227,6 +229,7 @@ const dict = {
   en: {
     ...abilityMessages.en,
     ...corePageMessages.en,
+    ...workspaceMessages.en,
     'keyword.library': 'Keyword library / Insert',
     'keyword.search': 'Search ID, display name or plugin',
     'keyword.plugin': 'Source plugin',
@@ -446,6 +449,7 @@ const dict = {
   jp: {
     ...abilityMessages.jp,
     ...corePageMessages.jp,
+    ...workspaceMessages.jp,
     'keyword.library': 'キーワード一覧 / 挿入',
     'keyword.search': 'ID・表示名・プラグインを検索',
     'keyword.plugin': '提供プラグイン',
@@ -666,9 +670,11 @@ const dict = {
 
 const labelDict: Record<Lang, Record<string, string>> = {
   zh: {
-    ...corePageLabels.zh, '保留识别名': '保留识别名' },
+    ...corePageLabels.zh,
+    ...workspaceLabels.zh, '保留识别名': '保留识别名' },
   en: {
     ...corePageLabels.en,
+    ...workspaceLabels.en,
     '保留识别名': 'Keep recognized text',
     '卡图资源': 'Artwork',
     '卡牌能力': 'Page Ability',
@@ -813,6 +819,7 @@ const labelDict: Record<Lang, Record<string, string>> = {
   },
   jp: {
     ...corePageLabels.jp,
+    ...workspaceLabels.jp,
     '卡图资源': 'アートワーク',
     '保留识别名': '認識した文字列を保持',
     '卡牌能力': 'ページ能力',

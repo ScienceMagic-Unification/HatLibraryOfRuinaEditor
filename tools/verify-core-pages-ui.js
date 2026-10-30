@@ -18,7 +18,7 @@
     const modules = store.getState().modules
     check(modules.filter((m) => m.id.startsWith('equippage')).length === 2, 'Exactly two grouped core workspaces')
     check(modules.find((m) => m.id === 'equippage-enemy').dataFiles.length === 2, 'Split enemy books grouped')
-    check(!modules.some((m) => m.id.startsWith('enemy')), 'No false enemy-unit module')
+    check(modules.filter((m) => m.id.startsWith('enemy')).every((m) => m.entity.root === 'EnemyUnitClassRoot' && !m.dataFiles?.length && !m.dataFile), 'No core-page documents bound to enemy-unit templates')
     await store.getState().setActiveModule('equippage-enemy'); store.getState().select('equippage-enemy', '101'); await wait()
     const enemyPath = Object.values(store.getState().docs).find((d) => d.path.endsWith('EquipPage_Enemy.xml')).path
     store.getState().setPrimaryDoc('equippage-enemy', enemyPath); await wait()

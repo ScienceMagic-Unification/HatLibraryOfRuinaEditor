@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AbnormalityCardsRoot>
+  <Sephirah SephirahType="Malkuth">
+    <AbnormalityCard ID="ScorchedGirl_Walk">
+      <Abnormality>焦化少女</Abnormality>
+      <CardName>脚步</CardName>
+      <AbilityDesc>[影响所有司书]
+若某司书的体力不高于20%，则该司书与攻击目标触发战斗时将造成“自身体力上限x30%”的伤害(至多36点)并对其施加1~3层“烧伤”，随后死亡。</AbilityDesc>
+      <FlaborText>我来找你了，和我一起化成灰吧。</FlaborText>
+      <Dialogues>
+        <Dialogue ID="1">如果我即将燃尽，那你也随我一起吧。</Dialogue>
+        <Dialogue ID="2">孤身一人死去是很悲哀的事……你懂我的心思吧？</Dialogue>
+        <Dialogue ID="3">将要化成灰的人，请再等一下，我这就来……</Dialogue>
+        <Dialogue ID="4">一步，又一步……烧焦了。</Dialogue>
+        <Dialogue ID="5">烧焦了的我，又能做些什么呢？</Dialogue>
+      </Dialogues>
+    </AbnormalityCard>
+    <AbnormalityCard ID="ScorchedGirl_Atk">
+      <Abnormality>焦化少女</Abnormality>
+      <CardName>余烬</CardName>
+      <AbilityDesc>[选择一名司书]
+该司书被击中时将对攻击方施加1~3层“烧伤”并有40%的概率在下一幕中赋予自身的“进攻型”骰子额外效果“[命中时] 对目标施加1层[烧伤]”(不可叠加)</AbilityDesc>
+      <FlaborText>焦黑的身体象征着少女支离破碎的希望，永恒的火焰却寄托着对爱的强烈渴望。</FlaborText>
+      <Dialogues>
+        <Dialogue ID="1">要将所有明亮之物，统统烧毁……</Dialogue>
+        <Dialogue ID="2">我很清楚，烧焦的身体再也变不回来了。</Dialogue>
+        <Dialogue ID="3">我害怕变成灰……可我不想熄灭火焰。</Dialogue>
+        <Dialogue ID="4">火焰，让我感到幸福，温暖……</Dialogue>
+        <Dialogue ID="5">总有一天，我会化为灰烬，自由地飘散，飞翔……</Dialogue>
+      </Dialogues>
+    </AbnormalityCard>
+  </Sephirah>
+</AbnormalityCardsRoot>

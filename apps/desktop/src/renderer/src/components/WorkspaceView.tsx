@@ -1,3 +1,5 @@
+import { SchemaPreview } from './SchemaPreview'
+import { DocumentFields } from './DocumentFields'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { EntitySchema, FieldDef, ModuleDefinition, OrderedDoc } from '@ruina/editor-core'
 import { createEntity, getAllText, getFieldValue, getRootChildren, getTextField, insertEntity, listEntities, makeElement, moveEntityById, removeEntityById, setAttr, setFieldValue } from '@ruina/editor-core'
@@ -251,13 +253,20 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
     })
   }
 
-  const onIdChange = (id: string) => {
-    if (!entity) return
+  const onIdChange = (id: string): boolean => {
+    if (!entity || !dataDoc || !id.trim()) return false
+    if (id === entity.id) return true
+    if (listEntities(dataDoc.doc, module.entity).some((r) => r.id === id)) {
+      setStatus(t('id.duplicate', { id }))
+      return false
+    }
     editData(module.id, (doc) => {
       const cur = listEntities(doc, module.entity).find((r) => r.id === entity.id)
       if (cur) setAttr(cur.node, module.entity.idAttr, id)
     })
     select(module.id, id)
+    markEntitiesDirty(module.id, [id])
+    return true
   }
 
   return (
@@ -315,7 +324,8 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
         ) : (
           <DataPanel key={dataDoc?.path ?? 'none'} doc={displayDoc} schema={module.entity} selectedId={selectedId} onSelect={(id) => select(module.id, id)} accentLookup={accentLookup} localizedNames={localizedNames} localizedRender={abilityLocalizedRender} scrollKey={module.id} dirtyIds={dirtyIds} />
         )}
-        <div className="flex h-full min-h-0 min-w-0 flex-col">
+        <div key={dataDoc?.path ?? module.id} className="flex h-full min-h-0 min-w-0 flex-col">
+          {dataDoc ? <DocumentFields module={module} path={dataDoc.path}/> : null}
           <div className="min-h-0 flex-1 overflow-hidden">
             {viewMode === 'brief' ? (
               entity ? (
@@ -343,6 +353,8 @@ export function WorkspaceView({ module }: { module: ModuleDefinition }): JSX.Ele
           <div className="h-full min-h-0 min-w-0 border-l border-border bg-card">
             {isCorePage(module.id) ? (
               <div className="h-full overflow-y-auto"><CorePagePreview module={module} entity={entity}/></div>
+            ) : module.overview ? (
+              <SchemaPreview module={module} entity={entity}/>
             ) : module.preview ? (
               <div className="h-full min-h-0 overflow-y-auto overscroll-contain">
                 <PreviewPanel modPath={modPath} module={module} entity={entity} />

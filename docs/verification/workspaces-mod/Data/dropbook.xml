@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BookUseXmlRoot>
+  <BookUse ID="31">
+    <Name>dropbook_something</Name>
+    <TextId>dropbook_something</TextId>
+    <Chapter>1</Chapter>
+  </BookUse>
+  <BookUse ID="99999">
+    <Name>dropbook_distortion</Name>
+    <TextId>dropbook_distortion</TextId>
+    <BookIcon>Distortion</BookIcon>
+    <Chapter>3</Chapter>
+  </BookUse>
+</BookUseXmlRoot>

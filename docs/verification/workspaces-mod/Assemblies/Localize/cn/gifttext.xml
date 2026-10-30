@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<GiftTextRoot>
+  <GiftText ID="Librarian_Special_0">
+    <Desc />
+    <Prefix>安吉拉的</Prefix>
+    <Postfix>侍从</Postfix>
+    <AcquireCondition />
+  </GiftText>
+  <GiftText ID="Librarian_Special_1">
+    <Desc />
+    <Prefix>历史层的</Prefix>
+    <Postfix>指定司书</Postfix>
+    <AcquireCondition />
+  </GiftText>
+</GiftTextRoot>

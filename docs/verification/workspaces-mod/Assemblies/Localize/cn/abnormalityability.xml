@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AbnormalityAbilityRoot>
+  <Abnormality ID="FairyCarnival_Care">
+    <AbilityList>
+      <Ability>体力恢复{0}</Ability>
+    </AbilityList>
+  </Abnormality>
+  <Abnormality ID="FairyCarnival_Gluttony">
+    <AbilityList>
+      <Ability>体力恢复{0}</Ability>
+      <Ability>伤害</Ability>
+    </AbilityList>
+  </Abnormality>
+</AbnormalityAbilityRoot>

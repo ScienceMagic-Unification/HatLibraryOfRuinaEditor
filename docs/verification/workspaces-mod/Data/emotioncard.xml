@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<EmotionCardXmlRoot>
+  <EmotionCard ID="1">
+    <Name>Bigbird_Eye</Name>
+    <State>Negative</State>
+    <Sephirah>Binah</Sephirah>
+    <Level>2</Level>
+    <EmotionLevel>1</EmotionLevel>
+    <EmotionRate>-2</EmotionRate>
+    <TargetType>SelectOne</TargetType>
+    <Script>bigbird1</Script>
+  </EmotionCard>
+  <EmotionCard ID="2">
+    <Name>Bigbird_Lamp</Name>
+    <State>Positive</State>
+    <Sephirah>Binah</Sephirah>
+    <Level>2</Level>
+    <EmotionLevel>1</EmotionLevel>
+    <EmotionRate>2</EmotionRate>
+    <TargetType>SelectOne</TargetType>
+    <Script>bigbird2</Script>
+  </EmotionCard>
+</EmotionCardXmlRoot>

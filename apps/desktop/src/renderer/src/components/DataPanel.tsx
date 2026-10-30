@@ -51,7 +51,7 @@ export function DataPanel({
   const hasDesc = schema.fields.some((f) => f.name === 'Desc')
 
   const displayText = (node: any): string => {
-    const v = (getFieldValue(node, { kind: 'text', name: displayField }) as string | undefined) ?? ''
+    const v = (getFieldValue(node, schema.fields.find((f) => f.name === displayField) ?? { kind: 'text', name: displayField }) as string | undefined) ?? ''
     const oneLine = v.replace(/[\r\n\t]+/g, ' ').trim()
     return oneLine.length > 36 ? oneLine.slice(0, 36) + '…' : oneLine || '（空）'
   }
@@ -66,7 +66,7 @@ export function DataPanel({
         const desc = descField ? (getAllText(r.node, descField.name) ?? '').toLowerCase() : ''
         return r.id.toLowerCase().includes(q) || desc.includes(q)
       }
-      const name = String(getFieldValue(r.node, { kind: 'text', name: displayField }) ?? '').toLowerCase()
+      const name = String(getFieldValue(r.node, schema.fields.find((f) => f.name === displayField) ?? { kind: 'text', name: displayField }) ?? '').toLowerCase()
       const localizedName = localizedNames?.[r.id]?.toLowerCase() ?? ''
       const desc = hasDesc ? (getAllText(r.node, 'Desc') ?? '').toLowerCase() : ''
       return r.id.toLowerCase().includes(q) || name.includes(q) || localizedName.includes(q) || desc.includes(q)

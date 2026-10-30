@@ -14,6 +14,7 @@ export interface BaseFieldDef {
 }
 
 export type ScalarFieldDef = BaseFieldDef &
+  { /** Read/write this element's own text instead of a named child. */ selfText?: boolean } &
   (
     | { kind: 'text'; required?: boolean; placeholder?: string; autocomplete?: 'page-artwork' | 'page-ability' | 'dice-ability' }
     | { kind: 'int'; required?: boolean; min?: number; max?: number; digitsOnly?: boolean; optional?: boolean }
@@ -57,6 +58,11 @@ export interface ListFieldDef extends BaseFieldDef {
   item: string
   attrs: ScalarFieldDef[]
   itemTextField?: string
+  /** Repeated elements directly under the current node, without a list container. */
+  direct?: boolean
+  /** Child fields within each row; shared field editors render these recursively. */
+  fields?: FieldDef[]
+  textField?: ScalarFieldDef
   /** 未开启帽子奇点时的最大条目数 */
   maxItems?: number
   /** 添加按钮文案 */
@@ -180,6 +186,10 @@ export interface ModuleDefinition {
   regexRules?: RegexRule[]
   /** 加载时从数据实体中移除的字段（如废弃的 SpecialEffect） */
   stripFields?: string[]
+  /** Reuse the schema-driven summary preview. */
+  overview?: boolean
+  /** Editable root-level fields, outside the selected entity. */
+  documentFields?: FieldDef[]
 }
 
 export interface ValidationIssue {

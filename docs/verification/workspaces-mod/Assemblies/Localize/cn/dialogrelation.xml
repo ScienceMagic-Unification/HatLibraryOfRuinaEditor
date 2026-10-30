@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BattleDialogRelationRoot>
+  <Relation BookID="1">
+    <GroupName>LibraryOfRuina</GroupName>
+    <CharacterID>Malkuth</CharacterID>
+  </Relation>
+  <Relation BookID="2">
+    <GroupName>LibraryOfRuina</GroupName>
+    <CharacterID>Yesod</CharacterID>
+  </Relation>
+</BattleDialogRelationRoot>

@@ -1,3 +1,4 @@
+import { EntityIdInput } from './EntityIdInput'
 import { useState } from 'react'
 import { Button, Input } from '@ruina/ui'
 import { Plus, Trash2 } from 'lucide-react'
@@ -37,7 +38,7 @@ function References({ module, entity, name }: { module: ModuleDefinition; entity
 
 export function CorePageForm({ module, entity, brief = false, issues, onFieldChange, onIdChange }: {
   module: ModuleDefinition; entity: EntityRef; brief?: boolean; issues: ValidationIssue[];
-  onFieldChange: (field: FieldDef, value: unknown) => void; onIdChange: (id: string) => void
+  onFieldChange: (field: FieldDef, value: unknown) => void; onIdChange: (id: string) => boolean | void
 }): JSX.Element {
   const { t, tl } = useI18n()
   const [showIds, setShowIds] = useState(false)
@@ -54,7 +55,7 @@ export function CorePageForm({ module, entity, brief = false, issues, onFieldCha
   }
   return <div className="h-full overflow-y-auto overscroll-contain p-4" data-testid="core-page-form">
     <div className="space-y-4">
-      <div className="flex items-end gap-3 rounded-lg border border-border bg-card p-3"><label className="min-w-0 flex-1 space-y-2 text-xs text-muted-foreground">{t('id.label')}<Input aria-label="Book ID" value={entity.id} onChange={(e) => onIdChange(e.target.value.replace(/\D/g, ''))}/></label><Button variant="secondary" size="sm" onClick={() => setShowIds(!showIds)}># ID</Button></div>
+      <div className="flex items-end gap-3 rounded-lg border border-border bg-card p-3"><label className="min-w-0 flex-1 space-y-2 text-xs text-muted-foreground">{t('id.label')}<EntityIdInput key={module.id + entity.id} aria-label="Book ID" value={entity.id} onCommit={onIdChange} numeric/></label><Button variant="secondary" size="sm" onClick={() => setShowIds(!showIds)}># ID</Button></div>
       {corePageGroups.filter((g) => !brief || ['identity', 'stats', 'resistance'].includes(g.key)).map((group) => {
         if (group.key === 'resistance') return <section key={group.key} className="space-y-3 rounded-lg border border-border bg-card p-3" data-testid="resistance-editor"><h3 className="text-sm font-medium">{t('core.resistance')}</h3><div className="grid grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)] items-center gap-2 text-xs"><span/><span className="text-muted-foreground">{t('core.damage')}</span><span className="text-muted-foreground">{t('core.stagger')}</span>{[['S','斩击'],['P','突刺'],['H','打击']].map(([prefix,label]) => <ResistanceRow key={prefix} prefix={prefix} label={tl(label)} module={module} entity={entity} onFieldChange={onFieldChange} showIds={showIds}/>)}</div></section>
         const fields = <div className="grid grid-cols-2 gap-3">{group.fields.map(renderField)}</div>

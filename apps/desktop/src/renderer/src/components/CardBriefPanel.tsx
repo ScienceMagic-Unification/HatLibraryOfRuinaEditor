@@ -1,3 +1,4 @@
+import { EntityIdInput } from './EntityIdInput'
 import { useMemo } from 'react'
 import type { EntityRef, FieldDef, ModuleDefinition } from '@ruina/editor-core'
 import { getFieldValue, getListRows, makeElement, setAttr } from '@ruina/editor-core'
@@ -41,7 +42,7 @@ export function CardBriefPanel({
   module: ModuleDefinition
   entity: EntityRef
   onFieldChange: (field: FieldDef, value: unknown) => void
-  onIdChange: (id: string) => void
+  onIdChange: (id: string) => boolean | void
 }): JSX.Element {
   const { t, tl } = useI18n()
   const hatEnabled = useAppStore((s) => s.hatEnabled)
@@ -74,10 +75,11 @@ export function CardBriefPanel({
       <div className="mb-4 flex flex-wrap items-end gap-4 rounded-md border border-border/60 bg-secondary/20 p-3">
         <div className={idOnly ? 'min-w-0 flex-1 space-y-1' : 'w-40 shrink-0 space-y-1'}>
           <Label>{t('id.label')}<span className="ml-0.5 text-red-400">*</span></Label>
-          <input
+          <EntityIdInput
+            key={module.id + entity.id}
             className="h-9 w-full rounded-md border border-input bg-background px-3 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-ring"
             value={entity.id}
-            onChange={(e) => onIdChange(e.target.value.replace(/\D/g, ''))}
+            onCommit={onIdChange} numeric
           />
         </div>
         {(() => {

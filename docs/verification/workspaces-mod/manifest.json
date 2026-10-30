@@ -1,0 +1,77 @@
+[
+  {
+    "id": "stage",
+    "file": "Data/stage.xml",
+    "source": "StaticInfo/StageInfo/StageInfo_normal.txt"
+  },
+  {
+    "id": "enemy",
+    "file": "Data/enemy.xml",
+    "source": "StaticInfo/EnemyUnitInfo/EnemyUnitInfo.txt"
+  },
+  {
+    "id": "deck",
+    "file": "Data/deck.xml",
+    "source": "StaticInfo/Deck/Deck_basic.txt"
+  },
+  {
+    "id": "dropbook",
+    "file": "Data/dropbook.xml",
+    "source": "StaticInfo/DropBook/DropBook_ch1.txt"
+  },
+  {
+    "id": "carddrops",
+    "file": "Data/carddrops.xml",
+    "source": "StaticInfo/CardDropTable/CardDropTable_ch1.txt"
+  },
+  {
+    "id": "emotioncard",
+    "file": "Data/emotioncard.xml",
+    "source": "StaticInfo/EmotionCard/EmotionCard_binah.txt"
+  },
+  {
+    "id": "emotionego",
+    "file": "Data/emotionego.xml",
+    "source": "StaticInfo/EmotionEgo/EmotionEgo.txt"
+  },
+  {
+    "id": "gift",
+    "file": "Data/gift.xml",
+    "source": "StaticInfo/GiftInfo/GiftInfo.txt"
+  },
+  {
+    "id": "formation",
+    "file": "Data/formation.xml",
+    "source": "StaticInfo/FormationInfo/FormationInfo.txt"
+  },
+  {
+    "id": "character-stage-names",
+    "file": "Assemblies/Localize/cn/character-stage-names.xml",
+    "source": "Localize/cn/CharactersName/CharactersName.txt"
+  },
+  {
+    "id": "abnormalitytext",
+    "file": "Assemblies/Localize/cn/abnormalitytext.xml",
+    "source": "Localize/cn/AbnormalityCards/AbnormalityCards.txt"
+  },
+  {
+    "id": "abnormalityability",
+    "file": "Assemblies/Localize/cn/abnormalityability.xml",
+    "source": "Localize/cn/AbnormalityAbilities/AbnormalityAbilities.txt"
+  },
+  {
+    "id": "gifttext",
+    "file": "Assemblies/Localize/cn/gifttext.xml",
+    "source": "Localize/cn/GiftTexts/GiftTexts.txt"
+  },
+  {
+    "id": "battledialog",
+    "file": "Assemblies/Localize/cn/battledialog.xml",
+    "source": "Localize/cn/BattleDialogues/CN_CombatDialog_AwlOfNight.txt"
+  },
+  {
+    "id": "dialogrelation",
+    "file": "Assemblies/Localize/cn/dialogrelation.xml",
+    "source": "Localize/cn/Book_BattleDlg_Relations/Book_BattleDlg_Relations.txt"
+  }
+]

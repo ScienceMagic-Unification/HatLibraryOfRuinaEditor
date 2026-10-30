@@ -1,8 +1,9 @@
+import { EntityIdInput } from './EntityIdInput'
 import { useMemo, useState } from 'react'
 import { useI18n } from '../i18n'
 import type { EntityRef, FieldDef, ModuleDefinition } from '@ruina/editor-core'
 import { getFieldValue } from '@ruina/editor-core'
-import { Input, Label } from '@ruina/ui'
+import { Label } from '@ruina/ui'
 import { FieldEditor } from './FieldEditor'
 import { LinkedNameField } from './LinkedNameField'
 import { FieldTitle } from './FieldTitle'
@@ -20,7 +21,7 @@ export function SummaryPanel({
   module: ModuleDefinition
   entity: EntityRef
   onFieldChange: (field: FieldDef, value: unknown) => void
-  onIdChange: (id: string) => void
+  onIdChange: (id: string) => boolean | void
 }): JSX.Element {
   const { t, tl } = useI18n()
   const fields = useMemo(() => {
@@ -43,7 +44,7 @@ export function SummaryPanel({
           <>
             <div className="w-40 shrink-0 space-y-1">
               <Label>{t('id.label')}<span className="ml-0.5 text-red-400">*</span></Label>
-              <Input value={entity.id} onChange={(e) => onIdChange(e.target.value)} className="font-mono" />
+              <EntityIdInput key={module.id + entity.id} value={entity.id} onCommit={onIdChange} numeric={module.entity.idNumeric} className="font-mono" />
             </div>
             {(() => {
               const cost = module.entity.fields.find((f) => f.name === 'Cost')
@@ -68,7 +69,7 @@ export function SummaryPanel({
     field.name === 'Option'
           return (
             <div key={field.name} className="space-y-1.5">
-              {field.name !== 'Name' ? (
+              {field.kind !== 'list' && field.kind !== 'attrs' && !(field.name === 'Name' && (!field.label || field.label === '名称')) ? (
                 toggleable ? (
                   <FieldTitle
                     label={tl(field.label ?? field.name)}
@@ -84,7 +85,7 @@ export function SummaryPanel({
                   </Label>
                 )
               ) : null}
-              {field.name === 'Name' ? (
+              {field.name === 'Name' && (!field.label || field.label === '名称') ? (
                 <LinkedNameField
                   module={module}
                   entity={entity}

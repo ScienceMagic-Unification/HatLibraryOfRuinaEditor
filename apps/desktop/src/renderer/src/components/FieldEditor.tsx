@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FieldDef, ScalarFieldDef } from '@ruina/editor-core'
-import { getAttr, makeElement, setAttr } from '@ruina/editor-core'
+import { getAttr, getFieldValue, getNodeText, makeElement, setAttr, setFieldValue, setNodeText } from '@ruina/editor-core'
 import { Badge, Button, Input, Label, Select, Textarea } from '@ruina/ui'
 import { ChevronDown, ChevronUp, Plus, Trash2, X } from 'lucide-react'
 import { resolveIconUrl } from '../lib/rangeIcons'
@@ -124,6 +124,7 @@ function ScalarEditor({
   return (
     <Input
       type="text"
+      aria-label={tl(field.label ?? field.name)}
       inputMode={field.kind === 'int' ? 'numeric' : undefined}
       value={value}
       onChange={(e) => {
@@ -150,6 +151,7 @@ export function FieldEditor({
   showIds?: boolean
 }): JSX.Element {
   const { t, tl } = useI18n()
+  const hatEnabled = useAppStore((s) => s.hatEnabled)
   switch (field.kind) {
     case 'attrs': {
       const record = (value ?? {}) as Record<string, string>
@@ -252,7 +254,6 @@ export function FieldEditor({
     case 'list': {
       const rows = (value ?? []) as any[]
       const update = (next: any[]) => onChange(next)
-      const hatEnabled = useAppStore((s) => s.hatEnabled)
       const atLimit = Boolean(field.maxItems) && rows.length >= (field.maxItems as number) && !hatEnabled
       const unreasonable = rows.some((row: any) => {
         const type = row[':@']?.['@_Type'] ?? ''
@@ -260,7 +261,7 @@ export function FieldEditor({
         return (type === 'Def' && ['Hit', 'Penetrate', 'Slash'].includes(detail)) || (type === 'Atk' && ['Guard', 'Evasion'].includes(detail))
       })
       return (
-        <div className="space-y-2 rounded-md border border-border/70 bg-secondary/20 p-3">
+        <div data-list-field={field.name} className="space-y-2 rounded-md border border-border/70 bg-secondary/20 p-3">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-muted-foreground">{tl(field.label ?? field.name)}</span>
             <div className="flex items-center gap-2">
@@ -278,7 +279,7 @@ export function FieldEditor({
                   update([...rows, makeElement(field.item, Object.fromEntries(field.attrs.map((a) => [a.name, ''])))])
                 }
               >
-                <Plus /> {field.addLabel ?? t('addRow')}
+                <Plus /> {field.addLabel ? tl(field.addLabel) : t('addRow')}
               </Button>
             </div>
           </div>
@@ -327,7 +328,7 @@ export function FieldEditor({
                       </Button>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 sm:grid-cols-3">
+                  <div className={field.attrs.length <= 1 ? "grid grid-cols-1 gap-2" : field.attrs.length === 2 ? "grid grid-cols-2 gap-2" : "grid grid-cols-2 gap-x-2 gap-y-1.5 sm:grid-cols-3"}>
                     {field.attrs.map((a) => (
                       <div key={a.name} className={`space-y-0.5 ${a.fullRow ? 'col-span-full' : ''}`}>
                         <span className="text-[10px] text-muted-foreground/70">{tl(a.label ?? a.name)}</span>
@@ -344,6 +345,18 @@ export function FieldEditor({
                       </div>
                     ))}
                   </div>
+                  {field.textField ? <div className="mt-2 space-y-1">
+                    <FieldLabel label={tl(field.textField.label ?? field.textField.name)} />
+                    <ScalarEditor field={field.textField} value={getNodeText(row)} onChange={(v) => {
+                      const next = structuredClone(rows); setNodeText(next[ri], v); update(next)
+                    }} />
+                  </div> : null}
+                  {field.fields?.map((child) => <div key={child.name} className="mt-3 space-y-1">
+                    {child.kind !== 'list' && child.kind !== 'attrs' ? <FieldLabel label={tl(child.label ?? child.name)} /> : null}
+                    <FieldEditor field={child} value={getFieldValue(row, child)} onChange={(v) => {
+                      const next = structuredClone(rows); setFieldValue(next[ri], child, v); update(next)
+                    }} />
+                  </div>)}
                 </div>
               ))}
             </div>

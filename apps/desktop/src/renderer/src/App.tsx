@@ -97,7 +97,7 @@ export function App(): JSX.Element {
           </div>
           <div>
             <div className="text-sm font-semibold leading-tight">{t('app.title')}</div>
-            <div className="text-[10px] leading-tight text-muted-foreground">V0.2.3</div>
+            <div className="text-[10px] leading-tight text-muted-foreground">V0.2.4</div>
           </div>
         </div>
         <div className="mx-1 h-5 w-px bg-border" />

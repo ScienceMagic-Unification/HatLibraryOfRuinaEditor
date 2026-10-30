@@ -269,6 +269,7 @@ async function scanMod(modPath: string): Promise<{
       for (const f of locMatches) knownLocPaths.add(f.path)
       if (matches.length === 0) modules.push({ ...tmpl })
     }
+    if (tmpl.overview && matches.length === 0 && locMatches.length === 0) modules.push({ ...tmpl })
   }
 
   for (const d of dataFiles) {
@@ -372,6 +373,21 @@ async function scanMod(modPath: string): Promise<{
   }
 
   return { dataFiles, localizeFiles, modules }
+}
+
+/** Keep the selected record when undo/redo restores its previous ID. */
+function selectionAfterRestore(previous: DocState, restored: OrderedDoc, modules: ModuleDefinition[], selected: Record<string, string | null>, selectedDocuments: Record<string, string>): Record<string, string | null> {
+  const next = { ...selected }
+  for (const module of modules) {
+    if (previous.bindings[module.id]?.kind !== 'primary' || (selectedDocuments[module.id] && selectedDocuments[module.id] !== previous.path)) continue
+    const before = listEntities(previous.doc, module.entity)
+    const after = listEntities(restored, module.entity)
+    const index = before.findIndex((ref) => ref.id === selected[module.id])
+    if (index >= 0 && before.length === after.length && !after.some((ref) => ref.id === selected[module.id])) {
+      next[module.id] = after[index].id
+    }
+  }
+  return next
 }
 
 function bindingFor(module: ModuleDefinition, kind: DocBinding['kind'], locDef?: LocalizationRootDef): DocBinding {
@@ -845,7 +861,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       const module = get().modules.find((m) => m.id === moduleId)
       if (module) binding.issues = validateEntities(doc, module.entity)
     }
-    set((state) => ({ docs: { ...state.docs, [path]: { ...d, doc, dirty: true, rev: d.rev + 1 } }, historyTick: state.historyTick + 1 }))
+    set((state) => ({ docs: { ...state.docs, [path]: { ...d, doc, dirty: true, rev: d.rev + 1 } }, selectedId: selectionAfterRestore(d, doc, state.modules, state.selectedId, state.primaryDocPath), historyTick: state.historyTick + 1 }))
     get().setStatus('已撤销', 'info')
   },
 
@@ -862,7 +878,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       const module = get().modules.find((m) => m.id === moduleId)
       if (module) binding.issues = validateEntities(doc, module.entity)
     }
-    set((state) => ({ docs: { ...state.docs, [path]: { ...d, doc, dirty: true, rev: d.rev + 1 } }, historyTick: state.historyTick + 1 }))
+    set((state) => ({ docs: { ...state.docs, [path]: { ...d, doc, dirty: true, rev: d.rev + 1 } }, selectedId: selectionAfterRestore(d, doc, state.modules, state.selectedId, state.primaryDocPath), historyTick: state.historyTick + 1 }))
     get().setStatus('已重做', 'info')
   },
 

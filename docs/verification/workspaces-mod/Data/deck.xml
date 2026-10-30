@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<DeckXmlRoot>
+  <Deck ID="1">
+    <Card>2</Card>
+    <Card>2</Card>
+    <Card>3</Card>
+    <Card>3</Card>
+    <Card>4</Card>
+    <Card>4</Card>
+    <Card>5</Card>
+    <Card>5</Card>
+    <Card>5</Card>
+  </Deck>
+  <Deck ID="8">
+    <Card>607201</Card>
+    <Card>607202</Card>
+    <Card>607202</Card>
+    <Card>607202</Card>
+    <Card>607203</Card>
+    <Card>607204</Card>
+    <Card>607204</Card>
+    <Card>607205</Card>
+    <Card>607205</Card>
+  </Deck>
+</DeckXmlRoot>
