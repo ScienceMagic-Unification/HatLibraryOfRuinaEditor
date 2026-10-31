@@ -27,6 +27,13 @@ docs/preview/prototype.png  界面验收截图
 
 ## 快速开始
 
+Windows 用户可在 [Releases](https://github.com/ScienceMagic-Unification/HatLibraryOfRuinaEditor/releases/latest) 下载：
+
+- 推荐 `HatLibraryOfRuinaEditor-<版本>-win-x64.zip`：完整解压后运行其中的“帽子的废墟图书馆编辑器.exe”，保留旁边的全部文件。
+- `HatLibraryOfRuinaEditor-<版本>-portable.exe`：单文件自解压版，需要可写的临时目录。若出现 `NSIS Error: Error writing temporary file`，请改用上述 `win-x64.zip`。
+
+V0.2.4 及以前的 `portable.zip` 仅压缩了单文件启动器，不能绕过 NSIS。V0.2.5 起提供的 `win-x64.zip` 包含完整应用，可直接从解压目录启动。
+
 ```bash
 pnpm install      # 安装依赖（首次需放行 electron/esbuild 构建脚本）
 pnpm dev          # 开发模式启动

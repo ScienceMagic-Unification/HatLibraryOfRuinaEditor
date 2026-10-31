@@ -21,7 +21,7 @@
     <BattleEffectTextExtra ID="Hat_Enchantments_BrowseCard_Keyword">
       <Name>查阅</Name>
       <Desc>展示 (~color=#FFD176~)(~u~)3(~/u~)(~/color~) 张书页并从中选择1张
-(~color=#FFD176~)(~i~)- 展示后书页选项将不再刷新直至其被使用(~/i~)(~/color~)</Desc>
+(~color=#FFD176~)(~i~)- 书页选项默认在使用后刷新(~/i~)(~/color~)</Desc>
       <KeywordIconId>Hat_Enchantments_DiscoverCard</KeywordIconId>
       <Color>#FFD176</Color>
       <HasBracket>true</HasBracket>

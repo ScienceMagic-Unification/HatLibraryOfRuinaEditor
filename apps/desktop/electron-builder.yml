@@ -16,7 +16,17 @@ win:
     - target: portable
       arch:
         - x64
+    - target: zip
+      arch:
+        - x64
+  artifactName: HatLibraryOfRuinaEditor-${version}-win-x64.${ext}
+  extraFiles:
+    - from: ../../docs/WINDOWS_PORTABLE.txt
+      to: README.zh-CN.txt
+portable:
   artifactName: ${productName}-${version}-portable.${ext}
+  unicode: true
+  requestExecutionLevel: user
 linux:
   icon: build/icon.png
   category: Utility

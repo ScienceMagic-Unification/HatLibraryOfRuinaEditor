@@ -1,8 +1,9 @@
-param([string]$Version = '0.2.4', [ValidateSet('keywords', 'workspaces')][string]$TestSuite = 'keywords')
+param([string]$Version = '0.2.5', [ValidateSet('keywords', 'workspaces')][string]$TestSuite = 'keywords', [string]$Executable)
 $ErrorActionPreference = 'Stop'
 if ($Version -notmatch '^\d+\.\d+\.\d+$') { throw 'Expected a semantic release version' }
 $taskRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$executable = Join-Path $taskRoot "apps/desktop/release/帽子的废墟图书馆编辑器-$Version-portable.exe"
+if (!$Executable) { $Executable = Join-Path $taskRoot "apps/desktop/release/帽子的废墟图书馆编辑器-$Version-portable.exe" }
+$executable = [IO.Path]::GetFullPath($Executable)
 if (!(Test-Path -LiteralPath $executable)) { throw "Missing portable executable: $executable" }
 $env:RUINA_SCREENSHOT = Join-Path $taskRoot "docs/verification/portable-$Version-$TestSuite.png"
 $env:RUINA_DUMP_TEXT = Join-Path $taskRoot "docs/verification/portable-$Version-$TestSuite.txt"
@@ -14,8 +15,12 @@ $testScript = if ($TestSuite -eq 'workspaces') { 'verify-workspaces-ui.js' } els
 $testRootVariable = if ($TestSuite -eq 'workspaces') { 'window.__workspaceTestRoot' } else { 'window.__keywordTestRoot' }
 $env:RUINA_EXEC_JS = $versionCheck + $testRootVariable + ' = ' + ($taskRoot.Replace('\','/') | ConvertTo-Json -Compress) + ';' + [IO.File]::ReadAllText((Join-Path $PSScriptRoot $testScript))
 $started = Get-Date
-$process = Start-Process -FilePath $executable -ArgumentList @('--disable-gpu','--no-sandbox') -WindowStyle Hidden -PassThru
-if (!$process.WaitForExit(60000)) { throw 'Portable verification has not completed within 60 seconds.' }
+$testProfile = Join-Path $taskRoot ('docs/verification/profile-' + $Version + '-' + $TestSuite + '-' + [guid]::NewGuid().ToString('N'))
+$process = Start-Process -FilePath $executable -ArgumentList @('--disable-gpu','--no-sandbox', ('--user-data-dir="' + $testProfile + '"')) -WindowStyle Hidden -PassThru
+if (!$process.WaitForExit(60000)) {
+    $process.Kill($true)
+    throw 'Portable verification has not completed within 60 seconds.'
+}
 if ($process.ExitCode -ne 0) { throw "Portable exit code: $($process.ExitCode)" }
 if (Test-Path -LiteralPath $env:RUINA_ERROR_LOG) { throw ([IO.File]::ReadAllText($env:RUINA_ERROR_LOG)) }
 $resultName = if ($TestSuite -eq 'workspaces') { 'workspaces-ui-result.txt' } else { 'keyword-values-ui-result.txt' }

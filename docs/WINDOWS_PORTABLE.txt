@@ -1,0 +1,15 @@
+帽子的废墟图书馆编辑器 — Windows x64 兼容便携包
+
+1. 将整个 ZIP 解压到一个普通文件夹。
+2. 打开解压后的文件夹，双击“帽子的废墟图书馆编辑器.exe”。
+3. 请保留同目录下的 resources、locales、DLL 等全部文件；不要只复制 EXE，也不要在压缩包预览里直接运行。
+
+此包无需安装，直接运行完整的应用文件，不经过 NSIS 自解压启动器。
+如果单文件 portable.exe 提示“NSIS Error: Error writing temporary file”，请使用此包。
+它避免启动时由 NSIS 向系统临时目录解压应用；编辑器自身仍需要正常的用户配置目录和 Mod 文件访问权限。
+
+单文件 portable.exe 仍然可用，但依赖可写的 Windows 临时目录。
+旧版本的 portable.zip 只包含单文件启动器；遇到该错误请改用文件名含 win-x64 的 ZIP。
+
+已有配置继续保存在原来的用户配置目录。无需管理员权限。
+反馈问题：https://github.com/ScienceMagic-Unification/HatLibraryOfRuinaEditor/issues

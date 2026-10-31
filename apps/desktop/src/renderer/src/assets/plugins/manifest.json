@@ -660,7 +660,7 @@
       "path": "3a98ad64ca2658d3.xml"
     },
     {
-      "sha256": "eefe304c951e64a2916f914adbbcf31e63e4a29a473725fe549872585c8cbbad",
+      "sha256": "0e44f3f70b33047ac1227f5eb41fd4697f107de44bd71d44106a9dd86590dd10",
       "language": "cn",
       "sourcePath": "Resources/Localization/cn/CardEffects.xml",
       "plugin": "HatSingularity.Enchantments",
@@ -680,7 +680,7 @@
       "path": "bcadf1c173e918d8.xml"
     },
     {
-      "sha256": "767daf72031efe5febf3ebd307f6811fb1938b7746ca8e8db2e14184b8275462",
+      "sha256": "e74c46fc95a5cfdb3c6fe82a89372fd01d1490464ce56d27c1049dc56ffc25c4",
       "language": "cn",
       "sourcePath": "Resources/Localization/cn/DiceEffects.xml",
       "plugin": "HatSingularity.Enchantments",

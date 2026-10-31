@@ -117,9 +117,9 @@
     <BattleEffectTextExtra ID="Hat_Enchantments_MultipleHit_Keyword">
       <Name>连击</Name>
       <Desc>该(~HatKeyword id=&quot;Hat_Enchantments_AtkDice&quot;/~)骰子具有以下能力
--造成的伤害与混乱伤害 / (~color=#F11F32~)(~u~)X(~/u~)(~/color~)
--命中目标 (~color=#F11F32~)(~u~)X(~/u~)(~/color~) 次
-(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
+- 造成的伤害与混乱伤害 / (~color=#F11F32~)(~u~)X(~/u~)(~/color~)
+- 命中目标 (~color=#F11F32~)(~u~)X(~/u~)(~/color~) 次
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)- 本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
       <KeywordIconId>Hat_Enchantments_MultipleHit</KeywordIconId>
       <Color>#F11F32</Color>
       <HasBracket>true</HasBracket>
@@ -136,7 +136,7 @@
     <BattleEffectTextExtra ID="Hat_Enchantments_Harmonious_Keyword">
       <Name>谐振</Name>
       <Desc>该骰子(~HatKeyword id=&quot;Origin_Dice&quot;~)最终值(~/HatKeyword~)被向上修正至 (~color=#FFD551~)(~u~)X(~/u~)(~/color~) 的倍数
-(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)- 本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
       <KeywordIconId>Hat_Enchantments_Harmonious</KeywordIconId>
       <Color>#FFD551</Color>
       <HasBracket>true</HasBracket>
@@ -153,8 +153,8 @@
     <BattleEffectTextExtra ID="Hat_Enchantments_Precision_Keyword">
       <Name>精准</Name>
       <Desc>该(~HatKeyword id=&quot;Hat_Enchantments_AtkDice&quot;/~)骰子视目标对应抗性的承伤系数 + (~color=#05BCFC~)(~u~)0.1*X(~/u~)(~/color~)  
-(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-不对[免疫]抗性生效(~/HatKeyword~)
-(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)-本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)- 不对[免疫]抗性生效(~/HatKeyword~)
+(~HatKeyword id=&quot;Hat_Enchantments_Hide_Italic&quot;~)- 本效果叠加时仅取最高值(~/HatKeyword~)</Desc>
       <KeywordIconId>Hat_Enchantments_Insight</KeywordIconId>
       <Color>#05BCFC</Color>
       <HasBracket>true</HasBracket>
