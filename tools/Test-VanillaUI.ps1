@@ -1,3 +1,4 @@
+param([string]$Executable)
 $ErrorActionPreference = 'Stop'
 $taskRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $env:RUINA_SCREENSHOT = Join-Path $taskRoot 'docs/verification/vanilla-ui.png'
@@ -11,7 +12,13 @@ $env:RUINA_EXEC_JS = 'window.__keywordTestRoot = ' + ($taskRoot.Replace('\','/')
 [IO.Directory]::CreateDirectory((Join-Path $taskRoot 'docs/verification/core-pages-mod/Assemblies/Localize/cn')) | Out-Null
 [IO.Directory]::CreateDirectory((Join-Path $taskRoot 'docs/verification/core-pages-mod/Assemblies/Localize/en')) | Out-Null
 $started = Get-Date
-$process = Start-Process -FilePath (Join-Path $taskRoot 'apps/desktop/node_modules/electron/dist/electron.exe') -ArgumentList @('--disable-gpu','--no-sandbox',('"'+(Join-Path $taskRoot 'apps/desktop')+'"')) -WindowStyle Hidden -PassThru
+$profile = Join-Path ([IO.Path]::GetTempPath()) ('RuinaVanilla-' + [Guid]::NewGuid().ToString('N'))
+$arguments = @('--disable-gpu','--no-sandbox', ('--user-data-dir="' + $profile + '"'))
+if (!$Executable) {
+  $Executable = Join-Path $taskRoot 'apps/desktop/node_modules/electron/dist/electron.exe'
+  $arguments += '"' + (Join-Path $taskRoot 'apps/desktop') + '"'
+}
+$process = Start-Process -FilePath $Executable -ArgumentList $arguments -WindowStyle Hidden -PassThru
 if (!$process.WaitForExit(30000)) { throw 'UI verification has not completed within 30 seconds.' }
 if (Test-Path -LiteralPath $env:RUINA_ERROR_LOG) { throw ([IO.File]::ReadAllText($env:RUINA_ERROR_LOG)) }
 $resultPath = Join-Path $taskRoot 'docs/verification/vanilla-ui-result.txt'

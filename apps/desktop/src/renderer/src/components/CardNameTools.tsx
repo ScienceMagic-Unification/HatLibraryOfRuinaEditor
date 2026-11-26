@@ -1,3 +1,4 @@
+import { sameLanguageSources } from '../lib/localizationSources'
 import { useMemo } from 'react'
 import type { EntitySchema } from '@ruina/editor-core'
 import { createEntity, getTextField, insertEntity, listEntities, removeEntity, setTextField } from '@ruina/editor-core'
@@ -35,13 +36,16 @@ export function CardNameTools(): JSX.Element {
     () => Object.values(docs).filter((d) => d.bindings['cardname']?.kind === 'primary'),
     [docs]
   )
-  const activeNameDoc = nameDocs.find((d) => d.lang === primaryLang) ?? nameDocs[0]
+  const selectedPath = useAppStore((s) => s.primaryDocPath['cardname'])
+  const sources = sameLanguageSources(nameDocs, primaryLang, selectedPath)
+  const activeNameDoc = sources[0]
   const cardInfoModule = modules.find((m) => m.id === 'cardinfo')
 
 
   const syncNames = () => {
     if (!cardInfoDoc || !activeNameDoc || !cardInfoModule) return
     const sourceRefs = listEntities(cardInfoDoc.doc, cardInfoModule.entity)
+    const siblingIds = new Set(sources.slice(1).flatMap((d) => listEntities(d.doc, LOC_SCHEMA).map((r) => r.id)))
     editDoc(activeNameDoc.path, (doc) => {
       const locRefs = listEntities(doc, LOC_SCHEMA)
       let created = 0
@@ -50,7 +54,7 @@ export function CardNameTools(): JSX.Element {
         const hit = locRefs.find((r) => r.id === src.id)
         if (hit) {
           setTextField(hit.node, 'LocalizedName', name)
-        } else {
+        } else if (!siblingIds.has(src.id)) {
           const node = createEntity(LOC_SCHEMA, src.id)
           setTextField(node, 'LocalizedName', name)
           insertEntity(doc, LOC_SCHEMA, node)

@@ -60,11 +60,14 @@ export function getRootChildren(doc: OrderedDoc, rootName: string): unknown[] {
   return childArray(rootNode as OrderedNode, rootName)
 }
 
-export function getContainerChildren(doc: OrderedDoc, schema: EntitySchema): unknown[] {
+export function getContainerChildren(doc: OrderedDoc, schema: EntitySchema, create = false): unknown[] {
   let list = getRootChildren(doc, schema.root)
   for (const seg of schema.containerPath ?? []) {
-    const idx = list.findIndex((c) => isRecord(c) && Object.keys(c)[0] === seg)
-    if (idx < 0) return []
+    let idx = list.findIndex((c) => isRecord(c) && Object.keys(c)[0] === seg)
+    if (idx < 0) {
+      if (!create) return []
+      idx = list.push(makeElement(seg)) - 1
+    }
     list = childArray(list[idx] as OrderedNode, seg)
   }
   return list
@@ -96,7 +99,7 @@ export function listEntities(doc: OrderedDoc, schema: EntitySchema): EntityRef[]
 }
 
 export function insertEntity(doc: OrderedDoc, schema: EntitySchema, node: OrderedNode, at?: number): void {
-  const list = getContainerChildren(doc, schema)
+  const list = getContainerChildren(doc, schema, true)
   if (at === undefined || at < 0 || at > list.length) list.push(node)
   else list.splice(at, 0, node)
 }
@@ -176,11 +179,7 @@ export function makeElement(name: string, attrs?: Record<string, string>, text?:
 export function getTextField(node: OrderedNode, name: string): string | undefined {
   const el = findChildNode(node, name)
   if (!el) return undefined
-  const arr = nodeChildren(el)
-  for (const c of arr) {
-    if (isRecord(c) && '#text' in c) return c['#text'] === undefined ? '' : String(c['#text'])
-  }
-  return undefined
+  return nodeChildren(el).some((child) => isRecord(child) && '#text' in child) ? getNodeText(el) : undefined
 }
 
 /** 写入实体子元素的文本值（不存在则追加） */
@@ -192,27 +191,25 @@ export function setTextField(node: OrderedNode, name: string, value: string): vo
     return
   }
   const el = children[idx] as OrderedNode
-  const arr = nodeChildren(el)
-  const textNode = arr.find((c) => isRecord(c) && '#text' in c)
-  if (textNode) (textNode as any)['#text'] = value
-  else arr.push({ '#text': value })
+  setNodeText(el, value)
 }
 
 /** 读取元素节点自身的文本（非子元素） */
 export function getNodeText(node: OrderedNode): string {
-  const arr = nodeChildren(node)
-  for (const c of arr) {
-    if (isRecord(c) && '#text' in c) return c['#text'] === undefined ? '' : String(c['#text'])
-  }
-  return ''
+  return nodeChildren(node).filter(isRecord).filter((c) => '#text' in c).map((c) => String(c['#text'] ?? '')).join('')
 }
 
 /** 写入元素节点自身的文本（非子元素） */
 export function setNodeText(node: OrderedNode, text: string): void {
   const arr = nodeChildren(node)
-  const t = arr.find((c) => isRecord(c) && '#text' in c)
-  if (t) (t as any)['#text'] = text
-  else arr.push({ '#text': text })
+  const first = arr.findIndex((c) => isRecord(c) && '#text' in c)
+  if (first < 0) arr.push({ '#text': text })
+  else {
+    (arr[first] as Record<string, unknown>)['#text'] = text
+    for (let i = arr.length - 1; i > first; i--) {
+      if (isRecord(arr[i]) && '#text' in (arr[i] as Record<string, unknown>)) arr.splice(i, 1)
+    }
+  }
 }
 
 export function getAllText(node: OrderedNode, name: string): string {
@@ -220,17 +217,30 @@ export function getAllText(node: OrderedNode, name: string): string {
   const out: string[] = []
   for (const c of children) {
     if (!isRecord(c) || Object.keys(c)[0] !== name) continue
-    for (const t of nodeChildren(c as OrderedNode)) {
-      if (isRecord(t) && '#text' in t) out.push(String((t as any)['#text']))
-    }
+    out.push(getNodeText(c as OrderedNode))
   }
   return out.join('\n')
 }
 
-export function setAllText(node: OrderedNode, name: string, text: string): void {
-  removeField(node, name)
-  const lines = text.split(/\r?\n/)
-  for (const line of lines) nodeChildren(node).push(makeElement(name, undefined, line))
+export function setAllText(node: OrderedNode, name: string, text: string, splitLines = true): void {
+  const children = nodeChildren(node)
+  const lines = splitLines ? text.split(/\r?\n/) : [text]
+  let written = 0
+  let insertAt = children.length
+  for (let i = 0; i < children.length; i++) {
+    const el = children[i]
+    if (!isRecord(el) || nodeKey(el as OrderedNode) !== name) continue
+    if (written < lines.length) {
+      setNodeText(el as OrderedNode, lines[written++])
+      insertAt = i + 1
+    } else {
+      // If a line disappears, keep its comments beside the surviving fields.
+      const comments = nodeChildren(el as OrderedNode).filter((c) => isRecord(c) && '#comment' in c)
+      children.splice(i, 1, ...comments)
+      i += comments.length - 1
+    }
+  }
+  children.splice(insertAt, 0, ...lines.slice(written).map((line) => makeElement(name, undefined, line)))
 }
 
 export function removeField(node: OrderedNode, name: string): void {

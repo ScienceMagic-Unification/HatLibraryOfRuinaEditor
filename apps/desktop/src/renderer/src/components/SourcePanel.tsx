@@ -1,3 +1,4 @@
+import { entitySchemaForRow } from '../lib/localizationSources'
 import { useEffect, useState } from 'react'
 import type { EntityRef, ModuleDefinition } from '@ruina/editor-core'
 import { getAttr, listEntities, parseSingleNode, replaceEntityNode, serializeNode } from '@ruina/editor-core'
@@ -38,16 +39,17 @@ export function SourcePanel({ module, entity }: { module: ModuleDefinition; enti
 
   const apply = () => {
     try {
-      const parsed = parseSingleNode(draft, module.entity.entity)
+      const schema = entitySchemaForRow(module.entity, entity)
+      const parsed = parseSingleNode(draft, schema.entity)
       if (!parsed) {
         setError('解析失败：找不到有效的实体节点，请检查 XML 结构')
         return
       }
       const newId = getAttr(parsed, module.entity.idAttr) ?? ''
       editData(module.id, (doc) => {
-        const refs = listEntities(doc, module.entity)
-        const cur = refs.find((r) => r.id === entity.id)
-        if (cur) replaceEntityNode(doc, module.entity, cur.index, parsed)
+        const refs = listEntities(doc, schema)
+        const cur = refs.find((r) => r.index === entity.index && r.id === entity.id)
+        if (cur) replaceEntityNode(doc, schema, cur.index, parsed)
       })
       if (newId && newId !== entity.id) select(module.id, newId)
       setError('')

@@ -15,6 +15,15 @@ export interface LangInfo {
  */
 export function detectLang(path: string, text: string): LangInfo {
   const p = path.toLowerCase()
+  const directory = p.replace(/\\/g, '/').match(/(?:^|\/)localize\/([^/]+)\//)?.[1]
+  const locales: Record<string, [string, string]> = {
+    cn: ['cn', '简体中文'], zh: ['cn', '简体中文'], en: ['en', 'English'], jp: ['jp', '日本語'], ja: ['jp', '日本語'],
+    kr: ['kr', '한국어'], ko: ['kr', '한국어'], trcn: ['trcn', '繁體中文'], 'zh-tw': ['trcn', '繁體中文'], ru: ['ru', 'Русский'], de: ['de', 'Deutsch'], fr: ['fr', 'Français']
+  }
+  if (directory && /^[a-z]{2,4}(?:-[a-z]+)?$/.test(directory)) {
+    const [lang, label] = locales[directory] ?? [directory, directory]
+    return { lang, label }
+  }
   const named: Array<[RegExp, string, string]> = [
     [/(?:\\|\/)cn(?:\\|\/|_|-|\.)/, 'cn', '简体中文'],
     [/(?:[._-])(cn|zh|chs)(?:\.[^\\/]*$|$)/i, 'cn', '简体中文'],

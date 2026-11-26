@@ -10,6 +10,23 @@ const shield = 'Hat_Enchantments_ShieldBash_Keyword', through = 'Hat_Enchantment
 const flat = (nodes) => nodes.map((n) => typeof n === 'string' ? n : flat(n.children)).join('')
 const tokens = (nodes) => nodes.flatMap((n) => typeof n === 'string' ? [] : [n, ...tokens(n.children)])
 describe('document language and enchantment applicability', () => {
+  it.each([
+    ['cn', '移除', '佚亡', '佚亡'],
+    ['en', 'Exhaust', 'Single-use', 'Single-Use'],
+    ['jp', '除去', '消滅', '使い捨て'],
+    ['kr', '제거', '소멸', '일회성']
+  ])('keeps the remove action and the single-use page distinct in %s', (language, remove, singleUse, alias) => {
+    const entries = getBuiltinRegexEntries('vanilla', language)
+    const rules = new Map(entries.map((entry) => [entry.id, entry]))
+    for (const [label, expectedId, canonical] of [[remove, 'Exhaust_Keyword', remove], [singleUse, 'ExhaustOnUse_Keyword', singleUse], [alias, 'ExhaustOnUse_Keyword', singleUse]]) {
+      const parsed = parseKeywordPreview('[' + label + ']', rules)
+      expect(tokens(parsed.nodes).map((n) => n.entry?.id)).toEqual([expectedId])
+      expect(flat(parsed.nodes)).toBe(canonical)
+      expect(rules.get(expectedId).keywordIconId).toBe('Exhaust')
+    }
+    const die = getBuiltinRegexEntries('singularity', language).find((entry) => entry.id === 'Hat_Enchantments_ExhaustDice_Description_Keyword')
+    expect(die.name).toBe(singleUse)
+  })
   it('resolves explicit document paths, aliases, language-only workspaces and None', () => {
     const docs = { cn: { lang: 'cn', bindings: { cardability: { kind: 'primary' } } }, korean: { lang: 'ko', bindings: { cardability: { kind: 'primary' } } } }
     expect(workspaceLanguage(docs, 'cardability', 'cn', 'korean')).toBe('kr')

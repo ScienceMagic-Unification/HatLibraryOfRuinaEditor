@@ -750,7 +750,7 @@
       "path": "b3a8576b5251fae3.xml"
     },
     {
-      "sha256": "19a36a3ab59cdb41a9d8a0a5a02c83b8ed6b8a5588353071d807aa8a653c940f",
+      "sha256": "553b5082835c7f7dd07ff9413093f658b2ed54a6feff3f22c8c2dca4b975d981",
       "language": "en",
       "sourcePath": "Resources/Localization/en/DiceEffects.xml",
       "plugin": "HatSingularity.Enchantments",
@@ -1103,8 +1103,8 @@
       "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.Abilities\\Resources\\en\\HatAbilities_EffectTexts.xml"
     },
     {
-      "source": "CoreReady-20261011",
-      "sha256": "30983f3fa6f54bbfe0b08df5afb46de0f2f327863217786632807f1490abd682",
+      "source": "CoreReady-20261011+Core-exhaustion",
+      "sha256": "e43e4f73886a38219c54185b5d6ac98f2696d793123bf1ddf47edce9e50db1fd",
       "plugin": "HatSingularity.Abilities",
       "name": "HatSingularity.Abilities.Resources.en.HatAbilities_Etc.xml",
       "id": "HatAbilities_Etc",
@@ -1169,8 +1169,8 @@
       "sourcePath": "D:\\360data\\重要数据\\我的文档\\ChatGPT\\废墟图书馆动作系统\\output\\SingularityLocalization-20261011\\CoreReady\\HatSingularity.KeywordView\\Resources\\cn\\HatKeyword_OriginKeyword.xml"
     },
     {
-      "source": "CoreReady-20261011",
-      "sha256": "45b1ebe566bac191aa181b79dec61f99dc250b3f43b86ece1ace7817b422e243",
+      "source": "CoreReady-20261011+Core-exhaustion",
+      "sha256": "4e6955fcbea01c353e9b6c416a3e6ac2cee6834336bf5509766f3105b6f652b9",
       "plugin": "HatSingularity.KeywordView",
       "name": "HatSingularity.KeywordView.Resources.en.HatKeyword_OriginKeyword.xml",
       "id": "HatKeyword_OriginKeyword",

@@ -1,12 +1,12 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <localize>
   <text id="Hat_BreakStateLine">Stagger Threshold</text>
   <text id="Hat_BattleUI_Crit">Crit!</text>
   <text id="hat_ui_newtooltip_battle_shield">Current HP Shield</text>
   <text id="hat_ui_newtooltip_battle_debt">Current HP Debt</text>
   <text id="ui_ability_discard">Discard</text>
-  <text id="ui_ability_exhaust">Remove</text>
-  <text id="ui_ability_exhaustonuse">Exhaust</text>
+  <text id="ui_ability_exhaust">Exhaust</text>
+  <text id="ui_ability_exhaustonuse">Single-use</text>
   <text id="ui_ability_hat_preassembled">Innate</text>
   <text id="ui_buf_vulnerable_break">Stagger Fragile</text>
   <text id="ui_buf_breakprotection">Stagger Protection</text>

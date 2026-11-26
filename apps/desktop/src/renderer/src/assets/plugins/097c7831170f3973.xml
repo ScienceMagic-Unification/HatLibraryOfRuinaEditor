@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <BattleEffectTextRootExtra>
   <extraTextList>
     <BattleEffectTextExtra ID="Strength">
@@ -634,6 +634,7 @@
       <IsChangePassive>true</IsChangePassive>
     </BattleEffectTextExtra>
     <BattleEffectTextExtra ID="Exhaust_Keyword">
+      <RecognizeName>Exhaust</RecognizeName>
       <KeywordIconId>Exhaust</KeywordIconId>
       <Color>#FFC67C</Color>
       <HasBracket>true</HasBracket>
@@ -643,7 +644,8 @@
       <IsChangePassive>true</IsChangePassive>
     </BattleEffectTextExtra>
     <BattleEffectTextExtra ID="ExhaustOnUse_Keyword">
-      <RecognizeName>Exhaust</RecognizeName>
+      <RecognizeName>Single-use</RecognizeName>
+      <RecognizeName>Single-Use</RecognizeName>
       <KeywordIconId>Exhaust</KeywordIconId>
       <Color>#FFC67C</Color>
       <HasBracket>true</HasBracket>

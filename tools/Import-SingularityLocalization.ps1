@@ -1,5 +1,6 @@
 param([string]$SourceRoot = 'D:/360data/重要数据/我的文档/ChatGPT/废墟图书馆动作系统')
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'EnglishExhaustionTerms.ps1')
 # Enchantments owns the ability catalog. The other inputs override XML only; never read old DLL translations.
 & (Join-Path $PSScriptRoot 'Import-SingularityProject.ps1') -Project (Join-Path $SourceRoot 'HatSingularity.Enchantments/HatSingularity.Enchantments.csproj')
 $output = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../apps/desktop/src/renderer/src/assets/plugins'))
@@ -23,6 +24,15 @@ try {
     $relative = $input.file.FullName.Substring($input.root.Length + 1).Replace('\','/')
     $name = $input.plugin + '.' + $relative.Replace('/','.')
     $bytes = [IO.File]::ReadAllBytes($input.file.FullName)
+    $terms = switch ($name) {
+      'HatSingularity.KeywordView.Resources.en.HatKeyword_OriginKeyword.xml' { 'Exhaust_Keyword'; 'ExhaustOnUse_Keyword' }
+      'HatSingularity.Abilities.Resources.en.HatAbilities_Etc.xml' { 'ui_ability_exhaust'; 'ui_ability_exhaustonuse' }
+    }
+    if ($terms) {
+      $coreFile = Join-Path $SourceRoot "output/SingularityLocalization-20261011/Core/$($input.plugin)/$name"
+      $bytes = Merge-EnglishExhaustionTerms $input.file.FullName $coreFile $terms
+      $input.source = 'CoreReady-20261011+Core-exhaustion'
+    }
     [xml]$validated = [Text.Encoding]::UTF8.GetString($bytes).TrimStart([char]0xFEFF)
     $hash = [BitConverter]::ToString($sha.ComputeHash($bytes)).Replace('-','').ToLowerInvariant()
     $key = [BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($input.plugin+':'+$name))).Replace('-','').Substring(0,16).ToLowerInvariant()+'.xml'

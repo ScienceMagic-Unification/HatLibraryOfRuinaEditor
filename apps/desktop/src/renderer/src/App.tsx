@@ -1,3 +1,4 @@
+import { AnnotationControls } from './components/Annotations'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Badge, Button, Select } from '@ruina/ui'
 import {
@@ -35,6 +36,7 @@ export function App(): JSX.Element {
   const setActiveModule = useAppStore((s) => s.setActiveModule)
   const dataFiles = useAppStore((s) => s.dataFiles)
   const docs = useAppStore((s) => s.docs)
+  const selectedPath = useAppStore((s) => s.primaryDocPath[activeModuleId])
   const historyTick = useAppStore((s) => s.historyTick)
   const lastEditedPath = useAppStore((s) => s.lastEditedPath)
   const undo = useAppStore((s) => s.undo)
@@ -90,21 +92,21 @@ export function App(): JSX.Element {
 
   return (
     <div className="flex h-full flex-col bg-background">
-      <header className="flex h-12 shrink-0 items-center gap-3 border-b border-border bg-card px-3">
+      <header className="flex min-h-12 shrink-0 flex-wrap items-center gap-x-2 gap-y-1 border-b border-border bg-card px-3 py-1">
         <div className="flex items-center gap-2">
           <div className="flex size-7 items-center justify-center rounded-md bg-primary/15 text-primary">
             <FileCode2 className="size-4" />
           </div>
           <div>
             <div className="text-sm font-semibold leading-tight">{t('app.title')}</div>
-            <div className="text-[10px] leading-tight text-muted-foreground">V0.2.5</div>
+            <div className="text-[10px] leading-tight text-muted-foreground">V0.2.6</div>
           </div>
         </div>
         <div className="mx-1 h-5 w-px bg-border" />
-        <div className="flex min-w-0 items-center gap-1.5">
+        <div className="flex min-w-0 flex-wrap items-center gap-1.5">
           <FolderOpen className="size-4 shrink-0 text-muted-foreground" />
           <Select.Root value={modPath ?? ''} onValueChange={(p) => void openMod(p)}>
-            <Select.Trigger className="h-8 w-[260px] text-xs">
+            <Select.Trigger className="h-8 w-[clamp(9rem,14vw,16rem)] text-xs">
               <Select.Value placeholder={t('mod.browse')} />
             </Select.Trigger>
             <Select.Content>
@@ -158,18 +160,19 @@ export function App(): JSX.Element {
             <Wand2 className="size-4" />
             {regexAutocomplete ? t('regexAutocomplete.on') : t('regexAutocomplete.off')}
           </Button>
+          <AnnotationControls/>
         </div>
         <div className="flex-1" />
         <div
           className="min-w-0 max-w-[360px] truncate font-mono text-[10px] text-muted-foreground/70"
           title={(() => {
             const m = discoveredModules.find((x) => x.id === activeModuleId)
-            return m?.dataFile ?? m?.dataFiles?.[0] ?? Object.values(docs).find((d) => d.bindings[activeModuleId]?.kind === 'primary')?.path ?? ''
+            return docs[selectedPath]?.path ?? m?.dataFile ?? m?.dataFiles?.[0] ?? Object.values(docs).find((d) => d.bindings[activeModuleId]?.kind === 'primary')?.path ?? ''
           })()}
         >
           {(() => {
             const m = discoveredModules.find((x) => x.id === activeModuleId)
-            const p = m?.dataFile ?? m?.dataFiles?.[0] ?? Object.values(docs).find((d) => d.bindings[activeModuleId]?.kind === 'primary')?.path ?? ''
+            const p = docs[selectedPath]?.path ?? m?.dataFile ?? m?.dataFiles?.[0] ?? Object.values(docs).find((d) => d.bindings[activeModuleId]?.kind === 'primary')?.path ?? ''
             return p ? p.split(/[\\/]/).slice(-2).join('/') : ''
           })()}
         </div>

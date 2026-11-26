@@ -1,3 +1,4 @@
+import { sameLanguageSources } from '../lib/localizationSources'
 import { findChildNode, getAllText, getAttr, getFieldValue, getNodeText, getTextField, listEntities, type EntityRef, type ModuleDefinition } from '@ruina/editor-core'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
@@ -21,8 +22,6 @@ export function CorePagePreview({ module, entity }: { module: ModuleDefinition; 
   const setPrimaryLang = useAppStore((s) => s.setPrimaryLang)
   const primaryDocPath = useAppStore((s) => s.primaryDocPath)
   const primaryLang = useAppStore((s) => s.primaryLang)
-  const setActiveModule = useAppStore((s) => s.setActiveModule)
-  const select = useAppStore((s) => s.select)
   if (!entity) return <p className="p-4 text-xs text-muted-foreground">{t('preview.empty')}</p>
   const value = (name: string, fallback = '0'): string => {
     const f = module.entity.fields.find((f) => f.name === name)
@@ -30,8 +29,8 @@ export function CorePagePreview({ module, entity }: { module: ModuleDefinition; 
     return v === undefined || v === '' ? fallback : String(v)
   }
   const storyDocs = Object.values(docs).filter((d) => d.bindings.bookstory?.kind === 'primary')
-  const storyDoc = primaryLang.bookstory === '__none__' ? undefined : storyDocs.find((d) => d.path === primaryDocPath.bookstory) ?? storyDocs.find((d) => d.lang === primaryLang.bookstory) ?? storyDocs.find((d) => d.lang === 'cn') ?? storyDocs[0]
-  const story = storyDoc ? listEntities(storyDoc.doc, bookStoryModule.entity).find((r) => r.id === entity.id) : undefined
+  const story = sameLanguageSources(storyDocs, primaryLang.bookstory, primaryDocPath.bookstory)
+    .flatMap((d) => listEntities(d.doc, bookStoryModule.entity)).find((r) => r.id === entity.id)
   const storyText = story ? getAllText(findChildNode(story.node, 'TextList') ?? story.node, 'Desc') : ''
   const passives = referenceNodes(entity.node, 'Passive')
   const jump = async (target?: BookReferenceTarget): Promise<void> => {
@@ -58,6 +57,6 @@ export function CorePagePreview({ module, entity }: { module: ModuleDefinition; 
         return <button key={i} type="button" data-reference-id={id} disabled={!target} onClick={() => void jump(target)} className="flex w-full items-center justify-between gap-2 rounded border border-transparent bg-secondary/20 p-2 text-left text-xs transition-colors enabled:hover:border-primary/50 enabled:hover:bg-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><RegexText text={detail?.name || id} rules={rules}/><span className="text-muted-foreground">#{id}</span></button>
       })}</section> : null
     })}
-    <section className="space-y-2 rounded-lg border border-border p-3"><h3 className="text-xs text-muted-foreground">{t('core.story')}</h3>{story ? <><button className="text-sm text-primary hover:underline" onClick={() => { select('bookstory', entity.id); void setActiveModule('bookstory') }}>{getTextField(story.node, 'BookName') || entity.id}</button><p className="whitespace-pre-wrap text-xs leading-relaxed">{storyText}</p></> : <p className="text-xs text-muted-foreground">{t('emptyRows')}</p>}</section>
+    <section className="space-y-2 rounded-lg border border-border p-3"><h3 className="text-xs text-muted-foreground">{t('core.story')}</h3>{story ? <><button className="text-sm text-primary hover:underline" onClick={() => { void openWorkspaceAndSelect('bookstory', entity.id) }}>{getTextField(story.node, 'BookName') || entity.id}</button><p className="whitespace-pre-wrap text-xs leading-relaxed">{storyText}</p></> : <p className="text-xs text-muted-foreground">{t('emptyRows')}</p>}</section>
   </div>
 }

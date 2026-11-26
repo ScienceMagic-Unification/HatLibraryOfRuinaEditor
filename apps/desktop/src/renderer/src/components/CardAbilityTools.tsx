@@ -1,3 +1,4 @@
+import { sameLanguageSources } from '../lib/localizationSources'
 import { useMemo, useState } from 'react'
 import type { EntitySchema } from '@ruina/editor-core'
 import { getListRows, getTextField, listEntities, removeEntity } from '@ruina/editor-core'
@@ -28,7 +29,9 @@ export function CardAbilityTools(): JSX.Element {
   const [confirming, setConfirming] = useState(false)
 
   const abilityDocs = useMemo(() => Object.values(docs).filter((d) => d.bindings['cardability']?.kind === 'primary'), [docs])
-  const activeAbilityDoc = abilityDocs.find((d) => d.lang === primaryLang) ?? abilityDocs[0]
+  const selectedPath = useAppStore((s) => s.primaryDocPath['cardability'])
+  const sources = sameLanguageSources(abilityDocs, primaryLang, selectedPath)
+  const activeAbilityDoc = sources[0]
   const cardInfoModule = modules.find((m) => m.id === 'cardinfo')
   const cardInfoDoc = useMemo(
     () => Object.values(docs).find((d) => d.bindings['cardinfo']?.kind === 'primary' && d.path.includes('CardInfo.xml')),

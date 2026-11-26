@@ -128,6 +128,10 @@ export function inferEntitySchema(doc: OrderedDoc, rootName?: string): EntitySch
     }
   }
 
+  if (!children.length && attrs.length && textOf(sample)) {
+    fields.push({ kind: 'multiline', name: 'Text', selfText: true })
+  }
+
   const displayField = fields.some((f) => f.name === 'Name')
     ? 'Name'
     : fields.find((f) => f.kind === 'text' || f.kind === 'multiline')?.name

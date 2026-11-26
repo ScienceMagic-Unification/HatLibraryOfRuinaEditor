@@ -1,3 +1,4 @@
+import { sourceName } from '../lib/localizationSources'
 import type { EntitySchema } from '@ruina/editor-core'
 import { getAllText, getTextField, listEntities } from '@ruina/editor-core'
 import { useAppStore } from '../store'
@@ -62,7 +63,9 @@ export function ProofPanel({ moduleId }: { moduleId: ProofModuleId }): JSX.Eleme
   const rows = ownDocs.map((d) => {
     const refs = listEntities(d.doc, schema)
     const hit = refs.find((r) => r.id === selectedId)
-    const lang = d.langLabel ?? d.lang ?? d.path
+    const siblings = ownDocs.filter((doc) => doc.lang === d.lang)
+    if (!hit && siblings.length > 1) return null
+    const lang = [d.langLabel ?? d.lang, siblings.length > 1 ? sourceName(d.path) : undefined].filter(Boolean).join(' · ')
     if (isEffect || isPassiveAbility) {
       return {
         lang,
@@ -73,7 +76,7 @@ export function ProofPanel({ moduleId }: { moduleId: ProofModuleId }): JSX.Eleme
     }
     const value = hit ? (isName ? getTextField(hit.node, field) : getAllText(hit.node, field)) ?? '' : ''
     return { lang, language: d.lang, value }
-  })
+  }).filter((row) => row !== null)
 
   return (
     <div className="max-h-56 overflow-y-auto border-t border-border bg-secondary/10 p-3">

@@ -1,3 +1,5 @@
+import { GroupToggle, GroupedRows, type RowGrouping } from './RowGroups'
+import { rowKey, sourceName, type ListRow } from '../lib/localizationSources'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { EntitySchema, OrderedDoc } from '@ruina/editor-core'
 import { getTextField, listEntities } from '@ruina/editor-core'
@@ -11,15 +13,18 @@ import { resolveBuiltinIconUrl } from '../lib/builtinIcons'
 /** 效果文本列表：参照模组正则列表，上为本地化名称，下为实际 ID（不带 #）。 */
 export function EffectTextListPanel({
   doc,
+  rows,
   schema,
   selectedId,
   onSelect,
-  dirtyIds
+  dirtyIds, grouping
 }: {
   doc: OrderedDoc
+  rows?: ListRow[]
   schema: EntitySchema
   selectedId: string | null
   onSelect: (id: string) => void
+  grouping?: RowGrouping
   dirtyIds?: Set<string>
 }): JSX.Element {
   const { t } = useI18n()
@@ -36,11 +41,12 @@ export function EffectTextListPanel({
     void loadBuffIcons()
   }, [loadBuffIcons])
 
-  const refs = useMemo(() => listEntities(doc, schema), [doc])
+  const refs: ListRow[] = useMemo(() => rows ?? listEntities(doc, schema), [rows, doc, schema])
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
     if (!q) return refs
     return refs.filter((r) => {
+      if (r.source && sourceName(r.source).toLowerCase().includes(q)) return true
       const name = (getTextField(r.node, 'Name') ?? '').toLowerCase()
       const desc = (getTextField(r.node, 'Desc') ?? '').toLowerCase()
       return r.id.toLowerCase().includes(q) || name.includes(q) || desc.includes(q)
@@ -50,8 +56,8 @@ export function EffectTextListPanel({
   // 选中项变化时滚动进可视范围（新增/复制后立即定位到新条目）
   useEffect(() => {
     if (!selectedId || lastScrolledRef.current === selectedId) return
-    if (!refs.some((r) => r.id === selectedId)) return
-    if (!filtered.some((r) => r.id === selectedId)) {
+    if (!refs.some((r) => rowKey(r) === selectedId)) return
+    if (!filtered.some((r) => rowKey(r) === selectedId)) {
       if (search.trim() !== '') setSearch('')
       return
     }
@@ -70,6 +76,44 @@ export function EffectTextListPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId, filtered, refs, search])
 
+  const render = (r: ListRow) => {
+    const name = getTextField(r.node, 'Name') ?? ''
+    const id = r.id
+    const key = rowKey(r)
+    const active = !grouping?.enabled && key === selectedId
+    const mod = hatEnabled ? rules.get(id) : undefined
+    const icon = mod ? resolveBuiltinIconUrl(mod.keywordIconId, buffIcons) : undefined
+    const style = mod
+      ? {
+          color: mod.color || undefined,
+          fontWeight: mod.isBold ? 700 : undefined,
+          fontStyle: mod.isItalic ? 'italic' : undefined
+        }
+      : undefined
+    return (
+      <button
+        key={key}
+        ref={(el) => {
+          if (el) rowRefs.current.set(key, el)
+          else rowRefs.current.delete(key)
+        }}
+        onClick={grouping?.enabled ? undefined : () => onSelect(key)}
+        className={`flex w-full flex-col items-start gap-0.5 border-b border-border/60 px-3 py-2 text-left transition-colors ${
+          active ? 'bg-primary/15 text-primary' : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+        }`}
+      >
+        <span className="flex min-w-0 items-center gap-1.5">
+          {dirtyIds?.has(key) ? <span className="size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
+          {icon ? <img src={icon} alt="" className="size-4 shrink-0 object-contain align-[-3px]" draggable={false} /> : null}
+          <span className="min-w-0 truncate text-sm font-medium text-foreground" style={style}>
+            {name || t('empty')}
+          </span>
+        </span>
+        <span className="block min-w-0 truncate font-mono text-[10px] text-muted-foreground">{id}{!grouping?.enabled && r.source && <small title={r.source}> · {sourceName(r.source)}</small>}</span>
+      </button>
+    )
+  }
+
   return (
     <div className="flex h-full min-h-0 min-w-0 flex-col border-r border-border bg-card">
       <div className="space-y-2 border-b border-border p-3">
@@ -81,51 +125,16 @@ export function EffectTextListPanel({
           <span>
             {t('total', { n: refs.length })}
             {filtered.length !== refs.length ? `，${t('hits', { n: filtered.length })}` : ''}
-          </span>
+          </span><GroupToggle g={grouping}/>
         </div>
       </div>
-      <div ref={listRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      {grouping?.enabled ? <GroupedRows key={grouping.scope} g={grouping} filtered={filtered} searching={Boolean(search.trim())} selected={selectedId} onSelect={(r) => onSelect(rowKey(r))} render={render}/> : <div ref={listRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         {filtered.length === 0 ? (
           <div className="p-6 text-center text-xs text-muted-foreground">{search ? t('noMatch') : t('list.noContent')}</div>
         ) : (
-          filtered.map((r) => {
-            const name = getTextField(r.node, 'Name') ?? ''
-            const id = r.id
-            const active = id === selectedId
-            const mod = hatEnabled ? rules.get(id) : undefined
-            const icon = mod ? resolveBuiltinIconUrl(mod.keywordIconId, buffIcons) : undefined
-            const style = mod
-              ? {
-                  color: mod.color || undefined,
-                  fontWeight: mod.isBold ? 700 : undefined,
-                  fontStyle: mod.isItalic ? 'italic' : undefined
-                }
-              : undefined
-            return (
-              <button
-                key={id}
-                ref={(el) => {
-                  if (el) rowRefs.current.set(id, el)
-                  else rowRefs.current.delete(id)
-                }}
-                onClick={() => onSelect(id)}
-                className={`flex w-full flex-col items-start gap-0.5 border-b border-border/60 px-3 py-2 text-left transition-colors ${
-                  active ? 'bg-primary/15 text-primary' : 'text-muted-foreground hover:bg-accent hover:text-foreground'
-                }`}
-              >
-                <span className="flex min-w-0 items-center gap-1.5">
-                  {dirtyIds?.has(id) ? <span className="size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
-                  {icon ? <img src={icon} alt="" className="size-4 shrink-0 object-contain align-[-3px]" draggable={false} /> : null}
-                  <span className="min-w-0 truncate text-sm font-medium text-foreground" style={style}>
-                    {name || t('empty')}
-                  </span>
-                </span>
-                <span className="block min-w-0 truncate font-mono text-[10px] text-muted-foreground">{id}</span>
-              </button>
-            )
-          })
+          filtered.map(render)
         )}
-      </div>
+      </div>}
     </div>
   )
 }

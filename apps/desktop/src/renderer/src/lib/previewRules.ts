@@ -1,5 +1,6 @@
 import { getMulti, getTextField, getNodeText, nodeChildren, listEntities, parseXml, serializeNode, setAttr, setMulti, setTextField, type OrderedDoc, type OrderedNode } from '@ruina/editor-core'
 import manifest from '../assets/plugins/manifest.json'
+import { vanillaAbilityDescription } from './vanillaAbilities'
 
 /** 内置正则 XML（原版/奇点）解析出的词典条目。 */
 export interface BattleEffectTextEntry {
@@ -83,11 +84,16 @@ function mapEntry(ref: { id: string; node: unknown }): BattleEffectTextEntry {
 export function parseRegexXml(raw: string, includePlain = false): BattleEffectTextEntry[] {
   const doc = parseXml(raw)
   const legacy = raw.includes('<OriginKeywordTextRoot')
+  return readRegexEntries(doc, legacy, includePlain)
+}
+
+function readRegexEntries(doc: OrderedDoc, legacy: boolean, includePlain: boolean): BattleEffectTextEntry[] {
   const schema = legacy ? { ...regexSchema, root: 'OriginKeywordTextRoot', containerPath: ['TextList'], entity: 'OriginKeywordText' } : regexSchema
   const plain = listEntities(doc, { ...regexSchema, containerPath: ['effectTextList'], entity: 'BattleEffectText' }).map(mapEntry)
+  const plainById = new Map(plain.map((entry) => [entry.id, entry]))
   const entries = listEntities(doc, schema).map((ref) => {
     const e = mapEntry(ref)
-    const base = plain.find((p) => p.id === e.id)
+    const base = plainById.get(e.id)
     return { ...e, name: e.name || base?.name || '', desc: e.desc || base?.desc || '', legacy }
   })
   return includePlain ? [...entries, ...plain.filter((p) => !entries.some((e) => e.id === p.id))] : entries
@@ -95,7 +101,7 @@ export function parseRegexXml(raw: string, includePlain = false): BattleEffectTe
 
 /** 从已解析的 Mod EffectText 文档中提取 BattleEffectTextExtra 词条（extraTextList）。 */
 export function extractEffectTextEntries(doc: OrderedDoc): BattleEffectTextEntry[] {
-  return listEntities(doc, regexSchema).map(mapEntry)
+  return readRegexEntries(doc, false, false)
 }
 
 /** Update only edited fields, retaining unknown nodes, repeated values and CardPreview attributes. */
@@ -120,9 +126,29 @@ const regexModules = import.meta.glob('../assets/regex/*.xml', {
 }) as Record<string, string>
 
 const pluginXml = import.meta.glob('../assets/plugins/*.xml', { query: '?raw', import: 'default', eager: true }) as Record<string, string>
+// KeywordView leaves some names empty and uses the localized ability UI text.
+const exhaustionTextIds: Record<string, string> = {
+  Exhaust_Keyword: 'ui_ability_exhaust',
+  ExhaustOnUse_Keyword: 'ui_ability_exhaustonuse'
+}
+const abilityUiNames = new Map<string, Map<string, string>>()
+for (const resource of manifest.resources.filter((r) => r.plugin === 'HatSingularity.Abilities' && r.name.endsWith('.HatAbilities_Etc.xml'))) {
+  const doc = parseXml(pluginXml[`../assets/plugins/${resource.path}`])
+  const texts = listEntities(doc, { root: 'localize', entity: 'text', idAttr: 'id', fields: [] })
+  abilityUiNames.set(resource.language, new Map(texts.map((row) => [row.id, getNodeText(row.node)])))
+}
 const pluginEntries = manifest.resources.filter((r) => r.kind === 'xml').flatMap((r) => {
   const raw = pluginXml[`../assets/plugins/${r.path}`] ?? ''
-  return parseRegexXml(raw, true).map((e) => ({ ...e, plugin: r.plugin, language: r.language, resourceName: r.name }))
+  return parseRegexXml(raw, true).map((e) => {
+    const textId = r.plugin === 'HatSingularity.KeywordView' && exhaustionTextIds[e.id]
+    const name = e.name || (textId && abilityUiNames.get(r.language)?.get(textId)) || ''
+    let recognizeNames = e.recognizeNames
+    if (textId === 'ui_ability_exhaustonuse') {
+      const native = vanillaAbilityDescription('exhaustOnUseText', r.language)?.match(/^\[([^\]]+)\]$/)?.[1]
+      if (native) recognizeNames = [...new Set([...(recognizeNames?.length ? recognizeNames : [name]), native])]
+    }
+    return { ...e, name, recognizeNames, plugin: r.plugin, language: r.language, resourceName: r.name }
+  })
 })
 export const normalizeKeywordLanguage = (s: string): string => ({ zh: 'cn', ja: 'jp', ko: 'kr' }[s] ?? s)
 

@@ -1,3 +1,4 @@
+import { sameLanguageSources } from '../lib/localizationSources'
 import { useEffect, useMemo, useState } from 'react'
 import type { EntitySchema } from '@ruina/editor-core'
 import { createEntity, getTextField, insertEntity, listEntities, removeEntity, setTextField } from '@ruina/editor-core'
@@ -39,7 +40,9 @@ export function PassiveAbilityTools(): JSX.Element {
     () => Object.values(docs).filter((d) => d.bindings['passiveability']?.kind === 'primary'),
     [docs]
   )
-  const activeAbilityDoc = abilityDocs.find((d) => d.lang === primaryLang) ?? abilityDocs[0]
+  const selectedPath = useAppStore((s) => s.primaryDocPath['passiveability'])
+  const sources = sameLanguageSources(abilityDocs, primaryLang, selectedPath)
+  const activeAbilityDoc = sources[0]
   const passiveModule = modules.find((m) => m.id === 'passive')
   const passiveDoc = useMemo(() => {
     return (
@@ -52,6 +55,7 @@ export function PassiveAbilityTools(): JSX.Element {
     if (!passiveDoc || !activeAbilityDoc || !passiveModule) return
     const passiveRefs = listEntities(passiveDoc.doc, passiveModule.entity)
     let created = 0
+    const siblingIds = new Set(sources.slice(1).flatMap((d) => listEntities(d.doc, PASSIVE_LOC_SCHEMA).map((r) => r.id)))
     editDoc(activeAbilityDoc.path, (doc) => {
       const locRefs = listEntities(doc, PASSIVE_LOC_SCHEMA)
       for (const src of passiveRefs) {
@@ -61,7 +65,7 @@ export function PassiveAbilityTools(): JSX.Element {
         if (hit) {
           setTextField(hit.node, 'Name', name)
           setTextField(hit.node, 'Desc', desc)
-        } else {
+        } else if (!siblingIds.has(src.id)) {
           const node = createEntity(PASSIVE_LOC_SCHEMA, src.id)
           setTextField(node, 'Name', name)
           setTextField(node, 'Desc', desc)

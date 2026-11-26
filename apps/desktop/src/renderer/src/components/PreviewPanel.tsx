@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { EntityRef, EntitySchema, ModuleDefinition } from '@ruina/editor-core'
-import { getAllText, getFieldValue, getListRows, getMulti, getTextField, listEntities } from '@ruina/editor-core'
+import { getAllText, getAttr, getFieldValue, getListRows, getMulti, getNodeText, getTextField } from '@ruina/editor-core'
 import { Badge } from '@ruina/ui'
-import { diceTypeMeta, rangeMeta } from '@ruina/schemas'
+import { diceTypeMeta } from '@ruina/schemas'
 import { ImageOff } from 'lucide-react'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
@@ -13,8 +13,11 @@ import { cardAccent } from '../lib/cardAccent'
 import { RegexText } from './RegexText'
 import { useRegexRules } from '../lib/useRegexRules'
 import { builtinAbilityDescription } from '../lib/singularityAbilities'
-import { workspaceLanguage } from '../lib/workspaceLanguage'
-import { selectPrimaryDocument } from '../lib/documentSelection'
+import { vanillaAbilityDescription } from '../lib/vanillaAbilities'
+import { findVanillaArtwork } from '../lib/vanillaArtwork'
+import { cardPreviewLabels } from '../lib/cardPreviewLabels'
+import { editorLangToDocLang } from '../lib/lang'
+import { sameLanguageSources, localizedIndex } from '../lib/localizationSources'
 
 const NAME_SCHEMA: EntitySchema = {
   root: 'BattleCardDescRoot',
@@ -43,7 +46,7 @@ export function PreviewPanel({
   module: ModuleDefinition
   entity: EntityRef | null
 }): JSX.Element {
-  const { t, tl } = useI18n()
+  const { t, lang } = useI18n()
   const loadArtwork = useAppStore((s) => s.loadArtwork)
   const docs = useAppStore((s) => s.docs)
   const openWorkspaceAndSelect = useAppStore((s) => s.openWorkspaceAndSelect)
@@ -51,10 +54,12 @@ export function PreviewPanel({
   const ensureModuleDocs = useAppStore((s) => s.ensureModuleDocs)
   const nameLang = useAppStore((s) => s.primaryLang['cardname'])
   const abilityLang = useAppStore((s) => s.primaryLang['cardability'])
+  const namePath = useAppStore((s) => s.primaryDocPath.cardname)
   const abilityPath = useAppStore((s) => s.primaryDocPath['cardability'])
-  const previewLanguage = workspaceLanguage(docs, 'cardability', abilityLang, abilityPath)
-  const [url, setUrl] = useState<string | null>(null)
   const artwork = entity ? (getTextField(entity.node, module.preview?.field ?? '') ?? '') : ''
+  const folder = module.preview ? joinPath(modPath, module.preview.assetGlob) : ''
+  const [loaded, setLoaded] = useState<{ folder: string; name: string; url: string | null }>()
+  const url = loaded?.folder === folder && loaded.name === artwork ? loaded.url : undefined
 
   useEffect(() => {
     if (module.preview?.nameWorkspaceId) void ensureModuleDocs(module.preview.nameWorkspaceId)
@@ -63,17 +68,14 @@ export function PreviewPanel({
 
   useEffect(() => {
     let alive = true
-    if (!module.preview || !entity || !artwork) {
-      setUrl(null)
-      return
-    }
-    loadArtwork(`${modPath}\\${module.preview.assetGlob}`.replace(/\\/g, '\\'), artwork).then((u) => {
-      if (alive) setUrl(u)
+    if (!folder || !artwork) return
+    loadArtwork(folder, artwork).then((localUrl) => {
+      if (alive) setLoaded({ folder, name: artwork, url: localUrl ?? findVanillaArtwork(artwork)?.url ?? null })
     })
     return () => {
       alive = false
     }
-  }, [module, entity, artwork, modPath, loadArtwork])
+  }, [folder, artwork, loadArtwork])
 
   const card = useMemo(() => {
     if (!entity) return null
@@ -91,39 +93,45 @@ export function PreviewPanel({
     }
   }, [entity, module])
 
-  const pickDoc = (root: string, lang?: string) => {
-    if (lang === '__none__') return undefined
-    const docsOfRoot = Object.values(docs).filter((d) => d.root === root)
-    return docsOfRoot.find((d) => d.lang === lang) ?? docsOfRoot.find((d) => d.lang === 'cn') ?? docsOfRoot[0]
-  }
-  const nameDoc = useMemo(() => pickDoc('BattleCardDescRoot', nameLang), [docs, nameLang])
-  const abilityDoc = useMemo(() => selectPrimaryDocument(docs, 'cardability', abilityLang, abilityPath), [docs, abilityLang, abilityPath])
+  const nameSources = useMemo(() => sameLanguageSources(Object.values(docs).filter((d) => d.bindings.cardname?.kind === 'primary'), nameLang, namePath), [docs, nameLang, namePath])
+  const abilitySources = useMemo(() => sameLanguageSources(Object.values(docs).filter((d) => d.bindings.cardability?.kind === 'primary'), abilityLang, abilityPath), [docs, abilityLang, abilityPath])
+  const names = useMemo(() => localizedIndex(nameSources, NAME_SCHEMA), [nameSources])
+  const abilities = useMemo(() => localizedIndex(abilitySources, ABILITY_SCHEMA), [abilitySources])
+  const previewLanguage = abilitySources[0]?.lang ?? nameSources[0]?.lang ?? editorLangToDocLang(lang)
+  const cardDescriptions = useMemo(() => {
+    if (nameLang === '__none__' || nameSources[0]?.lang === previewLanguage) return names
+    const sources = Object.values(docs).filter((d) => d.bindings.cardname?.kind === 'primary' && d.lang === previewLanguage)
+    return localizedIndex(sources, NAME_SCHEMA)
+  }, [docs, names, nameLang, nameSources, previewLanguage])
   const rules = useRegexRules(previewLanguage)
   const hatEnabled = useAppStore((s) => s.hatEnabled)
 
-  const localizedName = useMemo(() => {
-    if (!entity || !nameDoc) return undefined
-    const hit = nameDoc ? listEntities(nameDoc.doc, NAME_SCHEMA).find((r) => r.id === entity.id) : undefined
-    return hit ? getTextField(hit.node, 'LocalizedName') ?? undefined : undefined
-  }, [entity, nameDoc])
+  const nameRef = entity && names.get(entity.id)?.ref
+  const localizedName = nameRef && getTextField(nameRef.node, 'LocalizedName')
 
   const abilityText = (id: string): string | undefined => {
     if (!id) return undefined
-    const hit = abilityDoc ? listEntities(abilityDoc.doc, ABILITY_SCHEMA).find((r) => r.id === id) : undefined
-    return (hit ? getAllText(hit.node, 'Desc') || undefined : undefined) ?? (hatEnabled && previewLanguage !== '__none__' ? builtinAbilityDescription(id, previewLanguage) : undefined)
+    const hit = abilities.get(id)?.ref
+    return (hit && getAllText(hit.node, 'Desc')) || (hatEnabled && abilityLang !== '__none__' && builtinAbilityDescription(id, previewLanguage)) || vanillaAbilityDescription(id, previewLanguage)
   }
 
   if (!card) {
     return <div className="flex h-64 items-center justify-center text-sm text-muted-foreground">{t('preview.empty')}</div>
   }
 
+  const { rangeLabel, prefixes } = cardPreviewLabels(card.range, card.options, previewLanguage, rules, (id) => {
+    const record = abilities.get(id)?.ref
+    return record && getAllText(record.node, 'Desc')
+  })
   const displayName = localizedName ?? card.name
   const rarityColor = entity ? cardAccent(entity.node) : undefined
-  const cardAbilityDesc = abilityText(card.script)
+  const descriptionRef = entity && cardDescriptions.get(entity.id)?.ref
+  const cardAbilityDesc = (descriptionRef && getAllText(descriptionRef.node, 'Ability')) || abilityText(card.script) || (entity && getTextField(entity.node, 'ScriptDesc')) || card.script
+  const localizedDice = descriptionRef ? getListRows(descriptionRef.node, { kind: 'list', name: 'Behaviour', direct: true, item: 'Behaviour', attrs: [] }) : []
   const jumpArtwork = (e: React.MouseEvent) => {
     e.preventDefault()
     if (!module.preview) return
-    void requestAssetPick(module.id, module.preview.field, artwork)
+    void requestAssetPick(module.id, module.preview.field, artwork, Boolean(url && url === findVanillaArtwork(artwork)?.url))
   }
 
   const jumpName = (e: React.MouseEvent) => {
@@ -132,7 +140,16 @@ export function PreviewPanel({
   }
   const jumpAbility = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault()
-    if (id && module.preview?.abilityWorkspaceId) void openWorkspaceAndSelect(module.preview.abilityWorkspaceId, id)
+    if (!id || !module.preview?.abilityWorkspaceId) return
+    const nativeId = id.trim()
+    if (abilities.has(id)) void openWorkspaceAndSelect(module.preview.abilityWorkspaceId, id)
+    else if (hatEnabled && abilityLang !== '__none__' && builtinAbilityDescription(id, previewLanguage)) {
+      useAppStore.getState().setPrimaryLang('singularity-abilities', previewLanguage)
+      void openWorkspaceAndSelect('singularity-abilities', id)
+    } else if (vanillaAbilityDescription(nativeId, previewLanguage)) {
+      useAppStore.getState().setPrimaryLang('vanilla-abilities', previewLanguage)
+      void openWorkspaceAndSelect('vanilla-abilities', nativeId)
+    }
   }
 
   return (
@@ -167,9 +184,9 @@ export function PreviewPanel({
         </span>
         <Badge variant="outline" className="inline-flex items-center gap-1">
           {rangeIconUrls[rangeIconKey[card.range]] ? (
-            <img src={rangeIconUrls[rangeIconKey[card.range]]} alt={tl(rangeMeta[card.range] ?? card.range)} className="size-5 object-contain" draggable={false} />
+            <img src={rangeIconUrls[rangeIconKey[card.range]]} alt={rangeLabel} className="size-5 object-contain" draggable={false} />
           ) : null}
-          {tl(rangeMeta[card.range] ?? card.range ?? '-')}
+          {rangeLabel}
         </Badge>
       </div>
 
@@ -178,16 +195,12 @@ export function PreviewPanel({
         className={`rounded-lg border border-border bg-secondary/20 p-3 ${card.script ? 'cursor-pointer' : ''}`}
       >
         {(() => {
-          const prefix: string[] = []
-          if (card.options.includes('ExhaustOnUse')) prefix.push(`[${tl('佚亡')}]`)
-          if (card.range === 'FarArea') prefix.push(`[${tl('群体攻击-清算')}]`)
-          else if (card.range === 'FarAreaEach') prefix.push(`[${tl('群体攻击-交锋')}]`)
-          if (prefix.length === 0 && !cardAbilityDesc) {
+          if (prefixes.length === 0 && !cardAbilityDesc) {
             return <div className="whitespace-pre-wrap text-xs leading-relaxed text-muted-foreground/60">{t('noAbility')}</div>
           }
           return (
             <div className="whitespace-pre-wrap text-xs leading-relaxed text-foreground/90">
-              {prefix.map((line, i) => (
+              {prefixes.map((line, i) => (
                 <div key={`prefix-${i}`}>
                   <RegexText text={line} rules={rules} />
                 </div>
@@ -212,7 +225,8 @@ export function PreviewPanel({
             const unreasonable =
               (type === 'Def' && ['Hit', 'Penetrate', 'Slash'].includes(detail)) ||
               (type === 'Atk' && ['Guard', 'Evasion'].includes(detail))
-            const desc = abilityText(script)
+            const localDie = localizedDice.find((node) => getAttr(node, 'ID') === String(i))
+            const desc = (localDie && getNodeText(localDie)) || abilityText(script) || get('Desc')
             return (
               <div
                 key={i}

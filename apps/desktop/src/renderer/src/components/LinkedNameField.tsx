@@ -1,3 +1,4 @@
+import { sameLanguageSources } from '../lib/localizationSources'
 import { useMemo } from 'react'
 import type { EntityRef, EntitySchema, ModuleDefinition } from '@ruina/editor-core'
 import { getTextField, listEntities, setTextField } from '@ruina/editor-core'
@@ -44,8 +45,8 @@ export function LinkedNameField({
     const candidates = Object.values(docs).filter(
       (d) => d.bindings[module.id]?.kind === 'localize' && d.bindings[module.id]?.locDef?.root === locDef.root
     )
-    return candidates.find((d) => d.path === nameDocPath) ?? candidates.find((d) => d.lang === nameLang) ?? candidates.find((d) => d.lang === 'cn') ?? candidates[0]
-  }, [docs, module.id, locDef, nameLang, nameDocPath])
+    return sameLanguageSources(candidates, nameLang, nameDocPath).find((d) => listEntities(d.doc, locSchema(locDef)).some((r) => r.id === entity.id))
+  }, [docs, module.id, locDef, nameLang, nameDocPath, entity.id])
 
   const locValue = useMemo(() => {
     if (!nameDoc || !locDef || !locFieldName) return ''

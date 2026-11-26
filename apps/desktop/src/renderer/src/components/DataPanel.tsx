@@ -1,3 +1,6 @@
+import { GroupToggle, GroupedRows, type RowGrouping } from './RowGroups'
+import { useAnnotations, useTagNavigation, projectKey, emptyProject, tagName, rowTargets, targetKey } from '../lib/annotations'
+import { rowKey, sourceName, sourceCaption, type ListRow } from '../lib/localizationSources'
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useI18n } from '../i18n'
 import { observeElementOffset, useVirtualizer } from '@tanstack/react-virtual'
@@ -13,6 +16,7 @@ const ROW_HEIGHT = 36
 
 export function DataPanel({
   doc,
+  rows,
   schema,
   selectedId,
   onSelect,
@@ -20,16 +24,22 @@ export function DataPanel({
   localizedNames,
   localizedRender,
   scrollKey,
-  dirtyIds
+  dirtyIds,
+  annotationPath,
+  annotationModule, grouping
 }: {
   doc: OrderedDoc
+  rows?: ListRow[]
   schema: EntitySchema
   selectedId: string | null
   onSelect: (id: string) => void
   accentLookup?: (id: string) => string | undefined
   localizedNames?: Record<string, string>
-  localizedRender?: (id: string) => ReactNode
+  localizedRender?: (id: string, row: ListRow) => ReactNode
   scrollKey?: string
+  annotationPath?: string
+  grouping?: RowGrouping
+  annotationModule?: string
   dirtyIds?: Set<string>
 }): JSX.Element {
   const { t } = useI18n()
@@ -56,11 +66,30 @@ export function DataPanel({
     return oneLine.length > 36 ? oneLine.slice(0, 36) + '…' : oneLine || '（空）'
   }
 
-  const refs = useMemo(() => listEntities(doc, schema), [doc, schema])
+  const refs: ListRow[] = useMemo(() => rows ?? listEntities(doc, schema), [rows, doc, schema])
+  const modPath = useAppStore((s) => s.modPath)
+  const mode = useAnnotations((s) => s.enabled)
+  const project = useAnnotations((s) => s.projects[projectKey(modPath ?? '')] ?? emptyProject)
+  const rowTags = useMemo(() => {
+    const map = new Map<string, typeof project.tags>()
+    if (!mode || !annotationModule) return map
+    const targets = rowTargets(annotationModule, annotationPath ?? '', refs)
+    refs.forEach((row, i) => {
+      const ids = project.links[targetKey(targets[i])]
+      if (ids) map.set(rowKey(row), project.tags.filter((tag) => ids.includes(tag.id)))
+    })
+    return map
+  }, [mode, annotationModule, annotationPath, refs, project])
+  const lookupTag = useTagNavigation((s) => s.open)
+  const chips = (row: ListRow) => rowTags.has(rowKey(row)) && <span className="mt-0.5 flex flex-wrap gap-1">
+    {rowTags.get(rowKey(row))?.map((tag) => <button key={tag.id} type="button" title={t('tags.lookup') + ' · ' + tagName(tag, t)} onClick={(e) => { e.stopPropagation(); lookupTag(tag.id) }} style={{ borderColor: tag.color }} className="rounded border-l-2 bg-secondary px-1.5 text-[10px] text-foreground hover:bg-accent">{tagName(tag, t)}</button>)}
+  </span>
+  const variableHeight = Boolean(rows) || rowTags.size > 0 || idOnly
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
     if (!q) return refs
     return refs.filter((r) => {
+      if (r.source && sourceName(r.source).toLowerCase().includes(q)) return true
       if (idOnly) {
         const descField = schema.fields.find((f) => f.name === 'Desc')
         const desc = descField ? (getAllText(r.node, descField.name) ?? '').toLowerCase() : ''
@@ -81,7 +110,7 @@ export function DataPanel({
       const cleanup = observeElementOffset(instance, callback)
       return () => { syncScrollOffset.current = null; cleanup?.() }
     },
-    estimateSize: () => ROW_HEIGHT,
+    estimateSize: () => variableHeight ? 54 : ROW_HEIGHT,
     overscan: 12
   })
 
@@ -112,12 +141,12 @@ export function DataPanel({
    */
   useEffect(() => {
     if (!selectedId || lastScrolledRef.current === selectedId) return
-    if (!refs.some((r) => r.id === selectedId)) return
-    if (!filtered.some((r) => r.id === selectedId)) {
+    if (!refs.some((r) => rowKey(r) === selectedId)) return
+    if (!filtered.some((r) => rowKey(r) === selectedId)) {
       if (search.trim() !== '') setSearch('')
       return
     }
-    const index = filtered.findIndex((r) => r.id === selectedId)
+    const index = filtered.findIndex((r) => rowKey(r) === selectedId)
     if (index < 0) return
     // Record the selection before the animation frame: a quick search must not
     // be cleared merely because scrolling has not painted yet (hidden windows).
@@ -135,8 +164,8 @@ export function DataPanel({
       } else {
         const box = parentRef.current
         if (!box) return
-        const top = index * ROW_HEIGHT
-        if (top < box.scrollTop || top + ROW_HEIGHT > box.scrollTop + box.clientHeight) {
+        const item = virtualizer.getVirtualItems().find((v) => v.index === index)
+        if (!item || item.start < box.scrollTop || item.end > box.scrollTop + box.clientHeight) {
           virtualizer.scrollToIndex(index, { align: 'center' })
           // Programmatic navigation must paint the target rows immediately,
           // even when Electron defers the native scroll event.
@@ -147,6 +176,21 @@ export function DataPanel({
     return () => cancelAnimationFrame(raf)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId, filtered, refs, search, isPlainList])
+
+  const rowBody = (ref: ListRow) => {
+    const name = useLocalized && localizedNames?.[ref.id] ? localizedNames[ref.id] : displayText(ref.node)
+    const rarityColor = accentLookup ? (accentLookup(ref.id) ?? '#ffffff') : cardAccent(ref.node)
+    return <div className="min-w-0 flex-1">
+      {idOnly ? <span className="block break-all font-mono text-xs leading-5 text-foreground">{ref.id}</span> : (
+        <div className="flex items-baseline gap-2">
+          <span className="shrink-0 font-mono text-xs text-muted-foreground">#{ref.id}</span>
+          <span className="min-w-0 truncate" style={{ color: rarityColor ?? undefined }}>{name}</span>
+        </div>
+      )}
+      {!grouping?.enabled && ref.source && <small title={ref.source} className="block break-all text-[11px] text-muted-foreground">{sourceCaption(ref.source)}</small>}
+      {chips(ref)}
+    </div>
+  }
 
   return (
     <div className="flex h-full min-h-0 min-w-0 flex-col border-r border-border bg-card">
@@ -175,9 +219,15 @@ export function DataPanel({
             {t('total', { n: refs.length })}
             {filtered.length !== refs.length ? `，${t('hits', { n: filtered.length })}` : ''}
           </span>
+          <GroupToggle g={grouping}/>
         </div>
       </div>
-      {useLocalized && localizedRender ? (
+      {grouping?.enabled ? <GroupedRows key={grouping.scope} g={grouping} filtered={filtered} searching={Boolean(search.trim())} selected={selectedId} onSelect={(ref) => onSelect(rowKey(ref))} render={(ref) => (
+        <div className="flex cursor-pointer items-center gap-2 border-b border-border/50 px-2 py-2 text-sm hover:bg-secondary/40">
+          {dirtyIds?.has(rowKey(ref)) && <span className="size-1.5 shrink-0 rounded-full bg-red-500"/>}
+          {useLocalized && localizedRender ? <div className="min-w-0 flex-1">{localizedRender(ref.id, ref)}{chips(ref)}</div> : rowBody(ref)}
+        </div>
+      )}/> : useLocalized && localizedRender ? (
         <div
           ref={plainRef}
           data-scrollkey={scrollKey}
@@ -187,19 +237,19 @@ export function DataPanel({
           className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
         >
           {filtered.map((ref) => {
-            const active = ref.id === selectedId
+            const active = rowKey(ref) === selectedId
             return (
               <div
-                key={ref.id}
+                key={rowKey(ref)}
                 ref={(el) => {
-                  if (el) rowRefs.current.set(ref.id, el)
-                  else rowRefs.current.delete(ref.id)
+                  if (el) rowRefs.current.set(rowKey(ref), el)
+                  else rowRefs.current.delete(rowKey(ref))
                 }}
-                onClick={() => onSelect(ref.id)}
+                onClick={() => onSelect(rowKey(ref))}
                 className={`flex cursor-pointer items-start gap-2 border-b border-border/50 px-3 py-2 text-sm transition-colors ${active ? 'bg-accent' : 'hover:bg-secondary/40'}`}
               >
-                {dirtyIds?.has(ref.id) ? <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
-                <span className="min-w-0 flex-1">{localizedRender(ref.id)}</span>
+                {dirtyIds?.has(rowKey(ref)) ? <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
+                <span className="min-w-0 flex-1 break-words">{localizedRender(ref.id, ref)}{chips(ref)}{ref.source && <small title={ref.source} className="block truncate text-muted-foreground">{sourceCaption(ref.source)}</small>}</span>
               </div>
             )
           })}
@@ -212,29 +262,21 @@ export function DataPanel({
         <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
           {virtualizer.getVirtualItems().map((v) => {
             const ref = filtered[v.index]
-            const name = useLocalized && localizedNames?.[ref.id] ? localizedNames[ref.id] : displayText(ref.node)
-            const rarityColor = accentLookup ? (accentLookup(ref.id) ?? '#ffffff') : cardAccent(ref.node)
-            const active = ref.id === selectedId
+            const active = rowKey(ref) === selectedId
             return (
               <div
-                key={`${ref.id}-${ref.index}`}
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: v.size, transform: `translateY(${v.start}px)` }}
+                key={`${rowKey(ref)}-${ref.index}`}
+                data-index={v.index}
+                ref={variableHeight ? virtualizer.measureElement : undefined}
+                title={[ref.id, ref.source].filter(Boolean).join('\n')}
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: variableHeight ? undefined : v.size, minHeight: ROW_HEIGHT, transform: `translateY(${v.start}px)` }}
                 className={`flex cursor-pointer items-center gap-2 border-b border-border/50 px-3 py-1.5 text-sm transition-colors ${
                   active ? 'bg-accent' : 'hover:bg-secondary/40'
                 }`}
-                onClick={() => onSelect(ref.id)}
+                onClick={() => onSelect(rowKey(ref))}
               >
-                {dirtyIds?.has(ref.id) ? <span className="size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
-                {idOnly ? (
-                  <span className="min-w-0 flex-1 truncate font-mono text-xs">{ref.id}</span>
-                ) : (
-                  <>
-                    <span className="w-14 shrink-0 font-mono text-xs text-muted-foreground">#{ref.id}</span>
-                    <span className="min-w-0 flex-1 truncate" style={rarityColor ? { color: rarityColor } : undefined}>
-                      {name}
-                    </span>
-                  </>
-                )}
+                {dirtyIds?.has(rowKey(ref)) ? <span className="size-1.5 shrink-0 rounded-full bg-red-500" aria-label="未保存" /> : null}
+                {rowBody(ref)}
               </div>
             )
           })}

@@ -21,7 +21,7 @@
     filters[0].value = 'dice'; filters[0].dispatchEvent(new Event('change', { bubbles: true })); await wait()
     filters[1].value = 'en'; filters[1].dispatchEvent(new Event('change', { bubbles: true })); await wait()
     check(page.querySelector('textarea').value === '(~HatKeyword id="Hat_Enchantments_ExhaustDice_Description_Keyword"/~)', 'Original English resource retained')
-    check(page.querySelector('[data-testid="ability-description"] [data-keyword-id="Hat_Enchantments_ExhaustDice_Description_Keyword"]')?.textContent === 'Exhaust', 'Dedicated English exhaustion name')
+    check(page.querySelector('[data-testid="ability-description"] [data-keyword-id="Hat_Enchantments_ExhaustDice_Description_Keyword"]')?.textContent === 'Single-use', 'Dedicated English exhaustion name')
     const search = [...page.querySelectorAll('input')].find((e) => !e.readOnly)
     Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(search, 'SharedCounter')
     search.dispatchEvent(new Event('input', { bubbles: true })); await wait()

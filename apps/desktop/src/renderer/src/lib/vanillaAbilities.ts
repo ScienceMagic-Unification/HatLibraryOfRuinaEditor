@@ -1,4 +1,6 @@
 import snapshot from '../assets/vanilla-abilities.json'
+import gameScripts from '../assets/vanilla-scripts.json'
+import gameCards from '../assets/vanilla-card-text.json'
 import { findRootName, getTextField, listEntities, type ModuleDefinition } from '@ruina/editor-core'
 import { cardInfoModule, cardNameModule, passiveModule, passiveAbilityModule } from '@ruina/schemas'
 import type { DocState } from '../store'
@@ -24,9 +26,35 @@ export function bookReferenceTarget(docs: Record<string, DocState>, modules: Mod
   }
   return undefined
 }
-export const vanillaAbilities = snapshot.entries as AbilityRecord[]
-const index = new Map(vanillaAbilities.map((e) => [`${e.kind}:${e.id}`, e]))
+type CardText = { name: string; ability?: string; dice?: Record<string, string> }
+const cardText: Record<string, Record<string, CardText>> = gameCards
+export function vanillaCardText(id: string, language: string): CardText | undefined {
+  const texts = cardText[id]
+  return texts?.[language] ?? texts?.en
+}
+export const vanillaScriptIds = gameScripts.ids
+const index = new Map<string, AbilityRecord>()
+for (const source of snapshot.entries as AbilityRecord[]) {
+  const id = source.id.trim()
+  index.set(source.kind + ':' + id, { ...source, id, text: { ...source.text } })
+}
+for (const [id, languages] of Object.entries(gameScripts.descriptions)) {
+  const key = 'ability:' + id
+  const record: AbilityRecord = index.get(key) ?? { kind: 'ability', id, text: {}, fields: {} }
+  for (const [language, desc] of Object.entries(languages)) record.text[language] = { name: record.text[language]?.name ?? '', desc }
+  index.set(key, record)
+}
+export const vanillaAbilities = Array.from(index.values())
+export function vanillaAbilityDescription(id: string, language: string): string | undefined {
+  const text = index.get('ability:' + id.trim())?.text
+  return text?.[language]?.desc || text?.en?.desc || text?.cn?.desc
+}
 export function localizedAbility(entry: AbilityRecord, language: string): { name: string; desc: string } {
+  if (entry.kind === 'card') {
+    const text = vanillaCardText(entry.id, language)
+    if (text) return { name: text.name, desc: text.ability ?? '' }
+  }
+  if (entry.kind === 'ability') return { name: entry.text[language]?.name ?? '', desc: vanillaAbilityDescription(entry.id, language) ?? '' }
   return entry.text[language] ?? entry.text.cn ?? entry.text.en ?? { name: '', desc: '' }
 }
 export function resolveBookReference(docs: Record<string, DocState>, kind: 'passive' | 'card', id: string, pid: string, language: string): { name: string; desc: string; fields: Record<string, string> } | undefined {

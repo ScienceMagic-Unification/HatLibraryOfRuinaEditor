@@ -3,7 +3,7 @@
   <effectTextList />
   <extraTextList>
     <BattleEffectTextExtra ID="Hat_Enchantments_ExhaustDice_Keyword">
-      <Name>Exhaust - Die</Name>
+      <Name>Single-use - Die</Name>
       <Desc>[After Roll] Remove this die from the page.
 (~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- Does not prevent effects that reroll this die.(~/HatKeyword~)
 (~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- Also applies when rolling against Mass Attacks.(~/HatKeyword~)</Desc>
@@ -167,7 +167,7 @@
       <IsCardPreview>false</IsCardPreview>
     </BattleEffectTextExtra>
 <BattleEffectTextExtra ID="Hat_Enchantments_ExhaustDice_Description_Keyword">
-      <Name>Exhaust</Name>
+      <Name>Single-use</Name>
       <Desc>[After Roll] Remove this die from the page.
 (~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- Does not prevent effects that reroll this die.(~/HatKeyword~)
 (~HatKeyword id="Hat_Enchantments_Hide_Italic"~)- Also applies when rolling against Mass Attacks.(~/HatKeyword~)</Desc>

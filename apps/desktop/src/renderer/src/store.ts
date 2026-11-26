@@ -1,3 +1,5 @@
+import { beforeAnnotationEdit } from './lib/annotationHistory'
+import { sameLanguageSources } from './lib/localizationSources'
 import { corePageModuleForFile, isCorePage } from './lib/corePages'
 import { selectPrimaryDocument } from './lib/documentSelection'
 import { create } from 'zustand'
@@ -49,12 +51,15 @@ export interface DocBinding {
   issues: ValidationIssue[]
 }
 
+interface Transfer { moduleId: string; id: string; from: string; to: string }
+interface XmlEdit { paths: string[]; annotations: (redo: boolean) => void; transfer?: Transfer }
 export interface DocState {
   path: string
   doc: OrderedDoc
   dirty: boolean
   rev: number
-  history: SnapshotHistory
+  history: SnapshotHistory<XmlEdit>
+  saveWith?: string[]
   lastSavedText?: string
   loadError?: string
   root: string | null
@@ -89,7 +94,7 @@ interface AppState {
   artCache: Record<string, string | null>
   buffIcons: Record<string, string>
   modEpoch: number
-  assetPick: { fromModuleId: string; field: string; initialAssetName?: string } | null
+  assetPick: { fromModuleId: string; field: string; initialAssetName?: string; vanilla?: boolean } | null
   hatEnabled: boolean
   regexAutocomplete: boolean
   proofMode: Record<string, boolean>
@@ -112,14 +117,17 @@ interface AppState {
   select: (moduleId: string, id: string | null) => void
   editData: (moduleId: string, mutate: (doc: OrderedDoc, refs: EntityRef[]) => void) => void
   editDoc: (path: string, mutate: (doc: OrderedDoc) => void) => boolean
+  editDocs: (paths: string[], mutate: (drafts: Record<string, OrderedDoc>) => void, transfer?: Transfer) => boolean
+  restoreEdit: (redo: boolean) => void
   undo: () => void
   redo: () => void
+  saveDoc: (path: string) => Promise<boolean>
   saveModule: (moduleId: string) => Promise<boolean>
   saveAll: () => Promise<boolean>
   fixWorkspace: (moduleId: string) => Promise<void>
   loadArtwork: (folder: string, name: string) => Promise<string | null>
   loadBuffIcons: () => Promise<void>
-  requestAssetPick: (fromModuleId: string, field: string, initialAssetName?: string) => Promise<void>
+  requestAssetPick: (fromModuleId: string, field: string, initialAssetName?: string, vanilla?: boolean) => Promise<void>
   completeAssetPick: (assetName: string) => Promise<void>
   cancelAssetPick: () => void
   setStatus: (status: string, kind?: 'info' | 'success' | 'error') => void
@@ -376,6 +384,15 @@ async function scanMod(modPath: string): Promise<{
 }
 
 /** Keep the selected record when undo/redo restores its previous ID. */
+function updatedDoc(d: DocState, doc: OrderedDoc, modules: ModuleDefinition[]): DocState {
+  const bindings = { ...d.bindings }
+  for (const [id, binding] of Object.entries(bindings)) {
+    const module = binding.kind === 'primary' && modules.find((m) => m.id === id)
+    if (module) bindings[id] = { ...binding, issues: validateEntities(doc, module.entity) }
+  }
+  return { ...d, bindings, doc, rev: d.rev + 1, dirty: true }
+}
+
 function selectionAfterRestore(previous: DocState, restored: OrderedDoc, modules: ModuleDefinition[], selected: Record<string, string | null>, selectedDocuments: Record<string, string>): Record<string, string | null> {
   const next = { ...selected }
   for (const module of modules) {
@@ -675,8 +692,16 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
 
     if (get().modEpoch !== epoch) return
-    set((s) => ({ docs: { ...s.docs, ...nextDocs } }))
-    const primaries = primaryDocsOf({ ...get().docs, ...nextDocs }, moduleId)
+    set((s) => {
+      const docs = { ...s.docs }
+      for (const [path, loaded] of Object.entries(nextDocs)) {
+        if (docs[path]) {
+          ensureBinding(docs[path], loaded.bindings[moduleId])
+        } else docs[path] = loaded
+      }
+      return { docs }
+    })
+    const primaries = primaryDocsOf(get().docs, moduleId)
     const editorLang = typeof localStorage !== 'undefined' ? localStorage.getItem('editorLang') ?? 'zh' : 'zh'
     const preferred = editorLangToDocLang(editorLang)
     const first = primaries.find((d) => d.lang === preferred) ?? primaries.find((d) => d.lang === 'cn') ?? primaries.find((d) => d.lang === 'zh') ?? primaries[0]
@@ -758,6 +783,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const modPath = get().modPath
     if (!modPath || !path) return
     const d = get().docs[path]
+    if (d?.saveWith?.length) { get().setStatus('请先保存关联文件，再移除文档', 'error'); return }
     if (d?.bindings[moduleId]) {
       delete d.bindings[moduleId]
       if (Object.keys(d.bindings).length === 0) delete get().docs[path]
@@ -780,7 +806,9 @@ export const useAppStore = create<AppState>((set, get) => ({
     if (!ids.length) return
     set((s) => {
       const existing = new Set(s.dirtyEntities[moduleId] ?? [])
-      for (const id of ids) if (id) existing.add(id)
+      const owner = selectPrimaryDocument(s.docs, moduleId, s.primaryLang[moduleId], s.primaryDocPath[moduleId])
+      if (!owner) return {}
+      for (const id of ids) if (id) existing.add(JSON.stringify([owner.path, id]))
       return { dirtyEntities: { ...s.dirtyEntities, [moduleId]: Array.from(existing) } }
     })
   },
@@ -801,6 +829,13 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
     set({ activeModuleId: moduleId })
     await get().setActiveModule(moduleId)
+    const state = get()
+    const module = state.modules.find((m) => m.id === moduleId)
+    if (module?.localizeRoots && !module.dataRoot && !module.dataFiles?.length && !module.dataFile) {
+      const sources = sameLanguageSources(primaryDocsOf(state.docs, moduleId), state.primaryLang[moduleId], state.primaryDocPath[moduleId])
+      const owner = sources.find((d) => listEntities(d.doc, module.entity).some((r) => r.id === id))
+      if (owner) state.setPrimaryDoc(moduleId, owner.path)
+    }
     set((s) => ({ selectedId: { ...s.selectedId, [moduleId]: id } }))
     get().setStatus('已跳转到对应词条', 'success')
   },
@@ -820,66 +855,90 @@ export const useAppStore = create<AppState>((set, get) => ({
       mutate(d, refs)
     })
     if (changed && selectedId) {
-      const afterNode = listEntities(doc.doc, module.entity).find((r) => r.id === selectedId)?.node
+      const afterNode = listEntities(get().docs[doc.path].doc, module.entity).find((r) => r.id === selectedId)?.node
       const afterText = afterNode ? serializeNode(afterNode) : null
       if (afterText !== null && afterText !== beforeText) get().markEntitiesDirty(moduleId, [selectedId])
     }
   },
 
-  editDoc: (path, mutate): boolean => {
-    const d = get().docs[path]
-    if (!d) return false
-    const before = serializeXml(d.doc)
-    mutate(d.doc)
-    if (serializeXml(d.doc) === before) return false
-    const cloned = structuredClone(d.doc)
-    d.history.push(before)
-    // 为每个绑定了该文件的工作区重新校验
-    for (const [moduleId, binding] of Object.entries(d.bindings)) {
-      if (binding.kind !== 'primary') continue
-      const module = get().modules.find((m) => m.id === moduleId)
-      if (module) binding.issues = validateEntities(cloned, module.entity)
+  editDoc: (path, mutate) => get().editDocs([path], (drafts) => mutate(drafts[path])),
+  editDocs: (paths, mutate, transfer) => {
+    const state = get()
+    const participants = [...new Set(paths)].map((p) => state.docs[p])
+    if (!participants.length || participants.some((d) => !d || d.loadError)) return false
+    const drafts = participants.map((d) => ({ ...d, doc: structuredClone(d.doc) }))
+    const snapshots = new Map(participants.map((d) => [d.path, serializeXml(d.doc)]))
+    const sync = beforeAnnotationEdit(state.modPath ?? '', drafts, state.modules)
+    mutate(Object.fromEntries(drafts.map((d) => [d.path, d.doc])))
+    const changed = drafts.filter((d) => serializeXml(d.doc) !== snapshots.get(d.path))
+    if (!changed.length || (transfer && changed.length !== participants.length)) return false
+    const edit: XmlEdit = { paths: changed.map((d) => d.path), annotations: sync(), transfer }
+    const docs = { ...state.docs }
+    for (const d of changed) {
+      d.history.push(snapshots.get(d.path)!, edit)
+      docs[d.path] = updatedDoc(d, d.doc, state.modules)
+      if (transfer) docs[d.path].saveWith = [...new Set([...(d.saveWith ?? []), ...edit.paths])]
     }
-    set((state) => ({
-      docs: { ...state.docs, [path]: { ...d, doc: cloned, dirty: true, rev: d.rev + 1 } },
-      lastEditedPath: path,
-      historyTick: state.historyTick + 1
-    }))
+    set({ docs, lastEditedPath: transfer?.to ?? changed[0].path, historyTick: state.historyTick + 1 })
     return true
   },
 
-  undo: () => {
-    const path = get().lastEditedPath
-    const d = path ? get().docs[path] : undefined
-    if (!path || !d) return
-    const current = serializeXml(d.doc)
-    const prev = d.history.undo(current)
-    if (prev === null) return
-    const doc = parseXml(prev)
-    for (const [moduleId, binding] of Object.entries(d.bindings)) {
-      if (binding.kind !== 'primary') continue
-      const module = get().modules.find((m) => m.id === moduleId)
-      if (module) binding.issues = validateEntities(doc, module.entity)
+  undo: () => get().restoreEdit(false),
+  redo: () => get().restoreEdit(true),
+  restoreEdit: (redo) => {
+    const state = get()
+    const current = state.lastEditedPath && state.docs[state.lastEditedPath]
+    const edit = current && current.history.peek(redo)
+    if (!edit) return
+    const participants = edit.paths.map((p) => state.docs[p])
+    if (participants.some((d) => !d || d.history.peek(redo) !== edit)) {
+      state.setStatus('关联文件还有其他编辑，无法单独恢复这次移动', 'error')
+      return
     }
-    set((state) => ({ docs: { ...state.docs, [path]: { ...d, doc, dirty: true, rev: d.rev + 1 } }, selectedId: selectionAfterRestore(d, doc, state.modules, state.selectedId, state.primaryDocPath), historyTick: state.historyTick + 1 }))
-    get().setStatus('已撤销', 'info')
+    const docs = { ...state.docs }
+    let selectedId = state.selectedId, primaryDocPath = state.primaryDocPath
+    for (const d of participants) {
+      const xml = serializeXml(d.doc)
+      const doc = parseXml((redo ? d.history.redo(xml) : d.history.undo(xml))!)
+      docs[d.path] = updatedDoc(d, doc, state.modules)
+      if (edit.transfer) docs[d.path].saveWith = [...new Set([...(d.saveWith ?? []), ...edit.paths])]
+      selectedId = selectionAfterRestore(d, doc, state.modules, selectedId, primaryDocPath)
+    }
+    const move = edit.transfer
+    if (move && selectedId[move.moduleId] === move.id) primaryDocPath = { ...primaryDocPath, [move.moduleId]: redo ? move.to : move.from }
+    edit.annotations(redo)
+    set({ docs, selectedId, primaryDocPath, historyTick: state.historyTick + 1 })
+    state.setStatus(redo ? '已重做' : '已撤销', 'info')
   },
 
-  redo: () => {
-    const path = get().lastEditedPath
-    const d = path ? get().docs[path] : undefined
-    if (!path || !d) return
-    const current = serializeXml(d.doc)
-    const next = d.history.redo(current)
-    if (next === null) return
-    const doc = parseXml(next)
-    for (const [moduleId, binding] of Object.entries(d.bindings)) {
-      if (binding.kind !== 'primary') continue
-      const module = get().modules.find((m) => m.id === moduleId)
-      if (module) binding.issues = validateEntities(doc, module.entity)
+  saveDoc: async (path) => {
+    const d = get().docs[path]
+    if (!d) return false
+    if (!d.dirty) return true
+    const participants = new Set([path])
+    const docs = get().docs
+    for (const p of participants) for (const other of docs[p]?.saveWith ?? []) participants.add(other)
+    if ([...participants].some((p) => !docs[p])) { get().setStatus('关联文件未打开，无法保存这次移动', 'error'); return false }
+    const files = [...participants].map((p) => ({ path: p, content: serializeXml(docs[p].doc) }))
+    try {
+      if (files.length > 1) await api.saveLinkedFiles(files)
+      else await api.saveFile(path, files[0].content)
+      set((state) => {
+        const next = { ...state.docs }
+        // Keep all links if a participant changed while the disk write was pending.
+        const synced = files.every((f) => next[f.path]?.rev === docs[f.path].rev)
+        for (const f of files) {
+          const current = next[f.path]
+          if (current?.history !== docs[f.path].history) continue
+          next[f.path] = { ...current, lastSavedText: f.content, dirty: !synced, saveWith: synced ? undefined : current.saveWith }
+        }
+        return { docs: next }
+      })
+      return true
+    } catch (e) {
+      get().setStatus(String(e), 'error')
+      return false
     }
-    set((state) => ({ docs: { ...state.docs, [path]: { ...d, doc, dirty: true, rev: d.rev + 1 } }, selectedId: selectionAfterRestore(d, doc, state.modules, state.selectedId, state.primaryDocPath), historyTick: state.historyTick + 1 }))
-    get().setStatus('已重做', 'info')
   },
 
   saveModule: async (moduleId) => {
@@ -890,13 +949,9 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
     try {
       for (const d of dirty) {
-        const text = serializeXml(d.doc)
-        await api.saveFile(d.path, text)
-        d.lastSavedText = text
-        d.dirty = false
-        d.history.clear()
+        if (!await get().saveDoc(d.path)) return false
       }
-      get().clearModuleDirty(moduleId)
+      if (!Object.values(get().docs).some((d) => d.dirty && d.bindings[moduleId])) get().clearModuleDirty(moduleId)
       set((state) => ({ docs: { ...state.docs } }))
       get().setStatus(`已保存当前模块 ${dirty.length} 个文件`, 'success')
       return true
@@ -914,13 +969,9 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
     try {
       for (const d of dirty) {
-        const text = serializeXml(d.doc)
-        await api.saveFile(d.path, text)
-        d.lastSavedText = text
-        d.dirty = false
-        d.history.clear()
+        if (!await get().saveDoc(d.path)) return false
       }
-      get().clearAllDirty()
+      if (!Object.values(get().docs).some((d) => d.dirty)) get().clearAllDirty()
       set((state) => ({ docs: { ...state.docs } }))
       get().setStatus(`全部保存完成：共 ${dirty.length} 个文件`, 'success')
       return true
@@ -948,12 +999,12 @@ export const useAppStore = create<AppState>((set, get) => ({
     get().setStatus(fixes > 0 ? `校验修正完成：共修复 ${fixes} 处` : '校验通过：未发现需要修复的问题', fixes > 0 ? 'success' : 'info')
   },
 
-  requestAssetPick: async (fromModuleId, field, initialAssetName) => {
+  requestAssetPick: async (fromModuleId, field, initialAssetName, vanilla) => {
     if (!get().modules.some((m) => m.id === 'page-artwork')) {
       get().setStatus('书页图片工作区不存在', 'error')
       return
     }
-    set({ assetPick: { fromModuleId, field, initialAssetName } })
+    set({ assetPick: { fromModuleId, field, initialAssetName, vanilla } })
     set({ activeModuleId: 'page-artwork' })
     await get().setActiveModule('page-artwork')
     get().setStatus('请选择一张图片', 'info')
@@ -1005,12 +1056,13 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
   },
 
-    loadArtwork: async (folder, name) => {
-    const cache = get().artCache[name]
+  loadArtwork: async (folder, name) => {
+    const key = JSON.stringify([folder, name])
+    const cache = get().artCache[key]
     if (cache !== undefined) return cache
     const path = await api.resolveAsset(folder, name)
     const url = path ? await api.readAssetAsDataUrl(path) : null
-    set((state) => ({ artCache: { ...state.artCache, [name]: url } }))
+    if (url) set((state) => ({ artCache: { ...state.artCache, [key]: url } }))
     return url
   }
 }))

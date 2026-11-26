@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import type { EntityRef, FieldDef, ModuleDefinition, ValidationIssue } from '@ruina/editor-core'
-import { getAllText, getFieldValue, getMulti, getTextField, removeField, setAllText, setFieldValue, setTextField } from '@ruina/editor-core'
+import { getAllText, getFieldValue, getMulti, getTextField, removeField, setAllText, setFieldValue } from '@ruina/editor-core'
 import { AlertTriangle, Hash } from 'lucide-react'
 import { Label } from '@ruina/ui'
 import { FieldEditor } from './FieldEditor'
@@ -49,12 +49,11 @@ export function FormPanel({
   const setDescMode = (mode: 'independent' | 'continuous') => {
     setAbilityModeState(mode)
     editData(module.id, (_doc, refs) => {
-      const cur = refs.find((r) => r.id === entity.id)
+      const cur = refs.find((r) => r.id === entity.id && r.index === entity.index)
       if (!cur) return
       if (mode === 'continuous') {
         const text = getAllText(cur.node, 'Desc')
-        removeField(cur.node, 'Desc')
-        setTextField(cur.node, 'Desc', text)
+        setAllText(cur.node, 'Desc', text, false)
       } else {
         const text = getTextField(cur.node, 'Desc') ?? ''
         setAllText(cur.node, 'Desc', text)
@@ -327,7 +326,7 @@ export function FormPanel({
             const modId = copyPid === '@origin' ? '' : copyPid
             const writeInner = (mutate: (node: any) => void) => {
               editData(module.id, (_doc, refs) => {
-                const cur = refs.find((r) => r.id === entity.id)
+                const cur = refs.find((r) => r.id === entity.id && r.index === entity.index)
                 if (cur) mutate(cur.node)
               })
             }

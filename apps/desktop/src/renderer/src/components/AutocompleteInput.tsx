@@ -1,9 +1,12 @@
+import { sameLanguageSources } from '../lib/localizationSources'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { listEntities } from '@ruina/editor-core'
 import { api, type ImageAssetInfo } from '../api'
 import { useAppStore } from '../store'
 import { useI18n } from '../i18n'
 import { builtinScriptIds } from '../lib/singularityAbilities'
+import { vanillaScriptIds } from '../lib/vanillaAbilities'
+import { vanillaArtworkKeys } from '../lib/vanillaArtwork'
 
 export type AutocompleteSource = 'page-artwork' | 'page-ability' | 'dice-ability'
 
@@ -37,15 +40,15 @@ export function AutocompleteInput({
 
   const abilityOptions = useMemo(() => {
     if (source === 'page-artwork') return []
-    const builtin = hatEnabled ? builtinScriptIds(source === 'dice-ability' ? 'dice' : 'card') : []
+    const kind = source === 'dice-ability' ? 'dice' : 'card'
+    const builtin = [...vanillaScriptIds[kind], ...(hatEnabled ? builtinScriptIds(kind) : [])]
     const module = modules.find((m) => m.id === 'cardability')
     if (!module) return builtin
     const lang = primaryLang['cardability']
     const primaries = Object.values(docs).filter((d) => d.bindings['cardability']?.kind === 'primary')
-    const chosen = primaries.find((d) => d.lang === lang) ?? primaries[0]
-    if (!chosen) return builtin
+    const sources = sameLanguageSources(primaries, lang)
     const ids = new Set<string>(builtin)
-    for (const ref of listEntities(chosen.doc, module.entity)) {
+    for (const ref of sources.flatMap((d) => listEntities(d.doc, module.entity))) {
       if (ref.id && !(source === 'page-ability' && builtinScriptIds('dice').includes(ref.id))) ids.add(ref.id)
     }
     return Array.from(ids).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
@@ -57,7 +60,7 @@ export function AutocompleteInput({
     const dir = [modPath, 'Resource', 'CombatPageArtwork'].join('\\')
     void (api.listImages(dir) as Promise<ImageAssetInfo[]>).then((list) => {
       if (!alive) return
-      const names = Array.from(new Set(list.map((i) => i.name))).sort((a, b) =>
+      const names = Array.from(new Set([...vanillaArtworkKeys, ...list.map((i) => i.name)])).sort((a, b) =>
         a.localeCompare(b, undefined, { numeric: true })
       )
       setArtworkOptions(names)

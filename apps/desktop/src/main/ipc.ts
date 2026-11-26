@@ -13,7 +13,7 @@ import {
   readTextFile,
   renameImage,
   resolveAsset,
-  saveTextFile
+  saveTextFile, saveLinkedFiles
 } from './files'
 
 function requireString(v: unknown, name: string): string {
@@ -88,6 +88,11 @@ export function registerIpc(): void {
 
   ipcMain.handle('fs:read-text', async (_e, path: unknown) => {
     return readTextFile(requireString(path, 'path'))
+  })
+
+  ipcMain.handle('fs:save-linked', (_e, files: unknown) => {
+    if (!Array.isArray(files) || !files.length) throw new Error('Invalid file list')
+    return saveLinkedFiles(files.map((f) => ({ path: requireString(f?.path, 'path'), content: requireString(f?.content, 'content') })))
   })
 
   ipcMain.handle('fs:save', async (_e, path: unknown, content: unknown) => {

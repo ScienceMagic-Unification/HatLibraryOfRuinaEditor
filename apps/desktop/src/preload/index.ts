@@ -8,6 +8,7 @@ const api = {
   pickXmlFiles: () => ipcRenderer.invoke('dialog:pick-xml'),
   listDataFiles: (modPath: string) => ipcRenderer.invoke('mod:list-data', modPath),
   readTextFile: (path: string) => ipcRenderer.invoke('fs:read-text', path),
+  saveLinkedFiles: (files: { path: string; content: string }[]) => ipcRenderer.invoke('fs:save-linked', files),
   saveFile: (path: string, content: string) => ipcRenderer.invoke('fs:save', path, content),
   listFilesByGlobs: (dir: string, globs: string[]) => ipcRenderer.invoke('fs:list-glob', dir, globs),
   resolveAsset: (dir: string, name: string) => ipcRenderer.invoke('fs:resolve-asset', dir, name),

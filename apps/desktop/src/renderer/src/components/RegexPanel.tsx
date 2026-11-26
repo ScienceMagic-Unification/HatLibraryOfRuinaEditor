@@ -1,3 +1,4 @@
+import { selectPrimaryDocument } from '../lib/documentSelection'
 import { useMemo, useState } from 'react'
 import type { ModuleDefinition, RegexRule } from '@ruina/editor-core'
 import {
@@ -24,11 +25,8 @@ export function RegexPanel({ module }: { module: ModuleDefinition }): JSX.Elemen
   const editDoc = useAppStore((s) => s.editDoc)
 
   const primaryLang = useAppStore((s) => s.primaryLang[module.id])
-  const primaryDocs = useMemo(
-    () => Object.values(docs).filter((d) => d.bindings[module.id]?.kind === 'primary'),
-    [docs, module.id]
-  )
-  const dataDoc = primaryDocs.find((d) => d.lang === primaryLang) ?? primaryDocs[0]
+  const path = useAppStore((s) => s.primaryDocPath[module.id])
+  const dataDoc = selectPrimaryDocument(docs, module.id, primaryLang, path)
   const dataPath = dataDoc?.path
 
   const rules = module.regexRules ?? []

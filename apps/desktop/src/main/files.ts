@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import { copyFile, mkdir, readFile, readdir, rename, rm, stat, writeFile } from 'node:fs/promises'
 import { app } from 'electron'
 import { basename, dirname, extname, join, relative, resolve, sep } from 'node:path'
@@ -22,20 +23,50 @@ export async function readTextFile(path: string): Promise<string> {
   return readFile(path, 'utf8')
 }
 
-export async function saveTextFile(path: string, content: string): Promise<{ backupPath: string | null }> {
-  const original = await readFile(path, 'utf8').catch(() => null)
-  let backupPath: string | null = null
-  if (original !== null) {
-    const day = new Date().toISOString().slice(0, 10)
-    const stamp = new Date().toISOString().replace(/[:.]/g, '-')
-    backupPath = join(app.getPath('userData'), 'backups', day, `${stamp}_${basename(path)}`)
-    await mkdir(join(app.getPath('userData'), 'backups', day), { recursive: true })
-    await writeFile(backupPath, original, 'utf8')
-  }
-  const tmp = `${path}.ruina-tmp`
-  await writeFile(tmp, content, 'utf8')
-  await rename(tmp, path)
-  return { backupPath }
+let saving: Promise<unknown> = Promise.resolve()
+function enqueue<T>(fn: () => Promise<T>): Promise<T> {
+  const operation = saving.then(fn)
+  saving = operation.catch(() => {})
+  return operation
+}
+
+async function backup(path: string, existing: boolean) {
+  const dir = join(app.getPath('userData'), 'backups', new Date().toISOString().slice(0, 10))
+  const file = join(dir, new Date().toISOString().replace(/[:.]/g, '-') + '_' + randomUUID() + '_' + basename(path))
+  await mkdir(dir, { recursive: true })
+  try { await copyFile(path, file); return file }
+  catch (e) { if (!existing && (e as NodeJS.ErrnoException).code === 'ENOENT') return null; throw e }
+}
+
+export function saveTextFile(path: string, content: string) {
+  return enqueue(async () => {
+    const backupPath = await backup(path, false)
+    const tmp = path + '.' + randomUUID() + '.ruina-tmp'
+    try { await writeFile(tmp, content, 'utf8'); await rename(tmp, path) }
+    finally { await rm(tmp, { force: true }) }
+    return { backupPath }
+  })
+}
+
+// All participants must exist. Stage every replacement and backup before modifying any original.
+export function saveLinkedFiles(files: { path: string; content: string }[]) {
+  return enqueue(async () => {
+    const staged: { path: string; tmp: string; original: string }[] = []
+    const committed: typeof staged = []
+    try {
+      for (const { path, content } of files) {
+        const original = await backup(path, true)
+        const tmp = path + '.' + randomUUID() + '.ruina-tmp'
+        staged.push({ path, original: original!, tmp })
+        await writeFile(tmp, content, 'utf8')
+      }
+      for (const file of staged) { await rename(file.tmp, file.path); committed.push(file) }
+    } catch (error) {
+      const rollback = await Promise.allSettled(committed.map((file) => copyFile(file.original, file.path)))
+      if (rollback.some((result) => result.status === 'rejected')) throw new Error(String(error) + '; backups: ' + committed.map((f) => f.original).join(', '))
+      throw error
+    } finally { await Promise.allSettled(staged.map((f) => rm(f.tmp, { force: true }))) }
+  })
 }
 
 function globToRegExp(g: string): RegExp {

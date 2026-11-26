@@ -32,11 +32,11 @@ export function useRegexRules(language?: string): Map<string, BattleEffectTextEn
     if (!hatEnabled || modLang === '__none__') return []
     const entries = new Map<string, BattleEffectTextEntry>()
     const priority = (language?: string): number => normalizeKeywordLanguage(language ?? '') === modLang ? 0 : language === 'cn' ? 1 : language === 'en' ? 2 : 3
-    for (const doc of [...modDocs].sort((a, b) => priority(a.lang) - priority(b.lang))) {
+    for (const doc of [...modDocs].sort((a, b) => priority(a.lang) - priority(b.lang) || Number(b.path === primaryDocPath[activeModuleId]) - Number(a.path === primaryDocPath[activeModuleId]))) {
       for (const e of extractEffectTextEntries(doc.doc)) if (!entries.has(e.id)) entries.set(e.id, { ...e, plugin: 'Mod', language: normalizeKeywordLanguage(doc.lang ?? ''), requestedLanguage: modLang })
     }
     return [...entries.values()]
-  }, [hatEnabled, modLang, modDocs])
+  }, [hatEnabled, modLang, modDocs, primaryDocPath, activeModuleId])
 
   return useMemo(() => {
     if (!hatEnabled) return new Map<string, BattleEffectTextEntry>()

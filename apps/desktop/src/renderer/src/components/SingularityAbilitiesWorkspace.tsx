@@ -1,4 +1,6 @@
-import { useMemo, useState } from 'react'
+import { AnnotationBar } from './Annotations'
+import { useTagNavigation } from '../lib/annotations'
+import { useEffect, useMemo, useState } from 'react'
 import { Button, Input } from '@ruina/ui'
 import { Copy } from 'lucide-react'
 import { makeElement, type EntitySchema, type OrderedDoc } from '@ruina/editor-core'
@@ -21,7 +23,15 @@ export function SingularityAbilitiesWorkspace(): JSX.Element {
   const normalizedLanguage = normalizeKeywordLanguage(selectedLanguage ?? 'cn')
   const language = ['cn', 'en', 'jp', 'kr'].includes(normalizedLanguage) ? normalizedLanguage : 'en'
   const setLanguage = (value: string): void => setPrimaryLang('singularity-abilities', value)
-  const [selected, setSelected] = useState('Hat_Enchantments_Exhaust_Dice')
+  const moduleId = 'singularity-abilities'
+  const selected = useAppStore((s) => s.selectedId[moduleId] ?? 'Hat_Enchantments_Exhaust_Dice')
+  const setSelected = (id: string) => useAppStore.getState().select(moduleId, id)
+  const focus = useTagNavigation((s) => s.focus)
+  useEffect(() => {
+    if (focus?.moduleId !== moduleId) return
+    setKind('all')
+    useTagNavigation.setState({ focus: null })
+  }, [focus])
   const rules = useRegexRules(language)
   const setStatus = useAppStore((s) => s.setStatus)
   const abilities = useMemo(() => abilityAudit.abilities.filter((a) => kind === 'all' || a.kind === kind), [kind])
@@ -44,9 +54,9 @@ export function SingularityAbilitiesWorkspace(): JSX.Element {
       <Button variant="secondary" onClick={() => void copy()} disabled={!entry}><Copy/>{t('abilities.copyScript')}</Button>
     </div>
     <div className="grid min-h-0 flex-1 grid-cols-[minmax(300px,380px)_minmax(0,1fr)]">
-      <DataPanel doc={doc} schema={schema} selectedId={entry?.id ?? null} onSelect={setSelected} scrollKey="singularity-abilities" localizedRender={(id) => <><div className="text-[10px] text-muted-foreground">{id}</div><RegexText text={builtinAbilityDescription(id, language) ?? ''} rules={rules} scope={abilities.find((a) => a.id === id)?.kind === 'dice' ? 'dice' : 'ability'}/></>} />
+      <DataPanel annotationModule={moduleId} doc={doc} schema={schema} selectedId={entry?.id ?? null} onSelect={setSelected} scrollKey="singularity-abilities" localizedRender={(id) => <><div className="text-[10px] text-muted-foreground">{id}</div><RegexText text={builtinAbilityDescription(id, language) ?? ''} rules={rules} scope={abilities.find((a) => a.id === id)?.kind === 'dice' ? 'dice' : 'ability'}/></>} />
       <div className="min-w-0 overflow-y-auto p-4">
-        {entry ? <div className="space-y-5">
+        {entry ? <div className="space-y-5"><AnnotationBar target={{ moduleId, path: '', id: entry.id, ordinal: 0 }}/>
           <div className="rounded-lg border border-border bg-card p-3"><label className="mb-2 block text-xs text-muted-foreground">ID</label><Input readOnly value={entry.id}/><div className="mt-2 text-xs text-muted-foreground">{t(`abilities.${entry.kind}`)} · {entry.plugin} {entry.version}</div></div>
           <div><label className="mb-2 block text-xs text-muted-foreground">{t('core.originalDescription')}</label><textarea readOnly value={desc} className="min-h-28 w-full resize-y rounded-md border border-input bg-background p-3 font-mono text-xs"/></div>
           <div><div className="mb-2 text-xs text-muted-foreground">{t('abilityPreview')}</div><div data-testid="ability-description" className="whitespace-pre-wrap rounded-lg border border-border bg-secondary/20 p-3 text-xs leading-relaxed"><RegexText text={desc} rules={rules} scope={entry.kind === 'dice' ? 'dice' : 'ability'}/></div></div>
